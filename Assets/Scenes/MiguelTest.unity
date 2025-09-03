@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gzmos
   size: {x: 1, y: 1, z: 1}
-  colorUsage: {r: 0.17685871, g: 0.8113208, b: 0.12629052, a: 1}
+  colorUsage: {r: 16, g: 14.481836, b: 0, a: 1}
 --- !u!1 &1223398013
 GameObject:
   m_ObjectHideFlags: 0
