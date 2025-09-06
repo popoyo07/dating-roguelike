@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class EnemyObjectPool : MonoBehaviour
 {
     public static EnemyObjectPool Instance { get; private set; }
-    private Dictionary<string, Queue<GameObject>> objectPools = new Dictionary<string, Queue<GameObject>>();
+    private Dictionary<int, Queue<GameObject>> objectPools = new Dictionary<int, Queue<GameObject>>();
 
     private void Awake()
     {
@@ -19,9 +19,9 @@ public class EnemyObjectPool : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void CreatePool(string spawn, GameObject enemyPrefabs, int poolSize)
+    public void CreatePool(int enemy, GameObject enemyPrefabs, int poolSize)
     {
-        if (!objectPools.ContainsKey(spawn))
+        if (!objectPools.ContainsKey(enemy))
         {
             Queue<GameObject> newPool = new Queue<GameObject>();
             for (int i = 0; i < poolSize; i++)
@@ -30,16 +30,16 @@ public class EnemyObjectPool : MonoBehaviour
                 obj.SetActive(false);
                 newPool.Enqueue(obj);
             }
-            objectPools.Add(spawn, newPool);
+            objectPools.Add(enemy, newPool);
         }
 
     }
 
-    public GameObject GetPooledObject(string spawn)
+    public GameObject GetPooledObject(int enemy)
     {
-        if (objectPools.ContainsKey(spawn) && objectPools[spawn].Count > 0)
+        if (objectPools.ContainsKey(enemy) && objectPools[enemy].Count > 0)
         {
-            GameObject obj = objectPools[spawn].Dequeue();
+            GameObject obj = objectPools[enemy].Dequeue();
             obj.SetActive(true);
             return obj;
         }
@@ -47,12 +47,12 @@ public class EnemyObjectPool : MonoBehaviour
         return null;
     }
 
-    public void ReturnPooledObjects(string spawn, GameObject obj)
+    public void ReturnPooledObjects(int enemy, GameObject obj)
     {
-        if (objectPools.ContainsKey(spawn))
+        if (objectPools.ContainsKey(enemy))
         {
             obj.SetActive(false);
-            objectPools[spawn].Enqueue(obj);
+            objectPools[enemy].Enqueue(obj);
 
         }
         else
