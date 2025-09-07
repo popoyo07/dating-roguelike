@@ -4,7 +4,7 @@ public class Enemy : MonoBehaviour
 {
     public BattleSystem system; 
     public int randomSelector;
-    
+    SimpleHealth player;
     public int attkDmg;
     public int shiledAdded;
     bool doingS;
@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     void Awake()
     {
          system = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
-      
+         player = GameObject.FindWithTag("Player").GetComponent<SimpleHealth>();
     }
      
     // Update is called once per frame
@@ -22,6 +22,9 @@ public class Enemy : MonoBehaviour
         {
             PickAttk();
             doingS = true;
+        } else
+        {
+            doingS = false;
         }
 
     }
@@ -44,12 +47,16 @@ public class Enemy : MonoBehaviour
     // basic enemy attacks 
     void regular()
     {
+        player.ReceiveDMG(attkDmg);
             Debug.Log("RegularAttk");
         StartCoroutine(system.EndEnemyTurn());
     }
 
     void doubleAttk()
     {
+        player.ReceiveDMG(attkDmg);
+        player.ReceiveDMG(attkDmg);
+
         Debug.Log("DoubleAttk");
         StartCoroutine(system.EndEnemyTurn());
 

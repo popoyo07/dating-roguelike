@@ -73,4 +73,9 @@ public class SimpleHealth : MonoBehaviour
         dead();
     }
 
+    public void RecoverHP(int hp)
+    {
+        health += hp;
+    }
+
 }

@@ -13,6 +13,8 @@ public class CardActions : Cards
         cardAttaks.Add(deckManagement.allCards[0], AttackOnce);
         cardAttaks.Add(deckManagement.allCards[1], AttackTwice);
         cardAttaks.Add(deckManagement.allCards[2], SingleShield);
+        cardAttaks.Add(deckManagement.allCards[3], GainHealth);
+        cardAttaks.Add(deckManagement.allCards[4], LoveyDoveyLogic);
 
     }
     [Header("Double Attk DMG")]
@@ -26,6 +28,9 @@ public class CardActions : Cards
     [Header("Single Shield")]
     [Range(1,5)]
     public int singleShield;
+
+    [Header("heal hability")]
+    public int healing;
 
     public void SingleShield()
     {
@@ -51,7 +56,12 @@ public class CardActions : Cards
     }
     public void GainHealth()
     {
+        player.GetComponent<SimpleHealth>().RecoverHP(healing);
+    }
 
+    public void LoveyDoveyLogic()
+    {
+        Debug.Log("Lovely");
     }
     
 }

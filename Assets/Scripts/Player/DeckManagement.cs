@@ -9,14 +9,22 @@ public class DeckManagement : MonoBehaviour
        "DobleAttk",
       "SingleAttk",
         "DobleAttk",
+        "DobleAttk",
        "SingleShield",
-       "SingleShield" };
+       "GainHP","GainHP","GainHP",
+       "SingleShield",
+       "SingleShield"
+     };
 
-    public List<String> allCards = new List<String>()
+    // we need to have an exact amount of how many we have so we can assign drop rates to them 
+    public List<String> allCards = new List<String>() 
     {
        "SingleAttk",
        "DobleAttk",
-       "SingleShield"
+       "SingleShield", 
+       "GainHP",
+       "LoveyDovy"
+
     };
 
     public List<String> discardedCards = new List<String>() {}; 

@@ -5,6 +5,7 @@ public class Cards : MonoBehaviour
     public BattleSystem battleSystem;
     public int attkAmmount;
     public GameObject enemy;
+    public GameObject player;
     public DeckManagement deckManagement;
    
     public int shieldAmmount;
@@ -14,6 +15,7 @@ public class Cards : MonoBehaviour
     {
         deckManagement = gameObject.GetComponent<DeckManagement>();
         battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
+        player = GameObject.FindWithTag("Player");
     }
     public void GenerateAttk()
     {
@@ -44,8 +46,5 @@ public class Cards : MonoBehaviour
         deckManagement.discardedCards.Add(cardUsed);
     }
 
-    public void RemoveFromDeck() // button actions 
-    {
 
-    }
 }
