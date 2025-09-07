@@ -1,0 +1,62 @@
+using UnityEngine;
+using TMPro;
+using System.Collections;
+using UnityEngine.InputSystem;
+
+public class DialogueUI : MonoBehaviour
+{
+    [SerializeField] private GameObject dialogueBox;
+    [SerializeField] private TMP_Text textLabel;
+    [SerializeField] private DialogueObject testDialogue;
+
+    private ResponseHandle responseHandle;
+    private TextEffect textEffect;
+
+    private void Start()
+    {
+        textEffect = GetComponent<TextEffect>();
+        responseHandle = GetComponent<ResponseHandle>();
+        CloseDialogueBox();
+        ShowDialogue(testDialogue);
+    }
+
+    public void ShowDialogue(DialogueObject dialogueObject)
+    {
+        dialogueBox.SetActive(true);
+        StartCoroutine(StepThroughDialogue(dialogueObject));
+    }
+
+    private IEnumerator StepThroughDialogue(DialogueObject dialogueObject)
+    {
+        //yield return new WaitForSeconds(2);
+
+        for (int i = 0; i < dialogueObject.Dialogue.Length; i++)
+        {
+            string dialogue = dialogueObject.Dialogue[i];
+            yield return textEffect.Run(dialogue, textLabel);
+
+            if (i == dialogueObject.Dialogue.Length - 1 && dialogueObject.HasResponses) break;
+
+
+            //Next dialogue by pressing space key
+            yield return new WaitUntil(() => Keyboard.current.spaceKey.wasPressedThisFrame);
+        }
+
+        if (dialogueObject.HasResponses)
+        {
+            responseHandle.ShowResponses(dialogueObject.Responses);
+        }
+        else 
+        {
+            CloseDialogueBox();
+        }
+
+    }
+
+    //Close Dialogue
+    private void CloseDialogueBox()
+    {
+        dialogueBox.SetActive(false);
+        textLabel.text = string.Empty;
+    }
+}
