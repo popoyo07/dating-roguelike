@@ -7,7 +7,7 @@ using System;
 public class CardActions : Cards
 {
     public Dictionary<string, Action> cardAttaks = new Dictionary<string, Action>();
-    private void Awake()
+    private void Start()
     {
         cardAttaks.Clear();
         cardAttaks.Add(deckManagement.allCards[0], AttackOnce);
@@ -48,6 +48,10 @@ public class CardActions : Cards
 
         GenerateAttk();
         GenerateAttk();
+    }
+    public void GainHealth()
+    {
+
     }
     
 }

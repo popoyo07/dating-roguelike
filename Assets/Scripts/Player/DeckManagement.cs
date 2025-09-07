@@ -6,9 +6,9 @@ public class DeckManagement : MonoBehaviour
 {
     public List<String> cardsInDeck = new List<String>()
     { "SingleAttk",
-       "SingleAttk",
-       "DobleAttk", 
        "DobleAttk",
+      "SingleAttk",
+        "DobleAttk",
        "SingleShield",
        "SingleShield" };
 
@@ -21,7 +21,7 @@ public class DeckManagement : MonoBehaviour
 
     public List<String> discardedCards = new List<String>() {}; 
     public int startingCards;
-    BattleSystem BSystem;
+    public BattleSystem BSystem;
     public int currentDeckSize;
 
 
