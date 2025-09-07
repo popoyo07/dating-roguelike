@@ -2,17 +2,22 @@ using UnityEngine;
 
 public class Cards : MonoBehaviour
 {
-    
+    public BattleSystem battleSystem;
     public int attkAmmount;
     public GameObject enemy;
+    public DeckManagement deckManagement;
    
     public int shieldAmmount;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-   
+
+    private void Awake()
+    {
+        deckManagement = gameObject.GetComponent<DeckManagement>();
+        battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
+    }
     public void GenerateAttk()
     {
-        //Debug.Log("Ammount in input " + attackDamage);
-       // attkAmmount = attackDamage;
+
         Debug.Log ("Attk is " +  attkAmmount);
 
         // create logic to attack enemy 
@@ -32,5 +37,15 @@ public class Cards : MonoBehaviour
         // genreagte shield logic 
         shieldAmmount = shield;
         Debug.Log("Shield genereated " + shieldAmmount + " of shield");
+    }
+
+    public void DiscardCards(string cardUsed) // button actions 
+    {
+        deckManagement.discardedCards.Add(cardUsed);
+    }
+
+    public void RemoveFromDeck() // button actions 
+    {
+
     }
 }
