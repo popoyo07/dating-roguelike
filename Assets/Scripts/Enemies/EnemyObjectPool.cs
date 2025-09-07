@@ -23,11 +23,12 @@ public class EnemyObjectPool : MonoBehaviour
     {
         if (!objectPools.ContainsKey(enemy))
         {
+            Debug.Log("pool created");
             Queue<GameObject> newPool = new Queue<GameObject>();
             for (int i = 0; i < poolSize; i++)
             {
                 GameObject obj = Instantiate(enemyPrefabs, transform);
-                obj.SetActive(false);
+                //obj.SetActive(false);
                 newPool.Enqueue(obj);
             }
             objectPools.Add(enemy, newPool);
@@ -39,6 +40,7 @@ public class EnemyObjectPool : MonoBehaviour
     {
         if (objectPools.ContainsKey(enemy) && objectPools[enemy].Count > 0)
         {
+            Debug.Log("Got object");
             GameObject obj = objectPools[enemy].Dequeue();
             obj.SetActive(true);
             return obj;
@@ -51,12 +53,14 @@ public class EnemyObjectPool : MonoBehaviour
     {
         if (objectPools.ContainsKey(enemy))
         {
+            Debug.Log("returned object");
             obj.SetActive(false);
             objectPools[enemy].Enqueue(obj);
 
         }
         else
         {
+            Debug.Log("destroyed object");
             Destroy(obj);
         }
     }
