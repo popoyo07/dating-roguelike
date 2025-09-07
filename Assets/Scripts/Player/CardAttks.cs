@@ -22,17 +22,19 @@ public class CardAttks : Cards
 
     public void AttackOnce()
     {
+        attkAmmount = 2;
         Debug.Log("Attk should be " + singleAttk);
-        GenerateAttk(singleAttk);
+        GenerateAttk();
     }
 
 
     public void AttackTwice()
     {
+        attkAmmount = 2;
         Debug.Log("Attk should be " + doubleAttk);
 
-        GenerateAttk(attkAmmount);
-        GenerateAttk(attkAmmount);
+        GenerateAttk();
+        GenerateAttk();
     }
     
 }

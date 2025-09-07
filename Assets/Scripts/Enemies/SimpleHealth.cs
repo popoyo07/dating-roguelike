@@ -1,20 +1,54 @@
+using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class SimpleHealth : MonoBehaviour
 {
-   [Range(1,100)]
-   public int health;
+    [Range(1,100)]
+    public int maxHealth;
+    public int health;
 
     public int shield;
-
-    private GameObject AttackManager;
-    private void Start()
+    public bool dead() // changes between true and false dpending on object's HP
     {
-        AttackManager = GameObject.Find("CardManager"); 
-        AttackManager.GetComponent<CardAttks>().enemy = gameObject;
+        if (health <= 0)
+        {
+            return true;
+
+        }
+        else
+        {
+            return false;
+        }
     }
-    public void ReceiveDMG(int dmg)
+
+    private CardAttks attackManager;
+    private BattleSystem battleSystem;
+    private void Awake()
+    {
+        health = maxHealth;
+        attackManager = GameObject.Find("CardManager").GetComponent<CardAttks>();
+        battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
+
+        if (gameObject.CompareTag("Enemy"))
+        { 
+            if (battleSystem != null)
+            {
+                battleSystem.enemy = gameObject;
+            }
+            if (attackManager != null)
+            {
+                attackManager.enemy = gameObject;
+            }
+        } else if (gameObject.CompareTag("Player"))
+        {
+            if (battleSystem != null)
+            {
+                battleSystem.player = gameObject; // assign this game object to 
+            }
+        }
+    }
+    public void ReceiveDMG(int dmg) 
     {
         if (shield > 0)
         {
@@ -25,6 +59,18 @@ public class SimpleHealth : MonoBehaviour
             health = health - dmg;
         }
         Debug.Log("Remeining health is " +  health);
+
+      
+
+    }
+    private void FixedUpdate()
+    {
+        // if healed, character's health cannot be more than their assigned max health 
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        } 
+        dead();
     }
 
 }
