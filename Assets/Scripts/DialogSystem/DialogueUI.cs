@@ -11,17 +11,20 @@ public class DialogueUI : MonoBehaviour
 
     private ResponseHandle responseHandle;
     private TextEffect textEffect;
+    public bool isTalking { get; private set; }
+
 
     private void Start()
     {
         textEffect = GetComponent<TextEffect>();
         responseHandle = GetComponent<ResponseHandle>();
         CloseDialogueBox();
-        ShowDialogue(testDialogue);
+        ShowDialogue(dialogueObject: testDialogue);
     }
 
     public void ShowDialogue(DialogueObject dialogueObject)
     {
+        isTalking = true;
         dialogueBox.SetActive(true);
         StartCoroutine(StepThroughDialogue(dialogueObject));
     }
@@ -56,6 +59,7 @@ public class DialogueUI : MonoBehaviour
     //Close Dialogue
     private void CloseDialogueBox()
     {
+        isTalking = false;
         dialogueBox.SetActive(false);
         textLabel.text = string.Empty;
     }
