@@ -387,6 +387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DataPersistenceManager
   fileName: Banana
+  useEncryption: 1
 --- !u!4 &489771806
 Transform:
   m_ObjectHideFlags: 0
