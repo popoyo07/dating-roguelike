@@ -11,6 +11,23 @@ public class MenuButtons : MonoBehaviour
     public GameObject cardsMan;
     public GameObject man;
 
+    BattleSystem battleSystem;
+
+    private void Start()
+    {
+        battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
+    }
+
+    private void Update()
+    {
+        if (battleSystem.state == BattleState.LOST)
+        {   
+            loseMenu.SetActive(true);
+            cardsMan.SetActive(false);
+            man.SetActive(false);
+        }
+    }
+
     public void EnterDungeon()
     {
         SceneManager.LoadScene("Dungeon");
@@ -26,7 +43,6 @@ public class MenuButtons : MonoBehaviour
 
     public void Main()
     {
-        SceneManager.LoadScene("CorinneTest");
         mainMenu.SetActive(true);
         settingsMenu.SetActive(false);
         shopMenu.SetActive(false);
@@ -34,6 +50,14 @@ public class MenuButtons : MonoBehaviour
         winMenu.SetActive(false);
         cardsMan.SetActive(false);
         man.SetActive(false);
+    }
+
+    public void BackMain()
+    {
+        SceneManager.LoadScene("CorinneTest");
+        mainMenu.SetActive(true);
+        loseMenu.SetActive(false);
+        winMenu.SetActive(false);   
     }
 
     public void Shop()
