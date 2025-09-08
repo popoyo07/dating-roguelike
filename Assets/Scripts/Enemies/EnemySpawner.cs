@@ -17,42 +17,46 @@ public class EnemySpawner : MonoBehaviour
     
    // private Dictionary<string, GameObject> enemyPrefabs2 = new Dictionary<string, GameObject>();
 
-    /* void Awake()
-     {
-         enemyPrefabs2.Add("Enemy1", enemyPrefabs[0]);
-         enemyPrefabs2.Add("Enemy2", enemyPrefabs[1]);
-         enemyPrefabs2.Add("Enemy3", enemyPrefabs[2]);
-         enemyPrefabs2.Add("Enemy4", enemyPrefabs[3]);  
-     }*/
+    void Awake()
+    {
+        enemyPrefabs.Add(enemyPrefabs[0]);
+        enemyPrefabs.Add(enemyPrefabs[1]);
+        enemyPrefabs.Add(enemyPrefabs[2]);
+        enemyPrefabs.Add(enemyPrefabs[3]);  
+    }
     void Start()
     {
-        for (int i = 0; i < 3; i++)
-        {
-            // Debug.Log("test2: " + i);
-            EnemyObjectPool.Instance.CreatePool(enemy, enemyPrefabs[i], poolSize);
-         }
+        /* for (int i = 0; i < enemyPrefabs.Count; i++)
+         {
+             // Debug.Log("test2: " + i);
+             EnemyObjectPool.Instance.CreatePool(enemy, enemyPrefabs[i], poolSize);
+          }*/
 
         SpawnEnemy(3);
     }
     public void SpawnEnemy(int count)
     {
-        List<int> availableEnemies = new List<int>(enemyPrefabs.Count);
+       // List<int> availableEnemies = new List<int>(enemyPrefabs.Count);
         List<Transform> availableSpawn = new List<Transform>(spawnPoints);
 
         for (int i = 0; i < 3; i++)
         {
             //Debug.Log("test: " + i);
-            // randomEnemy = availableEnemies[Random.Range(0, enemyPrefabs.Count)];
+            //randomEnemy = availableEnemies[Random.Range(0, enemyPrefabs.Count)];
             randomEnemy = Random.Range(0, enemyPrefabs.Count);
-            GameObject spawnEnemy = EnemyObjectPool.Instance.GetPooledObject(randomEnemy);
-            //Instantiate(enemy[randomEnemy]);
-            if (spawnEnemy != null)
-            {
-                randomSpawn = Random.Range(0, availableSpawn.Count);
-                Transform selectedSpawn = availableSpawn[randomSpawn];
-                spawnEnemy.transform.position = selectedSpawn.position;
-                availableSpawn.RemoveAt(randomSpawn);  
-            }  
+            randomSpawn = Random.Range(0, availableSpawn.Count);
+            Transform selectedSpawn = availableSpawn[randomSpawn];
+           // GameObject spawnEnemy = EnemyObjectPool.Instance.GetPooledObject(randomEnemy);
+            Instantiate(enemyPrefabs[randomEnemy], selectedSpawn);
+            availableSpawn.RemoveAt(randomSpawn);
+            
+          /*  if (spawnEnemy != null)
+               {
+                   randomSpawn = Random.Range(0, availableSpawn.Count);
+                   Transform selectedSpawn = availableSpawn[randomSpawn];
+                   spawnEnemy.transform.position = selectedSpawn.position;
+                   availableSpawn.RemoveAt(randomSpawn);  
+               } */
         }
     }
 }
