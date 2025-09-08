@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - BSystem
+  - Cards
   layers:
   - Default
   - TransparentFX
