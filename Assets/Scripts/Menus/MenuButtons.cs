@@ -6,11 +6,17 @@ public class MenuButtons : MonoBehaviour
     public GameObject mainMenu;
     public GameObject settingsMenu;
     public GameObject shopMenu;
+    public GameObject winMenu;
+    public GameObject loseMenu;
+    public GameObject cardsMan;
+    public GameObject man;
 
     public void EnterDungeon()
     {
-        //SceneManager.LoadScene("Rooms");
+        SceneManager.LoadScene("Dungeon");
         mainMenu.SetActive(false);
+        cardsMan.SetActive(true);
+        man.SetActive(true);
     }
 
     public void ExitApplication()
@@ -20,10 +26,14 @@ public class MenuButtons : MonoBehaviour
 
     public void Main()
     {
-        //SceneManager.LoadScene("CorinneTest");
+        SceneManager.LoadScene("CorinneTest");
         mainMenu.SetActive(true);
         settingsMenu.SetActive(false);
         shopMenu.SetActive(false);
+        loseMenu.SetActive(false);
+        winMenu.SetActive(false);
+        cardsMan.SetActive(false);
+        man.SetActive(false);
     }
 
     public void Shop()

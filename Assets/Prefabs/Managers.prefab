@@ -45,11 +45,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 082a9fe835e766a479cf7c1f001c3fd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CardActions
-  battleSystem: {fileID: 0}
+  battleSystem: {fileID: 2199788757976406015}
   attkAmmount: 0
-  enemy: {fileID: 0}
-  player: {fileID: 0}
-  deckManagement: {fileID: 0}
+  enemy: {fileID: 585669061024245490, guid: b8e3fcb72f8c1a24cb1d956dbed91eef, type: 3}
+  player: {fileID: 1120840525128188196, guid: b1f04fcb1dfe0bb4dbbc5fa000218862, type: 3}
+  deckManagement: {fileID: 6651855241109148109}
   shieldAmmount: 0
   doubleAttk: 3
   singleAttk: 5
@@ -128,10 +128,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleSystem
   state: 0
-  player: {fileID: 0}
-  enemy: {fileID: 0}
-  enemyHP: {fileID: 0}
-  playerHP: {fileID: 0}
+  player: {fileID: 1120840525128188196, guid: b1f04fcb1dfe0bb4dbbc5fa000218862, type: 3}
+  enemy: {fileID: 585669061024245490, guid: b8e3fcb72f8c1a24cb1d956dbed91eef, type: 3}
+  enemyHP: {fileID: 3900137015995239691, guid: b8e3fcb72f8c1a24cb1d956dbed91eef, type: 3}
+  playerHP: {fileID: 671802292131489193, guid: b1f04fcb1dfe0bb4dbbc5fa000218862, type: 3}
   turnCounter: 0
 --- !u!114 &7944838084779905344
 MonoBehaviour:
