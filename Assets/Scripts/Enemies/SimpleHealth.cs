@@ -21,7 +21,7 @@ public class SimpleHealth : MonoBehaviour
             return false;
         }
     }
-
+    private HealthBar healthBar;
     private CardActions attackManager;
     private BattleSystem battleSystem;
     private void Awake()
@@ -29,7 +29,7 @@ public class SimpleHealth : MonoBehaviour
         health = maxHealth;
         attackManager = GameObject.Find("CardManager").GetComponent<CardActions>();
         battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
-
+        healthBar = GameObject.Find("PlayerHealth").GetComponent<HealthBar>();
         if (gameObject.CompareTag("Enemy"))
         { 
             if (battleSystem != null)
@@ -59,10 +59,9 @@ public class SimpleHealth : MonoBehaviour
             health = health - dmg;
         }
         Debug.Log("Remeining health is " +  health);
-
-      
-
+        healthBar.UpdateHealth();
     }
+
     private void FixedUpdate()
     {
         // if healed, character's health cannot be more than their assigned max health 
@@ -76,6 +75,7 @@ public class SimpleHealth : MonoBehaviour
     public void RecoverHP(int hp)
     {
         health += hp;
+        healthBar.UpdateHealth();
     }
 
 }

@@ -9,6 +9,13 @@ public class LoadingDataTest : MonoBehaviour, IDataPersistence
 {
     public TextMeshProUGUI testText;
     private int testCounter;
+    private SimpleHealth player;
+
+    void Awake()
+    {
+        player = GameObject.FindWithTag("Player").GetComponent<SimpleHealth>();
+    }
+
     public void testCount(InputAction.CallbackContext context)
     {
         testCounter++;
@@ -26,6 +33,11 @@ public class LoadingDataTest : MonoBehaviour, IDataPersistence
     public void SaveData(ref GameData data)
     {
         data.testCounter = this.testCounter;
+    }
+
+    public void TestTakeDamage()
+    {
+        player.ReceiveDMG(1);
     }
 
 }
