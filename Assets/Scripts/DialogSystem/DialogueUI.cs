@@ -7,7 +7,7 @@ public class DialogueUI : MonoBehaviour
 {
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private TMP_Text textLabel;
-    [SerializeField] private DialogueObject testDialogue;
+    //[SerializeField] private DialogueObject testDialogue;
 
     private ResponseHandle responseHandle;
     private TextEffect textEffect;
@@ -18,9 +18,15 @@ public class DialogueUI : MonoBehaviour
     {
         textEffect = GetComponent<TextEffect>();
         responseHandle = GetComponent<ResponseHandle>();
+
+        if (textEffect == null) Debug.LogError("TextEffect component is missing!");
+        if (responseHandle == null) Debug.LogError("ResponseHandle component is missing!");
+        if (textLabel == null) Debug.LogError("TextLabel is not assigned!");
+        if (dialogueBox == null) Debug.LogError("DialogueBox is not assigned!");
+
         CloseDialogueBox();
-        ShowDialogue(dialogueObject: testDialogue);
     }
+
 
     public void ShowDialogue(DialogueObject dialogueObject)
     {
