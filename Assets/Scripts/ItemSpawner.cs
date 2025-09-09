@@ -3,10 +3,12 @@ using UnityEngine;
 
 public class ItemSpawner : MonoBehaviour
 {
+    public MoveRooms moverooms;
     [SerializeField] private int item;
     [SerializeField] private int poolSize;
     public List<GameObject> itemPrefabs;
     private int randomItem;
+   // private GameObject test;
 
     //Variables that set the range for spawning
     private float minSpawnX1 = 1.6f;
@@ -27,6 +29,20 @@ public class ItemSpawner : MonoBehaviour
 
         SpawnItem(3);
     }
+
+     void Update()
+     {
+         if (moverooms.test == true)
+         {
+            Debug.Log("test:destroy ");
+            foreach(GameObject test2 in itemPrefabs)
+            {
+                Destroy(test2);
+            }
+            itemPrefabs.Clear();
+             //SpawnItem(3);
+         }
+     }
     public void SpawnItem(int count)
     {
         // List<int> availableItems = new List<int>(itemPrefabs.Count);
@@ -46,7 +62,8 @@ public class ItemSpawner : MonoBehaviour
                 Collider[] hitColliders = Physics.OverlapSphere(randomSpawn, spawnRadius);
                 if (hitColliders.Length != 0)
                 {
-                    Instantiate(itemPrefabs[randomItem], randomSpawn, Quaternion.identity);  
+                    GameObject test = Instantiate(itemPrefabs[randomItem], randomSpawn, Quaternion.identity);
+                    itemPrefabs.Add(test);
                 }
             }
             else
@@ -55,11 +72,12 @@ public class ItemSpawner : MonoBehaviour
                 Collider[] hitColliders = Physics.OverlapSphere(randomSpawn, spawnRadius);
                 if (hitColliders.Length != 0)
                 {
-                    Instantiate(itemPrefabs[randomItem], randomSpawn, Quaternion.identity); 
+                    GameObject test = Instantiate(itemPrefabs[randomItem], randomSpawn, Quaternion.identity);
+                    itemPrefabs.Add(test);
                 }
             }
 
-  
+
             //Debug.Log("test: " + i);
             //randomItem = availableItems[Random.Range(0, itemPrefabs.Count)];
             // GameObject spawnItem = EnemyObjectPool.Instance.GetPooledObject(randomItem);
@@ -71,3 +89,5 @@ public class ItemSpawner : MonoBehaviour
         }
     }
 }
+
+
