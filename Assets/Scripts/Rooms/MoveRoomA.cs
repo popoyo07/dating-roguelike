@@ -47,7 +47,10 @@ public class MoveRoomA : MonoBehaviour
             moveRoomTest.moveA = false;
             teleported = false;
         }
+    }
 
+    private void FixedUpdate()
+    {
         // Handle movement
         if (isMoving)
         {
