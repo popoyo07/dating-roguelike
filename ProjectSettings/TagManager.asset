@@ -7,6 +7,9 @@ TagManager:
   - Enemy
   - BSystem
   - Cards
+  - Item1
+  - Item2
+  - MoveRoomTesting
   layers:
   - Default
   - TransparentFX

@@ -32,7 +32,7 @@ public class ItemSpawner : MonoBehaviour
 
      void Update()
      {
-         if (moverooms.test == true)
+         /*if (moverooms.test == true)
          {
             Debug.Log("test:destroy ");
             foreach(GameObject test2 in itemPrefabs)
@@ -41,7 +41,7 @@ public class ItemSpawner : MonoBehaviour
             }
             itemPrefabs.Clear();
              //SpawnItem(3);
-         }
+         }*/
      }
     public void SpawnItem(int count)
     {

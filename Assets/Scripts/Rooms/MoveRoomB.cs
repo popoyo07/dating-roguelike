@@ -6,9 +6,8 @@ public class MoveRoomB : MonoBehaviour
     [Header("Move")]
     public float moveSpeed;
     public float moveDistance;
-    public bool move;
     private bool isMoving;
-    public bool moveForwardDistance;
+
     private Vector3 targetMovePosition;
 
     [Header("Teleport Room")]
@@ -18,18 +17,20 @@ public class MoveRoomB : MonoBehaviour
     private bool teleported;
 
     BattleSystem battleSystem;
+    MoveRoomTest moveRoomTest;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         //battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
+        moveRoomTest = GameObject.FindWithTag("MoveRoomTesting").GetComponent<MoveRoomTest>();
 
-        move = false;
+        moveRoomTest.move = false;
         isMoving = false;
         teleported = false;
 
-        targetSpawnPosition = new Vector3(0f, 0f, 0f);
-        targetTeleportPosition = new Vector3(0f, 0f, 39f);
+        targetSpawnPosition = new Vector3(0f, 0f, -38f);
+        targetTeleportPosition = new Vector3(0f, 0f, 38f);
         teleportDistanceThreshold = 0.01f;
         moveSpeed = 15f;
     }
@@ -37,14 +38,13 @@ public class MoveRoomB : MonoBehaviour
     private void Update()
     {
         //if (battleSystem.state == BattleState.WON && !isMoving)
-        if (move && !isMoving)
+        if (moveRoomTest.move && !isMoving)
         {
-            moveDistance = moveForwardDistance ? 38f : 1f;
-            moveForwardDistance = !moveForwardDistance;
+            moveDistance = 38f;
 
             targetMovePosition = transform.position + transform.forward * moveDistance;
             isMoving = true;
-            move = false;
+            moveRoomTest.move = false;
             teleported = false;
         }
 
