@@ -14,7 +14,7 @@ public class MoveRoomB : MonoBehaviour
     public Vector3 targetSpawnPosition;
     public Vector3 targetTeleportPosition;
     public float teleportDistanceThreshold;
-    private bool teleported;
+    public bool teleported;
 
     BattleSystem battleSystem;
     MoveRoomTest moveRoomTest;

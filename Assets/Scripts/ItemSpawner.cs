@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class ItemSpawner : MonoBehaviour
 {
-    public MoveRooms moverooms;
+    public MoveRoomA moveRoomA;
+    public MoveRoomB moveRoomB;
     [SerializeField] private int item;
     [SerializeField] private int poolSize;
     public List<GameObject> itemPrefabs;
@@ -32,7 +33,7 @@ public class ItemSpawner : MonoBehaviour
 
      void Update()
      {
-         /*if (moverooms.test == true)
+         if (moveRoomA.teleported == true)
          {
             Debug.Log("test:destroy ");
             foreach(GameObject test2 in itemPrefabs)
@@ -41,8 +42,19 @@ public class ItemSpawner : MonoBehaviour
             }
             itemPrefabs.Clear();
              //SpawnItem(3);
-         }*/
-     }
+         }
+
+        if (moveRoomB.teleported == true)
+        {
+            Debug.Log("test:destroy ");
+            foreach (GameObject test2 in itemPrefabs)
+            {
+                Destroy(test2);
+            }
+            itemPrefabs.Clear();
+            //SpawnItem(3);
+        }
+    }
     public void SpawnItem(int count)
     {
         // List<int> availableItems = new List<int>(itemPrefabs.Count);
