@@ -16,24 +16,16 @@ public class DeckManagement : MonoBehaviour
        "SingleShield"
      };
 
-    // we need to have an exact amount of how many we have so we can assign drop rates to them 
-    public List<String> allCards = new List<String>() 
-    {
-       "SingleAttk",
-       "DobleAttk",
-       "SingleShield", 
-       "GainHP",
-       "LoveyDovy"
-
-    };
+  
 
     public List<String> discardedCards = new List<String>() {}; 
     public int startingCards;
-    public BattleSystem BSystem;
     public int currentDeckSize;
 
+    [Header("References")]
+    public AllCardsOfCharacter cardDatabase; // Reference to the ScriptableObject
+    public BattleSystem BSystem;
 
-  
     void Awake()
     {
         BSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
@@ -48,3 +40,5 @@ public class DeckManagement : MonoBehaviour
         }
     }
 }
+
+

@@ -4,17 +4,17 @@ using UnityEngine;
 using System;
 
 
-public class CardActions : Cards
+public class CardActionsCharacter1 : Cards
 {
     public Dictionary<string, Action> cardAttaks = new Dictionary<string, Action>();
     private void Start()
     {
         cardAttaks.Clear();
-        cardAttaks.Add(deckManagement.allCards[0], AttackOnce);
-        cardAttaks.Add(deckManagement.allCards[1], AttackTwice);
-        cardAttaks.Add(deckManagement.allCards[2], SingleShield);
-        cardAttaks.Add(deckManagement.allCards[3], GainHealth);
-        cardAttaks.Add(deckManagement.allCards[4], LoveyDoveyLogic);
+        cardAttaks.Add(cardDatabase.allCards[0], AttackOnce);
+        cardAttaks.Add(cardDatabase.allCards[1], AttackTwice);
+        cardAttaks.Add(cardDatabase.allCards[2], SingleShield);
+        cardAttaks.Add(cardDatabase.allCards[3], GainHealth);
+        cardAttaks.Add(cardDatabase.allCards[4], LoveyDoveyLogic);
 
     }
     [Header("Double Attk DMG")]

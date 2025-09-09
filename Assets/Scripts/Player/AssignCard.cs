@@ -12,12 +12,12 @@ public class AssignCard : MonoBehaviour
     bool displayTxt;
     BattleSystem BSystem;
     Button cardButton;
-    CardActions cardAttks;
+    CardActionsCharacter1 cardAttks;
     public TextMeshProUGUI txt;
 
     void Start()
     {
-        cardAttks = GameObject.Find("CardManager").GetComponent<CardActions>();
+        cardAttks = GameObject.Find("CardManager").GetComponent<CardActionsCharacter1>();
         cardButton = GetComponent<Button>();
         BSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
 
