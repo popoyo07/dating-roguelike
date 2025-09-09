@@ -25,7 +25,7 @@ public class MoveRoomB : MonoBehaviour
         //battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
         moveRoomTest = GameObject.FindWithTag("MoveRoomTesting").GetComponent<MoveRoomTest>();
 
-        moveRoomTest.move = false;
+        moveRoomTest.moveB = false;
         isMoving = false;
         teleported = false;
 
@@ -38,13 +38,13 @@ public class MoveRoomB : MonoBehaviour
     private void Update()
     {
         //if (battleSystem.state == BattleState.WON && !isMoving)
-        if (moveRoomTest.move && !isMoving)
+        if (moveRoomTest.moveB && !isMoving)
         {
             moveDistance = 38f;
 
             targetMovePosition = transform.position + transform.forward * moveDistance;
             isMoving = true;
-            moveRoomTest.move = false;
+            moveRoomTest.moveB = false;
             teleported = false;
         }
 
