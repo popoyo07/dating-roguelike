@@ -38,14 +38,14 @@ public class FileDataHandler
                     }
                 }
 
-                //Deserialize the data from JSON back into C#
-                loadedData = JsonUtility.FromJson<GameData>(dataToLoad);
-
                 //Optionally decrypt the data
                 if (useEncryption)
                 {
                     dataToLoad = EncryptDecrypt(dataToLoad);
                 }
+
+                //Deserialize the data from JSON back into C#
+                loadedData = JsonUtility.FromJson<GameData>(dataToLoad);
 
             }
             catch (Exception e)
