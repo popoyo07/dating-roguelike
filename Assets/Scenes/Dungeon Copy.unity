@@ -802,17 +802,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3181972593548915621, guid: 86e9eb73b2c7f49429f735fcb8658b1d, type: 3}
   m_PrefabInstance: {fileID: 660928140}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1830631796 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7905912603420586393, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
-  m_PrefabInstance: {fileID: 1481766309}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2977ac7139b15dd489b3015f03d7fd80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MoveRooms
 --- !u!4 &1891860499 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8133224044332895694, guid: 72e0d67e651b42f40b9b0d2ad304e842, type: 3}
@@ -862,7 +851,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e64ea4482990fa4d9032a5cfa3275de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSpawner
-  moverooms: {fileID: 1830631796}
+  moveRoomA: {fileID: 0}
+  moveRoomB: {fileID: 0}
   item: 3
   poolSize: 4
   itemPrefabs:
@@ -914,7 +904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79d63f759c54f564da2ae8693201f31c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
-  enemy: 3
+  enemy: 1
   poolSize: 4
   enemyPrefabs:
   - {fileID: 3563789075462658821, guid: 483fc1861d2ff98478e9b35b10514633, type: 3}

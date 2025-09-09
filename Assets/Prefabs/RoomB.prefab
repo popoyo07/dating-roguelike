@@ -1,5 +1,58 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3431190576061264481
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2521364384031336734}
+  - component: {fileID: 3787121504616349115}
+  m_Layer: 0
+  m_Name: ItemSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2521364384031336734
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3431190576061264481}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.67471, y: -0.25, z: -3.1579201}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7154239335564536320}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3787121504616349115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3431190576061264481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e64ea4482990fa4d9032a5cfa3275de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemSpawner
+  moveRoomA: {fileID: 4280115294960739774, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
+  moveRoomB: {fileID: 1504286104964477903}
+  item: 3
+  poolSize: 4
+  itemPrefabs:
+  - {fileID: 3563789075462658821, guid: d0d852c20def1fd499f3a73534a4e9e8, type: 3}
+  - {fileID: 2795040712188621090, guid: 85fb98ffc8dc0fd44973d3e70566699f, type: 3}
+  - {fileID: 8226272766380277888, guid: 64b2b9495ff54f84bb2b700aa63d0523, type: 3}
+  - {fileID: 4159210154124007948, guid: d3bb78c0c0628a04fa4d73bca5c71bda, type: 3}
 --- !u!1 &7215422893468132076
 GameObject:
   m_ObjectHideFlags: 0
@@ -30,6 +83,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2629958388638988709}
+  - {fileID: 2521364384031336734}
   - {fileID: 4700406395885082692}
   - {fileID: 3063998513537148439}
   m_Father: {fileID: 0}
@@ -51,6 +106,59 @@ MonoBehaviour:
   targetSpawnPosition: {x: 0, y: 0, z: 0}
   targetTeleportPosition: {x: 0, y: 0, z: 0}
   teleportDistanceThreshold: 0
+  teleported: 0
+--- !u!1 &8762444220986872164
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2629958388638988709}
+  - component: {fileID: 4789093194272291897}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2629958388638988709
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8762444220986872164}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.5365, y: -0.25, z: -6.80764}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7154239335564536320}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4789093194272291897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8762444220986872164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79d63f759c54f564da2ae8693201f31c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
+  enemy: 1
+  poolSize: 4
+  enemyPrefabs:
+  - {fileID: 3563789075462658821, guid: 483fc1861d2ff98478e9b35b10514633, type: 3}
+  - {fileID: 2795040712188621090, guid: 5816c20bed80ca9498575975beb8f95e, type: 3}
+  - {fileID: 8226272766380277888, guid: e1d5c70015b609449b00fb742f4186dd, type: 3}
+  - {fileID: 4159210154124007948, guid: b7092fe8524f3e643bed55e919862cf9, type: 3}
+  spawnPoints: []
 --- !u!1001 &481077418584839602
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -27,23 +27,23 @@ public class EnemySpawner : MonoBehaviour
     }*/
     void Start()
     {
-        spawnPoints.Add(new Vector3(2f, 0.75f, -6.73f));
+       // spawnPoints.Add(new Vector3(2f, 0.75f, -6.73f));
         spawnPoints.Add(new Vector3(0f, 0.75f, -6.73f));
-        spawnPoints.Add(new Vector3(-2f, 0.75f, -6.73f));
+      //  spawnPoints.Add(new Vector3(-2f, 0.75f, -6.73f));
         /* for (int i = 0; i < enemyPrefabs.Count; i++)
          {
              // Debug.Log("test2: " + i);
              EnemyObjectPool.Instance.CreatePool(enemy, enemyPrefabs[i], poolSize);
           }*/
 
-        SpawnEnemy(3);
+        SpawnEnemy(1);
     }
     public void SpawnEnemy(int count)
     {
         // List<int> availableEnemies = new List<int>(enemyPrefabs.Count);
         // List<Transform> availableSpawn = new List<Transform>(spawnPoints);
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 1; i++)
         {
             //Debug.Log("test: " + i);
             //randomEnemy = availableEnemies[Random.Range(0, enemyPrefabs.Count)];
