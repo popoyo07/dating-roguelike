@@ -468,7 +468,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24e3990ec2106c74da5ff36c41d30979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveRoomTest
-  move: 0
+  moveA: 0
+  moveB: 0
 --- !u!4 &2015284533
 Transform:
   m_ObjectHideFlags: 0
@@ -551,7 +552,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1014463334873049711, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000012783104
+      value: 1.7608254
       objectReference: {fileID: 0}
     - target: {fileID: 2869943144883502491, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_Pivot.x
@@ -639,7 +640,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4608457261662142800, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8002393102032819144, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_IsActive
