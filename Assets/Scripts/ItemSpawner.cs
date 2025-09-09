@@ -9,11 +9,14 @@ public class ItemSpawner : MonoBehaviour
     private int randomItem;
 
     //Variables that set the range for spawning
-    private float minSpawnX = -4f;
-    private float maxSpawnX = 4f;
-    private float minSpawnZ = -7f;
-    private float maxSpawnZ = 7f;
-
+    private float minSpawnX1 = 1.6f;
+    private float maxSpawnX1 = 5f;
+    private float minSpawnX2 = -1.6f;
+    private float maxSpawnX2 = -5f;
+    private float minSpawnZ = -5f;
+    private float maxSpawnZ = 7.90f;
+    private float spawnRadius = 2f;
+    private float rangeOption;
     void Start()
     {
         /* for (int i = 0; i < itemPrefabs.Count; i++)
@@ -26,23 +29,45 @@ public class ItemSpawner : MonoBehaviour
     }
     public void SpawnItem(int count)
     {
-       // List<int> availableItems = new List<int>(itemPrefabs.Count);
+        // List<int> availableItems = new List<int>(itemPrefabs.Count);
 
         for (int i = 0; i < 3; i++)
         {
-            float randomX = Random.Range(minSpawnX, maxSpawnX);
+            randomItem = Random.Range(0, itemPrefabs.Count);
+            rangeOption = Random.Range(0, 2);
+
+            float randomX = Random.Range(minSpawnX1, maxSpawnX1);
+            float randomX2 = Random.Range(minSpawnX2, maxSpawnX2);
             float randomZ = Random.Range(minSpawnZ, maxSpawnZ);
+
+            if (rangeOption == 0)
+            {
+                Vector3 randomSpawn = new Vector3(randomX, 0.75f, randomZ);
+                Collider[] hitColliders = Physics.OverlapSphere(randomSpawn, spawnRadius);
+                if (hitColliders.Length != 0)
+                {
+                    Instantiate(itemPrefabs[randomItem], randomSpawn, Quaternion.identity);  
+                }
+            }
+            else
+            {
+                Vector3 randomSpawn = new Vector3(randomX2, 0.75f, randomZ);
+                Collider[] hitColliders = Physics.OverlapSphere(randomSpawn, spawnRadius);
+                if (hitColliders.Length != 0)
+                {
+                    Instantiate(itemPrefabs[randomItem], randomSpawn, Quaternion.identity); 
+                }
+            }
+
+  
             //Debug.Log("test: " + i);
             //randomItem = availableItems[Random.Range(0, itemPrefabs.Count)];
-            randomItem = Random.Range(0, itemPrefabs.Count);
-            Vector3 randomSpawn = new Vector3(randomX, 0.744f, randomZ);
-           // GameObject spawnItem = EnemyObjectPool.Instance.GetPooledObject(randomItem);
-            Instantiate(itemPrefabs[randomItem], randomSpawn, Quaternion.identity);
-            
-          /*  if (spawnItem != null)
-               {
-                   spawnItem.transform.position = selectedSpawn.position;  
-               } */
+            // GameObject spawnItem = EnemyObjectPool.Instance.GetPooledObject(randomItem);
+
+            /*  if (spawnItem != null)
+                 {
+                     spawnItem.transform.position = selectedSpawn.position;  
+                 } */
         }
     }
 }
