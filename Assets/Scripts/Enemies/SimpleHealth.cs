@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -9,18 +10,7 @@ public class SimpleHealth : MonoBehaviour
     public int health;
 
     public int shield;
-    public bool dead() // changes between true and false dpending on object's HP
-    {
-        if (health <= 0)
-        {
-            return true;
-
-        }
-        else
-        {
-            return false;
-        }
-    }
+    public bool dead;
     public HealthBar healthBar;
     private CardActionsCharacter1 attackManager;
     private BattleSystem battleSystem;
@@ -48,6 +38,23 @@ public class SimpleHealth : MonoBehaviour
             }
         }
     }
+    private void Update()
+    {
+        if (health <= 0)
+        {
+            dead = true;
+            Debug.Log("dead eaqueals " + dead);
+        }
+        if (dead && battleSystem.state == BattleState.WON) 
+        {
+            StartCoroutine(destroyCharacer());
+        }
+    }
+    IEnumerator destroyCharacer()
+    {
+        yield return new WaitForSeconds(1);
+            Destroy(transform.parent.gameObject);
+    }
     public void ReceiveDMG(int dmg) 
     {
         if (shield > 0)
@@ -69,7 +76,7 @@ public class SimpleHealth : MonoBehaviour
         {
             health = maxHealth;
         } 
-        dead();
+        
     }
 
     public void RecoverHP(int hp)

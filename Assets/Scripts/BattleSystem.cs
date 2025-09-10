@@ -34,21 +34,30 @@ public class BattleSystem : MonoBehaviour
         endTurnB = GameObject.Find("EndTurn");
         state = BattleState.DEFAULT;              // change for actual game 
         Debug.Log("Current state is " + state);
+        StartCoroutine(assignHP());
+
+    }
+    IEnumerator assignHP()
+    {
+        yield return new WaitUntil(() => enemy != null && player != null);
+
+        enemyHP = enemy.GetComponent<SimpleHealth>();
+        playerHP = player.GetComponent<SimpleHealth>();
         SetUpBattle();
 
     }
-    private void FixedUpdate()
+    private void Update()
     {
         if (playerHP != null && enemyHP != null)
         {
-            if (playerHP.dead())
+            if (playerHP.dead == true)
             {
                 state = BattleState.LOST;
                 Debug.Log("Current state is " + state);
                 playerHP = null;
 
             }
-            if (enemyHP.dead())
+            if (enemyHP.dead == true) 
             {
                 state = BattleState.WON;
                 Debug.Log("Current state is " + state);
@@ -63,31 +72,35 @@ public class BattleSystem : MonoBehaviour
                 moveC = false;
             }
         }
+        else if (enemyHP == null) Debug.LogWarning("lost enemy hp");
 
-        // need to claen up later on 
-        // simple remove from screen when is not player's turn 
-        switch (state)  // maybe can be donone on separate script and handle all the UI elements 
-        {
-            case BattleState.WON: 
-                
-                StartCoroutine(DelaySwitchState(1, BattleState.START));
+            // need to claen up later on 
+            // simple remove from screen when is not player's turn 
+            switch (state)  // maybe can be donone on separate script and handle all the UI elements 
+            {
+                case BattleState.START:
+                StartCoroutine(DelaySwitchState(1f, BattleState.PLAYERTURN));
                 break;
-            case BattleState.PLAYERTURN: 
-               
-              
-                break;
-                case BattleState.STARTRUN:
-                StartCoroutine(DelaySwitchState(1, BattleState.START));
+            case BattleState.WON:
+                    
+                    StartCoroutine(DelaySwitchState(2.5f, BattleState.START));
                     break;
-                
-            case BattleState.DEFAULT:
-               
+                case BattleState.PLAYERTURN:
 
-                break;
+
+                    break;
+                case BattleState.STARTRUN:
+                    StartCoroutine(DelaySwitchState(1, BattleState.START));
+                    break;
+
+                case BattleState.DEFAULT:
+
+
+                    break;
                 case BattleState.LOST:
-            
-                break;
-        }
+
+                    break;
+            }
 
     }
     void SetUpBattle()
@@ -115,7 +128,7 @@ public class BattleSystem : MonoBehaviour
         Debug.Log("Current state is " + state);
     }
 
-    IEnumerator DelaySwitchState(int delay, BattleState b)
+    IEnumerator DelaySwitchState(float delay, BattleState b)
     {
         yield return new WaitForSeconds(delay);
         state = b;
