@@ -10,6 +10,8 @@ TagManager:
   - Item1
   - Item2
   - MoveRoomTesting
+  - RoomA
+  - RoomB
   layers:
   - Default
   - TransparentFX

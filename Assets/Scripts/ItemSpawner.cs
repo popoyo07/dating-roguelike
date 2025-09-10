@@ -4,12 +4,12 @@ using UnityEngine;
 public class ItemSpawner : MonoBehaviour
 {
     public MoveRoomA moveRoomA;
-    public MoveRoomB moveRoomB;
+    public MoveRoomTest moveRoomTest;
     [SerializeField] private int item;
     [SerializeField] private int poolSize;
     public List<GameObject> itemPrefabs;
     private int randomItem;
-   // private GameObject test;
+    // private GameObject test;
 
     //Variables that set the range for spawning
     private float minSpawnX1 = 1.6f;
@@ -22,6 +22,8 @@ public class ItemSpawner : MonoBehaviour
     private float rangeOption;
     void Start()
     {
+       // moveRoomA = GameObject.FindWithTag("RoomA").GetComponent<MoveRoomA>();
+        moveRoomTest = GameObject.FindWithTag("MoveRoomTesting").GetComponent<MoveRoomTest>();
         /* for (int i = 0; i < itemPrefabs.Count; i++)
          {
              // Debug.Log("test2: " + i);
@@ -31,20 +33,9 @@ public class ItemSpawner : MonoBehaviour
         SpawnItem(3);
     }
 
-     void Update()
-     {
-         if (moveRoomA.teleported == true)
-         {
-            Debug.Log("test:destroy ");
-            foreach(GameObject test2 in itemPrefabs)
-            {
-                Destroy(test2);
-            }
-            itemPrefabs.Clear();
-             //SpawnItem(3);
-         }
-
-        if (moveRoomB.teleported == true)
+    void Update()
+    {
+        if (moveRoomTest.moveC == true)
         {
             Debug.Log("test:destroy ");
             foreach (GameObject test2 in itemPrefabs)
@@ -52,7 +43,7 @@ public class ItemSpawner : MonoBehaviour
                 Destroy(test2);
             }
             itemPrefabs.Clear();
-            //SpawnItem(3);
+            SpawnItem(3);
         }
     }
     public void SpawnItem(int count)
@@ -76,6 +67,14 @@ public class ItemSpawner : MonoBehaviour
                 {
                     GameObject test = Instantiate(itemPrefabs[randomItem], randomSpawn, Quaternion.identity);
                     itemPrefabs.Add(test);
+
+                    if (testreinstate == true)
+                    {
+                        Debug.Log("no items ");
+                        test = Instantiate(itemPrefabs[randomItem], randomSpawn, Quaternion.identity);
+                        itemPrefabs.Add(test);
+
+                    }
                 }
             }
             else
@@ -86,7 +85,16 @@ public class ItemSpawner : MonoBehaviour
                 {
                     GameObject test = Instantiate(itemPrefabs[randomItem], randomSpawn, Quaternion.identity);
                     itemPrefabs.Add(test);
+
+                    if (testreinstate == true)
+                    {
+                        Debug.Log("no items ");
+                        test = Instantiate(itemPrefabs[randomItem], randomSpawn, Quaternion.identity);
+                        itemPrefabs.Add(test);
+
+                    }
                 }
+
             }
 
 
@@ -100,6 +108,7 @@ public class ItemSpawner : MonoBehaviour
                  } */
         }
     }
+
 }
 
 
