@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: No
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
   dialogue:
-  - Noooooooo, fuck you, you have poor taste. Your taste is questionable. :(
+  - U don't like animal, I see
   responses: []
+  nameText: 
