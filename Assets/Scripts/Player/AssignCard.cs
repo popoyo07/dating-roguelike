@@ -52,13 +52,14 @@ public class AssignCard : MonoBehaviour
         // Reset card for new turn
         if (BSystem.state == BattleState.PLAYERTURN && cardUsed)
         {
-            ResetCardForNewTurn();
         }
 
         // Auto-discard if card wasn't used by end of turn
         if (BSystem.state == BattleState.ENDPLAYERTURN && !cardUsed && gameObject.activeInHierarchy)
         {
             DiscardAndReset();
+            ResetCardForNewTurn();
+
         }
     }
 
@@ -70,15 +71,14 @@ public class AssignCard : MonoBehaviour
         cardButton.onClick.AddListener(OnCardClicked);
         cardButton.interactable = true;
     }
-
     private void OnCardClicked()
     {
         if (cardAttks.cardAttaks.ContainsKey(cardNameFromList))
         {
             cardAttks.cardAttaks[cardNameFromList].Invoke();
-            cardAttks.deckManagement.DiscardCard(cardNameFromList);
+
+            cardUsed = true; // <-- mark the card as used immediately
             DiscardAndReset();
-            // Don't set inactive - just disable interaction
             cardButton.interactable = false;
         }
         else
@@ -86,6 +86,7 @@ public class AssignCard : MonoBehaviour
             Debug.LogWarning("No action found for key: " + cardNameFromList);
         }
     }
+
 
     void DiscardAndReset()
     {

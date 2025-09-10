@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2c85b9932fd77d44ac6ef077a9cb2ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeckDraw
-  discardedCards: []
   characterClass: 0
   startingCards: 0
   currentDeckSize: 0
@@ -59,8 +58,11 @@ MonoBehaviour:
   - {fileID: 0}
   cardDatabase: {fileID: 0}
   startingDeck: {fileID: 0}
-  playerDeck: {fileID: 11400000, guid: be7739c8446fbb04598ef7116203cb3f, type: 2}
   BSystem: {fileID: 0}
+  runtimeDeck: []
+  discardedCards: []
+  discardDeck: 0
+  deckWasSet: 0
 --- !u!114 &6771811598734231068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,6 +80,7 @@ MonoBehaviour:
   enemy: {fileID: 0}
   player: {fileID: 0}
   deckManagement: {fileID: 0}
+  energy: {fileID: 0}
   shieldAmmount: 0
   doubleAttk: 5
   singleAttk: 1
@@ -149,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 034d2e1d6f837dd468b96fc82d46278d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleUI
+  endTurnB: {fileID: 0}
 --- !u!1 &7180089294026773356
 GameObject:
   m_ObjectHideFlags: 0

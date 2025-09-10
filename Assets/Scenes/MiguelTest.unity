@@ -119,17 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &1049231268 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2199788757976406015, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
-  m_PrefabInstance: {fileID: 8730445651601095777}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb6de15d5fdefd5458a9a998419686cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BattleSystem
 --- !u!1 &1223398013
 GameObject:
   m_ObjectHideFlags: 0
@@ -1123,22 +1112,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1434494045}
     m_Modifications:
-    - target: {fileID: 311051112353398664, guid: df1aa113511cdc5439511ae0e1031ab7, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1018559142764159759, guid: df1aa113511cdc5439511ae0e1031ab7, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3449265922679727931, guid: df1aa113511cdc5439511ae0e1031ab7, type: 3}
       propertyPath: m_Name
       value: CARDS UI
       objectReference: {fileID: 0}
-    - target: {fileID: 5518388438756239885, guid: df1aa113511cdc5439511ae0e1031ab7, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1049231268}
     - target: {fileID: 8128147386199070593, guid: df1aa113511cdc5439511ae0e1031ab7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1309,46 +1286,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6651855241109148109, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
-      propertyPath: deck
-      value: StartingCardsCharacter1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6651855241109148109, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
-      propertyPath: dataBase
-      value: AllCardsCharacter1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6651855241109148109, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
-      propertyPath: database
-      value: AllCardsCharacter1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6651855241109148109, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
-      propertyPath: theDeckArray.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6651855241109148109, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
-      propertyPath: 'theDeckArray.Array.data[0]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 0801bfacd5d951144b8365b446167e37, type: 2}
-    - target: {fileID: 6651855241109148109, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
-      propertyPath: theDatabaseArray.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6651855241109148109, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
-      propertyPath: 'theDatabaseArray.Array.data[0]'
-      value: 
-      objectReference: {fileID: 11400000, guid: a49db9bae68117040b51e9d31241e11e, type: 2}
-    - target: {fileID: 6771811598734231068, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
-      propertyPath: doubleAttk
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6771811598734231068, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
-      propertyPath: singleAttk
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6771811598734231068, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
-      propertyPath: singleShield
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 7180089294026773356, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
       propertyPath: m_Name
       value: Managers
@@ -1393,8 +1330,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1399962488727556856, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

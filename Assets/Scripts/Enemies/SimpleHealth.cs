@@ -29,7 +29,7 @@ public class SimpleHealth : MonoBehaviour
         health = maxHealth;
         attackManager = GameObject.Find("CardManager").GetComponent<CardActionsCharacter1>();
         battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
-       // healthBar = GameObject.Find("PlayerHealth").GetComponent<HealthBar>();
+        healthBar = GameObject.Find("PlayerHealth").GetComponent<HealthBar>();
         if (gameObject.CompareTag("Enemy"))
         { 
             if (battleSystem != null)
@@ -59,7 +59,7 @@ public class SimpleHealth : MonoBehaviour
             health = health - dmg;
         }
         Debug.Log("Remeining health is " +  health);
-       // healthBar.UpdateHealth();
+        healthBar.UpdateHealth();
     }
 
     private void FixedUpdate()
@@ -75,7 +75,7 @@ public class SimpleHealth : MonoBehaviour
     public void RecoverHP(int hp)
     {
         health += hp;
-       // healthBar.UpdateHealth();
+        healthBar.UpdateHealth();
     }
 
 }
