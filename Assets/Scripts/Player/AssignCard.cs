@@ -16,12 +16,20 @@ public class AssignCard : MonoBehaviour
     private bool displayTxt;
     private bool cardSet;
 
+    bool resetForNewTurn;
+
+    private void Awake()
+    {
+        
+    }
+
     void Start()
     {
         BSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
         cardDraw = GameObject.Find("CardManager").GetComponent<DeckDraw>();
         cardButton = GetComponent<Button>();
         cardUsed = false;
+        resetForNewTurn = false;
 
         StartCoroutine(InitializeCard());
     }
@@ -52,14 +60,15 @@ public class AssignCard : MonoBehaviour
         // Reset card for new turn
         if (BSystem.state == BattleState.PLAYERTURN && cardUsed)
         {
+            resetForNewTurn = false;
         }
 
         // Auto-discard if card wasn't used by end of turn
-        if (BSystem.state == BattleState.ENDPLAYERTURN && !cardUsed && gameObject.activeInHierarchy)
-        {
+        if (BSystem.state == BattleState.ENDPLAYERTURN && !cardUsed && gameObject.activeInHierarchy && !resetForNewTurn)
+        { 
+            resetForNewTurn = true;
             DiscardAndReset();
             ResetCardForNewTurn();
-
         }
     }
 

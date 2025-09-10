@@ -19,7 +19,7 @@ public class HealthBar : MonoBehaviour
     public void UpdateHealth()
     {
         healthBar.value = avatar.health;
-        Debug.Log(healthBar.value + avatar.health);
+        Debug.Log(" Health bar value " + healthBar.value + " hp value " + avatar.health);
 
     }
 
