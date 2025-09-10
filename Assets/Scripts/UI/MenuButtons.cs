@@ -1,7 +1,5 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections;
-using Unity.VisualScripting;
 
 public class MenuButtons : MonoBehaviour
 {
@@ -12,7 +10,6 @@ public class MenuButtons : MonoBehaviour
     public GameObject loseMenu;
     public GameObject cardsMan;
     public GameObject man;
-    public GameObject loadScreen;
 
     BattleSystem battleSystem;
 
@@ -26,7 +23,6 @@ public class MenuButtons : MonoBehaviour
     {
         if (battleSystem.state == BattleState.LOST)
         {   
-            loadScreen.SetActive(true);
             loseMenu.SetActive(true);
             cardsMan.SetActive(false);
             man.SetActive(false);
@@ -36,8 +32,6 @@ public class MenuButtons : MonoBehaviour
     public void EnterDungeon()
     {
         SceneManager.LoadScene("Dungeon");
-        loadScreen.SetActive(true);
-        StartCoroutine(Delay());
         mainMenu.SetActive(false);
         cardsMan.SetActive(true);
         man.SetActive(true);
@@ -77,11 +71,5 @@ public class MenuButtons : MonoBehaviour
     {
         settingsMenu.SetActive(true);
         mainMenu.SetActive(false);
-    }
-
-    IEnumerator Delay()
-    {
-        yield return new WaitForSeconds(2f);
-        loadScreen.SetActive(false);
     }
 }
