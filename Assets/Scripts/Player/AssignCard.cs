@@ -1,119 +1,131 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 
 public class AssignCard : MonoBehaviour
 {
-    public string cardNameFromList; // need to find a way to randomly assign them, taking
-                                    // in consideration the ones taht are in hand, in deck
-                                    // and  the ones that are not on neither 
-    public int numbaerOnList;
-    bool displayTxt;
-    BattleSystem BSystem;
-    Button cardButton;
-    CardActionsCharacter1 cardAttks;
+    public string cardNameFromList;
+    public Button cardButton;
     public TextMeshProUGUI txt;
-    bool cardUsed;
-    DeckDraw cardDraw;
+    public bool cardUsed;
+
+    private BattleSystem BSystem;
+    private CardActionsCharacter1 cardAttks;
+    private DeckDraw cardDraw;
+    private bool displayTxt;
+    private bool cardSet;
+
     void Start()
     {
-        cardButton = GetComponent<Button>();
         BSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
         cardDraw = GameObject.Find("CardManager").GetComponent<DeckDraw>();
-        txt = GetComponentInChildren<TextMeshProUGUI>();
-       
-        SetUpCard();
+        cardButton = GetComponent<Button>();
+        cardUsed = false;
 
-    }
-    private void Awake()
-    {
-        displayTxt = false;
+        StartCoroutine(InitializeCard());
     }
 
-    void FixedUpdate()
+    private IEnumerator InitializeCard()
     {
-        if (BSystem != null) // enable button in cambat 
-        {
-            switch (BSystem.state)
-            {
-                case BattleState.PLAYERTURN:
-                    cardUsed = false;
-                    SetUpCard();
+        // Wait for card actions to be initialized
+        yield return new WaitUntil(() =>
+            cardDraw.GetComponent<CardActionsCharacter1>() != null &&
+            cardDraw.GetComponent<CardActionsCharacter1>().cardAttaks.Count > 0);
 
-                    break;
-                case BattleState.ENDPLAYERTURN:
-                    if (!cardUsed)
-                    {
-                        DiscardAndReset();
-                    }
-                    break;
-                case BattleState.LOST:
-                    cardAttks = null;
-                    cardButton.onClick.RemoveAllListeners();
-                    break;
-                case BattleState.START:
-                    if (cardAttks == null) 
-                    {
-                        AssignDeckAction();
-                    }
-                    break;
-                default:
+        cardAttks = cardDraw.GetComponent<CardActionsCharacter1>();
+        cardSet = true;
+        SetupCardButton();
+    }
 
-                    break;
-            }
+    void Update()
+    {
+        if (BSystem == null) return;
 
-
-        }
-
+        // Handle card text display
         if (cardNameFromList != null && !displayTxt)
         {
             txt.SetText(cardNameFromList);
             displayTxt = true;
-            Debug.Log("placed txt " + cardNameFromList);
         }
 
+        // Reset card for new turn
+        if (BSystem.state == BattleState.PLAYERTURN && cardUsed)
+        {
+            ResetCardForNewTurn();
+        }
 
+        // Auto-discard if card wasn't used by end of turn
+        if (BSystem.state == BattleState.ENDPLAYERTURN && !cardUsed && gameObject.activeInHierarchy)
+        {
+            DiscardAndReset();
+        }
     }
 
-    void SetUpCard()
+    public void SetupCardButton()
     {
-        // adds action to onclick 
-        cardButton.onClick.AddListener(() =>
-        {
-            if (cardAttks.cardAttaks.ContainsKey(cardNameFromList))
-            {
-                cardAttks.cardAttaks[cardNameFromList].Invoke(); // invoke's function from dictionary 
-                cardAttks.deckManagement.DiscardCard(cardNameFromList);
+        if (cardButton == null || cardAttks == null) return;
 
-                DiscardAndReset();
-                gameObject.SetActive(false);
-            }
-            else
-            {
-                Debug.LogWarning("No action found for key: " + cardNameFromList);
-            }
-        });
-        cardUsed = false;
-        displayTxt = false;
+        cardButton.onClick.RemoveAllListeners();
+        cardButton.onClick.AddListener(OnCardClicked);
+        cardButton.interactable = true;
+    }
+
+    private void OnCardClicked()
+    {
+        if (cardAttks.cardAttaks.ContainsKey(cardNameFromList))
+        {
+            cardAttks.cardAttaks[cardNameFromList].Invoke();
+            cardAttks.deckManagement.DiscardCard(cardNameFromList);
+            DiscardAndReset();
+            // Don't set inactive - just disable interaction
+            cardButton.interactable = false;
+        }
+        else
+        {
+            Debug.LogWarning("No action found for key: " + cardNameFromList);
+        }
     }
 
     void DiscardAndReset()
     {
-        cardAttks.deckManagement.DiscardCard(cardNameFromList); // run discard card 
-        cardButton.onClick.RemoveAllListeners();
+        if (cardAttks != null && cardAttks.deckManagement != null)
+        {
+            cardAttks.deckManagement.DiscardCard(cardNameFromList);
+        }
+
         cardUsed = true;
+        cardSet = false;
+        displayTxt = false;
     }
 
-    void AssignDeckAction()
+    void ResetCardForNewTurn()
     {
-        switch (cardDraw.characterClass)
+        // Reset card state for new turn
+        cardUsed = false;
+        cardSet = false;
+        displayTxt = false;
+
+        // Clear old card name and prepare for new assignment
+        cardNameFromList = null;
+        txt.SetText("");
+
+        // Reactivate button
+        if (cardButton != null)
         {
-            case CharacterClass.PLAYER1:
-                cardAttks = GameObject.Find("CardManager").GetComponent<CardActionsCharacter1>();
-                break;
-            default:
-                break;
+            cardButton.interactable = true;
         }
+
+        // Ensure the card is active
+        gameObject.SetActive(true);
+    }
+
+    // This method should be called by DeckDraw when assigning a new card
+    public void AssignNewCard(string newCardName)
+    {
+        cardNameFromList = newCardName;
+        displayTxt = false; // Allow text to be updated in next Update
+        cardUsed = false;
+        SetupCardButton();
     }
 }

@@ -31,7 +31,7 @@ public class BattleSystem : MonoBehaviour
     void Start()
     {
         endTurnB = GameObject.Find("EndTurn");
-        state = BattleState.STARTRUN;              // change for actual game 
+        state = BattleState.DEFAULT;              // change for actual game 
         Debug.Log("Current state is " + state);
         SetUpBattle();
 
@@ -61,18 +61,23 @@ public class BattleSystem : MonoBehaviour
             }
         }
 
-
+        // need to claen up later on 
         // simple remove from screen when is not player's turn 
         switch (state)  // maybe can be donone on separate script and handle all the UI elements 
         {
             case BattleState.PLAYERTURN: 
                 endTurnB.SetActive(true);
-                turnCounter++;
+              
                 break;
                 case BattleState.STARTRUN:
-                StartCoroutine(DelayStart(1));
+                StartCoroutine(DelaySwitchState(1, BattleState.START));
                     break;
-            default:
+                
+            case BattleState.DEFAULT:
+                StartCoroutine(DelaySwitchState(1, BattleState.STARTRUN)); // temporary should remove later on 
+
+                break;
+                case BattleState.LOST:
                 endTurnB.SetActive(false);
                 break;
         }
@@ -91,7 +96,7 @@ public class BattleSystem : MonoBehaviour
     public IEnumerator EndPlayerTurn()
     {
         state = BattleState.ENDPLAYERTURN;
-        yield return new WaitForSeconds(.5f);  // delay a little so everything else can be run 
+        yield return new WaitForSeconds(1f);  // delay a little so everything else can be run 
         state = BattleState.ENEMYTURN;
         Debug.Log("Current state is " + state);
     }
@@ -103,10 +108,10 @@ public class BattleSystem : MonoBehaviour
         Debug.Log("Current state is " + state);
     }
 
-    IEnumerator DelayStart(int delay)
+    IEnumerator DelaySwitchState(int delay, BattleState b)
     {
         yield return new WaitForSeconds(delay);
-        state = BattleState.START;
+        state = b;
         
     }
 

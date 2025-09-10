@@ -1,3 +1,5 @@
+using JetBrains.Annotations;
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -7,23 +9,42 @@ public class DeckDraw : DeckManagement
     AssignCard[] cards;
     bool cardsAssigned;
     bool combatEnded;
-    
+   
+
     private void Awake()
     {
 
-        cardGameObj = GameObject.FindGameObjectsWithTag("Cards");
+        cardGameObj = GameObject.FindGameObjectsWithTag("Cards"); // find card game objects 
         BSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
         FindAndAssignCharacter();
+       
 
         cards = new AssignCard[cardGameObj.Length];
         if (cardGameObj != null)
         {
             for (int i = 0; i < cardGameObj.Length; i++)
             {
-                cards[i] = cardGameObj[i].GetComponent<AssignCard>();
+                cards[i] = cardGameObj[i].GetComponent<AssignCard>(); // get their assign card reference 
             }
         }
       
+    }
+    void GetRandomFromDeck(AssignCard c)
+    {
+        if (runtimeDeck.Count == 0)
+        {
+            Debug.LogWarning("Trying to draw from empty deck!");
+            return;
+        }
+
+        int r = Random.Range(0, runtimeDeck.Count);
+        string cardName = runtimeDeck[r];
+
+        // Use the new method to assign the card
+        c.AssignNewCard(cardName);
+
+        Debug.Log("The cards got assigned " + cardName);
+        runtimeDeck.RemoveAt(r);
     }
 
     private void FixedUpdate()
@@ -32,23 +53,15 @@ public class DeckDraw : DeckManagement
         {
             switch (BSystem.state)
             {
-                case BattleState.STARTRUN:
-                    if (!deckWasSet)
-                    {
-                        FindAndAssignCharacter();
-                        playerDeck.allCards.AddRange(startingDeck.allCards);
-                        Debug.Log("this is the info assigned to player deck " + playerDeck.allCards);
-
-                    }
-                    break;
-
                 case BattleState.PLAYERTURN:
                     if (!cardsAssigned)
                     {
-                       
                         for (int i = 0; i < cards.Length; i++)
                         {
-                            if (playerDeck.allCards.Count == 0)
+                            // Make sure card is active before assigning
+                            cards[i].gameObject.SetActive(true);
+
+                            if (runtimeDeck.Count == 0)
                             {
                                 RecoverDeck();
                             }
@@ -57,6 +70,16 @@ public class DeckDraw : DeckManagement
                         cardsAssigned = true;
                     }
                     break;
+                case BattleState.STARTRUN:
+                    if (!deckWasSet)
+                    {
+                        FindAndAssignCharacter();
+                       
+
+                    }
+                    break;
+
+               
                 case BattleState.WON: 
                     if (!cardsAssigned) // just reusing the earlier bool for this 
                     {
@@ -70,6 +93,7 @@ public class DeckDraw : DeckManagement
                     BSystem.state = BattleState.DEFAULT;
                     startingDeck = null;
                     cardDatabase = null;
+                    deckWasSet = false;
                     break;
                 default:
                     cardsAssigned = false;
@@ -79,20 +103,19 @@ public class DeckDraw : DeckManagement
     }
 
 
-    void GetRandomFromDeck(AssignCard c)
-    {
-        int r = Random.Range(0, playerDeck.allCards.Count);
-        c.cardNameFromList = playerDeck.allCards[r];        // Assign name for card 
-        Debug.Log(" The cards got assigned " +  c.cardNameFromList);
-        // removes cards from deck 
-        playerDeck.allCards.RemoveAt(r);
-    }
 
     void RecoverDeck() // recover deck and reset discarded cards 
     {
-        playerDeck.allCards.Clear();
-        playerDeck.allCards.AddRange(discardedCards); // add all discarded cards back
-        discardedCards.Clear(); // empty the discarded pile
+        Debug.Log($"Before recovery - Runtime: {runtimeDeck.Count}, Discarded: {discardedCards.Count}");
+
+        // Add all discarded cards back to runtime deck
+        runtimeDeck.AddRange(discardedCards);
+
+        // Clear the discarded pile
+        discardedCards.Clear();
+
+        Debug.Log($"After recovery - Runtime: {runtimeDeck.Count}, Discarded: {discardedCards.Count}");
+
     }
 
 

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using System;
+using System.Collections;
 
 
 public class CardActionsCharacter1 : Cards
@@ -12,21 +13,11 @@ public class CardActionsCharacter1 : Cards
         deckManagement = gameObject.GetComponent<DeckManagement>();
         // I could also move this dictioary to a scriptable object 
         cardAttaks.Clear();
-       
+        InitializeCardActions();
 
     }
-    private void FixedUpdate()
-    {
-        if(cardAttaks.Count < 0)
-        {
-            cardAttaks.Add(deckManagement.cardDatabase.allCards[0], AttackOnce); // make sure it is in order 
-            cardAttaks.Add(deckManagement.cardDatabase.allCards[1], AttackTwice);
-            cardAttaks.Add(deckManagement.cardDatabase.allCards[2], SingleShield);
-            cardAttaks.Add(deckManagement.cardDatabase.allCards[3], GainHealth);
-            cardAttaks.Add(deckManagement.cardDatabase.allCards[4], LoveyDoveyLogic);
+   
 
-        }
-    }
     [Header("Double Attk DMG")]
     [Range(1, 5)]
     public int doubleAttk;
@@ -74,5 +65,33 @@ public class CardActionsCharacter1 : Cards
     {
         Debug.Log("Lovely");
     }
-    
+
+    private void InitializeCardActions()
+    {
+        cardAttaks.Clear();
+
+        // Use the same source as runtimeDeck - startingDeck.allCards
+        if (deckManagement.cardDatabase != null && deckManagement.cardDatabase.allCards != null)
+        {
+            // Make sure we have enough cards for the actions
+            if (deckManagement.cardDatabase.allCards.Count >= 5)
+            {
+                cardAttaks.Add(deckManagement.cardDatabase.allCards[0], AttackOnce);
+                cardAttaks.Add(deckManagement.cardDatabase.allCards[1], AttackTwice);
+                cardAttaks.Add(deckManagement.cardDatabase.allCards[2], SingleShield);
+                cardAttaks.Add(deckManagement.cardDatabase.allCards[3], GainHealth);
+                cardAttaks.Add(deckManagement.cardDatabase.allCards[4], LoveyDoveyLogic);
+
+                Debug.Log("Card actions dictionary initialized with " + cardAttaks.Count + " entries");
+            }
+            else
+            {
+                Debug.LogError("Not enough cards in starting deck for all actions!");
+            }
+        }
+        else
+        {
+            Debug.LogError("Starting deck or allCards is null!");
+        }
+    }
 }

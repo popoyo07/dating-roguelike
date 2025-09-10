@@ -8,10 +8,11 @@ public class AllCardsOfCharacter : ScriptableObject
     [Tooltip("All possible cards in the game")]
     public List<string> allCards = new List<string>()
     {
-        "SingleAttk",
-        "DobleAttk",
-        "SingleShield",
-        "GainHP",
-        "LoveyDovy"
     };
 }
+
+    // "SingleAttk",
+    //"DobleAttk",
+     //   "SingleShield",
+      //  "GainHP",
+    //    "LoveyDovy"

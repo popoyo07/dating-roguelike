@@ -6,7 +6,6 @@ using System.Collections.Generic;
 public enum CharacterClass { PLAYER1, PLAYER2, PLAYER3, PLAYERLOST} // set all character classes 
 public class DeckManagement : MonoBehaviour
 {
-    public List<String> discardedCards = new List<String>() { };
 
     public CharacterClass characterClass; // refenrece for enum 
 
@@ -21,10 +20,15 @@ public class DeckManagement : MonoBehaviour
     // Reference to the ScriptableObject
     public AllCardsOfCharacter cardDatabase; // all posible cards for said class 
     public AllCardsOfCharacter startingDeck; // starting set of cards for said class 
-    public AllCardsOfCharacter playerDeck; // actuall player deck during the run
+ 
     public BattleSystem BSystem;
 
-   public  bool deckWasSet;
+
+    [Header("Cards in Run Tiem")]
+    public List<string> runtimeDeck;
+    public List<string> discardedCards;
+    public bool discardDeck;
+    public  bool deckWasSet;
     void Awake()
     {
 
@@ -54,8 +58,7 @@ public class DeckManagement : MonoBehaviour
                     if (!deckWasSet)
                     {
                         FindAndAssignCharacter();
-                        playerDeck.allCards.AddRange(startingDeck.allCards);
-                        Debug.Log("this is the info assigned to player deck " + playerDeck.allCards);
+                       
 
                     }
                     break;
@@ -67,11 +70,14 @@ public class DeckManagement : MonoBehaviour
     {
         // adds card to discarded pile 
         discardedCards.Add(cardName);
-
+        Debug.Log($"Card discarded: {cardName}. Discarded pile now has {discardedCards.Count} cards");
     }
 
-   public  void FindAndAssignCharacter()
+
+    public void FindAndAssignCharacter()
     {
+        runtimeDeck.Clear();
+       // discardedCards.Clear();
         switch (characterClass)
         {
             case CharacterClass.PLAYER1:
@@ -89,7 +95,23 @@ public class DeckManagement : MonoBehaviour
                 break;
 
         }
+        // Debug the source data
+        if (startingDeck != null && startingDeck.allCards != null)
+        {
+            Debug.Log($"Starting deck has {startingDeck.allCards.Count} cards:");
+            foreach (var card in startingDeck.allCards)
+            {
+                Debug.Log($"- {card}");
+            }
+        }
+
+        runtimeDeck = new List<string>(startingDeck.allCards);
+        discardedCards = new List<string>();
+        Debug.Log($"Runtime deck now has {runtimeDeck.Count} cards");
+     
     }
+
+
 }
 
 
