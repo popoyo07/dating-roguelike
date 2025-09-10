@@ -19,10 +19,13 @@ public class HealthBar : MonoBehaviour
     public void UpdateHealth()
     {
         healthBar.value = avatar.health;
+        Debug.Log(healthBar.value + avatar.health);
+
     }
 
     public void UpdateMaxHealth()
     {
         healthBar.maxValue = avatar.maxHealth;
+        Debug.Log(healthBar.value + avatar.health);
     }
 }

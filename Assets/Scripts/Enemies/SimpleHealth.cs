@@ -29,7 +29,7 @@ public class SimpleHealth : MonoBehaviour
         health = maxHealth;
         attackManager = GameObject.Find("CardManager").GetComponent<CardActions>();
         battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
-        healthBar = GameObject.Find("PlayerHealth").GetComponent<HealthBar>();
+        healthBar = this.gameObject.GetComponent<HealthBar>();
         if (gameObject.CompareTag("Enemy"))
         { 
             if (battleSystem != null)
