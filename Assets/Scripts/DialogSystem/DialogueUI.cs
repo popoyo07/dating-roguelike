@@ -23,7 +23,6 @@ public class DialogueUI : MonoBehaviour
         if (responseHandle == null) Debug.LogError("ResponseHandle component is missing!");
         if (textLabel == null) Debug.LogError("TextLabel is not assigned!");
         if (dialogueBox == null) Debug.LogError("DialogueBox is not assigned!");
-
         CloseDialogueBox();
     }
 
@@ -33,6 +32,11 @@ public class DialogueUI : MonoBehaviour
         isTalking = true;
         dialogueBox.SetActive(true);
         StartCoroutine(StepThroughDialogue(dialogueObject));
+    }
+
+    public void AddResponseEvenet(ResponseEvent[] responseEvent)
+    {
+        responseHandle.AddRespnoseEvents(responseEvent);
     }
 
     private IEnumerator StepThroughDialogue(DialogueObject dialogueObject)
@@ -63,7 +67,7 @@ public class DialogueUI : MonoBehaviour
     }
 
     //Close Dialogue
-    private void CloseDialogueBox()
+    public void CloseDialogueBox()
     {
         isTalking = false;
         dialogueBox.SetActive(false);

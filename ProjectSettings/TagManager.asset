@@ -10,6 +10,10 @@ TagManager:
   - Item1
   - Item2
   - MoveRoomTesting
+  - RoomA
+  - RoomB
+  - Trash
+  - Boss
   layers:
   - Default
   - TransparentFX
