@@ -23,6 +23,8 @@ public class EnemySpawner : MonoBehaviour
     private Vector3 bossSpawn;
     private bool ifBossExists;
 
+    // BattleSystem battleSystem;
+
     // private Dictionary<string, GameObject> enemyPrefabs2 = new Dictionary<string, GameObject>();
 
     /*  void Awake()
@@ -41,7 +43,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 if (obj != null)
                 {
-                    Destroy(obj);
+                    Destroy(obj); //battleSystem.state == BattleState.WON
                 }
 
             }
@@ -76,6 +78,7 @@ public class EnemySpawner : MonoBehaviour
     }
     void Start()
     {
+        //battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
         moveRoomTest = GameObject.FindWithTag("MoveRoomTesting").GetComponent<MoveRoomTest>();
         bossSpawn = new Vector3(0f, 0.75f, -6.73f);
         // spawnPoints.Add(new Vector3(2f, 0.75f, -6.73f));
@@ -121,7 +124,7 @@ public class EnemySpawner : MonoBehaviour
     }
     public void DestroyBoss()
     {
-        if (bossInstance != null)
+        if (bossInstance != null) //battleSystem.state == BattleState.WON
         {
             Destroy(bossInstance);
         }

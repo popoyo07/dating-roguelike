@@ -17,15 +17,15 @@ public class MoveRoomA : MonoBehaviour
     public bool teleported;
 
     BattleSystem battleSystem;
-    MoveRoomTest moveRoomTest;
+    //MoveRoomTest moveRoomTest;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
-        moveRoomTest = GameObject.FindWithTag("MoveRoomTesting").GetComponent<MoveRoomTest>();
+        battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
+        //moveRoomTest = GameObject.FindWithTag("MoveRoomTesting").GetComponent<MoveRoomTest>();
 
-        moveRoomTest.moveA = false;
+        battleSystem.moveA = false;
         isMoving = false;
         teleported = false;
 
@@ -37,14 +37,14 @@ public class MoveRoomA : MonoBehaviour
 
     private void Update()
     {
-        //if (battleSystem.state == BattleState.WON && !isMoving)
-        if (moveRoomTest.moveA && !isMoving)
+        if (battleSystem.state == BattleState.WON && !isMoving)
+        //if (moveRoomTest.moveA && !isMoving)
         {
             moveDistance = 38f;
-
+            Debug.Log(isMoving);
             targetMovePosition = transform.position + transform.forward * moveDistance;
             isMoving = true;
-            moveRoomTest.moveA = false;
+            battleSystem.moveA = false;
             teleported = false;
         }
     }
