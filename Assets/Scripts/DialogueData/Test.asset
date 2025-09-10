@@ -20,3 +20,4 @@ MonoBehaviour:
     dialogueObject: {fileID: 11400000, guid: 5b5dfb8c4896a364f95f0320d91910aa, type: 2}
   - respnseText: No
     dialogueObject: {fileID: 11400000, guid: 1aef41f485b44a4459655961bccd4c95, type: 2}
+  nameText: Enemy

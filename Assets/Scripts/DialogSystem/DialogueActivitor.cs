@@ -11,7 +11,6 @@ public class DialogueActivator : MonoBehaviour
     [SerializeField] private DialogueObject dialogueObject;
     [SerializeField] private GameObject dialogueCanvas;
     [SerializeField] private TMP_Text nameText;
-    [SerializeField] private string Name;
 
     private DialogueUI dialogueUI;
     public void UpdateDialogueObject (DialogueObject dialogueObject)
@@ -21,7 +20,10 @@ public class DialogueActivator : MonoBehaviour
 
     private void Awake()
     {
-        nameText.text = Name;
+        if (dialogueObject != null && dialogueObject.NameText.Length > 0)
+        {
+            nameText.text = dialogueObject.NameText;
+        }
 
         if (dialogueCanvas != null)
         {

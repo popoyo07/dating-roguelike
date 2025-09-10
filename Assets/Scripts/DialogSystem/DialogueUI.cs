@@ -23,7 +23,6 @@ public class DialogueUI : MonoBehaviour
         if (responseHandle == null) Debug.LogError("ResponseHandle component is missing!");
         if (textLabel == null) Debug.LogError("TextLabel is not assigned!");
         if (dialogueBox == null) Debug.LogError("DialogueBox is not assigned!");
-
         CloseDialogueBox();
     }
 
