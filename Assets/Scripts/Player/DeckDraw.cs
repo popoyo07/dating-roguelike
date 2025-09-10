@@ -81,7 +81,7 @@ public class DeckDraw : DeckManagement
 
                
                 case BattleState.WON: 
-                    if (discardedCards.Count != 0) // check if there are cards in discard pile 
+                    if (!cardsAssigned) // just reusing the earlier bool for this 
                     {
                         RecoverDeck();
                     }
