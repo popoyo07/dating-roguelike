@@ -607,6 +607,14 @@ PrefabInstance:
       propertyPath: responseBox
       value: 
       objectReference: {fileID: 573236862}
+    - target: {fileID: 6621048415118245319, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 154.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6621048415118245319, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 148.8
+      objectReference: {fileID: 0}
     - target: {fileID: 7169825194918217622, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_IsActive
       value: 1
