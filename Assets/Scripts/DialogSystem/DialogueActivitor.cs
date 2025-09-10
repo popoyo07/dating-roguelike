@@ -8,6 +8,10 @@ public class DialogueActivator : MonoBehaviour
     [SerializeField] private GameObject dialogueCanvas;
 
     private DialogueUI dialogueUI;
+    public void UpdateDialogueObject (DialogueObject dialogueObject)
+    {
+        this.dialogueObject = dialogueObject;
+    }
 
     private void Awake()
     {
@@ -31,6 +35,13 @@ public class DialogueActivator : MonoBehaviour
     {
         // Wait one frame to ensure DialogueUI has run its Start() and initialized all components
         yield return null;
+
+        foreach (DialogueResponseEvents responseEvents in GetComponents<DialogueResponseEvents>())
+        {
+            dialogueUI.AddResponseEvenet(responseEvents.Events);
+            break;
+        }
+
 
         if (dialogueUI != null && dialogueObject != null)
         {
