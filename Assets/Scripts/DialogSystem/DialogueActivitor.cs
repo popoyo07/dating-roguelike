@@ -21,11 +21,7 @@ public class DialogueActivator : MonoBehaviour
     private void Awake()
     {
         Canvas = GameObject.Find("Canvas");
-        nameText = GameObject.Find("NameTxt").GetComponent<TMP_Text>();
-        if (dialogueObject != null && dialogueObject.NameText.Length > 0)
-        {
-            nameText.text = dialogueObject.NameText;
-        }
+
 
         if (Canvas != null)
         {
@@ -57,6 +53,13 @@ public class DialogueActivator : MonoBehaviour
         if (dialogueUI != null && dialogueObject != null)
         {
             dialogueUI.ShowDialogue(dialogueObject);
+            nameText = GameObject.Find("NameTxt").GetComponent<TMP_Text>();
+
+        }
+
+        if (dialogueObject != null && dialogueObject.NameText.Length > 0)
+        {
+            nameText.text = dialogueObject.NameText;
         }
 
         if (dialogueUI == null)

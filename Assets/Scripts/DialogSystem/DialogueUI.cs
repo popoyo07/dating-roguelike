@@ -21,14 +21,19 @@ public class DialogueUI : MonoBehaviour
     {
         textEffect = GetComponent<TextEffect>();
         responseHandle = GetComponent<ResponseHandle>();
-        CardUI.SetActive(false);
+        //CardUI.SetActive(false);
         if (textEffect == null) Debug.LogError("TextEffect component is missing!");
         if (responseHandle == null) Debug.LogError("ResponseHandle component is missing!");
         if (textLabel == null) Debug.LogError("TextLabel is not assigned!");
         if (dialogueBox == null) Debug.LogError("DialogueBox is not assigned!");
-        CloseDialogueBox();
+        //CloseDialogueBox();
+        StartCoroutine(DelayDisable(1));
     }
-
+    IEnumerator DelayDisable(int i)
+    {
+        yield return new WaitForSeconds(i);
+        CardUI.SetActive(false);
+    }
 
     public void ShowDialogue(DialogueObject dialogueObject)
     {
@@ -65,7 +70,7 @@ public class DialogueUI : MonoBehaviour
         else 
         {
             CloseDialogueBox();
-            //CardUI.SetActive(true);
+            CardUI.SetActive(true);
 
         }
     }

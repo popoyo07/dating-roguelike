@@ -20,11 +20,6 @@ public class AssignCard : MonoBehaviour
 
     private void Awake()
     {
-        
-    }
-
-    void Start()
-    {
         BSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
         cardDraw = GameObject.Find("CardManager").GetComponent<DeckDraw>();
         cardButton = GetComponent<Button>();
@@ -32,6 +27,12 @@ public class AssignCard : MonoBehaviour
         resetForNewTurn = false;
 
         StartCoroutine(InitializeCard());
+
+    }
+
+    void Start()
+    {
+     
     }
 
     private IEnumerator InitializeCard()
