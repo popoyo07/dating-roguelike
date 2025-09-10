@@ -1,11 +1,17 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.InputSystem;
+using TMPro;
+using Unity.VisualScripting;
+using System.Collections.Generic;
 
 public class DialogueActivator : MonoBehaviour
 {
     [Header("Dialogue Settings")]
     [SerializeField] private DialogueObject dialogueObject;
     [SerializeField] private GameObject dialogueCanvas;
+    [SerializeField] private TMP_Text nameText;
+    [SerializeField] private string Name;
 
     private DialogueUI dialogueUI;
     public void UpdateDialogueObject (DialogueObject dialogueObject)
@@ -15,6 +21,8 @@ public class DialogueActivator : MonoBehaviour
 
     private void Awake()
     {
+        nameText.text = Name;
+
         if (dialogueCanvas != null)
         {
             dialogueUI = dialogueCanvas.GetComponent<DialogueUI>();
@@ -41,7 +49,6 @@ public class DialogueActivator : MonoBehaviour
             dialogueUI.AddResponseEvenet(responseEvents.Events);
             break;
         }
-
 
         if (dialogueUI != null && dialogueObject != null)
         {
