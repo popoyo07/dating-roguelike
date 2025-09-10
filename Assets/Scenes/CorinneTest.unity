@@ -470,6 +470,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MoveRoomTest
   moveA: 0
   moveB: 0
+  moveC: 0
 --- !u!4 &2015284533
 Transform:
   m_ObjectHideFlags: 0
