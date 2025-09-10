@@ -8,6 +8,7 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private TMP_Text textLabel;
     [SerializeField] private RectTransform responseBox;
+    [SerializeField] private GameObject CardUI;
 
     //[SerializeField] private DialogueObject testDialogue;
 
@@ -20,7 +21,7 @@ public class DialogueUI : MonoBehaviour
     {
         textEffect = GetComponent<TextEffect>();
         responseHandle = GetComponent<ResponseHandle>();
-
+        CardUI.SetActive(false);
         if (textEffect == null) Debug.LogError("TextEffect component is missing!");
         if (responseHandle == null) Debug.LogError("ResponseHandle component is missing!");
         if (textLabel == null) Debug.LogError("TextLabel is not assigned!");
@@ -74,5 +75,6 @@ public class DialogueUI : MonoBehaviour
         isTalking = false;
         dialogueBox.SetActive(false);
         textLabel.text = string.Empty;
+        //CardUI.SetActive(true);
     }
 }

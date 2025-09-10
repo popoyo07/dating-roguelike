@@ -52,7 +52,7 @@ public class BattleUI : MonoBehaviour
         switch (bSystem.state)
         {
             case BattleState.PLAYERTURN:
-                if (!doing)
+/*                if (!doing)
                 {
                     // Activate cards
                     for (int i = 0; i < cards.Length; i++)
@@ -68,7 +68,7 @@ public class BattleUI : MonoBehaviour
                     }
 
                     doing = true;
-                }
+                }*/
                 break;
 
             case BattleState.WON:
