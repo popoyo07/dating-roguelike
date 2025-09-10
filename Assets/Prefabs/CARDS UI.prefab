@@ -404,8 +404,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AssignCard
   cardNameFromList: 
-  numbaerOnList: 0
-  txt: {fileID: 0}
+  cardButton: {fileID: 0}
+  txt: {fileID: 7177388385168474345}
+  cardUsed: 0
 --- !u!1 &2791884614630925372
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,8 +542,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AssignCard
   cardNameFromList: 
-  numbaerOnList: 0
-  txt: {fileID: 0}
+  cardButton: {fileID: 0}
+  txt: {fileID: 6542458054395159663}
+  cardUsed: 0
 --- !u!1 &3449265922679727931
 GameObject:
   m_ObjectHideFlags: 0
@@ -1264,8 +1266,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AssignCard
   cardNameFromList: 
-  numbaerOnList: 0
-  txt: {fileID: 0}
+  cardButton: {fileID: 0}
+  txt: {fileID: 7746843227713522859}
+  cardUsed: 0
 --- !u!1 &8228320329955747502
 GameObject:
   m_ObjectHideFlags: 0
@@ -1401,8 +1404,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AssignCard
   cardNameFromList: 
-  numbaerOnList: 0
-  txt: {fileID: 0}
+  cardButton: {fileID: 0}
+  txt: {fileID: 6989316511665622878}
+  cardUsed: 0
 --- !u!1 &8264492750430606097
 GameObject:
   m_ObjectHideFlags: 0
@@ -1766,8 +1770,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AssignCard
   cardNameFromList: 
-  numbaerOnList: 0
-  txt: {fileID: 0}
+  cardButton: {fileID: 0}
+  txt: {fileID: 5636141822536244008}
+  cardUsed: 0
 --- !u!114 &311051112353398664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1932,16 +1937,4 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7329292196855099976}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
-        m_MethodName: EndPlayerTurn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []

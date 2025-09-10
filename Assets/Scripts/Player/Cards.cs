@@ -7,7 +7,9 @@ public class Cards : MonoBehaviour
     public GameObject enemy;
     public GameObject player;
     public DeckManagement deckManagement;
-   
+    public EnergySystem energy; // reference enrgy system 
+
+
     public int shieldAmmount;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 

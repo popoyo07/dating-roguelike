@@ -16,13 +16,14 @@ public class Enemy : MonoBehaviour
     }
      
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (system.state == BattleState.ENEMYTURN && !doingS) 
         {
-            PickAttk();
             doingS = true;
-        } else
+
+            PickAttk();
+        } else if (system.state != BattleState.ENEMYTURN)
         {
             doingS = false;
         }
@@ -31,6 +32,8 @@ public class Enemy : MonoBehaviour
 
     void PickAttk()
     {
+        doingS = true;
+
         randomSelector = Random.Range(0, 1);
         switch (randomSelector) // randomly select an enemy attack
         {
@@ -43,10 +46,12 @@ public class Enemy : MonoBehaviour
                 Debug.Log("Nothing happened");
                 break;
         }
+
     }
     // basic enemy attacks 
     void regular()
     {
+
         player.ReceiveDMG(attkDmg);
             Debug.Log("RegularAttk");
         StartCoroutine(system.EndEnemyTurn());
@@ -54,6 +59,7 @@ public class Enemy : MonoBehaviour
 
     void doubleAttk()
     {
+
         player.ReceiveDMG(attkDmg);
         player.ReceiveDMG(attkDmg);
 
