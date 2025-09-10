@@ -30,7 +30,7 @@ public class ResponseHandle : MonoBehaviour
 
        for (int i = 0; i < responses.Length; i++) 
         {
-            //Debug.LogWarning(i);
+            Debug.LogWarning(i);
             Response response = responses[i];
             int responseIndex = i; 
             

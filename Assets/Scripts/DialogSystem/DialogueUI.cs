@@ -26,7 +26,7 @@ public class DialogueUI : MonoBehaviour
         if (responseHandle == null) Debug.LogError("ResponseHandle component is missing!");
         if (textLabel == null) Debug.LogError("TextLabel is not assigned!");
         if (dialogueBox == null) Debug.LogError("DialogueBox is not assigned!");
-        //CloseDialogueBox();
+        CloseDialogueBox();
         StartCoroutine(DelayDisable(1));
     }
     IEnumerator DelayDisable(int i)
@@ -49,7 +49,7 @@ public class DialogueUI : MonoBehaviour
 
     private IEnumerator StepThroughDialogue(DialogueObject dialogueObject)
     {
-        //yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(2);
 
         for (int i = 0; i < dialogueObject.Dialogue.Length; i++)
         {
@@ -71,7 +71,6 @@ public class DialogueUI : MonoBehaviour
         {
             CloseDialogueBox();
             CardUI.SetActive(true);
-
         }
     }
 

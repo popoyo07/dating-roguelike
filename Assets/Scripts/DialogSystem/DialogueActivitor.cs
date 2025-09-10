@@ -54,21 +54,12 @@ public class DialogueActivator : MonoBehaviour
         {
             dialogueUI.ShowDialogue(dialogueObject);
             nameText = GameObject.Find("NameTxt").GetComponent<TMP_Text>();
-
+            Debug.Log("HappenTwice");
         }
 
         if (dialogueObject != null && dialogueObject.NameText.Length > 0)
         {
             nameText.text = dialogueObject.NameText;
-        }
-
-        if (dialogueUI == null)
-        {
-            Debug.LogWarning("ASS");
-        }
-        if (dialogueObject == null)
-        {
-            Debug.LogWarning("Double Ass");
         }
     }
 }
