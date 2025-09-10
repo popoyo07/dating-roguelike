@@ -21,9 +21,14 @@ public class ItemSpawner : MonoBehaviour
     private float maxSpawnZ = 7.90f;
     private float spawnRadius = 2f;
     private float rangeOption;
+
+    BattleSystem battleSystem;
+
     void Start()
     {
         moveRoomTest = GameObject.FindWithTag("MoveRoomTesting").GetComponent<MoveRoomTest>();
+        battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
+
         /* for (int i = 0; i < itemPrefabs.Count; i++)
          {
              // Debug.Log("test2: " + i);
@@ -35,7 +40,7 @@ public class ItemSpawner : MonoBehaviour
 
     void Update()
     {
-        if (moveRoomTest.moveC == true)
+        if (battleSystem.moveC == true)
         {
             Debug.Log("test:destroy ");
             foreach (GameObject obj in pooooooooop)
