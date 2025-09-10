@@ -1,15 +1,16 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 public class ItemSpawner : MonoBehaviour
 {
-    public MoveRoomA moveRoomA;
-    public MoveRoomTest moveRoomTest;
+    private MoveRoomTest moveRoomTest;
     [SerializeField] private int item;
     [SerializeField] private int poolSize;
     public List<GameObject> itemPrefabs;
+
+    public GameObject[] pooooooooop;
     private int randomItem;
-    // private GameObject test;
 
     //Variables that set the range for spawning
     private float minSpawnX1 = 1.6f;
@@ -22,7 +23,6 @@ public class ItemSpawner : MonoBehaviour
     private float rangeOption;
     void Start()
     {
-       // moveRoomA = GameObject.FindWithTag("RoomA").GetComponent<MoveRoomA>();
         moveRoomTest = GameObject.FindWithTag("MoveRoomTesting").GetComponent<MoveRoomTest>();
         /* for (int i = 0; i < itemPrefabs.Count; i++)
          {
@@ -38,13 +38,23 @@ public class ItemSpawner : MonoBehaviour
         if (moveRoomTest.moveC == true)
         {
             Debug.Log("test:destroy ");
-            foreach (GameObject test2 in itemPrefabs)
+            foreach (GameObject obj in pooooooooop)
             {
-                Destroy(test2);
+                if (obj != null)
+                {
+                    Destroy(obj);
+                }
+
             }
-            itemPrefabs.Clear();
-            SpawnItem(3);
+
+            StartCoroutine(DelayTrash());
         }
+    }
+
+    IEnumerator DelayTrash()
+    {
+        yield return new WaitForSeconds(2.5f);
+        SpawnItem(3);
     }
     public void SpawnItem(int count)
     {
@@ -65,16 +75,7 @@ public class ItemSpawner : MonoBehaviour
                 Collider[] hitColliders = Physics.OverlapSphere(randomSpawn, spawnRadius);
                 if (hitColliders.Length != 0)
                 {
-                    GameObject test = Instantiate(itemPrefabs[randomItem], randomSpawn, Quaternion.identity);
-                    itemPrefabs.Add(test);
-
-                    if (testreinstate == true)
-                    {
-                        Debug.Log("no items ");
-                        test = Instantiate(itemPrefabs[randomItem], randomSpawn, Quaternion.identity);
-                        itemPrefabs.Add(test);
-
-                    }
+                    Instantiate(itemPrefabs[randomItem], randomSpawn, Quaternion.identity);
                 }
             }
             else
@@ -83,19 +84,12 @@ public class ItemSpawner : MonoBehaviour
                 Collider[] hitColliders = Physics.OverlapSphere(randomSpawn, spawnRadius);
                 if (hitColliders.Length != 0)
                 {
-                    GameObject test = Instantiate(itemPrefabs[randomItem], randomSpawn, Quaternion.identity);
-                    itemPrefabs.Add(test);
-
-                    if (testreinstate == true)
-                    {
-                        Debug.Log("no items ");
-                        test = Instantiate(itemPrefabs[randomItem], randomSpawn, Quaternion.identity);
-                        itemPrefabs.Add(test);
-
-                    }
+                    Instantiate(itemPrefabs[randomItem], randomSpawn, Quaternion.identity);
                 }
 
             }
+
+            pooooooooop = GameObject.FindGameObjectsWithTag("Trash");
 
 
             //Debug.Log("test: " + i);
@@ -108,7 +102,6 @@ public class ItemSpawner : MonoBehaviour
                  } */
         }
     }
-
 }
 
 
