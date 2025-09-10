@@ -7,6 +7,8 @@ public class DialogueUI : MonoBehaviour
 {
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private TMP_Text textLabel;
+    [SerializeField] private RectTransform responseBox;
+
     //[SerializeField] private DialogueObject testDialogue;
 
     private ResponseHandle responseHandle;

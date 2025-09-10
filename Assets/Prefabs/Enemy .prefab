@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 848022049841700595}
   - component: {fileID: 3900137015995239691}
   - component: {fileID: 7560086426456845732}
+  - component: {fileID: 7321611512733836059}
   m_Layer: 0
   m_Name: 'Enemy '
   m_TagString: Enemy
@@ -81,6 +82,21 @@ MonoBehaviour:
   randomSelector: 0
   attkDmg: 8
   shiledAdded: 0
+--- !u!114 &7321611512733836059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585669061024245490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a88223f22bcd861469fea1277dc1f7af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueActivator
+  dialogueObject: {fileID: 11400000, guid: d5bd490506c1fdc408fb3b9e720c9c04, type: 2}
+  dialogueCanvas: {fileID: 0}
+  nameText: {fileID: 0}
 --- !u!1 &629292301463093331
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,7 +221,7 @@ GameObject:
   - component: {fileID: 6023102727829386045}
   - component: {fileID: 8712819725964954217}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: E_Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

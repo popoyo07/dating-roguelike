@@ -593,6 +593,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueUI
   dialogueBox: {fileID: 1981081751}
   textLabel: {fileID: 1071061937}
+  responseBox: {fileID: 0}
 --- !u!114 &504968825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1314,7 +1315,6 @@ MonoBehaviour:
   dialogueObject: {fileID: 11400000, guid: d5bd490506c1fdc408fb3b9e720c9c04, type: 2}
   dialogueCanvas: {fileID: 504968823}
   nameText: {fileID: 275962082}
-  Name: Meh
 --- !u!1 &1071061936
 GameObject:
   m_ObjectHideFlags: 0
@@ -1756,7 +1756,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1699964366
 RectTransform:
   m_ObjectHideFlags: 0
