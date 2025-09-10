@@ -13,6 +13,9 @@ public class Enemy : MonoBehaviour
     {
          system = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
          player = GameObject.FindWithTag("Player").GetComponent<SimpleHealth>();
+
+        system.enemy = this.gameObject;
+        system.enemyHP = this.gameObject.GetComponent<SimpleHealth>();
     }
      
     // Update is called once per frame

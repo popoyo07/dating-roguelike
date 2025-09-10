@@ -25,7 +25,7 @@ public class EnemySpawner : MonoBehaviour
     private bool ifBossExists;
 
     BattleSystem battleSystem;
-    bool canSpawn;
+    bool enemySpawn;
 
     // private Dictionary<string, GameObject> enemyPrefabs2 = new Dictionary<string, GameObject>();
 
@@ -55,7 +55,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
-        if (battleSystem.state == BattleState.WON /*&& canSpawn*/)
+        if (battleSystem.state == BattleState.WON)
         {
             foreach (GameObject obj in pooooooooop2)
             {
@@ -67,8 +67,18 @@ public class EnemySpawner : MonoBehaviour
             }
 
             roomsSpawnBoss++;
-            canSpawn = false;
-            StartCoroutine(DelayTrash());
+
+            if(!enemySpawn)
+            {
+                StartCoroutine(DelayTrash());
+                enemySpawn = true;
+
+            }
+        }
+
+        if(battleSystem.state != BattleState.WON && enemySpawn == true)
+        {
+            enemySpawn = false;   
         }
 
         if (roomsSpawnBoss == 6 && ifBossExists == false)
