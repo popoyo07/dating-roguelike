@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour
     {
 
         player.ReceiveDMG(attkDmg);
-            Debug.Log("RegularAttk");
+           Debug.Log("RegularAttk");
         StartCoroutine(system.EndEnemyTurn());
     }
 
