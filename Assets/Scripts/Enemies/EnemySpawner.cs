@@ -1,35 +1,86 @@
 using System.Collections.Generic;
-//using System.Numerics;
-using System.Threading;
-using JetBrains.Annotations;
-using UnityEditor;
 using UnityEngine;
+using System.Collections;
+using System.ComponentModel.Design.Serialization;
+using System.Runtime.CompilerServices;
 
 public class EnemySpawner : MonoBehaviour
 {
-   // [SerializeField] private string enemy;
+    // [SerializeField] private string enemy;
+    private MoveRoomTest moveRoomTest;
     [SerializeField] private int enemy;
     [SerializeField] private int poolSize;
     public List<GameObject> enemyPrefabs;
+    public GameObject[] pooooooooop2;
     // private string randomEnemy;
     [SerializeField] private List<Vector3> spawnPoints;
     private int randomEnemy;
     private int randomSpawn;
-    
-   // private Dictionary<string, GameObject> enemyPrefabs2 = new Dictionary<string, GameObject>();
 
-  /*  void Awake()
+    public GameObject boss1;
+    private GameObject bossInstance;
+    public int roomsSpawnBoss;
+    private Vector3 bossSpawn;
+    private bool ifBossExists;
+
+    // private Dictionary<string, GameObject> enemyPrefabs2 = new Dictionary<string, GameObject>();
+
+    /*  void Awake()
+      {
+          enemyPrefabs.Add(enemyPrefabs[0]);
+          enemyPrefabs.Add(enemyPrefabs[1]);
+          enemyPrefabs.Add(enemyPrefabs[2]);
+          enemyPrefabs.Add(enemyPrefabs[3]);  
+      }*/
+
+    void Update()
     {
-        enemyPrefabs.Add(enemyPrefabs[0]);
-        enemyPrefabs.Add(enemyPrefabs[1]);
-        enemyPrefabs.Add(enemyPrefabs[2]);
-        enemyPrefabs.Add(enemyPrefabs[3]);  
-    }*/
+        if (moveRoomTest.moveC == true)
+        {
+            foreach (GameObject obj in pooooooooop2)
+            {
+                if (obj != null)
+                {
+                    Destroy(obj);
+                }
+
+            }
+
+            roomsSpawnBoss++;
+            StartCoroutine(DelayTrash());
+        }
+
+
+        if (roomsSpawnBoss == 6 && ifBossExists == false)
+        {
+            ifBossExists = true;
+            StartCoroutine(DelayBoss());
+        }
+    }
+
+    IEnumerator DelayTrash()
+    {
+        yield return new WaitForSeconds(2.5f);
+
+        if (roomsSpawnBoss < 6 || roomsSpawnBoss >= 7)
+        {
+            SpawnEnemy(1);
+            DestroyBoss();
+            ifBossExists = false;
+        }
+    }
+    IEnumerator DelayBoss()
+    {
+        yield return new WaitForSeconds(2.5f);
+        bossInstance = Instantiate(boss1, bossSpawn, Quaternion.identity);
+    }
     void Start()
     {
-       // spawnPoints.Add(new Vector3(2f, 0.75f, -6.73f));
+        moveRoomTest = GameObject.FindWithTag("MoveRoomTesting").GetComponent<MoveRoomTest>();
+        bossSpawn = new Vector3(0f, 0.75f, -6.73f);
+        // spawnPoints.Add(new Vector3(2f, 0.75f, -6.73f));
         spawnPoints.Add(new Vector3(0f, 0.75f, -6.73f));
-      //  spawnPoints.Add(new Vector3(-2f, 0.75f, -6.73f));
+        //  spawnPoints.Add(new Vector3(-2f, 0.75f, -6.73f));
         /* for (int i = 0; i < enemyPrefabs.Count; i++)
          {
              // Debug.Log("test2: " + i);
@@ -51,7 +102,7 @@ public class EnemySpawner : MonoBehaviour
             // randomSpawn = Random.Range(0, spawnPoints.Count);
             Vector3 chosenSpawn = spawnPoints[randomSpawn];
             Instantiate(enemyPrefabs[randomEnemy], chosenSpawn, Quaternion.identity);
-            spawnPoints.RemoveAt(randomSpawn);
+            //spawnPoints.RemoveAt(randomSpawn);
             // randomSpawn = Random.Range(0, availableSpawn.Count);
             // Transform selectedSpawn = availableSpawn[randomSpawn];
             // GameObject spawnEnemy = EnemyObjectPool.Instance.GetPooledObject(randomEnemy);
@@ -65,6 +116,14 @@ public class EnemySpawner : MonoBehaviour
                      spawnEnemy.transform.position = selectedSpawn.position;
                      availableSpawn.RemoveAt(randomSpawn);  
                  } */
+        }
+        pooooooooop2 = GameObject.FindGameObjectsWithTag("Enemy");
+    }
+    public void DestroyBoss()
+    {
+        if (bossInstance != null)
+        {
+            Destroy(bossInstance);
         }
     }
 }
