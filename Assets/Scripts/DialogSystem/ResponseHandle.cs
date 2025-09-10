@@ -29,9 +29,12 @@ public class ResponseHandle : MonoBehaviour
         float responseBoxHeight = 0;
 
        for (int i = 0; i < responses.Length; i++) 
-        {   
+        {
+            Debug.LogWarning(i);
             Response response = responses[i];
-            int responseIndex = i;
+            int responseIndex = i; 
+            
+            Debug.LogWarning(responseIndex);
 
             GameObject responseButton = Instantiate(responseButtonTemplate.gameObject, responseContainer);
             responseButton.gameObject.SetActive(true);

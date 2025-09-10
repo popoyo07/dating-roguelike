@@ -14,6 +14,7 @@ TagManager:
   - RoomB
   - Trash
   - Boss
+  - DialogueCanvas
   layers:
   - Default
   - TransparentFX

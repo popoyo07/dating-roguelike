@@ -55,7 +55,7 @@ public class DialogueUI : MonoBehaviour
 
 
             //Next dialogue by pressing space key
-            yield return new WaitUntil(() => Keyboard.current.spaceKey.wasPressedThisFrame);
+            yield return new WaitUntil(() => Keyboard.current.spaceKey.wasPressedThisFrame|| Input.touchCount > 0);
         }
 
         if (dialogueObject.HasResponses)
@@ -65,8 +65,9 @@ public class DialogueUI : MonoBehaviour
         else 
         {
             CloseDialogueBox();
-        }
+            //CardUI.SetActive(true);
 
+        }
     }
 
     //Close Dialogue
@@ -75,6 +76,5 @@ public class DialogueUI : MonoBehaviour
         isTalking = false;
         dialogueBox.SetActive(false);
         textLabel.text = string.Empty;
-        //CardUI.SetActive(true);
     }
 }

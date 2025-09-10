@@ -21,7 +21,7 @@ public class SimpleHealth : MonoBehaviour
             return false;
         }
     }
-    private HealthBar healthBar;
+    public HealthBar healthBar;
     private CardActionsCharacter1 attackManager;
     private BattleSystem battleSystem;
     private void Awake()

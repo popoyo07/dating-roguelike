@@ -9,7 +9,7 @@ public class DialogueActivator : MonoBehaviour
 {
     [Header("Dialogue Settings")]
     [SerializeField] private DialogueObject dialogueObject;
-    [SerializeField] private GameObject dialogueCanvas;
+    [SerializeField] private GameObject Canvas;
     [SerializeField] private TMP_Text nameText;
 
     private DialogueUI dialogueUI;
@@ -20,14 +20,16 @@ public class DialogueActivator : MonoBehaviour
 
     private void Awake()
     {
+        Canvas = GameObject.Find("Canvas");
+        nameText = GameObject.Find("NameTxt").GetComponent<TMP_Text>();
         if (dialogueObject != null && dialogueObject.NameText.Length > 0)
         {
             nameText.text = dialogueObject.NameText;
         }
 
-        if (dialogueCanvas != null)
+        if (Canvas != null)
         {
-            dialogueUI = dialogueCanvas.GetComponent<DialogueUI>();
+            dialogueUI = Canvas.GetComponent<DialogueUI>();
         }
 
         if (dialogueUI == null)
@@ -55,6 +57,15 @@ public class DialogueActivator : MonoBehaviour
         if (dialogueUI != null && dialogueObject != null)
         {
             dialogueUI.ShowDialogue(dialogueObject);
+        }
+
+        if (dialogueUI == null)
+        {
+            Debug.LogWarning("ASS");
+        }
+        if (dialogueObject == null)
+        {
+            Debug.LogWarning("Double Ass");
         }
     }
 }

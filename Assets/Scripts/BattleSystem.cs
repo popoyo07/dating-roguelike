@@ -10,7 +10,8 @@ public enum BattleState {
     LOST, 
     DEFAULT,
     ENDPLAYERTURN, 
-    STARTRUN  } // start run is for starting a new playthrough 
+    STARTRUN, 
+    DIALOGUE  } // start run is for starting a new playthrough 
 public class BattleSystem : MonoBehaviour
 {
     public BattleState state;
@@ -66,7 +67,7 @@ public class BattleSystem : MonoBehaviour
         switch (state)  // maybe can be donone on separate script and handle all the UI elements 
         {
             case BattleState.PLAYERTURN: 
-                endTurnB.SetActive(true);
+               // endTurnB.SetActive(true);
               
                 break;
                 case BattleState.STARTRUN:
@@ -74,11 +75,11 @@ public class BattleSystem : MonoBehaviour
                     break;
                 
             case BattleState.DEFAULT:
-                StartCoroutine(DelaySwitchState(1, BattleState.STARTRUN)); // temporary should remove later on 
+                
 
                 break;
                 case BattleState.LOST:
-                endTurnB.SetActive(false);
+                //endTurnB.SetActive(false);
                 break;
         }
 

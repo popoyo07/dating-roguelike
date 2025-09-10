@@ -9,10 +9,11 @@ public class BattleUI : MonoBehaviour
     public Button endTurnB;
     bool doing;
 
-    void Start()
+    void Awake()
     {
         bSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
         cards = GameObject.FindGameObjectsWithTag("Cards");
+        endTurnB = GameObject.Find("EndTurn")?.GetComponent<Button>();
 
         // Initialize the button at start
         StartCoroutine(InitializeButton());
@@ -24,7 +25,7 @@ public class BattleUI : MonoBehaviour
         yield return new WaitUntil(() => bSystem != null);
 
         // Find the button
-        endTurnB = GameObject.Find("EndTurn")?.GetComponent<Button>();
+        //endTurnB = GameObject.Find("EndTurn")?.GetComponent<Button>();
 
         if (endTurnB != null)
         {
