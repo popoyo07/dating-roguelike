@@ -10,8 +10,10 @@ public class DeckDraw : DeckManagement
     
     private void Awake()
     {
+
         cardGameObj = GameObject.FindGameObjectsWithTag("Cards");
         BSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
+        FindAndAssignCharacter();
 
         cards = new AssignCard[cardGameObj.Length];
         if (cardGameObj != null)
@@ -30,13 +32,23 @@ public class DeckDraw : DeckManagement
         {
             switch (BSystem.state)
             {
+                case BattleState.STARTRUN:
+                    if (!deckWasSet)
+                    {
+                        FindAndAssignCharacter();
+                        playerDeck.allCards.AddRange(startingDeck.allCards);
+                        Debug.Log("this is the info assigned to player deck " + playerDeck.allCards);
+
+                    }
+                    break;
+
                 case BattleState.PLAYERTURN:
                     if (!cardsAssigned)
                     {
                        
                         for (int i = 0; i < cards.Length; i++)
                         {
-                            if (cardsInDeck.Count == 0)
+                            if (playerDeck.allCards.Count == 0)
                             {
                                 RecoverDeck();
                             }
@@ -52,7 +64,13 @@ public class DeckDraw : DeckManagement
                     }
                     cardsAssigned = true;
                     break;
-
+                case BattleState.LOST:
+                    //  reset character enum
+                    characterClass = CharacterClass.PLAYERLOST;
+                    BSystem.state = BattleState.DEFAULT;
+                    startingDeck = null;
+                    cardDatabase = null;
+                    break;
                 default:
                     cardsAssigned = false;
                     break;
@@ -63,19 +81,19 @@ public class DeckDraw : DeckManagement
 
     void GetRandomFromDeck(AssignCard c)
     {
-        int r = Random.Range(0, cardsInDeck.Count);
-        c.cardNameFromList = cardsInDeck[r];
+        int r = Random.Range(0, playerDeck.allCards.Count);
+        c.cardNameFromList = playerDeck.allCards[r];        // Assign name for card 
         Debug.Log(" The cards got assigned " +  c.cardNameFromList);
-        // adds card to discarded pile 
-        discardedCards.Add(cardsInDeck[r]);
         // removes cards from deck 
-        cardsInDeck.RemoveAt(r);
+        playerDeck.allCards.RemoveAt(r);
     }
 
     void RecoverDeck() // recover deck and reset discarded cards 
     {
-        cardsInDeck.AddRange(discardedCards); // add all discarded cards back
+        playerDeck.allCards.Clear();
+        playerDeck.allCards.AddRange(discardedCards); // add all discarded cards back
         discardedCards.Clear(); // empty the discarded pile
     }
+
 
 }

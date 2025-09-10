@@ -2,7 +2,15 @@ using UnityEngine;
 using System.Collections;
 
 
-public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST }
+public enum BattleState {
+    START,
+    PLAYERTURN,
+    ENEMYTURN,
+    WON, 
+    LOST, 
+    DEFAULT,
+    ENDPLAYERTURN, 
+    STARTRUN  } // start run is for starting a new playthrough 
 public class BattleSystem : MonoBehaviour
 {
     public BattleState state;
@@ -13,12 +21,17 @@ public class BattleSystem : MonoBehaviour
     public SimpleHealth playerHP;
 
     private GameObject endTurnB;
-    public int turnCounter = 0; 
+    public int turnCounter = 0;
+
+    // Corinne told me to add this 
+    public bool moveA;
+    public bool moveB;
+    public bool moveC;
 
     void Start()
     {
         endTurnB = GameObject.Find("EndTurn");
-        state = BattleState.START;
+        state = BattleState.STARTRUN;              // change for actual game 
         Debug.Log("Current state is " + state);
         SetUpBattle();
 
@@ -39,6 +52,12 @@ public class BattleSystem : MonoBehaviour
                 state = BattleState.WON;
                 Debug.Log("Current state is " + state);
                 enemyHP = null;
+                if (moveC == true)
+                {
+                    moveA = true;
+                    moveB = true;
+                    moveC = false;
+                }
             }
         }
 
@@ -50,6 +69,9 @@ public class BattleSystem : MonoBehaviour
                 endTurnB.SetActive(true);
                 turnCounter++;
                 break;
+                case BattleState.STARTRUN:
+                StartCoroutine(DelayStart(1));
+                    break;
             default:
                 endTurnB.SetActive(false);
                 break;
@@ -66,8 +88,10 @@ public class BattleSystem : MonoBehaviour
 
     }
 
-    public void EndPlayerTurn()
+    public IEnumerator EndPlayerTurn()
     {
+        state = BattleState.ENDPLAYERTURN;
+        yield return new WaitForSeconds(.5f);  // delay a little so everything else can be run 
         state = BattleState.ENEMYTURN;
         Debug.Log("Current state is " + state);
     }
@@ -79,5 +103,11 @@ public class BattleSystem : MonoBehaviour
         Debug.Log("Current state is " + state);
     }
 
+    IEnumerator DelayStart(int delay)
+    {
+        yield return new WaitForSeconds(delay);
+        state = BattleState.START;
+        
+    }
 
 }

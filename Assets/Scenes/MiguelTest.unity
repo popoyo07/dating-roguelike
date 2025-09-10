@@ -1123,6 +1123,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1434494045}
     m_Modifications:
+    - target: {fileID: 311051112353398664, guid: df1aa113511cdc5439511ae0e1031ab7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1018559142764159759, guid: df1aa113511cdc5439511ae0e1031ab7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3449265922679727931, guid: df1aa113511cdc5439511ae0e1031ab7, type: 3}
       propertyPath: m_Name
       value: CARDS UI
@@ -1224,6 +1232,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 329374748921409105, guid: b8e3fcb72f8c1a24cb1d956dbed91eef, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 329374748921409105, guid: b8e3fcb72f8c1a24cb1d956dbed91eef, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 585669061024245490, guid: b8e3fcb72f8c1a24cb1d956dbed91eef, type: 3}
       propertyPath: m_Name
       value: 'Enemy '
@@ -1268,6 +1284,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1902235034046176476, guid: b8e3fcb72f8c1a24cb1d956dbed91eef, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1902235034046176476, guid: b8e3fcb72f8c1a24cb1d956dbed91eef, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1902235034046176476, guid: b8e3fcb72f8c1a24cb1d956dbed91eef, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1281,6 +1309,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6651855241109148109, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: deck
+      value: StartingCardsCharacter1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6651855241109148109, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: dataBase
+      value: AllCardsCharacter1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6651855241109148109, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: database
+      value: AllCardsCharacter1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6651855241109148109, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: theDeckArray.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6651855241109148109, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: 'theDeckArray.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 0801bfacd5d951144b8365b446167e37, type: 2}
+    - target: {fileID: 6651855241109148109, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: theDatabaseArray.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6651855241109148109, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: 'theDatabaseArray.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a49db9bae68117040b51e9d31241e11e, type: 2}
+    - target: {fileID: 6771811598734231068, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: doubleAttk
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6771811598734231068, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: singleAttk
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6771811598734231068, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: singleShield
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7180089294026773356, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
       propertyPath: m_Name
       value: Managers
@@ -1325,7 +1393,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1399962488727556856, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

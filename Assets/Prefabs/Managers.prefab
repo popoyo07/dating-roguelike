@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1509825541101992717}
-  - component: {fileID: 1399962488727556856}
   - component: {fileID: 6651855241109148109}
+  - component: {fileID: 6771811598734231068}
   m_Layer: 0
   m_Name: CardManager
   m_TagString: Untagged
@@ -33,28 +33,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7866195888513307851}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1399962488727556856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1292839831765639643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 082a9fe835e766a479cf7c1f001c3fd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CardActions
-  battleSystem: {fileID: 2199788757976406015}
-  attkAmmount: 0
-  enemy: {fileID: 585669061024245490, guid: b8e3fcb72f8c1a24cb1d956dbed91eef, type: 3}
-  player: {fileID: 1120840525128188196, guid: b1f04fcb1dfe0bb4dbbc5fa000218862, type: 3}
-  deckManagement: {fileID: 6651855241109148109}
-  shieldAmmount: 0
-  doubleAttk: 3
-  singleAttk: 5
-  singleShield: 3
-  healing: 0
 --- !u!114 &6651855241109148109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,21 +45,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2c85b9932fd77d44ac6ef077a9cb2ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeckDraw
-  cardsInDeck:
-  - SingleAttk
-  - SingleAttk
-  - DobleAttk
-  - DobleAttk
-  - SingleShield
-  - SingleShield
-  allCards:
-  - SingleAttk
-  - DobleAttk
-  - SingleShield
   discardedCards: []
+  characterClass: 0
   startingCards: 0
-  BSystem: {fileID: 0}
   currentDeckSize: 0
+  theDatabaseArray:
+  - {fileID: 11400000, guid: a49db9bae68117040b51e9d31241e11e, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  theStartingDeckArray:
+  - {fileID: 11400000, guid: 0801bfacd5d951144b8365b446167e37, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  cardDatabase: {fileID: 0}
+  startingDeck: {fileID: 0}
+  playerDeck: {fileID: 11400000, guid: be7739c8446fbb04598ef7116203cb3f, type: 2}
+  BSystem: {fileID: 0}
+--- !u!114 &6771811598734231068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292839831765639643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 580bf5b161738f04a88b3e780500ada2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardActionsCharacter1
+  battleSystem: {fileID: 0}
+  attkAmmount: 0
+  enemy: {fileID: 0}
+  player: {fileID: 0}
+  deckManagement: {fileID: 0}
+  shieldAmmount: 0
+  doubleAttk: 5
+  singleAttk: 1
+  singleShield: 2
+  healing: 0
 --- !u!1 &4134785340651724058
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,6 +134,9 @@ MonoBehaviour:
   enemyHP: {fileID: 3900137015995239691, guid: b8e3fcb72f8c1a24cb1d956dbed91eef, type: 3}
   playerHP: {fileID: 671802292131489193, guid: b1f04fcb1dfe0bb4dbbc5fa000218862, type: 3}
   turnCounter: 0
+  moveA: 0
+  moveB: 0
+  moveC: 0
 --- !u!114 &7944838084779905344
 MonoBehaviour:
   m_ObjectHideFlags: 0
