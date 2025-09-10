@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
         }
 
     }
-    
+
     void PickAttk()
     {
         doingS = true;
