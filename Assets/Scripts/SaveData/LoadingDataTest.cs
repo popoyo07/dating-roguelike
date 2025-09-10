@@ -9,10 +9,11 @@ public class LoadingDataTest : MonoBehaviour, IDataPersistence
 {
     public TextMeshProUGUI testText;
     private int testCounter;
-    private SimpleHealth player;
+    private SimpleHealth player, enemy;
 
     void Awake()
     {
+        enemy = GameObject.FindWithTag("Enemy").GetComponent<SimpleHealth>();
         player = GameObject.FindWithTag("Player").GetComponent<SimpleHealth>();
     }
 
@@ -40,4 +41,8 @@ public class LoadingDataTest : MonoBehaviour, IDataPersistence
         player.ReceiveDMG(1);
     }
 
+    public void TestAttack()
+    {
+        enemy.ReceiveDMG(1);
+    }
 }
