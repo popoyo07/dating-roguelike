@@ -1,15 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class MenuButtons : MonoBehaviour
 {
-    public GameObject mainMenu;
-    public GameObject settingsMenu;
-    public GameObject shopMenu;
     public GameObject winMenu;
     public GameObject loseMenu;
     public GameObject cardsMan;
     public GameObject man;
+    public GameObject loadingScreen; 
 
     BattleSystem battleSystem;
 
@@ -17,6 +16,12 @@ public class MenuButtons : MonoBehaviour
     private void Start()
     {
         battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
+
+        if (loadingScreen != null)
+        {
+            loadingScreen.SetActive(true);   // show it right away
+            StartCoroutine(HideLoading());   // start hiding countdown
+        }
     }
 
     private void Update()
@@ -29,47 +34,20 @@ public class MenuButtons : MonoBehaviour
         }
     }
 
-    public void EnterDungeon()
-    {
-        SceneManager.LoadScene("Dungeon");
-        mainMenu.SetActive(false);
-        cardsMan.SetActive(true);
-        man.SetActive(true);
-    }
-
     public void ExitApplication()
     {
         Application.Quit();
     }
 
-    public void Main()
+
+    public void BackToMain()
     {
-        mainMenu.SetActive(true);
-        settingsMenu.SetActive(false);
-        shopMenu.SetActive(false);
-        loseMenu.SetActive(false);
-        winMenu.SetActive(false);
-        cardsMan.SetActive(false);
-        man.SetActive(false);
+        SceneManager.LoadScene("MainMenu");
     }
 
-    public void BackMain()
+    private IEnumerator HideLoading()
     {
-        SceneManager.LoadScene("CorinneTest");
-        mainMenu.SetActive(true);
-        loseMenu.SetActive(false);
-        winMenu.SetActive(false);   
-    }
-
-    public void Shop()
-    {
-        shopMenu.SetActive(true);
-        mainMenu.SetActive(false);
-    }
-
-    public void Settings()
-    {
-        settingsMenu.SetActive(true);
-        mainMenu.SetActive(false);
+        yield return new WaitForSeconds(1.5f);
+        loadingScreen.SetActive(false);     // hide after 2 seconds
     }
 }
