@@ -23,6 +23,7 @@ public class ItemSpawner : MonoBehaviour
     private float rangeOption;
 
     BattleSystem battleSystem;
+    bool itemSpawn;
 
     void Start()
     {
@@ -40,7 +41,7 @@ public class ItemSpawner : MonoBehaviour
 
     void Update()
     {
-        if (battleSystem.moveC == true)
+        if (battleSystem.state == BattleState.WON) //battleSystem.moveC == true
         {
             Debug.Log("test:destroy ");
             foreach (GameObject obj in pooooooooop)
@@ -52,7 +53,17 @@ public class ItemSpawner : MonoBehaviour
 
             }
 
-            StartCoroutine(DelayTrash());
+            if (!itemSpawn)
+            {
+                StartCoroutine(DelayTrash());
+                itemSpawn = true;
+
+            }
+        }
+        
+        if (battleSystem.state != BattleState.WON && itemSpawn == true)
+        {
+            itemSpawn = false;
         }
     }
 

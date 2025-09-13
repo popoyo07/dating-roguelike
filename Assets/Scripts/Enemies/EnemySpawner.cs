@@ -40,6 +40,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
+        roomsSpawnBoss = 5;
         bossSpawn = new Vector3(0f, 0.75f, -6.73f);
         // spawnPoints.Add(new Vector3(2f, 0.75f, -6.73f));
         spawnPoints.Add(new Vector3(0f, 0.75f, -6.73f));
@@ -66,19 +67,17 @@ public class EnemySpawner : MonoBehaviour
 
             }
 
-            roomsSpawnBoss++;
-
-            if(!enemySpawn)
+            if (!enemySpawn)
             {
                 StartCoroutine(DelayTrash());
                 enemySpawn = true;
-
+                roomsSpawnBoss++;
             }
         }
 
-        if(battleSystem.state != BattleState.WON && enemySpawn == true)
+        if (battleSystem.state != BattleState.WON && enemySpawn == true)
         {
-            enemySpawn = false;   
+            enemySpawn = false;
         }
 
         if (roomsSpawnBoss == 6 && ifBossExists == false)
@@ -140,7 +139,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void DestroyBoss()
     {
-        if (bossInstance != null) //battleSystem.state == BattleState.WON
+        if (boss1 != null) //battleSystem.state == BattleState.WON
         {
             Destroy(bossInstance);
         }
