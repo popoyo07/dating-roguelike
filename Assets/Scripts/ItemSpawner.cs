@@ -33,7 +33,6 @@ public class ItemSpawner : MonoBehaviour
     private float rangeOption;
 
     //Bools for if an object can spawn in the area
-
     private bool canSpawnArea0;
     private bool canSpawnArea1;
     private bool canSpawnArea2;
@@ -95,13 +94,15 @@ public class ItemSpawner : MonoBehaviour
         canSpawnArea1 = true;
         canSpawnArea2 = true;
         canSpawnArea3 = true;
-        
+
         // List<int> availableItems = new List<int>(itemPrefabs.Count);
+        
+        //For loop that spawns random itmes in random areas. The i-- makes sure the loop will run until 3 items have been spawned in 3 different areas
 
         for (int i = 0; i < 3; i++)
         {
-            randomItem = Random.Range(0, itemPrefabs.Count);
-            rangeOption = Random.Range(0, 4);
+            randomItem = Random.Range(0, itemPrefabs.Count); //Chooses a random item to spawn from the itemPrefabs
+            rangeOption = Random.Range(0, 4); //Chooses a random spawn area
 
             float randomX = Random.Range(minSpawnX1, maxSpawnX1);
             float randomX2 = Random.Range(minSpawnX2, maxSpawnX2);
@@ -162,7 +163,6 @@ public class ItemSpawner : MonoBehaviour
                 }
                 else
                 {
-
                     i--;
                 }
             }
