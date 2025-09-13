@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: No
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
   dialogue:
-  - U don't like animal, I see
+  - dialogueText: Booooooooooo
+    characterName: :(
   responses: []
-  nameText: 

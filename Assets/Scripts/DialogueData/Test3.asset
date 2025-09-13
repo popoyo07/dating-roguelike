@@ -10,11 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb04ed8146191ab4b98ce1e8256bab43, type: 3}
-  m_Name: New Dialogue Object
+  m_Name: Test3
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
   dialogue:
-  - dialogueText: 1
-    characterName: B
-  - dialogueText: 2
-    characterName: C
-  responses: []
+  - dialogueText: Howdy!
+    characterName: Black Jesus
+  - dialogueText: Do you like cat or dog?
+    characterName: Jesus
+  responses:
+  - respnseText: Cat
+    dialogueObject: {fileID: 11400000, guid: 5b5dfb8c4896a364f95f0320d91910aa, type: 2}
+  - respnseText: None
+    dialogueObject: {fileID: 11400000, guid: 1aef41f485b44a4459655961bccd4c95, type: 2}

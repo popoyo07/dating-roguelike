@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Yes
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
   dialogue:
-  - Yesssssssss, let's be friend together :D
+  - dialogueText: Yessss, let's be friend forever :D
+    characterName: Black Jesus
   responses: []

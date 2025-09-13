@@ -30,11 +30,10 @@ public class ResponseHandle : MonoBehaviour
 
        for (int i = 0; i < responses.Length; i++) 
         {
-            Debug.LogWarning(i);
             Response response = responses[i];
             int responseIndex = i; 
             
-            Debug.LogWarning(responseIndex);
+            // Debug.LogWarning(responseIndex);
 
             GameObject responseButton = Instantiate(responseButtonTemplate.gameObject, responseContainer);
             responseButton.gameObject.SetActive(true);

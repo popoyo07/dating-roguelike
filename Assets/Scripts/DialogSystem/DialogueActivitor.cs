@@ -55,7 +55,6 @@ public class DialogueActivator : MonoBehaviour
         {
             dialogueUI.ShowDialogue(dialogueObject);
             nameText = GameObject.Find("NameTxt").GetComponent<TMP_Text>();
-            Debug.Log("HappenTwice");
         }
 
         if (dialogueObject != null && dialogueObject.Dialogue.Length > 0)
