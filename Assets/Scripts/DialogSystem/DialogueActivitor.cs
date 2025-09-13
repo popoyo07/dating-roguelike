@@ -18,6 +18,7 @@ public class DialogueActivator : MonoBehaviour
         this.dialogueObject = dialogueObject;
     }
 
+
     private void Awake()
     {
         Canvas = GameObject.Find("Canvas");
@@ -57,9 +58,9 @@ public class DialogueActivator : MonoBehaviour
             Debug.Log("HappenTwice");
         }
 
-        if (dialogueObject != null && dialogueObject.NameText.Length > 0)
+        if (dialogueObject != null && dialogueObject.Dialogue.Length > 0)
         {
-            nameText.text = dialogueObject.NameText;
+            nameText.text = dialogueObject.Dialogue[0].CharacterName;
         }
     }
 }

@@ -9,6 +9,8 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private TMP_Text textLabel;
     [SerializeField] private RectTransform responseBox;
     [SerializeField] private GameObject CardUI;
+    [SerializeField] private TMP_Text nameText;
+
 
     //[SerializeField] private DialogueObject testDialogue;
 
@@ -51,17 +53,28 @@ public class DialogueUI : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
 
+        string lastSpeaker = null;  // keeps track of the previous speaker
+
+
         for (int i = 0; i < dialogueObject.Dialogue.Length; i++)
         {
-            string dialogue = dialogueObject.Dialogue[i];
-            yield return textEffect.Run(dialogue, textLabel);
+            Dialogue currentDialogue = dialogueObject.Dialogue[i];
 
-            if (i == dialogueObject.Dialogue.Length - 1 && dialogueObject.HasResponses) break;
+            if (lastSpeaker != currentDialogue.CharacterName)
+            {
+                nameText.text = currentDialogue.CharacterName;
+                lastSpeaker = currentDialogue.CharacterName;
+            }
 
+            yield return textEffect.Run(currentDialogue.DialogueText, textLabel);
 
-            //Next dialogue by pressing space key
-            yield return new WaitUntil(() => Keyboard.current.spaceKey.wasPressedThisFrame|| Input.touchCount > 0);
+            if (i == dialogueObject.Dialogue.Length - 1 && dialogueObject.HasResponses)
+                break;
+
+            // Next dialogue by pressing space key or tapping
+            yield return new WaitUntil(() => Keyboard.current.spaceKey.wasPressedThisFrame || Input.touchCount > 0);
         }
+
 
         if (dialogueObject.HasResponses)
         {
