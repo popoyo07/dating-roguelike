@@ -40,7 +40,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
-        roomsSpawnBoss = 5;
+        roomsSpawnBoss = 0;
         bossSpawn = new Vector3(0f, 0.75f, -6.73f);
         // spawnPoints.Add(new Vector3(2f, 0.75f, -6.73f));
         spawnPoints.Add(new Vector3(0f, 0.75f, -6.73f));

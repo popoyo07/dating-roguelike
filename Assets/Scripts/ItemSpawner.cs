@@ -13,14 +13,31 @@ public class ItemSpawner : MonoBehaviour
     private int randomItem;
 
     //Variables that set the range for spawning
+
+    //top left
     private float minSpawnX1 = 1.6f;
-    private float maxSpawnX1 = 5f;
+    private float maxSpawnX1 = 4.50f;
+
+    //top right
     private float minSpawnX2 = -1.6f;
-    private float maxSpawnX2 = -5f;
+    private float maxSpawnX2 = -4.50f;
+
+    //Bottom left
     private float minSpawnZ = -5f;
-    private float maxSpawnZ = 7.90f;
-    private float spawnRadius = 2f;
+    private float maxSpawnZ = -1f;
+
+    //Bottom right
+    private float minSpawnZ2 = 0.5f;
+    private float maxSpawnZ2 = 4f;
+
     private float rangeOption;
+
+    //Bools for if an object can spawn in the area
+
+    private bool canSpawnArea0;
+    private bool canSpawnArea1;
+    private bool canSpawnArea2;
+    private bool canSpawnArea3;
 
     BattleSystem battleSystem;
     bool itemSpawn;
@@ -73,36 +90,81 @@ public class ItemSpawner : MonoBehaviour
         SpawnItem(3);
     }
     public void SpawnItem(int count)
-    {
+    {  
+        canSpawnArea0 = true;
+        canSpawnArea1 = true;
+        canSpawnArea2 = true;
+        canSpawnArea3 = true;
+        
         // List<int> availableItems = new List<int>(itemPrefabs.Count);
 
         for (int i = 0; i < 3; i++)
         {
             randomItem = Random.Range(0, itemPrefabs.Count);
-            rangeOption = Random.Range(0, 2);
+            rangeOption = Random.Range(0, 4);
 
             float randomX = Random.Range(minSpawnX1, maxSpawnX1);
             float randomX2 = Random.Range(minSpawnX2, maxSpawnX2);
+
             float randomZ = Random.Range(minSpawnZ, maxSpawnZ);
+            float randomZ2 = Random.Range(minSpawnZ2, maxSpawnZ2);
 
             if (rangeOption == 0)
             {
-                Vector3 randomSpawn = new Vector3(randomX, 0.75f, randomZ);
-                Collider[] hitColliders = Physics.OverlapSphere(randomSpawn, spawnRadius);
-                if (hitColliders.Length != 0)
+                if (canSpawnArea0 == true)
                 {
+                    Debug.Log("range 0");
+                    Vector3 randomSpawn = new Vector3(randomX, 0.75f, randomZ);
                     Instantiate(itemPrefabs[randomItem], randomSpawn, Quaternion.identity);
+                    canSpawnArea0 = false;
+                }
+                else
+                {
+                    i--;
                 }
             }
-            else
+            if (rangeOption == 1)
             {
-                Vector3 randomSpawn = new Vector3(randomX2, 0.75f, randomZ);
-                Collider[] hitColliders = Physics.OverlapSphere(randomSpawn, spawnRadius);
-                if (hitColliders.Length != 0)
+                if (canSpawnArea1 == true)
                 {
+                    Debug.Log("range 1");
+                    Vector3 randomSpawn = new Vector3(randomX2, 0.75f, randomZ);
                     Instantiate(itemPrefabs[randomItem], randomSpawn, Quaternion.identity);
+                    canSpawnArea1 = false;
                 }
+                else
+                {
+                    i--;
+                }
+            }
+            if (rangeOption == 2)
+            {
+                if (canSpawnArea2 == true)
+                {
+                    Debug.Log("range 2");
+                    Vector3 randomSpawn = new Vector3(randomX, 0.75f, randomZ2);
+                    Instantiate(itemPrefabs[randomItem], randomSpawn, Quaternion.identity);
+                    canSpawnArea2 = false;
+                }
+                else
+                {
+                    i--;
+                }
+            }
+            if (rangeOption == 3)
+            {
+                if (canSpawnArea3 == true)
+                {
+                    Debug.Log("range 3");
+                    Vector3 randomSpawn = new Vector3(randomX2, 0.75f, randomZ2);
+                    Instantiate(itemPrefabs[randomItem], randomSpawn, Quaternion.identity);
+                    canSpawnArea3 = false;
+                }
+                else
+                {
 
+                    i--;
+                }
             }
 
             pooooooooop = GameObject.FindGameObjectsWithTag("Trash");
