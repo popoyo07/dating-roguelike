@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14.85726, y: 0.42898, z: -2.94073}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7443736246260513057}
@@ -128,6 +128,7 @@ MonoBehaviour:
   dialogueObject: {fileID: 11400000, guid: 64acabaade6f6214bba1ec47db6d133f, type: 2}
   Canvas: {fileID: 0}
   nameText: {fileID: 0}
+  characterImage: {fileID: 0}
 --- !u!1001 &8619880907577233275
 PrefabInstance:
   m_ObjectHideFlags: 0
