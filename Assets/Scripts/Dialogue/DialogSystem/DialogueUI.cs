@@ -56,7 +56,7 @@ public class DialogueUI : MonoBehaviour
         yield return new WaitForSeconds(2);
 
         Color c = characterImage.color;
-        string lastSpeaker = null;  // keeps track of the previous speaker
+        string lastSpeaker = null;
         Sprite lastSprit = null;
 
         for (int i = 0; i < dialogueObject.Dialogue.Length; i++)
@@ -78,13 +78,13 @@ public class DialogueUI : MonoBehaviour
 
             if (currentDialogue.CharacterImage != null)
             {
-                c.a = 1f;   // visible
+                c.a = 1f;
             }
             else
             {
-                c.a = 0f;   // hidden
+                c.a = 0f;
             }
-            characterImage.color = c; // re-apply color
+            characterImage.color = c;
 
 
             Debug.LogWarning(c.a);
