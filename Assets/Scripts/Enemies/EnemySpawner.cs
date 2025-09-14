@@ -43,7 +43,7 @@ public class EnemySpawner : MonoBehaviour
         roomsSpawnBoss = 0;
         bossSpawn = new Vector3(0f, 0.75f, -6.73f);
         // spawnPoints.Add(new Vector3(2f, 0.75f, -6.73f));
-        spawnPoints.Add(new Vector3(0f, 0.75f, -6.73f));
+        spawnPoints.Add(new Vector3(0f, 1.3f, -6.73f));
         //  spawnPoints.Add(new Vector3(-2f, 0.75f, -6.73f));
         /* for (int i = 0; i < enemyPrefabs.Count; i++)
          {
