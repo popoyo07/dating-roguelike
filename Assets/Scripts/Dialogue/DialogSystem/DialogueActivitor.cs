@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 using TMPro;
 using Unity.VisualScripting;
 using System.Collections.Generic;
+using UnityEngine.UI;
+
 
 public class DialogueActivator : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class DialogueActivator : MonoBehaviour
     [SerializeField] private DialogueObject dialogueObject;
     [SerializeField] private GameObject Canvas;
     [SerializeField] private TMP_Text nameText;
+    [SerializeField] private Image characterImage;
 
     private DialogueUI dialogueUI;
     public void UpdateDialogueObject (DialogueObject dialogueObject)
@@ -55,11 +58,13 @@ public class DialogueActivator : MonoBehaviour
         {
             dialogueUI.ShowDialogue(dialogueObject);
             nameText = GameObject.Find("NameTxt").GetComponent<TMP_Text>();
+            characterImage = GameObject.Find("CharacterImage").GetComponent<Image>();
         }
 
         if (dialogueObject != null && dialogueObject.Dialogue.Length > 0)
         {
             nameText.text = dialogueObject.Dialogue[0].CharacterName;
+            characterImage.sprite = dialogueObject.Dialogue[0].CharacterImage;
         }
     }
 }

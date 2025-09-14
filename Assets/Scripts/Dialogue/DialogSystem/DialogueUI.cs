@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class DialogueUI : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private RectTransform responseBox;
     [SerializeField] private GameObject CardUI;
     [SerializeField] private TMP_Text nameText;
+    [SerializeField] private Image characterImage;
 
 
     //[SerializeField] private DialogueObject testDialogue;
@@ -53,8 +55,9 @@ public class DialogueUI : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
 
+        Color c = characterImage.color;
         string lastSpeaker = null;  // keeps track of the previous speaker
-
+        Sprite lastSprit = null;
 
         for (int i = 0; i < dialogueObject.Dialogue.Length; i++)
         {
@@ -65,6 +68,27 @@ public class DialogueUI : MonoBehaviour
                 nameText.text = currentDialogue.CharacterName;
                 lastSpeaker = currentDialogue.CharacterName;
             }
+
+            if (lastSprit != currentDialogue.CharacterImage)
+            {
+                characterImage.sprite = currentDialogue.CharacterImage;
+                lastSprit = currentDialogue.CharacterImage;
+
+            }
+
+            if (currentDialogue.CharacterImage != null)
+            {
+                c.a = 1f;   // visible
+            }
+            else
+            {
+                c.a = 0f;   // hidden
+            }
+            characterImage.color = c; // re-apply color
+
+
+            Debug.LogWarning(c.a);
+
 
             yield return textEffect.Run(currentDialogue.DialogueText, textLabel);
 
