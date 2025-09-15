@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +7,7 @@ using UnityEngine;
 public class DeckDraw : DeckManagement
 {
     GameObject[] cardGameObj;
-    AssignCard[] cards;
+    public AssignCard[] cards;
     bool cardsAssigned;
     bool combatEnded;
    
@@ -63,11 +64,12 @@ public class DeckDraw : DeckManagement
 
                             if (runtimeDeck.Count == 0)
                             {
-                                RecoverDeck();
+                                StartCoroutine(RecoverDeck(0f));
                             }
                             GetRandomFromDeck(cards[i]);
                         }
                         cardsAssigned = true;
+                        combatEnded = true;
                     }
                     break;
                 case BattleState.STARTRUN:
@@ -81,11 +83,12 @@ public class DeckDraw : DeckManagement
 
                
                 case BattleState.WON: 
-                    if (!cardsAssigned) // just reusing the earlier bool for this 
+                    if (combatEnded) // just reusing the earlier bool for this 
                     {
-                        RecoverDeck();
+                        combatEnded = false;
+                        StartCoroutine(RecoverDeck(.2f));
                     }
-                    cardsAssigned = true;
+                    cardsAssigned = false;
                     break;
                 case BattleState.LOST:
                     //  reset character enum
@@ -104,8 +107,9 @@ public class DeckDraw : DeckManagement
 
 
 
-    void RecoverDeck() // recover deck and reset discarded cards 
+    IEnumerator RecoverDeck(float delay) // recover deck and reset discarded cards 
     {
+        yield return new WaitForSeconds(delay);
         Debug.Log($"Before recovery - Runtime: {runtimeDeck.Count}, Discarded: {discardedCards.Count}");
 
         // Add all discarded cards back to runtime deck
