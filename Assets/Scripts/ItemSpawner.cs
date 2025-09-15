@@ -59,7 +59,7 @@ public class ItemSpawner : MonoBehaviour
     {
         if (battleSystem.state == BattleState.WON) //battleSystem.moveC == true
         {
-            Debug.Log("test:destroy ");
+          //  Debug.Log("test:destroy ");
             foreach (GameObject obj in pooooooooop)
             {
                 if (obj != null)

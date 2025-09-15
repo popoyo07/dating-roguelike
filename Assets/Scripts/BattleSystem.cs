@@ -68,23 +68,28 @@ public class BattleSystem : MonoBehaviour
         // simple remove from screen when is not player's turn 
         switch (state)  // maybe can be donone on separate script and handle all the UI elements 
         {
+            case BattleState.START:
+                StartCoroutine(DelaySwitchState(.5f, BattleState.PLAYERTURN));
+
+                break;
+
             case BattleState.WON: 
                 
-                StartCoroutine(DelaySwitchState(1, BattleState.START));
+                StartCoroutine(DelaySwitchState(.5f, BattleState.START));
                 break;
             case BattleState.PLAYERTURN: 
                
               
                 break;
-                case BattleState.STARTRUN:
-                StartCoroutine(DelaySwitchState(1, BattleState.START));
+            case BattleState.STARTRUN:
+                StartCoroutine(DelaySwitchState(.5f, BattleState.START));
                     break;
                 
             case BattleState.DEFAULT:
                
 
                 break;
-                case BattleState.LOST:
+            case BattleState.LOST:
             
                 break;
         }
@@ -92,11 +97,12 @@ public class BattleSystem : MonoBehaviour
     }
     void SetUpBattle()
     {
-        
-        enemyHP = enemy.GetComponent<SimpleHealth>();
-        playerHP = player.GetComponent<SimpleHealth>(); // get simple gelath 
-        state = BattleState.PLAYERTURN;
-        Debug.Log("Current state is " + state);
+        if (enemyHP == null)
+        {
+            enemyHP = enemy.GetComponent<SimpleHealth>();
+        }
+        playerHP = player.GetComponent<SimpleHealth>(); // get simple helath 
+        StartCoroutine(DelaySwitchState(0f, BattleState.PLAYERTURN));
 
     }
 
@@ -115,10 +121,11 @@ public class BattleSystem : MonoBehaviour
         Debug.Log("Current state is " + state);
     }
 
-    IEnumerator DelaySwitchState(int delay, BattleState b)
+    IEnumerator DelaySwitchState(float delay, BattleState b)
     {
         yield return new WaitForSeconds(delay);
         state = b;
+        Debug.LogWarning(" The current state is " + b);
         
     }
 

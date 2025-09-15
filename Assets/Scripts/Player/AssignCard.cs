@@ -66,13 +66,22 @@ public class AssignCard : MonoBehaviour
 
         // Auto-discard if card wasn't used by end of turn
         if (BSystem.state == BattleState.ENDPLAYERTURN && !cardUsed && gameObject.activeInHierarchy && !resetForNewTurn)
-        { 
-            resetForNewTurn = true;
-            DiscardAndReset();
-            ResetCardForNewTurn();
+        {
+            ResetForNewTurn();
+
+        }
+
+        if (BSystem.state == BattleState.WON && !resetForNewTurn && !cardUsed)
+        {
+            ResetForNewTurn();
         }
     }
-
+    void ResetForNewTurn()
+    {
+        resetForNewTurn = true;
+        DiscardAndReset();
+        ResetCardForNewTurn();
+    }
     public void SetupCardButton()
     {
         if (cardButton == null || cardAttks == null) return;
