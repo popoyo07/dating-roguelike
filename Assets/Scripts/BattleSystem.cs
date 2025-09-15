@@ -69,20 +69,20 @@ public class BattleSystem : MonoBehaviour
         switch (state)  // maybe can be donone on separate script and handle all the UI elements 
         {
             case BattleState.START:
-                StartCoroutine(DelaySwitchState(.5f, BattleState.PLAYERTURN));
+                StartCoroutine(DelaySwitchState(.2f, BattleState.PLAYERTURN, "BattleSystem"));
 
                 break;
 
             case BattleState.WON: 
                 
-                StartCoroutine(DelaySwitchState(.5f, BattleState.START));
+                StartCoroutine(DelaySwitchState(.2f, BattleState.START, "BattleSystem"));
                 break;
             case BattleState.PLAYERTURN: 
                
               
                 break;
             case BattleState.STARTRUN:
-                StartCoroutine(DelaySwitchState(.5f, BattleState.START));
+                StartCoroutine(DelaySwitchState(.2f, BattleState.START, "BattleSystem"));
                     break;
                 
             case BattleState.DEFAULT:
@@ -102,7 +102,7 @@ public class BattleSystem : MonoBehaviour
             enemyHP = enemy.GetComponent<SimpleHealth>();
         }
         playerHP = player.GetComponent<SimpleHealth>(); // get simple helath 
-        StartCoroutine(DelaySwitchState(0f, BattleState.PLAYERTURN));
+        StartCoroutine(DelaySwitchState(0f, BattleState.PLAYERTURN, "BattleSystem"));
 
     }
 
@@ -121,11 +121,11 @@ public class BattleSystem : MonoBehaviour
         Debug.Log("Current state is " + state);
     }
 
-    IEnumerator DelaySwitchState(float delay, BattleState b)
+    IEnumerator DelaySwitchState(float delay, BattleState b, string whichScriptIsFrom)
     {
         yield return new WaitForSeconds(delay);
         state = b;
-        Debug.LogWarning(" The current state is " + b);
+        Debug.LogWarning(" The current state is " + b + " " + whichScriptIsFrom);
         
     }
 
