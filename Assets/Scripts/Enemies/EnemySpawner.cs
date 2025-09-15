@@ -80,23 +80,24 @@ public class EnemySpawner : MonoBehaviour
             enemySpawn = false;
         }
 
-        if (roomsSpawnBoss == 6 && ifBossExists == false)
+      /*  if (roomsSpawnBoss == 6 && ifBossExists == false)
         {
             ifBossExists = true;
             StartCoroutine(DelayBoss());
-        }
+        }*/
     }
 
     IEnumerator DelayTrash()
     {
         yield return new WaitForSeconds(2.5f);
+        SpawnEnemy(1);
 
-        if (roomsSpawnBoss < 6 || roomsSpawnBoss >= 7)
+       /* if (roomsSpawnBoss < 6 || roomsSpawnBoss >= 7)
         {
             SpawnEnemy(1);
             DestroyBoss();
             ifBossExists = false;
-        }
+        }*/
     }
 
     IEnumerator DelayBoss()
