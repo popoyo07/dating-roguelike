@@ -59,19 +59,20 @@ public class DeckDraw : DeckManagement
                     {
                         for (int i = 0; i < cards.Length; i++)
                         {
-                            // Make sure card is active before assigning
-                            cards[i].gameObject.SetActive(true);
 
                             if (runtimeDeck.Count == 0)
                             {
+                                Debug.LogWarning("Recover for " + i);
                                 StartCoroutine(RecoverDeck(0f));
                             }
                             GetRandomFromDeck(cards[i]);
+                            Debug.LogWarning("It assigned " + (i + 1) + " Cards");
                         }
                         cardsAssigned = true;
                         combatEnded = true;
                     }
                     break;
+
                 case BattleState.STARTRUN:
                     if (!deckWasSet)
                     {
@@ -81,7 +82,11 @@ public class DeckDraw : DeckManagement
                     }
                     break;
 
-               
+                case BattleState.ENEMYTURN:
+                    cardsAssigned = false;
+                    break;
+
+
                 case BattleState.WON: 
                     if (combatEnded) // just reusing the earlier bool for this 
                     {
@@ -92,14 +97,14 @@ public class DeckDraw : DeckManagement
                     break;
                 case BattleState.LOST:
                     //  reset character enum
-                    characterClass = CharacterClass.PLAYERLOST;
+                   
                     BSystem.state = BattleState.DEFAULT;
                     startingDeck = null;
                     cardDatabase = null;
                     deckWasSet = false;
                     break;
                 default:
-                    cardsAssigned = false;
+                    //cardsAssigned = false;
                     break;
             }
         } else { Debug.Log("It is null "); }

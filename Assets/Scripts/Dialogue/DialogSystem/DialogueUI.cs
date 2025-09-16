@@ -34,14 +34,14 @@ public class DialogueUI : MonoBehaviour
     public IEnumerator DelayDisable(float i)
     {
         yield return new WaitForSeconds(i);
-        Debug.LogWarning("Delaying Card UI");
+        //Debug.LogWarning("Delaying Card UI");
         CardUI.SetActive(false);
     }
 
     public IEnumerator DelayAble(float i)
     {
         yield return new WaitForSeconds(i);
-        Debug.LogWarning("Assigning Card UI");
+     //   Debug.LogWarning("Assigning Card UI");
 
         CardUI.SetActive(true);
     }

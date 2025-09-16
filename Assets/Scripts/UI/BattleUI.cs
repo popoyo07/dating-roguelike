@@ -101,10 +101,17 @@ public class BattleUI : MonoBehaviour
                                 doing = true;
                             }*/
             case BattleState.WON:
-                //dialogueUI.StartCoroutine(dialogueUI.DelayDisable(0.1f));
+                dialogueUI.StartCoroutine(dialogueUI.DelayDisable(0.2f));
 
                 break;
-            case BattleState.LOST:
+            case BattleState.DEFAULT:
+
+                if (dialogueUI.isTalking) // if is stalking swithc to Dialogue state
+                {
+                    StartCoroutine(bSystem.DelaySwitchState(0f, BattleState.DIALOGUE, "isTalking = false "));
+
+                }
+                break;
             case BattleState.ENEMYTURN:
                 if (doing)
                 {
@@ -124,7 +131,7 @@ public class BattleUI : MonoBehaviour
                     doing = false;
                 }
                 break;
-
+               
             default:
                 doing = false;
                 break;

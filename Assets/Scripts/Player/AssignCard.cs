@@ -80,7 +80,7 @@ public class AssignCard : MonoBehaviour
     {
         resetForNewTurn = true;
         DiscardAndReset();
-        ResetCardForNewTurn();
+        ResetCardForNewCombat();
     }
     public void SetupCardButton()
     {
@@ -119,7 +119,7 @@ public class AssignCard : MonoBehaviour
         displayTxt = false;
     }
 
-    void ResetCardForNewTurn()
+    void ResetCardForNewCombat()
     {
         // Reset card state for new turn
         cardUsed = false;
@@ -136,8 +136,7 @@ public class AssignCard : MonoBehaviour
             cardButton.interactable = true;
         }
 
-        // Ensure the card is active
-        gameObject.SetActive(true);
+       
     }
 
     // This method should be called by DeckDraw when assigning a new card
@@ -145,7 +144,8 @@ public class AssignCard : MonoBehaviour
     {
         cardNameFromList = newCardName;
         displayTxt = false; // Allow text to be updated in next Update
-        cardUsed = false;
+        cardUsed = false; 
+        resetForNewTurn = false;
         SetupCardButton();
     }
 }
