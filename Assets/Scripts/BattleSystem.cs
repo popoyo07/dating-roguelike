@@ -121,7 +121,7 @@ public class BattleSystem : MonoBehaviour
         Debug.Log("Current state is " + state);
     }
 
-    IEnumerator DelaySwitchState(float delay, BattleState b, string whichScriptIsFrom)
+    public IEnumerator DelaySwitchState(float delay, BattleState b, string whichScriptIsFrom)
     {
         yield return new WaitForSeconds(delay);
         state = b;

@@ -8,9 +8,17 @@ public class BattleUI : MonoBehaviour
     GameObject[] cards;
     public Button endTurnB;
     bool doing;
+    public DialogueUI dialogueUI; // assign in inspector or find in Awake
+    //public GameObject CardUI;
+
 
     void Awake()
     {
+        if (dialogueUI == null)
+        {
+            dialogueUI = GameObject.FindObjectOfType<DialogueUI>();
+        }
+
         bSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
         cards = GameObject.FindGameObjectsWithTag("Cards");
         endTurnB = GameObject.Find("EndTurn")?.GetComponent<Button>();
@@ -52,27 +60,50 @@ public class BattleUI : MonoBehaviour
 
         switch (bSystem.state)
         {
-            case BattleState.PLAYERTURN:
-/*                if (!doing)
+            case BattleState.DIALOGUE:
+
+                if (dialogueUI.isTalking == false)
                 {
-                    // Activate cards
-                    for (int i = 0; i < cards.Length; i++)
-                    {
-                        cards[i].SetActive(true);
-                    }
-
-                    // Ensure button is active and interactable
-                    if (endTurnB != null)
-                    {
-                        endTurnB.gameObject.SetActive(true);
-                        endTurnB.interactable = true;
-                    }
-
-                    doing = true;
-                }*/
+                    StartCoroutine(bSystem.DelaySwitchState(0.2f, BattleState.PLAYERTURN, "isTalking = false "));
+                }
+                else
+                {
+                    dialogueUI.StartCoroutine(dialogueUI.DelayDisable(0.1f));
+                }
                 break;
 
+            case BattleState.PLAYERTURN:
+                if (dialogueUI.isTalking)
+                {
+                    StartCoroutine(bSystem.DelaySwitchState(0f, BattleState.DIALOGUE, "Battle UI Script "));
+                }
+                else
+                {
+                    dialogueUI.StartCoroutine(dialogueUI.DelayAble(0.1f));
+                }
+                break;
+
+            /*  if (!doing)
+                            {
+                                // Activate cards
+                                for (int i = 0; i < cards.Length; i++)
+                                {
+                                    cards[i].SetActive(true);
+                                }
+
+                                // Ensure button is active and interactable
+                                if (endTurnB != null)
+                                {
+                                    endTurnB.gameObject.SetActive(true);
+                                    endTurnB.interactable = true;
+                                }
+
+                                doing = true;
+                            }*/
             case BattleState.WON:
+                //dialogueUI.StartCoroutine(dialogueUI.DelayDisable(0.1f));
+
+                break;
             case BattleState.LOST:
             case BattleState.ENEMYTURN:
                 if (doing)

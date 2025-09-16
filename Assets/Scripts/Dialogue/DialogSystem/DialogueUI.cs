@@ -31,12 +31,25 @@ public class DialogueUI : MonoBehaviour
         if (textLabel == null) Debug.LogError("TextLabel is not assigned!");
         if (dialogueBox == null) Debug.LogError("DialogueBox is not assigned!");
         CloseDialogueBox();
-        StartCoroutine(DelayDisable(1));
+
+        if (isTalking)
+        {
+            StartCoroutine(DelayDisable(1));
+        }
     }
-    IEnumerator DelayDisable(int i)
+    public IEnumerator DelayDisable(float i)
     {
         yield return new WaitForSeconds(i);
+        Debug.LogWarning("Delaying Card UI");
         CardUI.SetActive(false);
+    }
+
+    public IEnumerator DelayAble(float i)
+    {
+        yield return new WaitForSeconds(i);
+        Debug.LogWarning("Assigning Card UI");
+
+        CardUI.SetActive(true);
     }
 
     public void ShowDialogue(DialogueObject dialogueObject)
