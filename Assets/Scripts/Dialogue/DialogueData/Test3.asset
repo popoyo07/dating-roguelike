@@ -16,12 +16,15 @@ MonoBehaviour:
   - dialogueText: Howdy!
     characterName: Black Jesus
     characterImage: {fileID: 21300000, guid: 7415628784ed85d4d80e6cad3d02e38d, type: 3}
+    dialogueEnd: 0
   - dialogueText: How's your day
     characterName: Jesus
     characterImage: {fileID: 0}
+    dialogueEnd: 0
   - dialogueText: Do you like cat or dog?
     characterName: Jesus
     characterImage: {fileID: 21300000, guid: fe350fe30bdd6b2499631bded79935ff, type: 3}
+    dialogueEnd: 0
   responses:
   - respnseText: Cat
     dialogueObject: {fileID: 11400000, guid: 5b5dfb8c4896a364f95f0320d91910aa, type: 2}

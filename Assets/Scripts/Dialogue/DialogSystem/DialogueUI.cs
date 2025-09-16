@@ -18,24 +18,18 @@ public class DialogueUI : MonoBehaviour
 
     private ResponseHandle responseHandle;
     private TextEffect textEffect;
-    public bool isTalking { get; private set; }
-
+    public bool isTalking;
+    public bool isTalkingTake2;
 
     private void Start()
     {
         textEffect = GetComponent<TextEffect>();
         responseHandle = GetComponent<ResponseHandle>();
-        //CardUI.SetActive(false);
         if (textEffect == null) Debug.LogError("TextEffect component is missing!");
         if (responseHandle == null) Debug.LogError("ResponseHandle component is missing!");
         if (textLabel == null) Debug.LogError("TextLabel is not assigned!");
         if (dialogueBox == null) Debug.LogError("DialogueBox is not assigned!");
         CloseDialogueBox();
-
-        if (isTalking)
-        {
-            StartCoroutine(DelayDisable(1));
-        }
     }
     public IEnumerator DelayDisable(float i)
     {
@@ -99,8 +93,17 @@ public class DialogueUI : MonoBehaviour
             }
             characterImage.color = c;
 
+            if (currentDialogue.DialogueEnd == true)
+            {
+                isTalkingTake2 = currentDialogue.DialogueEnd;
+                Debug.Log("Current talking End:" + isTalkingTake2);
+            }
+            else
+            {
+                isTalkingTake2 = false;
+                Debug.Log("Current talking End:" + isTalkingTake2);
 
-            Debug.LogWarning(c.a);
+            }
 
 
             yield return textEffect.Run(currentDialogue.DialogueText, textLabel);
@@ -120,7 +123,6 @@ public class DialogueUI : MonoBehaviour
         else 
         {
             CloseDialogueBox();
-            CardUI.SetActive(true);
         }
     }
 
@@ -128,6 +130,7 @@ public class DialogueUI : MonoBehaviour
     public void CloseDialogueBox()
     {
         isTalking = false;
+
         dialogueBox.SetActive(false);
         textLabel.text = string.Empty;
     }

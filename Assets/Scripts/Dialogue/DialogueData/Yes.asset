@@ -15,4 +15,6 @@ MonoBehaviour:
   dialogue:
   - dialogueText: Yessss, let's be friend forever :D
     characterName: Black Jesus
+    characterImage: {fileID: 0}
+    dialogueEnd: 1
   responses: []

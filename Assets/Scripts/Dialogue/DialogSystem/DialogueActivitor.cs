@@ -16,6 +16,7 @@ public class DialogueActivator : MonoBehaviour
     [SerializeField] private Image characterImage;
 
     private DialogueUI dialogueUI;
+
     public void UpdateDialogueObject (DialogueObject dialogueObject)
     {
         this.dialogueObject = dialogueObject;

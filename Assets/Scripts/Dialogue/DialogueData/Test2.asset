@@ -13,6 +13,16 @@ MonoBehaviour:
   m_Name: Test2
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
   dialogue:
-  - This is test2 for response
+  - dialogueText: sfdsfsdf
+    characterName: erewrwer
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: sfdsfsdf
+    characterName: erewrwer
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: sfdsfsdf
+    characterName: erewrwer
+    characterImage: {fileID: 0}
+    dialogueEnd: 1
   responses: []
-  nameText: 
