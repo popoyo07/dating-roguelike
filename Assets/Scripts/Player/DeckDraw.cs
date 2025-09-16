@@ -30,12 +30,12 @@ public class DeckDraw : DeckManagement
         }
       
     }
-    void GetRandomFromDeck(AssignCard c)
+    IEnumerator GetRandomFromDeck(AssignCard c)
     {
         if (runtimeDeck.Count == 0)
         {
-            Debug.LogWarning("Trying to draw from empty deck!");
-            return;
+            //Debug.LogWarning("Trying to draw from empty deck!");
+            yield return new WaitUntil(() => runtimeDeck.Count != 0); // wait for reset  
         }
 
         int r = Random.Range(0, runtimeDeck.Count);
@@ -64,8 +64,9 @@ public class DeckDraw : DeckManagement
                             {
                                 Debug.LogWarning("Recover for " + i);
                                 StartCoroutine(RecoverDeck(0f));
+
                             }
-                            GetRandomFromDeck(cards[i]);
+                            StartCoroutine(GetRandomFromDeck(cards[i]));
                             Debug.LogWarning("It assigned " + (i + 1) + " Cards");
                         }
                         cardsAssigned = true;

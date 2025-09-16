@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -24,15 +25,19 @@ public class Enemy : MonoBehaviour
         if (system.state == BattleState.ENEMYTURN && !doingS) 
         {
             doingS = true;
-
-            PickAttk();
+            StartCoroutine(DelayEndOfTurn(2.2f));
+           
         } else if (system.state != BattleState.ENEMYTURN)
         {
             doingS = false;
         }
 
     }
-
+    IEnumerator DelayEndOfTurn(float deleay) // add delay so we can run animations and things like that 
+    {
+        yield return new WaitForSeconds(deleay);
+        PickAttk();
+    }
     void PickAttk()
     {
         doingS = true;

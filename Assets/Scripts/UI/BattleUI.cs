@@ -56,7 +56,7 @@ public class BattleUI : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (bSystem == null) return;
+        if (bSystem == null) return; // if bSystem is empty then it does not run update 
 
         switch (bSystem.state)
         {
@@ -83,23 +83,7 @@ public class BattleUI : MonoBehaviour
                 }
                 break;
 
-            /*  if (!doing)
-                            {
-                                // Activate cards
-                                for (int i = 0; i < cards.Length; i++)
-                                {
-                                    cards[i].SetActive(true);
-                                }
-
-                                // Ensure button is active and interactable
-                                if (endTurnB != null)
-                                {
-                                    endTurnB.gameObject.SetActive(true);
-                                    endTurnB.interactable = true;
-                                }
-
-                                doing = true;
-                            }*/
+          
             case BattleState.WON:
                 dialogueUI.StartCoroutine(dialogueUI.DelayDisable(0.2f));
 
@@ -113,6 +97,8 @@ public class BattleUI : MonoBehaviour
                 }
                 break;
             case BattleState.ENEMYTURN:
+                dialogueUI.StartCoroutine(dialogueUI.DelayDisable(0.1f));
+
                 if (doing)
                 {
                     // Deactivate cards
