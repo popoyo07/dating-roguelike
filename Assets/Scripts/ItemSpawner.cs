@@ -4,7 +4,6 @@ using System.Collections;
 
 public class ItemSpawner : MonoBehaviour
 {
-    private MoveRoomTest moveRoomTest;
     [SerializeField] private int item;
     [SerializeField] private int poolSize;
     public List<GameObject> itemPrefabs;
@@ -43,7 +42,6 @@ public class ItemSpawner : MonoBehaviour
 
     void Start()
     {
-        moveRoomTest = GameObject.FindWithTag("MoveRoomTesting").GetComponent<MoveRoomTest>();
         battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
 
         /* for (int i = 0; i < itemPrefabs.Count; i++)

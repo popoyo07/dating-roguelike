@@ -30,7 +30,7 @@ public class CoinUI : MonoBehaviour
 
     private IEnumerator AddCoin()
     {
-        coinUI.SetText("+5 Banana");
+        coinUI.SetText("+5 Coin");
         yield return new WaitForSeconds(5f);
         coinUI.SetText("");
     }

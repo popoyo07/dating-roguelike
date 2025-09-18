@@ -8,7 +8,8 @@ public class MenuButtons : MonoBehaviour
     public GameObject loseMenu;
     public GameObject cardsMan;
     public GameObject man;
-    public GameObject loadingScreen; 
+    public GameObject loadingScreen;
+    public GameObject settings;
 
     BattleSystem battleSystem;
 
@@ -49,5 +50,15 @@ public class MenuButtons : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         loadingScreen.SetActive(false);     // hide after 2 seconds
+    }
+
+    public void OpenSettings()
+    {
+        settings.SetActive(true);
+    }
+
+    public void CloseSettings()
+    {
+        settings.SetActive(false);
     }
 }
