@@ -15,6 +15,7 @@ TagManager:
   - Trash
   - Boss
   - DialogueCanvas
+  - RewardPopUp
   layers:
   - Default
   - TransparentFX
