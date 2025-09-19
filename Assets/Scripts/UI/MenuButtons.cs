@@ -22,8 +22,8 @@ public class MenuButtons : MonoBehaviour
 
         if (loadingScreen != null)
         {
-            loadingScreen.SetActive(true);   // show it right away
-            StartCoroutine(HideLoading());   // start hiding countdown
+            loadingScreen.SetActive(true);
+            StartCoroutine(HideLoading());
         }
     }
 
@@ -52,10 +52,14 @@ public class MenuButtons : MonoBehaviour
         Application.Quit();
     }
 
-
     public void BackToMain()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void Retry()
+    {
+        SceneManager.LoadScene("Dungeon");
     }
 
     private IEnumerator HideLoading()

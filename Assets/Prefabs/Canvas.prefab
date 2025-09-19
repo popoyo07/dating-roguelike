@@ -2424,15 +2424,15 @@ MonoBehaviour:
   firstPick: 0
   pickedReward: 0
   roomRewards:
-  - rewardName: Coins
-    rewardSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  - rewardName: 
+    rewardSprite: {fileID: 0}
     rewardType: 0
-  - rewardName: Card
-    rewardSprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-    rewardType: 1
-  - rewardName: Lovey
-    rewardSprite: {fileID: 21300000, guid: fe350fe30bdd6b2499631bded79935ff, type: 3}
-    rewardType: 2
+  - rewardName: 
+    rewardSprite: {fileID: 0}
+    rewardType: 0
+  - rewardName: 
+    rewardSprite: {fileID: 0}
+    rewardType: 0
   button1: {fileID: 5322316551120584609}
   button2: {fileID: 1881698385545547832}
 --- !u!1 &4608457261662142800
@@ -2472,8 +2472,6 @@ RectTransform:
   m_Children:
   - {fileID: 3241018084746463871}
   - {fileID: 6702281200492106668}
-  - {fileID: 2324415801319860881}
-  - {fileID: 1062545616892401304}
   - {fileID: 3185996223637175368}
   - {fileID: 7630573670759225681}
   - {fileID: 3969942515262559293}
@@ -2481,6 +2479,8 @@ RectTransform:
   - {fileID: 3879615727582169250}
   - {fileID: 8516785337573245244}
   - {fileID: 9041459523165129297}
+  - {fileID: 2324415801319860881}
+  - {fileID: 1062545616892401304}
   - {fileID: 3770825072103357530}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4401,7 +4401,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3457477466270999438
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4493,18 +4493,6 @@ PrefabInstance:
       propertyPath: dialogueUI
       value: 
       objectReference: {fileID: 6424230952612506986}
-    - target: {fileID: 8350772356307164605, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
-      propertyPath: shieldECost
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8350772356307164605, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
-      propertyPath: swordStrike
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8350772356307164605, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
-      propertyPath: swordStrikeECost
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6771811598734231068, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
     m_RemovedGameObjects: []
@@ -4731,10 +4719,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5849479663727260242, guid: 6b95915ed66d6ae48a7c01cac161a3e5, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4767,22 +4751,6 @@ PrefabInstance:
     - target: {fileID: 663364930676727851, guid: fe85eb75b4ed0b24db682d04ef327353, type: 3}
       propertyPath: m_Name
       value: Op1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3631123265835428913, guid: fe85eb75b4ed0b24db682d04ef327353, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 4594920136599635050}
-    - target: {fileID: 3631123265835428913, guid: fe85eb75b4ed0b24db682d04ef327353, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3631123265835428913, guid: fe85eb75b4ed0b24db682d04ef327353, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3631123265835428913, guid: fe85eb75b4ed0b24db682d04ef327353, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7791566664209937494, guid: fe85eb75b4ed0b24db682d04ef327353, type: 3}
       propertyPath: m_Pivot.x
