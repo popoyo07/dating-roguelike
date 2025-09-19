@@ -11,7 +11,7 @@ public class AssignCard : MonoBehaviour
     public bool cardUsed;
 
     private BattleSystem BSystem;
-    private ActionsCharacter1 theCardAttks;
+    private ActionsKnight theCardAttks;
     private DeckDraw cardDraw;
     private bool displayTxt;
     private bool cardSet;
@@ -40,11 +40,11 @@ public class AssignCard : MonoBehaviour
     {
         // Wait for card actions to be initialized
         yield return new WaitUntil(() =>
-            cardDraw.GetComponent<ActionsCharacter1>() != null &&
-            cardDraw.GetComponent<ActionsCharacter1>().cardAttaks.Count > 0 && 
+            cardDraw.GetComponent<ActionsKnight>() != null &&
+            cardDraw.GetComponent<ActionsKnight>().cardAttaks.Count > 0 && 
             energy.GetComponent<EnergySystem>() != null );
 
-        theCardAttks = cardDraw.GetComponent<ActionsCharacter1>();
+        theCardAttks = cardDraw.GetComponent<ActionsKnight>();
         cardSet = true;
         SetupCardButton();
     }

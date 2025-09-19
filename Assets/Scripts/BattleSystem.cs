@@ -10,7 +10,8 @@ public enum BattleState {
     DEFAULT,
     ENDPLAYERTURN, 
     STARTRUN,
-    DIALOGUE
+    DIALOGUE,
+    REWARD
 } // start run is for starting a new playthrough 
 
 public class BattleSystem : MonoBehaviour

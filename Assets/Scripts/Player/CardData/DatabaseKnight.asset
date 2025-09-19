@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0f4dfe1bf3465045b0c4fd602c4cc73, type: 3}
-  m_Name: PlayerDeck
+  m_Name: DatabaseKnight
   m_EditorClassIdentifier: Assembly-CSharp::AllCardsOfCharacter
   allCards:
+  - SwordStrike
   - DobleAttk
-  - DobleAttk
-  - SingleShield
+  - Shield
+  - GainHP
+  - LoveyDovy

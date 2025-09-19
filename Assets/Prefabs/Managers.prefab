@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1509825541101992717}
   - component: {fileID: 6651855241109148109}
-  - component: {fileID: 1121357488644338886}
   - component: {fileID: 3543225914755121219}
+  - component: {fileID: 8350772356307164605}
   m_Layer: 0
   m_Name: CardManager
   m_TagString: Untagged
@@ -65,34 +65,6 @@ MonoBehaviour:
   discardDeck: 0
   deckWasSet: 0
   cards: []
---- !u!114 &1121357488644338886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1292839831765639643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5edd780b7d1f53543b5a5ab1ee34a0c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ActionsCharacter1
-  battleSystem: {fileID: 0}
-  attkAmmount: 0
-  enemy: {fileID: 0}
-  player: {fileID: 0}
-  deckManagement: {fileID: 0}
-  energy: {fileID: 0}
-  dmgModifier: 0
-  shieldAmmount: 0
-  doubleAttk: 3
-  doubleAttkECost: 1
-  singleAttk: 3
-  singleAttkECost: 1
-  singleShield: 5
-  singleShieldECost: 1
-  healing: 10
-  healingECost: 1
 --- !u!114 &3543225914755121219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,6 +79,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnergySystem
   energyCounter: 3
   maxEnergy: 3
+--- !u!114 &8350772356307164605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292839831765639643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe51e838b98ea15429ae934ca930fbe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ActionsKnight
+  battleSystem: {fileID: 0}
+  attkAmmount: 0
+  enemy: {fileID: 0}
+  player: {fileID: 0}
+  deckManagement: {fileID: 0}
+  energy: {fileID: 0}
+  dmgModifier: 0
+  shieldAmmount: 0
+  doubleAttk: 2
+  doubleAttkECost: 1
+  swordStrike: 3
+  swordStrikeECost: 1
+  shield: 5
+  shieldECost: 1
+  healing: 10
+  healingECost: 1
 --- !u!1 &4134785340651724058
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,7 +160,6 @@ MonoBehaviour:
   turnCounter: 0
   moveA: 0
   moveB: 0
-  moveC: 0
 --- !u!114 &7944838084779905344
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -22,12 +22,12 @@ public class SimpleHealth : MonoBehaviour
         }
     }
     public HealthBar healthBar;
-    private ActionsCharacter1 attackManager;
+    private ActionsKnight attackManager;
     private BattleSystem battleSystem;
     private void Awake()
     {
         health = maxHealth;
-        attackManager = GameObject.Find("CardManager").GetComponent<ActionsCharacter1>();
+        attackManager = GameObject.Find("CardManager").GetComponent<ActionsKnight>();
         battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
         healthBar = this.gameObject.GetComponent<HealthBar>();
         if (gameObject.CompareTag("Enemy"))
@@ -50,13 +50,19 @@ public class SimpleHealth : MonoBehaviour
     }
     public void ReceiveDMG(int dmg) 
     {
-        if (shield > 0)
+      
+        if (dmg != 0)
         {
-            dmg = dmg -shield;
-        }
-        if (shield <= 0 && dmg != 0)
-        {
-            health = health - dmg;
+            Debug.Log("player has " + shield);
+            Debug.Log("Dmg before shield is " + dmg);
+            int dmgDone = dmg - shield;
+            shield -= dmg;
+            Debug.Log("Damage done to is " + dmgDone);
+            if (dmgDone > 0)
+            {
+                health = health - dmgDone;
+
+            }
         }
         Debug.Log("Remeining health is " +  health);
         healthBar.UpdateHealth();
