@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,17 +10,28 @@ public class Rewards : MonoBehaviour
     private bool rewardSelectOnce;
     public bool pickedReward;
 
-    public List<Sprite> roomRewards;
+    [System.Serializable]
+    public class Reward
+    {
+        public string rewardName;
+        public Sprite rewardSprite;
+        public RewardType rewardType;
+    }
 
+    public enum RewardType { Coins, Card, Lovey }
+
+    [Header("Rewards")]
+    public List<Reward> roomRewards;
+
+    [Header("Buttons")]
     public Button button1;
     public Button button2;
 
-    private Sprite reward1;
-    private Sprite reward2;
+    private Reward reward1;
+    private Reward reward2;
 
-    BattleSystem battleSystem;
+    private BattleSystem battleSystem;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
@@ -41,7 +51,7 @@ public class Rewards : MonoBehaviour
 
     void ShowRewardOptions()
     {
-        // Pick two random different rewards
+        // Pick random rewards
         int index1 = Random.Range(0, roomRewards.Count);
         int index2 = Random.Range(0, roomRewards.Count);
 
@@ -49,39 +59,40 @@ public class Rewards : MonoBehaviour
         {
             index2 = Random.Range(0, roomRewards.Count);
         }
-
+            
         reward1 = roomRewards[index1];
         reward2 = roomRewards[index2];
 
-        // Assign to button images
-        button1.image.sprite = reward1;
-        button2.image.sprite = reward2;
+        // Assign sprites
+        button1.image.sprite = reward1.rewardSprite;
+        button2.image.sprite = reward2.rewardSprite;
+
+        // Assign behavior
+        button1.onClick.RemoveAllListeners();
+        button2.onClick.RemoveAllListeners();
+
+        button1.onClick.AddListener(() => ApplyReward(reward1));
+        button2.onClick.AddListener(() => ApplyReward(reward2));
     }
 
-    public void PickReward()
+    void ApplyReward(Reward reward)
     {
         pickedReward = true;
         openRewardsPop = false;
         firstPick = false;
         rewardSelectOnce = false;
+
+        switch (reward.rewardType)
+        {
+            case RewardType.Coins:
+                Debug.LogWarning("Coins ADDED");
+                break;
+            case RewardType.Card:
+                Debug.LogWarning("New Card ADDED");
+                break;
+            case RewardType.Lovey:
+                Debug.LogWarning("Lovey Card ADDED");
+                break;
+        }
     }
-
-
-   /* public void CoinReward()
-    {
-        //add coins
-        Debug.LogWarning("Coins ADDED");
-    }
-
-    public void CardReward()
-    {
-        //add new card or cards to deck
-        Debug.LogWarning("New Card ADDED");
-    }
-
-    public void LoveyReward()
-    {
-        //guaranteed LovyDovy Card
-        Debug.LogWarning("Lovey Card ADDED");
-    }*/
 }

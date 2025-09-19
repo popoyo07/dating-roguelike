@@ -438,7 +438,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1881698385545547832, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1881698385545547832, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -567,7 +567,7 @@ PrefabInstance:
     - target: {fileID: 5322316551120584609, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2058364034}
+      objectReference: {fileID: 2058364032}
     - target: {fileID: 5322316551120584609, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -578,15 +578,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5322316551120584609, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PickReward
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5322316551120584609, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: CloseRewardsPopup
       objectReference: {fileID: 0}
     - target: {fileID: 5322316551120584609, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5322316551120584609, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: MenuButtons, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5322316551120584609, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5322316551120584609, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -612,6 +620,38 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7218606150051989901, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: roomRewards.Array.data[0].rewardName
+      value: Coins
+      objectReference: {fileID: 0}
+    - target: {fileID: 7218606150051989901, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: roomRewards.Array.data[1].rewardName
+      value: Card
+      objectReference: {fileID: 0}
+    - target: {fileID: 7218606150051989901, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: roomRewards.Array.data[1].rewardType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7218606150051989901, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: roomRewards.Array.data[2].rewardName
+      value: Lovey
+      objectReference: {fileID: 0}
+    - target: {fileID: 7218606150051989901, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: roomRewards.Array.data[2].rewardType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7218606150051989901, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: roomRewards.Array.data[0].rewardSprite
+      value: 
+      objectReference: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 7218606150051989901, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: roomRewards.Array.data[1].rewardSprite
+      value: 
+      objectReference: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 7218606150051989901, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: roomRewards.Array.data[2].rewardSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fe350fe30bdd6b2499631bded79935ff, type: 3}
     - target: {fileID: 9197433941476431104, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -743,12 +783,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fa80b74134f64a419ff4106bfa6c2b0, type: 3}
+--- !u!1 &2058364032 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4594920136599635050, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+  m_PrefabInstance: {fileID: 1333872139}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2058364034 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7218606150051989901, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
   m_PrefabInstance: {fileID: 1333872139}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2058364032}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3cf168671148fb479537170a71cfde9, type: 3}

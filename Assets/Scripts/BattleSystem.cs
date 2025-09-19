@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
 
-
 public enum BattleState {
     START,
     PLAYERTURN,
@@ -10,8 +9,10 @@ public enum BattleState {
     LOST, 
     DEFAULT,
     ENDPLAYERTURN, 
-    STARTRUN ,
-    DIALOGUE} // start run is for starting a new playthrough 
+    STARTRUN,
+    DIALOGUE
+} // start run is for starting a new playthrough 
+
 public class BattleSystem : MonoBehaviour
 {
     public BattleState state;
