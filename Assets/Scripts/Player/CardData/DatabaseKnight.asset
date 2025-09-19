@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: DatabaseKnight
   m_EditorClassIdentifier: Assembly-CSharp::AllCardsOfCharacter
   allCards:
-  - SwordStrike
-  - DobleAttk
+  - Sword Strike
+  - Doble Attk
   - Shield
-  - GainHP
+  - Small Health Potion
   - LoveyDovy
+  - Big Health Potion
+  - Battle Cry

@@ -1,3 +1,4 @@
+using NUnit.Framework.Constraints;
 using System.Collections;
 using UnityEngine;
 
@@ -46,6 +47,7 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(deleay);
         if (!stuned && !selectionUsed)
         {
+            selectionUsed = true;
             Action();
         }
         else
@@ -62,7 +64,8 @@ public class Enemy : MonoBehaviour
             case 0:
                 regular();
                 break;
-            case 1: doubleAttk(); 
+            case 1: 
+                StartCoroutine(doubleAttk()); 
                 break;
             default:
                 Debug.Log("Nothing happened");
@@ -79,10 +82,12 @@ public class Enemy : MonoBehaviour
            Debug.Log("RegularAttk");
     }
 
-    void doubleAttk()
+    IEnumerator doubleAttk()
     {
 
         player.ReceiveDMG(attkDmg);
+        yield return new WaitForSeconds(.7f);
+
         player.ReceiveDMG(attkDmg);
 
         Debug.Log("DoubleAttk");
