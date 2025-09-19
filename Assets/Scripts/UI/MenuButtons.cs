@@ -18,21 +18,12 @@ public class MenuButtons : MonoBehaviour
     private void Start()
     {
         battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
-        rewards = GameObject.FindWithTag("RewardPopUp").GetComponent<Rewards>();
+        rewards.GetComponent<Rewards>();
 
         if (loadingScreen != null)
         {
             loadingScreen.SetActive(true);   // show it right away
             StartCoroutine(HideLoading());   // start hiding countdown
-        }
-
-        if (rewards.openRewards == true)
-        {
-            rewardsPopup.SetActive(true);
-        }
-        else
-        {
-            rewardsPopup.SetActive(false);
         }
     }
 
@@ -45,7 +36,10 @@ public class MenuButtons : MonoBehaviour
             man.SetActive(false);
         }
 
-
+        if (battleSystem.state == BattleState.WON)
+        {
+            rewardsPopup.SetActive(true);
+        }
     }
 
     public void ExitApplication()

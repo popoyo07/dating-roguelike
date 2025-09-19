@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Rewards : MonoBehaviour
 {
-    public bool openRewards;
     public bool pickedReward;
 
     public List<Sprite> roomRewards;
@@ -16,20 +15,30 @@ public class Rewards : MonoBehaviour
     private Sprite reward1;
     private Sprite reward2;
 
-    //BattleSystem battleSystem;
+    // Corinne told me to add this 
+    public bool moveA;
+    public bool moveB;
+
+    BattleSystem battleSystem;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
+        battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
     }
 
     private void Update()
     {
-        if (openRewards == true && pickedReward == false)
+        if (battleSystem.state == BattleState.WON && pickedReward == false)
         {
-            //show reward options on buttons
             ShowRewardOptions();
+        }
+
+        if (pickedReward == true)
+        {
+            moveA = true;
+            moveB = true;
+            pickedReward = false;
         }
     }
 
@@ -50,9 +59,6 @@ public class Rewards : MonoBehaviour
         // Assign to button images
         button1.image.sprite = reward1;
         button2.image.sprite = reward2;
-
-        // only set once until player picks
-        openRewards = false;
     }
 
     public void PickReward()
