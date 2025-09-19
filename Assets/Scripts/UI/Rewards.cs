@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class Rewards : MonoBehaviour
 {
+    [Header("Bools")]
+    public bool openRewardsPop;
+    public bool firstPick;
+    private bool rewardSelectOnce;
     public bool pickedReward;
 
     public List<Sprite> roomRewards;
@@ -21,18 +25,18 @@ public class Rewards : MonoBehaviour
     void Start()
     {
         battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
-        pickedReward = false;
+        openRewardsPop = true;
+        firstPick = true;
         ShowRewardOptions();
     }
 
     private void Update()
     {
-        if (battleSystem.state == BattleState.WON && pickedReward == false)
+        if (battleSystem.state == BattleState.WON && !pickedReward && !rewardSelectOnce)
         {
             ShowRewardOptions();
+            rewardSelectOnce = true;
         }
-
-        //PickReward();
     }
 
     void ShowRewardOptions()
@@ -57,17 +61,13 @@ public class Rewards : MonoBehaviour
     public void PickReward()
     {
         pickedReward = true;
-        StartCoroutine(ClosePopupAfterDelay());
+        openRewardsPop = false;
+        firstPick = false;
+        rewardSelectOnce = false;
     }
 
-    IEnumerator ClosePopupAfterDelay()
-    {
-        yield return new WaitForSeconds(0.01f);
-        pickedReward = false;
-        //FindObjectOfType<MenuButtons>().CloseRewardsPopup();
-    }
 
-    public void CoinReward()
+   /* public void CoinReward()
     {
         //add coins
         Debug.LogWarning("Coins ADDED");
@@ -83,5 +83,5 @@ public class Rewards : MonoBehaviour
     {
         //guaranteed LovyDovy Card
         Debug.LogWarning("Lovey Card ADDED");
-    }
+    }*/
 }

@@ -36,9 +36,14 @@ public class MenuButtons : MonoBehaviour
             man.SetActive(false);
         }
 
-        if (battleSystem.state == BattleState.WON && !rewardsPopup.activeSelf && !rewards.pickedReward)
+        if (rewards.openRewardsPop && !rewardsPopup.activeSelf && !rewards.pickedReward)
         {
             rewardsPopup.SetActive(true);
+        }
+
+        if (!rewards.openRewardsPop)
+        {
+            rewardsPopup.SetActive(false);
         }
     }
 
@@ -67,10 +72,5 @@ public class MenuButtons : MonoBehaviour
     public void CloseSettings()
     {
         settings.SetActive(false);
-    }
-
-    public void CloseRewardsPopup()
-    {
-        rewardsPopup.SetActive(false);   
     }
 }

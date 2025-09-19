@@ -48,18 +48,20 @@ public class BattleSystem : MonoBehaviour
                 playerHP = null;
 
             }
-            if (enemyHP.dead() && rewards.pickedReward)
+            if (enemyHP.dead())
             {
-                state = BattleState.WON;
-                Debug.Log("Current state is " + state);
-                enemyHP = null;
-            }
+                rewards.openRewardsPop = true;
 
-            if (rewards.pickedReward)
-            {
-                rewards.pickedReward = false;
-                moveA = true;
-                moveB = true;
+                if (rewards.pickedReward && !rewards.firstPick)
+                {
+                    state = BattleState.WON;
+                    enemyHP = null;
+                    moveA = true;
+                    moveB = true;
+                    rewards.pickedReward = false;
+                    Debug.Log("Current state is " + state);
+                }
+               
             }
         }
 
@@ -94,6 +96,7 @@ public class BattleSystem : MonoBehaviour
         }
 
     }
+
     void SetUpBattle()
     {
         if (enemyHP == null)
