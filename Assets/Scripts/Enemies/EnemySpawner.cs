@@ -1,70 +1,47 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
-using System.ComponentModel.Design.Serialization;
-using System.Runtime.CompilerServices;
 
 public class EnemySpawner : MonoBehaviour
 {
-    // [SerializeField] private string enemy;
-    // private string randomEnemy;
+    [Header("Spawn Points")]
     [SerializeField] private List<Vector3> spawnPoints;
 
-    private int randomEnemy;
-    private int randomSpawn;
+    [Header("Boss Settings")]
     public int roomsSpawnBoss;
-    [SerializeField] private int enemy;
-    [SerializeField] private int poolSize;
-
     public GameObject boss1;
     private GameObject bossInstance;
-    public GameObject[] pooooooooop2;
-    public List<GameObject> enemyPrefabs;
-
     private Vector3 bossSpawn;
     private bool ifBossExists;
 
-    BattleSystem battleSystem;
-    bool enemySpawn;
+    [Header("Enemy Prefabs")]
+    public List<GameObject> enemyPrefabs;
+    private GameObject forcedEnemy;
 
-    // private Dictionary<string, GameObject> enemyPrefabs2 = new Dictionary<string, GameObject>();
-
-    /*  void Awake()
-      {
-          enemyPrefabs.Add(enemyPrefabs[0]);
-          enemyPrefabs.Add(enemyPrefabs[1]);
-          enemyPrefabs.Add(enemyPrefabs[2]);
-          enemyPrefabs.Add(enemyPrefabs[3]);  
-      }*/
+    private bool enemySpawn;
+    private BattleSystem battleSystem;
+    private GameObject[] activeEnemies;
 
     void Start()
     {
         battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
-        roomsSpawnBoss = 0;
-        bossSpawn = new Vector3(0f, 0.75f, -6.73f);
-        // spawnPoints.Add(new Vector3(2f, 0.75f, -6.73f));
-        spawnPoints.Add(new Vector3(0f, 1.3f, -6.73f));
-        //  spawnPoints.Add(new Vector3(-2f, 0.75f, -6.73f));
-        /* for (int i = 0; i < enemyPrefabs.Count; i++)
-         {
-             // Debug.Log("test2: " + i);
-             EnemyObjectPool.Instance.CreatePool(enemy, enemyPrefabs[i], poolSize);
-          }*/
 
-        SpawnEnemy(1);
+        bossSpawn = new Vector3(0f, 0.75f, -6.73f);
+
+        roomsSpawnBoss = 0;
+        spawnPoints.Add(new Vector3(0f, 1.3f, -6.73f));
+
+        // Spawn the first forced enemy if already set
+        SpawnEnemy();
     }
 
     void Update()
     {
         if (battleSystem.state == BattleState.WON)
         {
-            foreach (GameObject obj in pooooooooop2)
+            foreach (GameObject obj in activeEnemies)
             {
-                if (obj != null)
-                {
-                    Destroy(obj);
-                }
-
+                if (obj != null) Destroy(obj);
             }
 
             if (!enemySpawn)
@@ -75,29 +52,28 @@ public class EnemySpawner : MonoBehaviour
             }
         }
 
-        if (battleSystem.state != BattleState.WON && enemySpawn == true)
+        if (battleSystem.state != BattleState.WON && enemySpawn)
         {
             enemySpawn = false;
         }
 
-      /*  if (roomsSpawnBoss == 6 && ifBossExists == false)
+        if (roomsSpawnBoss == 6 && !ifBossExists)
         {
             ifBossExists = true;
             StartCoroutine(DelayBoss());
-        }*/
+        }
     }
 
     IEnumerator DelayTrash()
     {
         yield return new WaitForSeconds(2.5f);
-        SpawnEnemy(1);
 
-       /* if (roomsSpawnBoss < 6 || roomsSpawnBoss >= 7)
+        if (roomsSpawnBoss < 6 || roomsSpawnBoss >= 7)
         {
-            SpawnEnemy(1);
+            SpawnEnemy();
             DestroyBoss();
             ifBossExists = false;
-        }*/
+        }
     }
 
     IEnumerator DelayBoss()
@@ -106,41 +82,30 @@ public class EnemySpawner : MonoBehaviour
         bossInstance = Instantiate(boss1, bossSpawn, Quaternion.identity);
     }
 
-    
-    public void SpawnEnemy(int count)
+    public void SetNextEnemy(GameObject enemyPrefab)
     {
-        // List<int> availableEnemies = new List<int>(enemyPrefabs.Count);
-        // List<Transform> availableSpawn = new List<Transform>(spawnPoints);
+        forcedEnemy = enemyPrefab;
+    }
 
-        for (int i = 0; i < 1; i++)
+    public void SpawnEnemy()
+    {
+        if (forcedEnemy == null)
         {
-            //Debug.Log("test: " + i);
-            //randomEnemy = availableEnemies[Random.Range(0, enemyPrefabs.Count)];
-            randomEnemy = Random.Range(0, enemyPrefabs.Count);
-            // randomSpawn = Random.Range(0, spawnPoints.Count);
-            Vector3 chosenSpawn = spawnPoints[randomSpawn];
-            Instantiate(enemyPrefabs[randomEnemy], chosenSpawn, Quaternion.identity);
-            //spawnPoints.RemoveAt(randomSpawn);
-            // randomSpawn = Random.Range(0, availableSpawn.Count);
-            // Transform selectedSpawn = availableSpawn[randomSpawn];
-            // GameObject spawnEnemy = EnemyObjectPool.Instance.GetPooledObject(randomEnemy);
-            // Instantiate(enemyPrefabs[randomEnemy], selectedSpawn.position, selectedSpawn.rotation);
-            // availableSpawn.RemoveAt(randomSpawn);
-
-            /*  if (spawnEnemy != null)
-                 {
-                     randomSpawn = Random.Range(0, availableSpawn.Count);
-                     Transform selectedSpawn = availableSpawn[randomSpawn];
-                     spawnEnemy.transform.position = selectedSpawn.position;
-                     availableSpawn.RemoveAt(randomSpawn);  
-                 } */
+            if (enemyPrefabs.Count > 0)
+            {
+                forcedEnemy = enemyPrefabs[0];
+            }
         }
-        pooooooooop2 = GameObject.FindGameObjectsWithTag("Enemy");
+
+        Vector3 chosenSpawn = spawnPoints[Random.Range(0, spawnPoints.Count)];
+        Instantiate(forcedEnemy, chosenSpawn, Quaternion.identity);
+
+        activeEnemies = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
     public void DestroyBoss()
     {
-        if (boss1 != null) //battleSystem.state == BattleState.WON
+        if (bossInstance != null)
         {
             Destroy(bossInstance);
         }
