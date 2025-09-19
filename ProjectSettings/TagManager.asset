@@ -16,6 +16,8 @@ TagManager:
   - Boss
   - DialogueCanvas
   - RewardsM
+  - RewardPopUp
+  - EnemyS
   layers:
   - Default
   - TransparentFX

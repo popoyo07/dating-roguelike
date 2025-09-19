@@ -16,9 +16,11 @@ public class Rewards : MonoBehaviour
         public string rewardName;
         public Sprite rewardSprite;
         public RewardType rewardType;
+
+        public GameObject enemyPrefab;
     }
 
-    public enum RewardType { Coins, Card, Lovey }
+    public enum RewardType { Coins, Card, Lovey, ClassCard }
 
     [Header("Rewards")]
     public List<Reward> roomRewards;
@@ -26,15 +28,19 @@ public class Rewards : MonoBehaviour
     [Header("Buttons")]
     public Button button1;
     public Button button2;
+    public Button button3;
 
     private Reward reward1;
     private Reward reward2;
+    private Reward reward3;
 
     private BattleSystem battleSystem;
+    private EnemySpawner enemySpawner;
 
     void Start()
     {
         battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
+        enemySpawner = GameObject.FindWithTag("EnemyS").GetComponent<EnemySpawner>();
         openRewardsPop = true;
         firstPick = true;
         ShowRewardOptions();
@@ -54,25 +60,31 @@ public class Rewards : MonoBehaviour
         // Pick random rewards
         int index1 = Random.Range(0, roomRewards.Count);
         int index2 = Random.Range(0, roomRewards.Count);
+        int index3 = Random.Range(0, roomRewards.Count);
 
-        while (index2 == index1 && roomRewards.Count > 1)
+        while (index2 == index1 || index2 == index3 || index3 == index1 && roomRewards.Count > 1)
         {
             index2 = Random.Range(0, roomRewards.Count);
+            index3 = Random.Range(0, roomRewards.Count);
         }
             
         reward1 = roomRewards[index1];
         reward2 = roomRewards[index2];
+        reward3 = roomRewards[index3];
 
         // Assign sprites
         button1.image.sprite = reward1.rewardSprite;
         button2.image.sprite = reward2.rewardSprite;
+        button3.image.sprite = reward3.rewardSprite;
 
         // Assign behavior
         button1.onClick.RemoveAllListeners();
         button2.onClick.RemoveAllListeners();
+        button3.onClick.RemoveAllListeners();
 
         button1.onClick.AddListener(() => ApplyReward(reward1));
         button2.onClick.AddListener(() => ApplyReward(reward2));
+        button3.onClick.AddListener(() => ApplyReward(reward3));
     }
 
     void ApplyReward(Reward reward)
@@ -93,6 +105,14 @@ public class Rewards : MonoBehaviour
             case RewardType.Lovey:
                 Debug.LogWarning("Lovey Card ADDED");
                 break;
+            case RewardType.ClassCard:
+                Debug.LogWarning("Lovey Card ADDED");
+                break;
+        }
+
+        if(reward.enemyPrefab != null && enemySpawner != null)
+        {
+            enemySpawner.SetNextEnemy(reward.enemyPrefab);
         }
     }
 }
