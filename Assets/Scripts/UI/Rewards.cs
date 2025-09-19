@@ -15,16 +15,14 @@ public class Rewards : MonoBehaviour
     private Sprite reward1;
     private Sprite reward2;
 
-    // Corinne told me to add this 
-    public bool moveA;
-    public bool moveB;
-
     BattleSystem battleSystem;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
+        pickedReward = false;
+        ShowRewardOptions();
     }
 
     private void Update()
@@ -34,12 +32,7 @@ public class Rewards : MonoBehaviour
             ShowRewardOptions();
         }
 
-        if (pickedReward == true)
-        {
-            moveA = true;
-            moveB = true;
-            pickedReward = false;
-        }
+        //PickReward();
     }
 
     void ShowRewardOptions()
@@ -64,14 +57,14 @@ public class Rewards : MonoBehaviour
     public void PickReward()
     {
         pickedReward = true;
-        StartCoroutine(TurnOffPickedReward());
+        StartCoroutine(ClosePopupAfterDelay());
     }
 
-    public IEnumerator TurnOffPickedReward()
+    IEnumerator ClosePopupAfterDelay()
     {
-        yield return new WaitForSeconds(1f);  // delay a little so everything else can be run 
+        yield return new WaitForSeconds(0.01f);
         pickedReward = false;
-
+        //FindObjectOfType<MenuButtons>().CloseRewardsPopup();
     }
 
     public void CoinReward()

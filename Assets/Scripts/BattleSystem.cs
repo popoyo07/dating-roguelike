@@ -24,10 +24,9 @@ public class BattleSystem : MonoBehaviour
     private GameObject endTurnB;
     public int turnCounter = 0;
 
-    // Corinne told me to add this 
+    Rewards rewards;
     public bool moveA;
     public bool moveB;
-    public bool moveC;
 
     void Start()
     {
@@ -36,6 +35,7 @@ public class BattleSystem : MonoBehaviour
         Debug.Log("Current state is " + state);
         SetUpBattle();
 
+        rewards = GameObject.FindWithTag("RewardsM").GetComponent<Rewards>();
     }
     private void FixedUpdate()
     {
@@ -48,19 +48,18 @@ public class BattleSystem : MonoBehaviour
                 playerHP = null;
 
             }
-            if (enemyHP.dead())
+            if (enemyHP.dead() && rewards.pickedReward)
             {
                 state = BattleState.WON;
                 Debug.Log("Current state is " + state);
                 enemyHP = null;
-                moveC = true;
             }
 
-            if (moveC == true)
+            if (rewards.pickedReward)
             {
+                rewards.pickedReward = false;
                 moveA = true;
                 moveB = true;
-                moveC = false;
             }
         }
 
