@@ -8,7 +8,8 @@ public enum BattleState {
     WON, 
     LOST, 
     DEFAULT,
-    ENDPLAYERTURN, 
+    ENDPLAYERTURN,
+    ENDENEMYTURN,
     STARTRUN,
     DIALOGUE,
     REWARD
@@ -88,8 +89,9 @@ public class BattleSystem : MonoBehaviour
                 StartCoroutine(DelaySwitchState(.2f, BattleState.START, "BattleSystem"));
                     break;
                 
-            case BattleState.DEFAULT:
-               
+            case BattleState.ENDENEMYTURN:
+                StartCoroutine(DelaySwitchState(.1f, BattleState.PLAYERTURN, "BattleSystem"));
+
 
                 break;
             case BattleState.LOST:
@@ -121,7 +123,7 @@ public class BattleSystem : MonoBehaviour
     public IEnumerator EndEnemyTurn()
     {
         yield return new WaitForSeconds(1f); // wait some time to switch back to player turn 
-        state = BattleState.PLAYERTURN ;
+        state = BattleState.ENDENEMYTURN ;
         Debug.Log("Current state is " + state);
     }
 

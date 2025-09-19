@@ -4,12 +4,13 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public BattleSystem system; 
-    public int randomSelector;
+    public int actionSelector;
     SimpleHealth player;
     public int attkDmg;
     public int shiledAdded;
     bool doingS;
-
+    public bool stuned; // change to true to stunn enemy    
+    bool selectionUsed;
     void Awake()
     {
          system = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
@@ -22,10 +23,17 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (system.state == BattleState.PLAYERTURN && selectionUsed) 
+        {
+            actionSelector = Random.Range(0, 2); // remember that range the last digit is ignored in slecetion 
+            attkDmg = Random.Range(5, 11);
+            selectionUsed = false;
+        }
+
         if (system.state == BattleState.ENEMYTURN && !doingS) 
         {
             doingS = true;
-            StartCoroutine(DelayEndOfTurn(2.2f));
+            StartCoroutine(DelayEndOfTurn(2f));
            
         } else if (system.state != BattleState.ENEMYTURN)
         {
@@ -36,14 +44,20 @@ public class Enemy : MonoBehaviour
     IEnumerator DelayEndOfTurn(float deleay) // add delay so we can run animations and things like that 
     {
         yield return new WaitForSeconds(deleay);
-        PickAttk();
+        if (!stuned && !selectionUsed)
+        {
+            Action();
+        }
+        else
+        {
+            StartCoroutine(system.EndEnemyTurn());
+        }
     }
-    void PickAttk()
+    void Action()
     {
         doingS = true;
 
-        randomSelector = Random.Range(0, 1);
-        switch (randomSelector) // randomly select an enemy attack
+        switch (actionSelector) // randomly select an enemy attack
         {
             case 0:
                 regular();
@@ -54,6 +68,7 @@ public class Enemy : MonoBehaviour
                 Debug.Log("Nothing happened");
                 break;
         }
+        StartCoroutine(system.EndEnemyTurn());
 
     }
     // basic enemy attacks 
@@ -62,7 +77,6 @@ public class Enemy : MonoBehaviour
 
         player.ReceiveDMG(attkDmg);
            Debug.Log("RegularAttk");
-        StartCoroutine(system.EndEnemyTurn());
     }
 
     void doubleAttk()
@@ -72,7 +86,6 @@ public class Enemy : MonoBehaviour
         player.ReceiveDMG(attkDmg);
 
         Debug.Log("DoubleAttk");
-        StartCoroutine(system.EndEnemyTurn());
 
 
     }
