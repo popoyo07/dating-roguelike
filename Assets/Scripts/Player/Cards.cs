@@ -9,7 +9,7 @@ public class Cards : MonoBehaviour
     public DeckManagement deckManagement;
     public EnergySystem energy; // reference enrgy system 
     public int dmgModifier; // used for whenever you want to temporarily increas or deacrease player dmg
-    public int shieldAmmount; 
+    private SimpleHealth playerHp; 
     
     public void GenerateAttk()
     {
@@ -34,8 +34,9 @@ public class Cards : MonoBehaviour
     public void GenerateShield(int shield)
     {
         // genreagte shield logic 
-        shieldAmmount = shield;
-        Debug.Log("Shield genereated " + shieldAmmount + " of shield");
+        playerHp = player.GetComponent<SimpleHealth>();
+        playerHp.shield += shield;
+        Debug.Log("Shield genereated " + playerHp.shield + " of shield");
     }
 
     public void DiscardCards(string cardUsed) // button actions 

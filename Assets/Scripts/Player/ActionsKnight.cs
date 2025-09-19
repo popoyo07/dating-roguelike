@@ -7,7 +7,7 @@ using UnityEditor;
 using System.Drawing;
 using System.Xml;
 
-public class ActionsCharacter1 : Cards
+public class ActionsKnight : Cards
 {
     public Dictionary<string, int> cardEnergyCost = new Dictionary<string, int>();
 
@@ -30,13 +30,13 @@ public class ActionsCharacter1 : Cards
 
     [Header("Single Attk DMG")]
     [Range(1, 5)]
-    [SerializeField] private int singleAttk;
-    [SerializeField] private int singleAttkECost;
+    [SerializeField] private int swordStrike;
+    [SerializeField] private int swordStrikeECost;
 
     [Header("Single Shield")]
     [Range(1, 5)]
-    [SerializeField] public int singleShield;
-    [SerializeField] public int singleShieldECost;
+    [SerializeField] public int shield;
+    [SerializeField] public int shieldECost;
 
     [Header("heal hability")]
     [SerializeField] public int healing;
@@ -46,18 +46,18 @@ public class ActionsCharacter1 : Cards
     {
         energy.energyCounter -= cost;
     }
-    public void SingleShield()
+    public void Shield()
     {
-        ConsumeEnergy(singleShieldECost);
-        GenerateShield(singleShield);
+        ConsumeEnergy(shieldECost);
+        GenerateShield(shield);
 
     }
 
-    public void AttackOnce()
+    public void SwordStrike()
     {
-        ConsumeEnergy(singleAttkECost);
-        attkAmmount = singleAttk;
-        Debug.Log("Attk should be " + singleAttk);
+        ConsumeEnergy(swordStrikeECost);
+        attkAmmount = swordStrike;
+        Debug.Log("Attk should be " + swordStrike);
         GenerateAttk();
     }
 
@@ -94,17 +94,17 @@ public class ActionsCharacter1 : Cards
             if (deckManagement.cardDatabase.allCards.Count >= 5)
             {
                 // make sure names and acctions match properly in here 
-                cardAttaks.Add(deckManagement.cardDatabase.allCards[0], AttackOnce);
+                cardAttaks.Add(deckManagement.cardDatabase.allCards[0], SwordStrike);
                 cardAttaks.Add(deckManagement.cardDatabase.allCards[1], AttackTwice);
-                cardAttaks.Add(deckManagement.cardDatabase.allCards[2], SingleShield);
+                cardAttaks.Add(deckManagement.cardDatabase.allCards[2], Shield);
                 cardAttaks.Add(deckManagement.cardDatabase.allCards[3], GainHealth);
                 cardAttaks.Add(deckManagement.cardDatabase.allCards[4], LoveyDoveyLogic);
                 Debug.Log("Card actions dictionary initialized with " + cardAttaks.Count + " entries");
 
                 // set card's energy cost
-                cardEnergyCost.Add(deckManagement.cardDatabase.allCards[0], singleAttkECost);
+                cardEnergyCost.Add(deckManagement.cardDatabase.allCards[0], swordStrikeECost);
                 cardEnergyCost.Add(deckManagement.cardDatabase.allCards[1], doubleAttkECost);
-                cardEnergyCost.Add(deckManagement.cardDatabase.allCards[2], singleShieldECost);
+                cardEnergyCost.Add(deckManagement.cardDatabase.allCards[2], shieldECost);
                 cardEnergyCost.Add(deckManagement.cardDatabase.allCards[3], healingECost);
                 cardEnergyCost.Add(deckManagement.cardDatabase.allCards[4], doubleAttkECost);
             }
@@ -130,7 +130,7 @@ public class ActionsCharacter1 : Cards
 
 #if UNITY_EDITOR
 
-[CustomEditor(typeof(ActionsCharacter1)), CanEditMultipleObjects]
+[CustomEditor(typeof(ActionsKnight)), CanEditMultipleObjects]
 public class TheEditor : Editor
 {
     SerializedProperty doubleAttk;
@@ -141,8 +141,8 @@ public class TheEditor : Editor
     private void OnEnable()
     {
         doubleAttk = serializedObject.FindProperty("doubleAttk");
-        singleAttk = serializedObject.FindProperty("singleAttk");
-        singleShield = serializedObject.FindProperty("singleShield");
+        singleAttk = serializedObject.FindProperty("swordStrike");
+        singleShield = serializedObject.FindProperty("shield");
         healing = serializedObject.FindProperty("healing");
     }
 
@@ -157,8 +157,8 @@ public class TheEditor : Editor
         // Check each property and display warnings
         // Add entry for each new card 
         CheckValue(doubleAttk, "Double Attack");
-        CheckValue(singleAttk, "Single Attack");
-        CheckValue(singleShield, "Single Shield");
+        CheckValue(singleAttk, "Sword Strike");
+        CheckValue(singleShield, "Shield");
         CheckValue(healing, "Healing");
 
         // Apply changes
