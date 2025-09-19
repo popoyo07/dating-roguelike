@@ -5,20 +5,12 @@ public class Cards : MonoBehaviour
     public BattleSystem battleSystem;
     public int attkAmmount;
     public GameObject enemy;
-    public GameObject player;
+    public GameObject player;// assigned from somewhere else 
     public DeckManagement deckManagement;
     public EnergySystem energy; // reference enrgy system 
-
-
-    public int shieldAmmount;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-
-    private void Awake()
-    {
-        deckManagement = gameObject.GetComponent<DeckManagement>();
-        battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
-        player = GameObject.FindWithTag("Player");
-    }
+    public int dmgModifier; // used for whenever you want to temporarily increas or deacrease player dmg
+    public int shieldAmmount; 
+    
     public void GenerateAttk()
     {
 
@@ -27,8 +19,11 @@ public class Cards : MonoBehaviour
         // create logic to attack enemy 
         if(enemy != null)
         {
-            enemy.GetComponent<SimpleHealth>().ReceiveDMG(attkAmmount);
-            Debug.Log("Player does " + attkAmmount + "DMG to the Enemy");
+            int dmg = attkAmmount + dmgModifier;
+            if (dmg < 0) dmg = 0;
+
+            enemy.GetComponent<SimpleHealth>().ReceiveDMG(dmg);
+            Debug.Log("Player does " + dmg + "DMG to the Enemy");
 
         }else
         {

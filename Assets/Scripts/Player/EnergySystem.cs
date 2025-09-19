@@ -2,15 +2,37 @@ using UnityEngine;
 
 public class EnergySystem : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public int energyCounter;
+    public int maxEnergy;
+    BattleSystem bSystem;
+   
     void Start()
     {
-        
+        energyCounter = 3;
+        bSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        switch (bSystem.state)
+        {
+            case BattleState.ENDPLAYERTURN:
+                ResetCounter();
+
+                break;
+            case BattleState.WON:
+                ResetCounter();
+
+                break;
+        }
+
+    }
+    void ResetCounter() // reset how much energy we have 
+    {
+        if (energyCounter != maxEnergy) 
+        {
+            energyCounter = 3;
+        }
     }
 }

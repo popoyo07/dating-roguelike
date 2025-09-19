@@ -22,12 +22,12 @@ public class SimpleHealth : MonoBehaviour
         }
     }
     public HealthBar healthBar;
-    private CardActionsCharacter1 attackManager;
+    private ActionsCharacter1 attackManager;
     private BattleSystem battleSystem;
     private void Awake()
     {
         health = maxHealth;
-        attackManager = GameObject.Find("CardManager").GetComponent<CardActionsCharacter1>();
+        attackManager = GameObject.Find("CardManager").GetComponent<ActionsCharacter1>();
         battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
         healthBar = this.gameObject.GetComponent<HealthBar>();
         if (gameObject.CompareTag("Enemy"))

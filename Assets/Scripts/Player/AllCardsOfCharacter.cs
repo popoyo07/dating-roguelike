@@ -11,8 +11,4 @@ public class AllCardsOfCharacter : ScriptableObject
     };
 }
 
-    // "SingleAttk",
-    //"DobleAttk",
-     //   "SingleShield",
-      //  "GainHP",
-    //    "LoveyDovy"
+    

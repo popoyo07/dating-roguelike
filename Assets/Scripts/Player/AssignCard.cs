@@ -11,21 +11,22 @@ public class AssignCard : MonoBehaviour
     public bool cardUsed;
 
     private BattleSystem BSystem;
-    private CardActionsCharacter1 cardAttks;
+    private ActionsCharacter1 theCardAttks;
     private DeckDraw cardDraw;
     private bool displayTxt;
     private bool cardSet;
 
     bool resetForNewTurn;
+    EnergySystem energy;
 
-    private void Awake()
+    private void OnEnable()
     {
         BSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
         cardDraw = GameObject.Find("CardManager").GetComponent<DeckDraw>();
         cardButton = GetComponent<Button>();
         cardUsed = false;
         resetForNewTurn = false;
-
+        energy = GameObject.Find("Managers").GetComponentInChildren<EnergySystem>();
         StartCoroutine(InitializeCard());
 
     }
@@ -39,10 +40,11 @@ public class AssignCard : MonoBehaviour
     {
         // Wait for card actions to be initialized
         yield return new WaitUntil(() =>
-            cardDraw.GetComponent<CardActionsCharacter1>() != null &&
-            cardDraw.GetComponent<CardActionsCharacter1>().cardAttaks.Count > 0);
+            cardDraw.GetComponent<ActionsCharacter1>() != null &&
+            cardDraw.GetComponent<ActionsCharacter1>().cardAttaks.Count > 0 && 
+            energy.GetComponent<EnergySystem>() != null );
 
-        cardAttks = cardDraw.GetComponent<CardActionsCharacter1>();
+        theCardAttks = cardDraw.GetComponent<ActionsCharacter1>();
         cardSet = true;
         SetupCardButton();
     }
@@ -84,7 +86,7 @@ public class AssignCard : MonoBehaviour
     }
     public void SetupCardButton()
     {
-        if (cardButton == null || cardAttks == null) return;
+        if (cardButton == null || theCardAttks == null) return;
 
         cardButton.onClick.RemoveAllListeners();
         cardButton.onClick.AddListener(OnCardClicked);
@@ -92,26 +94,36 @@ public class AssignCard : MonoBehaviour
     }
     private void OnCardClicked()
     {
-        if (cardAttks.cardAttaks.ContainsKey(cardNameFromList))
-        {
-            cardAttks.cardAttaks[cardNameFromList].Invoke();
+            
 
-            cardUsed = true; // <-- mark the card as used immediately
-            DiscardAndReset();
-            cardButton.interactable = false;
-        }
-        else
+        if (theCardAttks.cardEnergyCost[cardNameFromList] <= energy.energyCounter)
         {
-            Debug.LogWarning("No action found for key: " + cardNameFromList);
+            Debug.Log("Enrgy cost is " + theCardAttks.cardEnergyCost[cardNameFromList] + " and the current energy is " + energy.energyCounter);
+            if (theCardAttks.cardAttaks.ContainsKey(cardNameFromList))
+            {
+                theCardAttks.cardAttaks[cardNameFromList].Invoke();
+
+                cardUsed = true; // <-- mark the card as used immediately
+                DiscardAndReset();
+                cardButton.interactable = false;
+            }
+            else
+            {
+                Debug.LogWarning("No action found for key: " + cardNameFromList);
+            }
+        } else
+        {
+            Debug.LogWarning("Not enough Energy");
         }
+        
     }
 
 
     void DiscardAndReset()
     {
-        if (cardAttks != null && cardAttks.deckManagement != null)
+        if (theCardAttks != null && theCardAttks.deckManagement != null)
         {
-            cardAttks.deckManagement.DiscardCard(cardNameFromList);
+            theCardAttks.deckManagement.DiscardCard(cardNameFromList);
         }
 
         cardUsed = true;

@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1509825541101992717}
   - component: {fileID: 6651855241109148109}
-  - component: {fileID: 6771811598734231068}
+  - component: {fileID: 1121357488644338886}
+  - component: {fileID: 3543225914755121219}
   m_Layer: 0
   m_Name: CardManager
   m_TagString: Untagged
@@ -63,7 +64,8 @@ MonoBehaviour:
   discardedCards: []
   discardDeck: 0
   deckWasSet: 0
---- !u!114 &6771811598734231068
+  cards: []
+--- !u!114 &1121357488644338886
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -72,20 +74,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 1292839831765639643}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 580bf5b161738f04a88b3e780500ada2, type: 3}
+  m_Script: {fileID: 11500000, guid: 5edd780b7d1f53543b5a5ab1ee34a0c8, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CardActionsCharacter1
+  m_EditorClassIdentifier: Assembly-CSharp::ActionsCharacter1
   battleSystem: {fileID: 0}
   attkAmmount: 0
   enemy: {fileID: 0}
   player: {fileID: 0}
   deckManagement: {fileID: 0}
   energy: {fileID: 0}
+  dmgModifier: 0
   shieldAmmount: 0
-  doubleAttk: 5
-  singleAttk: 1
-  singleShield: 2
-  healing: 0
+  doubleAttk: 3
+  doubleAttkECost: 1
+  singleAttk: 3
+  singleAttkECost: 1
+  singleShield: 5
+  singleShieldECost: 1
+  healing: 10
+  healingECost: 1
+--- !u!114 &3543225914755121219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292839831765639643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae9578169bfe4cf46a10f580823ba787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnergySystem
+  energyCounter: 3
+  maxEnergy: 3
 --- !u!1 &4134785340651724058
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,6 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleUI
   endTurnB: {fileID: 0}
+  dialogueUI: {fileID: 0}
 --- !u!1 &7180089294026773356
 GameObject:
   m_ObjectHideFlags: 0
