@@ -36,12 +36,12 @@ public class MenuButtons : MonoBehaviour
             man.SetActive(false);
         }
 
-        if (rewards.openRewardsPop && !rewardsPopup.activeSelf && !rewards.pickedReward)
+        if (rewards.openRewardsPop && !rewardsPopup.activeSelf)
         {
             rewardsPopup.SetActive(true);
         }
 
-        if (!rewards.openRewardsPop)
+        if (!rewards.openRewardsPop && rewardsPopup.activeSelf)
         {
             rewardsPopup.SetActive(false);
         }

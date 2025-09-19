@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +10,7 @@ public class Rewards : MonoBehaviour
     public bool firstPick;
     private bool rewardSelectOnce;
     public bool pickedReward;
+    public bool rewardsForCurrent; 
 
     [System.Serializable]
     public class Reward
@@ -41,9 +43,9 @@ public class Rewards : MonoBehaviour
     {
         battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
         enemySpawner = GameObject.FindWithTag("EnemyS").GetComponent<EnemySpawner>();
-        openRewardsPop = true;
+        //openRewardsPop = true;
         firstPick = true;
-        ShowRewardOptions();
+        //ShowRewardOptions();
     }
 
     private void Update()
@@ -55,8 +57,15 @@ public class Rewards : MonoBehaviour
         }
     }
 
-    void ShowRewardOptions()
+    public void ShowRewardOptions()
     {
+        if (rewardsForCurrent)
+        {
+            return;
+        }
+        
+        rewardsForCurrent = true;
+
         // Pick random rewards
         int index1 = Random.Range(0, roomRewards.Count);
         int index2 = Random.Range(0, roomRewards.Count);
@@ -89,6 +98,11 @@ public class Rewards : MonoBehaviour
 
     void ApplyReward(Reward reward)
     {
+        if (!rewardsForCurrent)
+        {
+            return;
+        }
+
         pickedReward = true;
         openRewardsPop = false;
         firstPick = false;

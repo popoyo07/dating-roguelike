@@ -54,6 +54,7 @@ public class BattleSystem : MonoBehaviour
             if (enemyHP.dead())
             {
                 rewards.openRewardsPop = true;
+                rewards.ShowRewardOptions();
 
                 if (rewards.pickedReward && !rewards.firstPick)
                 {
