@@ -14,6 +14,7 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private Image characterImage;
 
 
+
     //[SerializeField] private DialogueObject testDialogue;
 
     private ResponseHandle responseHandle;

@@ -12,5 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb04ed8146191ab4b98ce1e8256bab43, type: 3}
   m_Name: 1_1
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
-  dialogue: []
-  responses: []
+  dialogue:
+  - dialogueText: ^&$@^#@#%
+    characterName: ???
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: A monster hisses in an unknown tongue.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: Do you want to use the LoveyDovy card on Siren?
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  responses:
+  - respnseText: Yes
+    dialogueObject: {fileID: 11400000, guid: 4f434d0356f9ebf469ff248395e280e7, type: 2}
+  - respnseText: No
+    dialogueObject: {fileID: 11400000, guid: f9a4d0c4a75744d48a4f4ace1ad74e53, type: 2}

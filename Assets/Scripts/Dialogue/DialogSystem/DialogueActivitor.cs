@@ -10,16 +10,22 @@ using UnityEngine.UI;
 public class DialogueActivator : MonoBehaviour
 {
     [Header("Dialogue Settings")]
-    [SerializeField] private DialogueObject dialogueObject;
+    [SerializeField] private DialogueObject[] dialogueObject;
     [SerializeField] private GameObject Canvas;
     [SerializeField] private TMP_Text nameText;
     [SerializeField] private Image characterImage;
+    [SerializeField] private static int currentDialogueIndex;
+    [SerializeField] private DialogueProgression progression;
+
 
     private DialogueUI dialogueUI;
 
-    public void UpdateDialogueObject (DialogueObject dialogueObject)
+    public void UpdateDialogueObject(DialogueObject dialogueObject, int index)
     {
-        this.dialogueObject = dialogueObject;
+        if (index >= 0 && index < dialogueObject.Dialogue.Length)
+        {
+            this.dialogueObject[index] = dialogueObject;
+        }
     }
 
 
@@ -42,6 +48,8 @@ public class DialogueActivator : MonoBehaviour
         {
             Debug.LogError("DialogueObject not assigned to Enemy!");
         }
+
+        currentDialogueIndex = progression.currentDialogueIndex;
     }
 
     private IEnumerator Start()
@@ -49,23 +57,34 @@ public class DialogueActivator : MonoBehaviour
         // Wait one frame to ensure DialogueUI has run its Start() and initialized all components
         yield return null;
 
-        foreach (DialogueResponseEvents responseEvents in GetComponents<DialogueResponseEvents>())
+/*        foreach (DialogueResponseEvents responseEvents in GetComponents<DialogueResponseEvents>())
         {
             dialogueUI.AddResponseEvenet(responseEvents.Events);
             break;
-        }
+        }*/
 
-        if (dialogueUI != null && dialogueObject != null)
+        if (dialogueUI != null && dialogueObject.Length > 0 && dialogueObject[0] != null)
         {
-            dialogueUI.ShowDialogue(dialogueObject);
+
+            DialogueObject currentDialogue = dialogueObject[progression.currentDialogueIndex];
+            dialogueUI.ShowDialogue(currentDialogue);
+
             nameText = GameObject.Find("NameTxt").GetComponent<TMP_Text>();
             characterImage = GameObject.Find("CharacterImage").GetComponent<Image>();
-        }
 
-        if (dialogueObject != null && dialogueObject.Dialogue.Length > 0)
-        {
-            nameText.text = dialogueObject.Dialogue[0].CharacterName;
-            characterImage.sprite = dialogueObject.Dialogue[0].CharacterImage;
+            if (currentDialogue.Dialogue.Length > 0)
+            {
+                nameText.text = currentDialogue.Dialogue[0].CharacterName;
+                characterImage.sprite = currentDialogue.Dialogue[0].CharacterImage;
+            }
+
+            if (currentDialogueIndex < dialogueObject.Length - 1)
+                progression.currentDialogueIndex++;
         }
+    }
+
+    public void ResetDialogueIndex()
+    {
+        progression.currentDialogueIndex = 0;
     }
 }

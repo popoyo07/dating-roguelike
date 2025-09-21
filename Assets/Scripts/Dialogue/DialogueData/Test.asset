@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Test
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
   dialogue:
-  - Just 1 Question
-  - Do you like Cat or Dog?
-  responses:
-  - respnseText: Cat
-    dialogueObject: {fileID: 11400000, guid: 5b5dfb8c4896a364f95f0320d91910aa, type: 2}
-  - respnseText: None
-    dialogueObject: {fileID: 11400000, guid: 1aef41f485b44a4459655961bccd4c95, type: 2}
-  nameText: Black Jesus
+  - dialogueText: Test1
+    characterName: 
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: Test1_1
+    characterName: 
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  responses: []

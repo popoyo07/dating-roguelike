@@ -12,5 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb04ed8146191ab4b98ce1e8256bab43, type: 3}
   m_Name: 1_1No
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
-  dialogue: []
+  dialogue:
+  - dialogueText: Who needs a LoveyDovy card when you can just insta-kill the thing?
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: Die, monster!
+    characterName: You
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: '&$@!&#*!!!!!'
+    characterName: ???
+    characterImage: {fileID: 0}
+    dialogueEnd: 1
   responses: []

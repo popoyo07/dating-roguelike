@@ -13,15 +13,11 @@ MonoBehaviour:
   m_Name: Test2
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
   dialogue:
-  - dialogueText: sfdsfsdf
+  - dialogueText: Test2
     characterName: erewrwer
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: sfdsfsdf
-    characterName: erewrwer
-    characterImage: {fileID: 0}
-    dialogueEnd: 0
-  - dialogueText: sfdsfsdf
+  - dialogueText: Test2
     characterName: erewrwer
     characterImage: {fileID: 0}
     dialogueEnd: 1

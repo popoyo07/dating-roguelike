@@ -16,7 +16,7 @@ MonoBehaviour:
   - dialogueText: 1
     characterName: ???
     characterImage: {fileID: 0}
-    dialogueEnd: 1
+    dialogueEnd: 0
   - dialogueText: Hey
     characterName: ???
     characterImage: {fileID: 0}

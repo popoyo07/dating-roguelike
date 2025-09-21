@@ -125,10 +125,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a88223f22bcd861469fea1277dc1f7af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueActivator
-  dialogueObject: {fileID: 11400000, guid: c447e65d7e70eda4f9fa02981c12b336, type: 2}
+  dialogueObject:
+  - {fileID: 11400000, guid: d5bd490506c1fdc408fb3b9e720c9c04, type: 2}
+  - {fileID: 11400000, guid: 26c8d14c0566fe34b9b3541f74277b6b, type: 2}
   Canvas: {fileID: 0}
   nameText: {fileID: 0}
   characterImage: {fileID: 0}
+  progression: {fileID: 11400000, guid: 46a7f4d680fa2dd4198bbf1292ceeb1a, type: 2}
 --- !u!1001 &2636347614548511179
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb04ed8146191ab4b98ce1e8256bab43, type: 3}
   m_Name: 1_1Yes
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
-  dialogue: []
+  dialogue:
+  - dialogueText: Choose a card
+    characterName: 
+    characterImage: {fileID: 0}
+    dialogueEnd: 1
   responses: []
