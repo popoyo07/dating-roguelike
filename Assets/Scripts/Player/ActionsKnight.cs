@@ -9,9 +9,6 @@ using System.Xml;
 
 public class ActionsKnight : Cards
 {
-    bool attkDone;
-    bool turnBuff;
-
     public Dictionary<string, int> cardEnergyCost = new Dictionary<string, int>();
 
     public Dictionary<string, Action> cardAttaks = new Dictionary<string, Action>();
@@ -25,56 +22,29 @@ public class ActionsKnight : Cards
 
     }
 
+
     [Header("Double Attk DMG")]
-    [Range(1, 5)][SerializeField] private int doubleAttk;
-    [Range(1, 3)][SerializeField] private int doubleAttkECost;
+    [Range(1, 5)]
+    [SerializeField] private int doubleAttk;
+    [SerializeField] private int doubleAttkECost;
 
     [Header("Single Attk DMG")]
-    [Range(1, 5)][SerializeField] private int swordStrike;
-    [Range(1, 3)][SerializeField] private int swordStrikeECost;
+    [Range(1, 5)]
+    [SerializeField] private int swordStrike;
+    [SerializeField] private int swordStrikeECost;
 
     [Header("Single Shield")]
-    [Range(1, 5)][SerializeField] public int shield;
-    [Range(1, 3)][SerializeField] public int shieldECost;
+    [Range(1, 5)]
+    [SerializeField] public int shield;
+    [SerializeField] public int shieldECost;
 
-    [Header("small heal hability")]
-    [Range(5, 10)][SerializeField] public int smallHealing;
-    [Range(1, 3)][SerializeField] public int smallHealingECost; 
-    
-    [Header("big heal hability")]
-    [Range(2, 3)][SerializeField] public int healingMultiplier;
-    [Range(1, 3)][SerializeField] public int bigHealingECost;   
-    
-    [Header("Battle Cry")]
-    [Range(2, 5)][SerializeField] public int battleCryXTdmg;
-    [Range(0, 3)][SerializeField] public int battleCryECost;
-
-
-    private void Update()
-    {
-        if (!turnBuff)
-        {
-            if (attkDone) { xtStrenght = 0; attkDone = false; }
-        } else
-        {
-            if (battleSystem.state == BattleState.ENDENEMYTURN) 
-            {
-                xtStrenght = 0;
-            }
-        }
-        
-    }
-
+    [Header("heal hability")]
+    [SerializeField] public int healing;
+    [SerializeField] public int healingECost;
 
     void ConsumeEnergy(int cost) // unsert enery cost in cost 
     {
         energy.energyCounter -= cost;
-    }
-
-    public void BattleCry() // buffs next attk 
-    {
-        xtStrenght = battleCryXTdmg;
-        Debug.Log("Gave player extra dmg " +  xtStrenght);
     }
     public void Shield()
     {
@@ -89,8 +59,6 @@ public class ActionsKnight : Cards
         attkAmmount = swordStrike;
         Debug.Log("Attk should be " + swordStrike);
         GenerateAttk();
-        attkDone = true;
-
     }
 
 
@@ -101,19 +69,12 @@ public class ActionsKnight : Cards
         ConsumeEnergy(doubleAttk);
         GenerateAttk();
         GenerateAttk();
-        attkDone = true;
-    }
-    public void SmallHealing()
-    {
-        ConsumeEnergy(smallHealingECost);
-        player.GetComponent<SimpleHealth>().RecoverHP(smallHealing);
-    }
 
-    public void BigHealing()
-    { 
-        int biggerHeal = smallHealing * 2;
-        ConsumeEnergy(biggerHeal);
-        player.GetComponent<SimpleHealth>().RecoverHP(biggerHeal);
+    }
+    public void GainHealth()
+    {
+        ConsumeEnergy(healingECost);
+        player.GetComponent<SimpleHealth>().RecoverHP(healing);
     }
 
     public void LoveyDoveyLogic()
@@ -136,20 +97,16 @@ public class ActionsKnight : Cards
                 cardAttaks.Add(deckManagement.cardDatabase.allCards[0], SwordStrike);
                 cardAttaks.Add(deckManagement.cardDatabase.allCards[1], AttackTwice);
                 cardAttaks.Add(deckManagement.cardDatabase.allCards[2], Shield);
-                cardAttaks.Add(deckManagement.cardDatabase.allCards[3], SmallHealing);
+                cardAttaks.Add(deckManagement.cardDatabase.allCards[3], GainHealth);
                 cardAttaks.Add(deckManagement.cardDatabase.allCards[4], LoveyDoveyLogic);
-                cardAttaks.Add(deckManagement.cardDatabase.allCards[5], BigHealing);
-                cardAttaks.Add(deckManagement.cardDatabase.allCards[6], BattleCry);
                 Debug.Log("Card actions dictionary initialized with " + cardAttaks.Count + " entries");
 
                 // set card's energy cost
                 cardEnergyCost.Add(deckManagement.cardDatabase.allCards[0], swordStrikeECost);
                 cardEnergyCost.Add(deckManagement.cardDatabase.allCards[1], doubleAttkECost);
                 cardEnergyCost.Add(deckManagement.cardDatabase.allCards[2], shieldECost);
-                cardEnergyCost.Add(deckManagement.cardDatabase.allCards[3], smallHealingECost);
+                cardEnergyCost.Add(deckManagement.cardDatabase.allCards[3], healingECost);
                 cardEnergyCost.Add(deckManagement.cardDatabase.allCards[4], doubleAttkECost);
-                cardEnergyCost.Add(deckManagement.cardDatabase.allCards[5], bigHealingECost);
-                cardEnergyCost.Add(deckManagement.cardDatabase.allCards[6], battleCryECost);
             }
             else
             {
@@ -162,7 +119,7 @@ public class ActionsKnight : Cards
         }
 
 
-        
+
 
     }
 }
@@ -186,7 +143,7 @@ public class TheEditor : Editor
         doubleAttk = serializedObject.FindProperty("doubleAttk");
         singleAttk = serializedObject.FindProperty("swordStrike");
         singleShield = serializedObject.FindProperty("shield");
-        healing = serializedObject.FindProperty("smallHealing");
+        healing = serializedObject.FindProperty("healing");
     }
 
     public override void OnInspectorGUI()

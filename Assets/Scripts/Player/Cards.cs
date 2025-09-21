@@ -8,7 +8,7 @@ public class Cards : MonoBehaviour
     public GameObject player;// assigned from somewhere else 
     public DeckManagement deckManagement;
     public EnergySystem energy; // reference enrgy system 
-    public int xtStrenght; // used for whenever you want to temporarily increas or deacrease player dmg
+    public int dmgModifier; // used for whenever you want to temporarily increas or deacrease player dmg
     private SimpleHealth playerHp; 
     
     public void GenerateAttk()
@@ -19,7 +19,7 @@ public class Cards : MonoBehaviour
         // create logic to attack enemy 
         if(enemy != null)
         {
-            int dmg = attkAmmount + xtStrenght;
+            int dmg = attkAmmount + dmgModifier;
             if (dmg < 0) dmg = 0;
 
             enemy.GetComponent<SimpleHealth>().ReceiveDMG(dmg);

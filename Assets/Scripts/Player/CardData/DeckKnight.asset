@@ -13,12 +13,11 @@ MonoBehaviour:
   m_Name: DeckKnight
   m_EditorClassIdentifier: Assembly-CSharp::AllCardsOfCharacter
   allCards:
-  - Sword Strike
-  - Sword Strike
-  - Sword Strike
-  - Sword Strike
+  - SwordStrike
+  - SwordStrike
+  - SwordStrike
+  - SwordStrike
   - Shield
   - Shield
   - Shield
   - Shield
-  - Battle Cry

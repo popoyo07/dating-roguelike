@@ -4772,26 +4772,6 @@ PrefabInstance:
       propertyPath: dialogueUI
       value: 
       objectReference: {fileID: 6424230952612506986}
-    - target: {fileID: 8350772356307164605, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
-      propertyPath: smallHealing
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8350772356307164605, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
-      propertyPath: battleCryXTdmg
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8350772356307164605, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
-      propertyPath: bigHealingECost
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8350772356307164605, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
-      propertyPath: healingMultiplier
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8350772356307164605, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
-      propertyPath: smallHealingECost
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6771811598734231068, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
     m_RemovedGameObjects: []
