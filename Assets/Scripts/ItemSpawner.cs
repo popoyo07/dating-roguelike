@@ -44,12 +44,6 @@ public class ItemSpawner : MonoBehaviour
     {
         battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
 
-        /* for (int i = 0; i < itemPrefabs.Count; i++)
-         {
-             // Debug.Log("test2: " + i);
-             EnemyObjectPool.Instance.CreatePool(item, itemPrefabs[i], poolSize);
-          }*/
-
         SpawnItem(3);
     }
 
@@ -57,7 +51,6 @@ public class ItemSpawner : MonoBehaviour
     {
         if (battleSystem.state == BattleState.WON) //battleSystem.moveC == true
         {
-          //  Debug.Log("test:destroy ");
             foreach (GameObject obj in pooooooooop)
             {
                 if (obj != null)
@@ -92,8 +85,6 @@ public class ItemSpawner : MonoBehaviour
         canSpawnArea1 = true;
         canSpawnArea2 = true;
         canSpawnArea3 = true;
-
-        // List<int> availableItems = new List<int>(itemPrefabs.Count);
         
         //For loop that spawns random itmes in random areas. The i-- makes sure the loop will run until 3 items have been spawned in 3 different areas
 
@@ -166,16 +157,6 @@ public class ItemSpawner : MonoBehaviour
             }
 
             pooooooooop = GameObject.FindGameObjectsWithTag("Trash");
-
-
-            //Debug.Log("test: " + i);
-            //randomItem = availableItems[Random.Range(0, itemPrefabs.Count)];
-            // GameObject spawnItem = EnemyObjectPool.Instance.GetPooledObject(randomItem);
-
-            /*  if (spawnItem != null)
-                 {
-                     spawnItem.transform.position = selectedSpawn.position;  
-                 } */
         }
     }
 }

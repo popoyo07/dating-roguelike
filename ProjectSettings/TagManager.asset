@@ -7,8 +7,6 @@ TagManager:
   - Enemy
   - BSystem
   - Cards
-  - Item1
-  - Item2
   - MoveRoomTesting
   - RoomA
   - RoomB
@@ -18,6 +16,8 @@ TagManager:
   - RewardsM
   - RewardPopUp
   - EnemyS
+  - RoomManager
+  - RoomPopUp
   layers:
   - Default
   - TransparentFX
