@@ -4,8 +4,8 @@ using System.Collections;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [Header("Spawn Points")]
-    [SerializeField] private List<Vector3> spawnPoints;
+    [Header("Spawn Point")]
+    private Vector3 spawnPoint;
 
     [Header("Boss Settings")]
     public int roomsSpawnBoss;
@@ -29,7 +29,7 @@ public class EnemySpawner : MonoBehaviour
         bossSpawn = new Vector3(0f, 0.75f, -6.73f);
 
         roomsSpawnBoss = 0;
-        spawnPoints.Add(new Vector3(0f, 1.3f, -6.73f));
+        spawnPoint = new Vector3(0f, 1.3f, -6.73f);
 
         // Spawn the first forced enemy if already set
         SpawnEnemy();
@@ -97,8 +97,7 @@ public class EnemySpawner : MonoBehaviour
             }
         }
 
-        Vector3 chosenSpawn = spawnPoints[Random.Range(0, spawnPoints.Count)];
-        Instantiate(forcedEnemy, chosenSpawn, Quaternion.identity);
+        Instantiate(forcedEnemy, spawnPoint, Quaternion.identity);
 
         activeEnemies = GameObject.FindGameObjectsWithTag("Enemy");
     }
