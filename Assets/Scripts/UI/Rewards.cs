@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,8 +6,6 @@ public class Rewards : MonoBehaviour
 {
     [Header("Bools")]
     public bool openRewardsPop;
-    public bool firstPick;
-    private bool rewardSelectOnce;
     public bool pickedReward;
     public bool rewardsForCurrent; 
 
@@ -18,7 +15,6 @@ public class Rewards : MonoBehaviour
         public string rewardName;
         public Sprite rewardSprite;
         public RewardType rewardType;
-
         public GameObject enemyPrefab;
     }
 
@@ -43,18 +39,6 @@ public class Rewards : MonoBehaviour
     {
         battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
         enemySpawner = GameObject.FindWithTag("EnemyS").GetComponent<EnemySpawner>();
-        //openRewardsPop = true;
-        firstPick = true;
-        //ShowRewardOptions();
-    }
-
-    private void Update()
-    {
-        if (battleSystem.state == BattleState.WON && !pickedReward && !rewardSelectOnce)
-        {
-            ShowRewardOptions();
-            rewardSelectOnce = true;
-        }
     }
 
     public void ShowRewardOptions()
@@ -104,9 +88,6 @@ public class Rewards : MonoBehaviour
         }
 
         pickedReward = true;
-        openRewardsPop = false;
-        firstPick = false;
-        rewardSelectOnce = false;
 
         switch (reward.rewardType)
         {

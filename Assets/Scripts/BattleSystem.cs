@@ -56,13 +56,14 @@ public class BattleSystem : MonoBehaviour
                 rewards.openRewardsPop = true;
                 rewards.ShowRewardOptions();
 
-                if (rewards.pickedReward && !rewards.firstPick)
+                if (rewards.pickedReward)
                 {
                     state = BattleState.WON;
                     enemyHP = null;
                     moveA = true;
                     moveB = true;
                     rewards.pickedReward = false;
+                    rewards.openRewardsPop = false;
                     Debug.Log("Current state is " + state);
                 }
                
