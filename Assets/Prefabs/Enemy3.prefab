@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a88223f22bcd861469fea1277dc1f7af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueActivator
-  dialogueObject: {fileID: 11400000, guid: b1d88ea52b58a5245ad7e0ac112f2544, type: 2}
+  dialogueObject: {fileID: 11400000, guid: c447e65d7e70eda4f9fa02981c12b336, type: 2}
   Canvas: {fileID: 0}
   nameText: {fileID: 0}
   characterImage: {fileID: 0}

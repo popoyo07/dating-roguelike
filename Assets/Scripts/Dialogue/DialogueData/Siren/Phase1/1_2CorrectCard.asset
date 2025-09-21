@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb04ed8146191ab4b98ce1e8256bab43, type: 3}
+  m_Name: 1_2CorrectCard
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
+  dialogue:
+  - dialogueText: "She seems to like this present \u2014 she even eats the conch
+      with a grin."
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: Not bad.
+    characterName: ???
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: You suddenly understand this monster's language
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: Give me more, human.
+    characterName: ???
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: You think only a conch is enough for a monster?
+    characterName: ???
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: This is all I have.
+    characterName: You
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: Only one? Pathetic. I hunger for more
+    characterName: ???
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: The monster leans closer, eyes narrowing, sharp teeth visible.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: What will you do?
+    characterName: Siren
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  responses:
+  - respnseText: Fight
+    dialogueObject: {fileID: 11400000, guid: 86862d76a0855e7439a83da59571e561, type: 2}
+  - respnseText: Persuade
+    dialogueObject: {fileID: 11400000, guid: 2b36e36286a305f42beca69a69c0aa49, type: 2}

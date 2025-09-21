@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb04ed8146191ab4b98ce1e8256bab43, type: 3}
+  m_Name: 1_2Presuade
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
+  dialogue:
+  - dialogueText: If you let me go, I can bring you more next time.
+    characterName: You
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: The monster studies you, gaze piercing, as if weighing truth from
+      lies.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: You repeat yourself, firmer this time.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "I\u2019m the only one who knows where to find more."
+    characterName: You
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: She falls silent, tail swaying, claws flexing.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "Fine. I\u2019ll give you one chance. But if you return empty-handed\u2026"
+    characterName: ???
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: Her nails elongate into dagger-like points, a cruel smile curling
+      across her face.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: With that threat hanging in the air, she vanishes.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "Only after she\u2019s gone do you realize\u2014you never even
+      learned her name. Perhaps next time, you should ask."
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 1
+  responses: []
