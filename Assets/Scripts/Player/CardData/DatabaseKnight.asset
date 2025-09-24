@@ -16,5 +16,7 @@ MonoBehaviour:
   - SwordStrike
   - DobleAttk
   - Shield
-  - GainHP
+  - SmallHeal
   - LoveyDovy
+  - BigHeal
+  - BattleCry

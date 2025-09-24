@@ -60,7 +60,8 @@ public class SimpleHealth : MonoBehaviour
             Debug.Log("player has " + shield);
             Debug.Log("Dmg before shield is " + dmg);
             int dmgDone = dmg - shield;
-            shield -= dmg; 
+            shield -= dmg;
+            if (shield < 0) { shield = 0; }
             Debug.Log("Damage done to is " + dmgDone);
             if (dmgDone > 0)
             {

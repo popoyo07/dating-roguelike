@@ -98,15 +98,19 @@ MonoBehaviour:
   deckManagement: {fileID: 0}
   energy: {fileID: 0}
   dmgModifier: 0
-  shieldAmmount: 0
+  xtStrenght: 0
   doubleAttk: 2
   doubleAttkECost: 1
   swordStrike: 3
   swordStrikeECost: 1
   shield: 5
   shieldECost: 1
-  healing: 10
-  healingECost: 1
+  smallHealing: 10
+  smallHealingECost: 1
+  healingMultiplier: 2
+  bigHealingECost: 1
+  battleCryXTdmg: 2
+  battleCryECost: 0
 --- !u!1 &4134785340651724058
 GameObject:
   m_ObjectHideFlags: 0
