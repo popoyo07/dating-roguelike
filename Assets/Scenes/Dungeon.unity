@@ -208,7 +208,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 494784695503224701, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
       propertyPath: item
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 968018858988546471, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
       propertyPath: m_TagString
@@ -276,6 +276,7 @@ PrefabInstance:
       objectReference: {fileID: 4668596756076677665, guid: d2d9ac2d4c7efe647bc61379950800a6, type: 3}
     - target: {fileID: 7730367884786826620, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
       propertyPath: roomsSpawnBoss
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
