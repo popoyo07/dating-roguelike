@@ -1,9 +1,11 @@
+using NUnit.Framework.Constraints;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Rewards : MonoBehaviour
 {
+    private SimpleHealth playerHP;
     [Header("Bools")]
     public bool openRewardsPop;
     public bool pickedReward;
@@ -18,7 +20,7 @@ public class Rewards : MonoBehaviour
         public GameObject enemyPrefab;
     }
 
-    public enum RewardType { Coins, Card, Lovey, ClassCard }
+    public enum RewardType { Coins, Card, RecoverHP }
 
     [Header("Rewards")]
     public List<Reward> roomRewards;
@@ -34,13 +36,16 @@ public class Rewards : MonoBehaviour
 
     private BattleSystem battleSystem;
     private EnemySpawner enemySpawner;
+    private DeckDraw deck;
 
     void Start()
     {
+        playerHP = GameObject.FindWithTag("Player").GetComponent<SimpleHealth>();
         battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
         enemySpawner = GameObject.FindWithTag("EnemyS").GetComponent<EnemySpawner>();
+        deck = GameObject.Find("Managers").GetComponentInChildren<DeckDraw>();
     }
-
+  
     public void ShowRewardOptions()
     {
         if (rewardsForCurrent)
@@ -95,13 +100,15 @@ public class Rewards : MonoBehaviour
                 Debug.LogWarning("Coins ADDED");
                 break;
             case RewardType.Card:
-                Debug.LogWarning("New Card ADDED");
+                int r = Random.Range(0, deck.cardDatabase.allCards.Count);
+                deck.runtimeDeck.Add(deck.cardDatabase.allCards[r]); 
+
+                Debug.LogWarning("New Card ADDED called " + deck.cardDatabase.allCards[r]);
+                Debug.Log(" deck now has " + deck.runtimeDeck.Count + " and discard has " + deck.discardedCards.Count);
                 break;
-            case RewardType.Lovey:
-                Debug.LogWarning("Lovey Card ADDED");
-                break;
-            case RewardType.ClassCard:
-                Debug.LogWarning("Lovey Card ADDED");
+            case RewardType.RecoverHP:
+                playerHP.PercentageRecoverHP(30);
+                Debug.LogWarning("Recover HP by 30% of max HP");
                 break;
         }
 

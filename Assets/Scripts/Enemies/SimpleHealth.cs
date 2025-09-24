@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using System.Xml.Schema;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -91,10 +92,16 @@ public class SimpleHealth : MonoBehaviour
         }
     }
 
-    public void RecoverHP(int hp)
+    public void RecoverHP(int hp) // recover flat hp
     {
         health += hp;
         healthBar.UpdateHealth();
+    }
+
+    public void PercentageRecoverHP(float percent)// recover hp by percentage 
+    {
+        float addHP = (float)maxHealth * (percent * 0.001f);
+        RecoverHP((int)addHP);
     }
 
 }
