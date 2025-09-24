@@ -9,6 +9,11 @@ public class TestItem : MonoBehaviour
     int coins;
     bool itemPurchased;
 
+    private void Awake()
+    {
+        coinSystem = GameObject.Find("CoinSystem").GetComponent<CoinSystem>(); 
+    }
+
     private void Start()
     {
         coins = coinSystem.coins;
@@ -20,7 +25,7 @@ public class TestItem : MonoBehaviour
 
         if (coins > cost)
         {
-            coinSystem.BuyItem(cost);
+            StartCoroutine(coinSystem.BuyItem(5));
             coins = coinSystem.coins;
             itemPurchased = true;
         }
@@ -31,7 +36,7 @@ public class TestItem : MonoBehaviour
 
         if (itemPurchased == true)
         {
-            //Add code to add card to the player's deck
+            //Add code to add things to the player's inventory
         }
     }
 }
