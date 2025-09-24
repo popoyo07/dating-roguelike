@@ -45,6 +45,11 @@ public class ChooseRoom : MonoBehaviour
 
     public void ShowRoomOptions()
     {
+        if (chestInstance != null)
+        {
+            Destroy(chestInstance);
+        }
+
         if (currentRoom)
         {
             return;
@@ -80,7 +85,7 @@ public class ChooseRoom : MonoBehaviour
         {
             case RoomType.Enemy:
                 Debug.LogWarning("Enemy Room Chosen");
-                enemySpawner.SetNextEnemy(enemyPrefab);
+                //enemySpawner.SetNextEnemy(enemyPrefab);
                 break;
             case RoomType.Chest:
                 Debug.LogWarning("Chest Room Chosen");
@@ -88,4 +93,5 @@ public class ChooseRoom : MonoBehaviour
                 break;
         }
     }
+
 }
