@@ -28,6 +28,7 @@ public class BattleSystem : MonoBehaviour
     public int turnCounter = 0;
 
     Rewards rewards;
+    ChooseRoom chooseRoom;
     public bool moveA;
     public bool moveB;
 
@@ -39,6 +40,7 @@ public class BattleSystem : MonoBehaviour
         SetUpBattle();
 
         rewards = GameObject.FindWithTag("RewardsM").GetComponent<Rewards>();
+        chooseRoom = GameObject.FindWithTag("RoomManager").GetComponent<ChooseRoom>();
     }
     private void FixedUpdate()
     {
@@ -58,15 +60,36 @@ public class BattleSystem : MonoBehaviour
 
                 if (rewards.pickedReward)
                 {
-                    state = BattleState.WON;
-                    enemyHP = null;
+                     state = BattleState.WON;
+                     enemyHP = null;
                     moveA = true;
                     moveB = true;
                     rewards.pickedReward = false;
                     rewards.openRewardsPop = false;
-                    Debug.Log("Current state is " + state);
+                    // Debug.Log("Current state is " + state);
+
+                   /*  if (rewards.openRewardsPop == false)
+                     {
+                        Debug.Log("!rewards.openRewardsPop");
+                        // state = BattleState.WON;
+                        // enemyHP = null;
+                        chooseRoom.openRoomPop = true;
+                        chooseRoom.ShowRoomOptions();
+
+                        if (chooseRoom.chosenRoom)
+                        {
+                            Debug.Log("chooseRoom.chosenRoom");
+                            state = BattleState.WON;
+                            enemyHP = null;
+                            moveA = true;
+                            moveB = true;
+                            chooseRoom.chosenRoom = false;
+                            chooseRoom.openRoomPop = false;
+                            Debug.Log("Current state is " + state);
+                        }
+
+                    }*/
                 }
-               
             }
         }
 

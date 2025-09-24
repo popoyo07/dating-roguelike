@@ -11,14 +11,17 @@ public class MenuButtons : MonoBehaviour
     public GameObject loadingScreen;
     public GameObject settings;
     public GameObject rewardsPopup;
+    public GameObject roomPopup;
 
     BattleSystem battleSystem;
     Rewards rewards;
+    ChooseRoom chooseRoom;
 
     private void Start()
     {
         battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
         rewards = GameObject.FindWithTag("RewardsM").GetComponent<Rewards>();
+        chooseRoom = GameObject.FindWithTag("RoomManager").GetComponent<ChooseRoom>();
 
         if (loadingScreen != null)
         {
@@ -30,7 +33,7 @@ public class MenuButtons : MonoBehaviour
     private void Update()
     {
         if (battleSystem.state == BattleState.LOST)
-        {   
+        {
             loseMenu.SetActive(true);
             cardsMan.SetActive(false);
             man.SetActive(false);
@@ -44,6 +47,16 @@ public class MenuButtons : MonoBehaviour
         if (!rewards.openRewardsPop && rewardsPopup.activeSelf)
         {
             rewardsPopup.SetActive(false);
+        }
+        
+        if (chooseRoom.openRoomPop && !roomPopup.activeSelf)
+        {
+            roomPopup.SetActive(true);
+        }
+
+        if (!chooseRoom.openRoomPop && roomPopup.activeSelf)
+        {
+            roomPopup.SetActive(false);
         }
     }
 

@@ -10,8 +10,6 @@ public class ChooseRoom : MonoBehaviour
 
     [Header("Bools")]
     public bool openRoomPop;
-    public bool firstPick;
-    private bool roomSelectOnce;
     public bool chosenRoom;
     public bool currentRoom;
 
@@ -43,17 +41,6 @@ public class ChooseRoom : MonoBehaviour
     {
         battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
         enemySpawner = GameObject.FindWithTag("EnemyS").GetComponent<EnemySpawner>();
-
-        firstPick = true;
-    }
-
-    void Update()
-    {
-        if (battleSystem.state == BattleState.WON && !chosenRoom && !roomSelectOnce)
-        {
-            ShowRoomOptions();
-            roomSelectOnce = true;
-        }
     }
 
     public void ShowRoomOptions()
@@ -85,9 +72,6 @@ public class ChooseRoom : MonoBehaviour
         }
 
         chosenRoom = true;
-        openRoomPop = false;
-        firstPick = false;
-        roomSelectOnce = false;
 
         switch (room.roomType)
         {
