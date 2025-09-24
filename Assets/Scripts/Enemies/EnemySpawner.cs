@@ -50,6 +50,8 @@ public class EnemySpawner : MonoBehaviour
                 enemySpawn = true;
                 roomsSpawnBoss++;
             }
+
+            DestroyBoss();
         }
 
         if (battleSystem.state != BattleState.WON && enemySpawn)
@@ -71,7 +73,6 @@ public class EnemySpawner : MonoBehaviour
         if (roomsSpawnBoss < 6 || roomsSpawnBoss >= 7)
         {
             SpawnEnemy();
-            DestroyBoss();
             ifBossExists = false;
         }
     }

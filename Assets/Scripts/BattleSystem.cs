@@ -60,35 +60,22 @@ public class BattleSystem : MonoBehaviour
 
                 if (rewards.pickedReward)
                 {
-                     state = BattleState.WON;
-                     enemyHP = null;
-                    moveA = true;
-                    moveB = true;
                     rewards.pickedReward = false;
                     rewards.openRewardsPop = false;
-                    // Debug.Log("Current state is " + state);
-
-                   /*  if (rewards.openRewardsPop == false)
-                     {
-                        Debug.Log("!rewards.openRewardsPop");
-                        // state = BattleState.WON;
-                        // enemyHP = null;
-                        chooseRoom.openRoomPop = true;
-                        chooseRoom.ShowRoomOptions();
-
-                        if (chooseRoom.chosenRoom)
-                        {
-                            Debug.Log("chooseRoom.chosenRoom");
-                            state = BattleState.WON;
-                            enemyHP = null;
-                            moveA = true;
-                            moveB = true;
-                            chooseRoom.chosenRoom = false;
-                            chooseRoom.openRoomPop = false;
-                            Debug.Log("Current state is " + state);
-                        }
-
-                    }*/
+                    chooseRoom.openRoomPop = true;
+                    chooseRoom.ShowRoomOptions();
+                }
+  
+                if (chooseRoom.chosenRoom)
+                {
+                    rewards.openRewardsPop = false;
+                    state = BattleState.WON;
+                    enemyHP = null;
+                    moveA = true;
+                    moveB = true;
+                    chooseRoom.chosenRoom = false;
+                    chooseRoom.openRoomPop = false;
+                    Debug.Log("Current state is " + state);
                 }
             }
         }

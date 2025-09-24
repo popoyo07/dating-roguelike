@@ -26,11 +26,11 @@ public class ChooseRoom : MonoBehaviour
     public enum RoomType { Chest, Enemy }
 
     [Header("Rooms")]
-    public List<Room> roomRewards;
+    public List<Room> typeOfRoom;
 
     [Header("Buttons")]
-    public Button button1;
-    public Button button2;
+    public Button enemyButton;
+    public Button chestButton;
 
     private Room chestRoom;
     private Room enemyRoom;
@@ -52,16 +52,19 @@ public class ChooseRoom : MonoBehaviour
 
         currentRoom = true;
 
+        enemyRoom =  typeOfRoom[0];
+        chestRoom = typeOfRoom[1];
+
         // Assign sprites
-        button1.image.sprite = enemyRoom.roomSprite;
-        button2.image.sprite = chestRoom.roomSprite;
+        enemyButton.image.sprite = enemyRoom.roomSprite;
+        chestButton.image.sprite = chestRoom.roomSprite;
 
         // Assign behavior
-        button1.onClick.RemoveAllListeners();
-        button2.onClick.RemoveAllListeners();
+        enemyButton.onClick.RemoveAllListeners();
+        chestButton.onClick.RemoveAllListeners();
 
-        button1.onClick.AddListener(() => ApplyRoom(enemyRoom));
-        button2.onClick.AddListener(() => ApplyRoom(chestRoom));
+        enemyButton.onClick.AddListener(() => ApplyRoom(enemyRoom));
+        chestButton.onClick.AddListener(() => ApplyRoom(chestRoom));
     }
     
     void ApplyRoom(Room room)

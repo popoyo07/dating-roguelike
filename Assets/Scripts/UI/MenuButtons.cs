@@ -39,7 +39,7 @@ public class MenuButtons : MonoBehaviour
             man.SetActive(false);
         }
 
-        if (rewards.openRewardsPop && !rewardsPopup.activeSelf)
+        if (rewards.openRewardsPop && !rewardsPopup.activeSelf && !roomPopup.activeSelf)
         {
             rewardsPopup.SetActive(true);
         }
@@ -47,10 +47,6 @@ public class MenuButtons : MonoBehaviour
         if (!rewards.openRewardsPop && rewardsPopup.activeSelf)
         {
             rewardsPopup.SetActive(false);
-        }
-        
-        if (chooseRoom.openRoomPop && !roomPopup.activeSelf)
-        {
             roomPopup.SetActive(true);
         }
 
