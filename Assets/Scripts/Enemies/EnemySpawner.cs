@@ -16,9 +16,10 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Enemy Prefabs")]
     public List<GameObject> enemyPrefabs;
-    private GameObject forcedEnemy;
-
     private bool enemySpawn;
+
+    public List<GameObject> bossPrefabs;
+
     private BattleSystem battleSystem;
     private GameObject[] activeEnemies;
 
@@ -59,7 +60,7 @@ public class EnemySpawner : MonoBehaviour
             enemySpawn = false;
         }
 
-        if (roomsSpawnBoss == 6 && !ifBossExists)
+        if (roomsSpawnBoss == 6 || roomsSpawnBoss == 12 || roomsSpawnBoss == 18 && !ifBossExists)
         {
             ifBossExists = true;
             StartCoroutine(DelayBoss());
@@ -70,7 +71,7 @@ public class EnemySpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(2.5f);
 
-        if (roomsSpawnBoss < 6 || roomsSpawnBoss >= 7)
+        if (roomsSpawnBoss < 6 || roomsSpawnBoss >= 7 || roomsSpawnBoss < 12 || roomsSpawnBoss >= 13 || roomsSpawnBoss < 18 || roomsSpawnBoss >= 19)
         {
             SpawnEnemy();
             ifBossExists = false;
@@ -83,22 +84,9 @@ public class EnemySpawner : MonoBehaviour
         bossInstance = Instantiate(boss1, bossSpawn, Quaternion.identity);
     }
 
-    public void SetNextEnemy(GameObject enemyPrefab)
-    {
-        forcedEnemy = enemyPrefab;
-    }
-
     public void SpawnEnemy()
     {
-        if (forcedEnemy == null)
-        {
-            if (enemyPrefabs.Count > 0)
-            {
-                forcedEnemy = enemyPrefabs[0];
-            }
-        }
-
-        Instantiate(forcedEnemy, spawnPoint, Quaternion.identity);
+        Instantiate(enemyPrefabs[0], spawnPoint, Quaternion.identity);
 
         activeEnemies = GameObject.FindGameObjectsWithTag("Enemy");
     }

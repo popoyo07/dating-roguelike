@@ -111,10 +111,5 @@ public class Rewards : MonoBehaviour
                 Debug.LogWarning("Recover HP by 30% of max HP");
                 break;
         }
-
-        if(reward.enemyPrefab != null && enemySpawner != null)
-        {
-            enemySpawner.SetNextEnemy(reward.enemyPrefab);
-        }
     }
 }
