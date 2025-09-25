@@ -80,9 +80,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   system: {fileID: 0}
-  randomSelector: 0
+  actionSelector: 0
   attkDmg: 8
   shiledAdded: 0
+  stuned: 0
 --- !u!114 &4424579581365281425
 MonoBehaviour:
   m_ObjectHideFlags: 0

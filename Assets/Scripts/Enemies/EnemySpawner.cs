@@ -19,20 +19,16 @@ public class EnemySpawner : MonoBehaviour
     private bool ifBossExists;
 
     [Header("Enemy Prefabs")]
-    //  private int randomEnemy;
     public List<GameObject> sirenList;
     public List<GameObject> vampireList;
     public List<GameObject> idkList;
     private List<GameObject> activeList;
     private List<GameObject> spawnedList = new List<GameObject>();
-    private int randomEnemy;
     private int chosenList;
-    private int chosenList2;
     private bool enemySpawn;
     private GameObject enemyInstance;
 
     private BattleSystem battleSystem;
-    private GameObject[] activeEnemies;
 
     void Start()
     {
@@ -62,10 +58,10 @@ public class EnemySpawner : MonoBehaviour
         battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
 
         bossSpawn = new Vector3(0f, 0.75f, -6.73f);
+        roomsSpawnBoss = 0;
 
         spawnPoint = new Vector3(0f, 1.3f, -6.73f);
 
-        // Spawn the first forced enemy if already set
         SpawnEnemy();
     }
 
@@ -73,11 +69,6 @@ public class EnemySpawner : MonoBehaviour
     {
         if (battleSystem.state == BattleState.WON)
         {
-              /*foreach (GameObject obj in activeEnemies)
-              {
-                  if (obj != null) Destroy(obj);
-              }*/
-
             DestroyEnemy();
 
             if (!enemySpawn)
@@ -94,12 +85,6 @@ public class EnemySpawner : MonoBehaviour
         {
             enemySpawn = false;
         }
-
-      /*  if (roomsSpawnBoss == 6 || roomsSpawnBoss == 12 || roomsSpawnBoss == 18 && !ifBossExists)
-        {
-            ifBossExists = true;
-            StartCoroutine(DelayBoss());
-        }*/
     }
 
     IEnumerator DelayTrash()
@@ -115,33 +100,18 @@ public class EnemySpawner : MonoBehaviour
         {
             DestroyEnemy();
             ifBossExists = true;
-           // StartCoroutine(DelayBoss());
             bossInstance = Instantiate(boss, bossSpawn, Quaternion.identity);
         }
     }
 
-   /* IEnumerator DelayBoss()
-    {
-        yield return new WaitForSeconds(2.5f);
-        bossInstance = Instantiate(boss, bossSpawn, Quaternion.identity);
-    }*/
-
     public void SpawnEnemy()
     {
-        // randomEnemy = Random.Range(0, enemyPrefabs.Count);
-        // Instantiate(enemyPrefabs[randomEnemy], spawnPoint, Quaternion.identity);
-       // randomEnemy = Random.Range(0, activeList.Count);
-       // enemyInstance = Instantiate(activeList[randomEnemy], spawnPoint, Quaternion.identity);
-      //  spawnedList.Add(enemyInstance);
-
         if (activeList.Count > 0)
           {
             int randomEnemy = Random.Range(0, activeList.Count);
             enemyInstance = Instantiate(activeList[randomEnemy], spawnPoint, Quaternion.identity);
             spawnedList.Add(enemyInstance);
           }
-
-          //activeEnemies = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
     public void DestroyEnemy()
