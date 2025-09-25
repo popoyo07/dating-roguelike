@@ -27,6 +27,7 @@ public class EnemySpawner : MonoBehaviour
     private List<GameObject> spawnedList = new List<GameObject>();
     private int randomEnemy;
     private int chosenList;
+    private int chosenList2;
     private bool enemySpawn;
     private GameObject enemyInstance;
 
@@ -62,7 +63,6 @@ public class EnemySpawner : MonoBehaviour
 
         bossSpawn = new Vector3(0f, 0.75f, -6.73f);
 
-        roomsSpawnBoss = 0;
         spawnPoint = new Vector3(0f, 1.3f, -6.73f);
 
         // Spawn the first forced enemy if already set
@@ -95,11 +95,11 @@ public class EnemySpawner : MonoBehaviour
             enemySpawn = false;
         }
 
-        if (roomsSpawnBoss == 6 || roomsSpawnBoss == 12 || roomsSpawnBoss == 18 && !ifBossExists)
+      /*  if (roomsSpawnBoss == 6 || roomsSpawnBoss == 12 || roomsSpawnBoss == 18 && !ifBossExists)
         {
             ifBossExists = true;
             StartCoroutine(DelayBoss());
-        }
+        }*/
     }
 
     IEnumerator DelayTrash()
@@ -111,13 +111,20 @@ public class EnemySpawner : MonoBehaviour
             SpawnEnemy();
             ifBossExists = false;
         }
+        if (roomsSpawnBoss == 6 || roomsSpawnBoss == 12 || roomsSpawnBoss == 18 && !ifBossExists)
+        {
+            DestroyEnemy();
+            ifBossExists = true;
+           // StartCoroutine(DelayBoss());
+            bossInstance = Instantiate(boss, bossSpawn, Quaternion.identity);
+        }
     }
 
-    IEnumerator DelayBoss()
+   /* IEnumerator DelayBoss()
     {
         yield return new WaitForSeconds(2.5f);
         bossInstance = Instantiate(boss, bossSpawn, Quaternion.identity);
-    }
+    }*/
 
     public void SpawnEnemy()
     {
