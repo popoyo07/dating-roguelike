@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -9,23 +10,54 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Boss Settings")]
     public int roomsSpawnBoss;
-    public GameObject boss1;
+    private GameObject boss;
+    public GameObject sirenBoss;
+    public GameObject vampireBoss;
+    public GameObject idkBoss;
     private GameObject bossInstance;
     private Vector3 bossSpawn;
     private bool ifBossExists;
 
     [Header("Enemy Prefabs")]
+    //  private int randomEnemy;
+    public List<GameObject> sirenList;
+    public List<GameObject> vampireList;
+    public List<GameObject> idkList;
+    private List<GameObject> activeList;
+    private List<GameObject> spawnedList = new List<GameObject>();
     private int randomEnemy;
-    public List<GameObject> enemyPrefabs;
+    private int chosenList;
     private bool enemySpawn;
-
-    public List<GameObject> bossPrefabs;
+    private GameObject enemyInstance;
 
     private BattleSystem battleSystem;
     private GameObject[] activeEnemies;
 
     void Start()
     {
+        chosenList = Random.Range(0, 3);
+
+        switch (chosenList)
+        {
+            case 0:
+                activeList = sirenList;
+                Debug.Log("Siren boss");
+                boss = sirenBoss;
+                break;
+            case 1:
+                activeList = vampireList;
+                Debug.Log("Vampire boss");
+                boss = vampireBoss;
+                break;
+            case 2:
+                activeList = idkList;
+                Debug.Log("Idk boss");
+                boss = idkBoss;
+                break;
+        }
+
+        Debug.Log("Chosen list: " + chosenList);
+
         battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
 
         bossSpawn = new Vector3(0f, 0.75f, -6.73f);
@@ -41,10 +73,12 @@ public class EnemySpawner : MonoBehaviour
     {
         if (battleSystem.state == BattleState.WON)
         {
-            foreach (GameObject obj in activeEnemies)
-            {
-                if (obj != null) Destroy(obj);
-            }
+              /*foreach (GameObject obj in activeEnemies)
+              {
+                  if (obj != null) Destroy(obj);
+              }*/
+
+            DestroyEnemy();
 
             if (!enemySpawn)
             {
@@ -82,17 +116,35 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator DelayBoss()
     {
         yield return new WaitForSeconds(2.5f);
-        bossInstance = Instantiate(boss1, bossSpawn, Quaternion.identity);
+        bossInstance = Instantiate(boss, bossSpawn, Quaternion.identity);
     }
 
     public void SpawnEnemy()
     {
-        randomEnemy = Random.Range(0, enemyPrefabs.Count);
-        Instantiate(enemyPrefabs[randomEnemy], spawnPoint, Quaternion.identity);
+        // randomEnemy = Random.Range(0, enemyPrefabs.Count);
+        // Instantiate(enemyPrefabs[randomEnemy], spawnPoint, Quaternion.identity);
+       // randomEnemy = Random.Range(0, activeList.Count);
+       // enemyInstance = Instantiate(activeList[randomEnemy], spawnPoint, Quaternion.identity);
+      //  spawnedList.Add(enemyInstance);
 
-        activeEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+        if (activeList.Count > 0)
+          {
+            int randomEnemy = Random.Range(0, activeList.Count);
+            enemyInstance = Instantiate(activeList[randomEnemy], spawnPoint, Quaternion.identity);
+            spawnedList.Add(enemyInstance);
+          }
+
+          //activeEnemies = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
+    public void DestroyEnemy()
+    {
+        if (spawnedList.Contains(enemyInstance))
+        {
+            spawnedList.Remove(enemyInstance);
+            Destroy(enemyInstance);
+        }
+    }
     public void DestroyBoss()
     {
         if (bossInstance != null)

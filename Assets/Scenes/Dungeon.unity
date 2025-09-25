@@ -335,6 +335,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7730367884786826620, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
+      propertyPath: enemyPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7730367884786826620, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
       propertyPath: 'sirenList.Array.data[0]'
       value: 
       objectReference: {fileID: 3563789075462658821, guid: 02cbe141ab133f64f915179bc6dc06da, type: 3}
