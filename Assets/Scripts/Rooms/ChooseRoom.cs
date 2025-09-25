@@ -16,7 +16,7 @@ public class ChooseRoom : MonoBehaviour
         public Sprite roomSprite;
         public RoomType roomType;
 
-        public GameObject enemyPrefab;
+       // public GameObject enemyPrefab;
     }
 
     public enum RoomType { Left, Right }
@@ -62,7 +62,7 @@ public class ChooseRoom : MonoBehaviour
         leftButton.onClick.AddListener(() => ApplyRoom(leftRoom));
         rightButton.onClick.AddListener(() => ApplyRoom(rightRoom));
     }
-    
+
     void ApplyRoom(Room room)
     {
         if (!currentRoom)
@@ -81,6 +81,12 @@ public class ChooseRoom : MonoBehaviour
                 Debug.LogWarning("Right Room Chosen");
                 break;
         }
+
+       /* if (enemySpawner != null)
+        {
+            Debug.LogWarning("enemy spawned from choose room");
+            enemySpawner.SpawnEnemy();
+        }*/
     }
 
 }
