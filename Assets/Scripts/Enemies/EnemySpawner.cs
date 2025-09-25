@@ -15,6 +15,7 @@ public class EnemySpawner : MonoBehaviour
     private bool ifBossExists;
 
     [Header("Enemy Prefabs")]
+    private int randomEnemy;
     public List<GameObject> enemyPrefabs;
     private bool enemySpawn;
 
@@ -86,7 +87,8 @@ public class EnemySpawner : MonoBehaviour
 
     public void SpawnEnemy()
     {
-        Instantiate(enemyPrefabs[0], spawnPoint, Quaternion.identity);
+        randomEnemy = Random.Range(0, enemyPrefabs.Count);
+        Instantiate(enemyPrefabs[randomEnemy], spawnPoint, Quaternion.identity);
 
         activeEnemies = GameObject.FindGameObjectsWithTag("Enemy");
     }

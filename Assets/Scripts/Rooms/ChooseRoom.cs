@@ -4,10 +4,6 @@ using UnityEngine.UI;
 
 public class ChooseRoom : MonoBehaviour
 {
-    public GameObject enemyPrefab;
-    public GameObject chest;
-    private GameObject chestInstance;
-
     [Header("Bools")]
     public bool openRoomPop;
     public bool chosenRoom;
@@ -20,20 +16,20 @@ public class ChooseRoom : MonoBehaviour
         public Sprite roomSprite;
         public RoomType roomType;
 
-       // public GameObject enemyPrefab;
+        public GameObject enemyPrefab;
     }
 
-    public enum RoomType { Chest, Enemy }
+    public enum RoomType { Left, Right }
 
     [Header("Rooms")]
     public List<Room> typeOfRoom;
 
     [Header("Buttons")]
-    public Button enemyButton;
-    public Button chestButton;
+    public Button leftButton;
+    public Button rightButton;
 
-    private Room chestRoom;
-    private Room enemyRoom;
+    private Room leftRoom;
+    private Room rightRoom;
 
     private BattleSystem battleSystem;
     private EnemySpawner enemySpawner;
@@ -45,11 +41,6 @@ public class ChooseRoom : MonoBehaviour
 
     public void ShowRoomOptions()
     {
-        if (chestInstance != null)
-        {
-            Destroy(chestInstance);
-        }
-
         if (currentRoom)
         {
             return;
@@ -57,19 +48,19 @@ public class ChooseRoom : MonoBehaviour
 
         currentRoom = true;
 
-        enemyRoom =  typeOfRoom[0];
-        chestRoom = typeOfRoom[1];
+        leftRoom = typeOfRoom[0];
+        rightRoom =  typeOfRoom[1];
 
         // Assign sprites
-        enemyButton.image.sprite = enemyRoom.roomSprite;
-        chestButton.image.sprite = chestRoom.roomSprite;
+        leftButton.image.sprite = leftRoom.roomSprite;
+        rightButton.image.sprite = rightRoom.roomSprite;
 
         // Assign behavior
-        enemyButton.onClick.RemoveAllListeners();
-        chestButton.onClick.RemoveAllListeners();
-
-        enemyButton.onClick.AddListener(() => ApplyRoom(enemyRoom));
-        chestButton.onClick.AddListener(() => ApplyRoom(chestRoom));
+        leftButton.onClick.RemoveAllListeners();
+        rightButton.onClick.RemoveAllListeners();
+        
+        leftButton.onClick.AddListener(() => ApplyRoom(leftRoom));
+        rightButton.onClick.AddListener(() => ApplyRoom(rightRoom));
     }
     
     void ApplyRoom(Room room)
@@ -83,13 +74,11 @@ public class ChooseRoom : MonoBehaviour
 
         switch (room.roomType)
         {
-            case RoomType.Enemy:
-                Debug.LogWarning("Enemy Room Chosen");
-                //enemySpawner.SetNextEnemy(enemyPrefab);
+            case RoomType.Left:
+                Debug.LogWarning("Left Room Chosen");
                 break;
-            case RoomType.Chest:
-                Debug.LogWarning("Chest Room Chosen");
-                chestInstance = Instantiate(chest, new Vector3(0f, 1.3f, -6.73f), Quaternion.identity);
+            case RoomType.Right:
+                Debug.LogWarning("Right Room Chosen");
                 break;
         }
     }

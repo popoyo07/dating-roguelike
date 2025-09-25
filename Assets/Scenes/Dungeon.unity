@@ -503,6 +503,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1020901527363727910, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: leftButton
+      value: 
+      objectReference: {fileID: 417261027}
+    - target: {fileID: 1020901527363727910, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: chestButton
       value: 
       objectReference: {fileID: 1168456639}
@@ -515,20 +519,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1020901527363727910, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: rightButton
+      value: 
+      objectReference: {fileID: 1168456639}
+    - target: {fileID: 1020901527363727910, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: typeOfRoom.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1020901527363727910, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: typeOfRoom.Array.data[0].roomName
-      value: Enemy
+      value: Left
       objectReference: {fileID: 0}
     - target: {fileID: 1020901527363727910, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: typeOfRoom.Array.data[0].roomType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1020901527363727910, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: typeOfRoom.Array.data[1].roomName
-      value: Chest
+      value: Right
+      objectReference: {fileID: 0}
+    - target: {fileID: 1020901527363727910, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: typeOfRoom.Array.data[1].roomType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1020901527363727910, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: typeOfRoom.Array.data[0].roomSprite
@@ -538,6 +550,14 @@ PrefabInstance:
       propertyPath: typeOfRoom.Array.data[1].roomSprite
       value: 
       objectReference: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 1020901527363727910, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: typeOfRoom.Array.data[0].enemyPrefab
+      value: 
+      objectReference: {fileID: 2795040712188621090, guid: 5816c20bed80ca9498575975beb8f95e, type: 3}
+    - target: {fileID: 1020901527363727910, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: typeOfRoom.Array.data[1].enemyPrefab
+      value: 
+      objectReference: {fileID: 2795040712188621090, guid: 5816c20bed80ca9498575975beb8f95e, type: 3}
     - target: {fileID: 1598217951157764673, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1

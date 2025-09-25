@@ -3333,20 +3333,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc539e67ccafbdb458d6bc8f59925a02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChooseRoom
-  enemyPrefab: {fileID: 8226272766380277888, guid: e1d5c70015b609449b00fb742f4186dd, type: 3}
-  chest: {fileID: 3563789075462658821, guid: d0d852c20def1fd499f3a73534a4e9e8, type: 3}
   openRoomPop: 0
   chosenRoom: 0
   currentRoom: 0
   typeOfRoom:
-  - roomName: Enemy
+  - roomName: Left
     roomSprite: {fileID: 21300000, guid: 7415628784ed85d4d80e6cad3d02e38d, type: 3}
-    roomType: 1
-  - roomName: Chest
-    roomSprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
     roomType: 0
-  enemyButton: {fileID: 6446564320350025485}
-  chestButton: {fileID: 1598217951157764673}
+    enemyPrefab: {fileID: 2795040712188621090, guid: 5816c20bed80ca9498575975beb8f95e, type: 3}
+  - roomName: Right
+    roomSprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+    roomType: 1
+    enemyPrefab: {fileID: 2795040712188621090, guid: 5816c20bed80ca9498575975beb8f95e, type: 3}
+  leftButton: {fileID: 6446564320350025485}
+  rightButton: {fileID: 1598217951157764673}
 --- !u!1 &5283247505682781096
 GameObject:
   m_ObjectHideFlags: 0
