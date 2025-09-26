@@ -1,4 +1,3 @@
-using NUnit.Framework.Constraints;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,7 +16,7 @@ public class Rewards : MonoBehaviour
         public string rewardName;
         public Sprite rewardSprite;
         public RewardType rewardType;
-        public GameObject enemyPrefab;
+        //public GameObject enemyPrefab;
     }
 
     public enum RewardType { Coins, Card, RecoverHP }
@@ -34,15 +33,15 @@ public class Rewards : MonoBehaviour
     private Reward reward2;
     private Reward reward3;
 
-    private BattleSystem battleSystem;
-    private EnemySpawner enemySpawner;
+    //private BattleSystem battleSystem;
+    //private EnemySpawner enemySpawner;
     private DeckDraw deck;
 
     void Start()
     {
         playerHP = GameObject.FindWithTag("Player").GetComponent<SimpleHealth>();
-        battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
-        enemySpawner = GameObject.FindWithTag("EnemyS").GetComponent<EnemySpawner>();
+        //battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
+        //enemySpawner = GameObject.FindWithTag("EnemyS").GetComponent<EnemySpawner>();
         deck = GameObject.Find("Managers").GetComponentInChildren<DeckDraw>();
     }
   
