@@ -47,20 +47,21 @@ public class UICounter : MonoBehaviour
             case CounterSelection.Energy:
                 if (energy != null && energy.energyCounter != shownEnergy)
                 {
-                    UpdateAndShowValue(shownEnergy, energy.energyCounter, "Energy: ");
+                    UpdateAndShowValue(ref shownEnergy, energy.energyCounter, "Energy: ");
+                    Debug.LogWarning("shown Energy " + shownEnergy + " and current energy " + energy.energyCounter);
                 }
                 break;
             case CounterSelection.CardsInDeck:
                 if (deckDraw != null && deckDraw.runtimeDeck.Count != shownDeck) 
                 {
-                    UpdateAndShowValue(shownDeck, deckDraw.runtimeDeck.Count, "Deck: ");
+                    UpdateAndShowValue(ref shownDeck, deckDraw.runtimeDeck.Count, "Deck: ");
 
                 }
-                break;
+                break; 
             case CounterSelection.CardsDiscarded:
                 if (deckDraw != null && deckDraw.discardedCards.Count != shownDiscards) 
                 {
-                    UpdateAndShowValue(shownDiscards, deckDraw.discardedCards.Count, "Discards: ");
+                    UpdateAndShowValue(ref shownDiscards, deckDraw.discardedCards.Count, "Discards: ");
                     isZero = false;
 
                 }else if (deckDraw.discardedCards.Count == 0 && !isZero)
@@ -76,9 +77,11 @@ public class UICounter : MonoBehaviour
     }
 
     // for final game should be updated to bot include text
-    void UpdateAndShowValue(int value, int dataSource, string text) 
+    void UpdateAndShowValue( ref int value, int dataSource, string text) 
     {
        value  = dataSource;
+        Debug.Log("shown Energy " + value + " and current energy " + dataSource);
+
         TMP.text = text + value;
     }
 }

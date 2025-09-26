@@ -170,7 +170,7 @@ public class TheEditor : Editor
         doubleAttk = serializedObject.FindProperty("doubleAttk");
         singleAttk = serializedObject.FindProperty("swordStrike");
         singleShield = serializedObject.FindProperty("shield");
-        healing = serializedObject.FindProperty("healing");
+        healing = serializedObject.FindProperty("smallHealing");
     }
 
     public override void OnInspectorGUI()
@@ -186,7 +186,7 @@ public class TheEditor : Editor
         CheckValue(doubleAttk, "Double Attack");
         CheckValue(singleAttk, "Sword Strike");
         CheckValue(singleShield, "Shield");
-        CheckValue(healing, "Healing");
+        CheckValue(healing, "Small Healing");
 
         // Apply changes
         serializedObject.ApplyModifiedProperties();
