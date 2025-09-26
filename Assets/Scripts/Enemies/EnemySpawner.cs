@@ -57,7 +57,7 @@ public class EnemySpawner : MonoBehaviour
 
         battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
 
-        bossSpawn = new Vector3(0f, 0.75f, -6.73f);
+        bossSpawn = new Vector3(0f, 1.5f, -6.73f);
         roomsSpawnBoss = 0;
 
         spawnPoint = new Vector3(0f, 1.3f, -6.73f);
@@ -91,12 +91,12 @@ public class EnemySpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(2.5f);
 
-        if (roomsSpawnBoss < 6 || roomsSpawnBoss >= 7 || roomsSpawnBoss < 12 || roomsSpawnBoss >= 13 || roomsSpawnBoss < 18 || roomsSpawnBoss >= 19)
+        if (roomsSpawnBoss < 7 || roomsSpawnBoss >= 8 || roomsSpawnBoss < 14 || roomsSpawnBoss >= 15|| roomsSpawnBoss < 21 || roomsSpawnBoss >= 22)
         {
             SpawnEnemy();
             ifBossExists = false;
         }
-        if (roomsSpawnBoss == 6 || roomsSpawnBoss == 12 || roomsSpawnBoss == 18 && !ifBossExists)
+        if (roomsSpawnBoss == 7 || roomsSpawnBoss == 14 || roomsSpawnBoss == 22 && !ifBossExists)
         {
             DestroyEnemy();
             ifBossExists = true;
