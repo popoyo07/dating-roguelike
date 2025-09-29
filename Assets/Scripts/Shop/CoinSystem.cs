@@ -46,7 +46,7 @@ public class CoinSystem : MonoBehaviour, IDataPersistence
         if (battleSystem.state == BattleState.WON && banana == false)
         {
             //Debug.LogWarning("Attempting to add coins...");
-            StartCoroutine(AddCoins(8));
+            StartCoroutine(AddCoins(2));
             banana = true;
         }
         else if (battleSystem.state != BattleState.WON)

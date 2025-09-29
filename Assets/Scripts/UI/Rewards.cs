@@ -34,14 +34,14 @@ public class Rewards : MonoBehaviour
     private Reward reward3;
 
     //private BattleSystem battleSystem;
-    //private EnemySpawner enemySpawner;
+    private CoinSystem coinSystem;
     private DeckDraw deck;
 
     void Start()
     {
         playerHP = GameObject.FindWithTag("Player").GetComponent<SimpleHealth>();
         //battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
-        //enemySpawner = GameObject.FindWithTag("EnemyS").GetComponent<EnemySpawner>();
+        coinSystem = GameObject.FindWithTag("CoinSystem").GetComponent<CoinSystem>();
         deck = GameObject.Find("Managers").GetComponentInChildren<DeckDraw>();
     }
   
@@ -96,6 +96,7 @@ public class Rewards : MonoBehaviour
         switch (reward.rewardType)
         {
             case RewardType.Coins:
+                StartCoroutine(coinSystem.AddCoins(8));
                 Debug.LogWarning("Coins ADDED");
                 break;
             case RewardType.Card:
