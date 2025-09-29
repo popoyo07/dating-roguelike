@@ -18,6 +18,7 @@ TagManager:
   - EnemyS
   - RoomManager
   - RoomPopUp
+  - CoinSystem
   layers:
   - Default
   - TransparentFX

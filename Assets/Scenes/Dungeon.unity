@@ -691,6 +691,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5426382578802957370, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: m_TagString
+      value: CoinSystem
+      objectReference: {fileID: 0}
     - target: {fileID: 6054858379968941020, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
