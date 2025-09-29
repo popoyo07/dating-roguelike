@@ -16,15 +16,17 @@ public class CoinSystem : MonoBehaviour, IDataPersistence
     // Item buttons check cost, if coins > cost then subtract coins
 
     #region Save and Load
-    public void SaveData(ref GameData data)
-    {
-        data.coins = this.coins;
-    }
 
     public void LoadData(GameData data)
     {
         this.coins = data.coins;
     }
+
+    public void SaveData(ref GameData data)
+    {
+        data.coins = this.coins;
+    }
+
     #endregion
 
     private void Awake()
@@ -43,13 +45,13 @@ public class CoinSystem : MonoBehaviour, IDataPersistence
     {
         if (battleSystem.state == BattleState.WON && banana == false)
         {
-            Debug.LogWarning("Attempting to add coins...");
+            //Debug.LogWarning("Attempting to add coins...");
             StartCoroutine(AddCoins(8));
             banana = true;
         }
         else if (battleSystem.state != BattleState.WON)
         {
-            Debug.LogWarning("Banana bool reverted");
+            //Debug.LogWarning("Banana bool reverted");
             banana = false;
         }
     }
@@ -73,5 +75,4 @@ public class CoinSystem : MonoBehaviour, IDataPersistence
             yield return new WaitForSeconds(2f);
         }
     }
-
 }
