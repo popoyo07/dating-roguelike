@@ -20,8 +20,8 @@ public class ItemSpawner : MonoBehaviour
     private int wallRandomItem;
     private int ceilingRandomItem;
 
-    public Transform[] wallSpawnPoints;
-    public Transform[] ceilingSpawnPoints;
+    public Vector3[] wallSpawnPoints;
+    public Vector3[] ceilingSpawnPoints;
 
     //Variables that set the range for spawning for ground items
 
@@ -98,17 +98,17 @@ public class ItemSpawner : MonoBehaviour
         canSpawnArea2 = true;
         canSpawnArea3 = true;
 
-        List<Transform> availableCeilingSpawnPoints = new List<Transform>(ceilingSpawnPoints);
+        List<Vector3> availableCeilingSpawnPoints = new List<Vector3>(ceilingSpawnPoints);
 
         ceilingRandomItem = Random.Range(0, ceilingItemPrefabs.Count);
 
         int randomCeilingSpawnPointIndex = Random.Range(0, availableCeilingSpawnPoints.Count);
-        Transform selectedCeilingSpawnPoint = availableCeilingSpawnPoints[randomCeilingSpawnPointIndex];
+        Vector3 selectedCeilingSpawnPoint = availableCeilingSpawnPoints[randomCeilingSpawnPointIndex];
 
-        Instantiate(ceilingItemPrefabs[ceilingRandomItem], selectedCeilingSpawnPoint.position, selectedCeilingSpawnPoint.rotation);
+        Instantiate(ceilingItemPrefabs[ceilingRandomItem], selectedCeilingSpawnPoint, Quaternion.identity);
         availableCeilingSpawnPoints.RemoveAt(randomCeilingSpawnPointIndex);
 
-        List<Transform> availableWallSpawnPoints = new List<Transform>(wallSpawnPoints);
+        List<Vector3> availableWallSpawnPoints = new List<Vector3>(wallSpawnPoints);
 
         //For loop that spawns random itmes in random areas. The i-- makes sure the loop will run until 3 items have been spawned in 3 different areas
 
@@ -117,7 +117,7 @@ public class ItemSpawner : MonoBehaviour
             GameObject wallObject = wallItemPrefabs[wallRandomItem];
 
             int randomWallSpawnPointIndex = Random.Range(0, availableWallSpawnPoints.Count);
-            Transform selectedWallSpawnPoint = availableWallSpawnPoints[randomWallSpawnPointIndex];
+            Vector3 selectedWallSpawnPoint = availableWallSpawnPoints[randomWallSpawnPointIndex];
 
             groundRandomItem = Random.Range(0, groundItemPrefabs.Count); //Chooses a random item to spawn from the itemPrefabs
             rangeOption = Random.Range(0, 4); //Chooses a random spawn area
@@ -137,7 +137,7 @@ public class ItemSpawner : MonoBehaviour
                     Instantiate(groundItemPrefabs[groundRandomItem], randomSpawn, Quaternion.identity);
                     canSpawnArea0 = false;
 
-                    Instantiate(wallObject, selectedWallSpawnPoint.position, selectedWallSpawnPoint.rotation);
+                    Instantiate(wallObject, selectedWallSpawnPoint, Quaternion.identity);
                     availableWallSpawnPoints.RemoveAt(randomWallSpawnPointIndex);
                 }
                 else
@@ -154,7 +154,7 @@ public class ItemSpawner : MonoBehaviour
                     Instantiate(groundItemPrefabs[groundRandomItem], randomSpawn, Quaternion.identity);
                     canSpawnArea1 = false;
 
-                    Instantiate(wallObject, selectedWallSpawnPoint.position, selectedWallSpawnPoint.rotation);
+                    Instantiate(wallObject, selectedWallSpawnPoint, Quaternion.identity);
                     availableWallSpawnPoints.RemoveAt(randomWallSpawnPointIndex);
                 }
                 else
@@ -171,7 +171,7 @@ public class ItemSpawner : MonoBehaviour
                     Instantiate(groundItemPrefabs[groundRandomItem], randomSpawn, Quaternion.identity);
                     canSpawnArea2 = false;
 
-                    Instantiate(wallObject, selectedWallSpawnPoint.position, selectedWallSpawnPoint.rotation);
+                    Instantiate(wallObject, selectedWallSpawnPoint, Quaternion.identity);
                     availableWallSpawnPoints.RemoveAt(randomWallSpawnPointIndex);
                 }
                 else
@@ -188,7 +188,7 @@ public class ItemSpawner : MonoBehaviour
                     Instantiate(groundItemPrefabs[groundRandomItem], randomSpawn, Quaternion.identity);
                     canSpawnArea3 = false;
 
-                    Instantiate(wallObject, selectedWallSpawnPoint.position, selectedWallSpawnPoint.rotation);
+                    Instantiate(wallObject, selectedWallSpawnPoint, Quaternion.identity);
                     availableWallSpawnPoints.RemoveAt(randomWallSpawnPointIndex);
                 }
                 else
