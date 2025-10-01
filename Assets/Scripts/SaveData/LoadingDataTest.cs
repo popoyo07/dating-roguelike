@@ -30,11 +30,11 @@ public class LoadingDataTest : MonoBehaviour, IDataPersistence
 
     public void TestTakeDamage()
     {
-        player.ReceiveDMG(1);
+      //  player.ReceiveDMG(1);
     }
 
     public void TestAttack()
     {
-        enemy.ReceiveDMG(1);
+        //enemy.ReceiveDMG(1);
     }
 }

@@ -93,17 +93,17 @@ public class Enemy : MonoBehaviour
     void regular()
     {
 
-        player.ReceiveDMG(attkDmg);
+        player.ReceiveDMG(attkDmg, EnemyStatus.currentStatus);
            Debug.Log("RegularAttk");
     }
 
     IEnumerator doubleAttk()
     {
 
-        player.ReceiveDMG(attkDmg);
+        player.ReceiveDMG(attkDmg, EnemyStatus.currentStatus);
         yield return new WaitForSeconds(.7f);
 
-        player.ReceiveDMG(attkDmg);
+        player.ReceiveDMG(attkDmg, EnemyStatus.currentStatus);
 
         Debug.Log("DoubleAttk");
     }
