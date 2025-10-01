@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6651855241109148109}
   - component: {fileID: 3543225914755121219}
   - component: {fileID: 8350772356307164605}
+  - component: {fileID: 7829788775852373185}
   m_Layer: 0
   m_Name: CardManager
   m_TagString: Untagged
@@ -97,7 +98,6 @@ MonoBehaviour:
   player: {fileID: 0}
   deckManagement: {fileID: 0}
   energy: {fileID: 0}
-  dmgModifier: 0
   xtStrenght: 0
   doubleAttk: 2
   doubleAttkECost: 1
@@ -111,6 +111,18 @@ MonoBehaviour:
   bigHealingECost: 1
   battleCryXTdmg: 2
   battleCryECost: 0
+--- !u!114 &7829788775852373185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292839831765639643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32cc70fbb65d6b440a76f24dc3e3c558, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RoundTracker
 --- !u!1 &4134785340651724058
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,6 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BattleUI
   endTurnB: {fileID: 0}
   dialogueUI: {fileID: 0}
+  enemyDialogue: {fileID: 0}
 --- !u!1 &7180089294026773356
 GameObject:
   m_ObjectHideFlags: 0

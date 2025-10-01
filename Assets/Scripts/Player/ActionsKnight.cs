@@ -11,7 +11,10 @@ public class ActionsKnight : Cards
 {
     bool attkDone;
     bool turnBuff; 
-    
+    RoundTracker roundTracker;
+    StatusEffects pStatus;
+    StatusEffects eStatus;
+
     public Dictionary<string, int> cardEnergyCost = new Dictionary<string, int>();
 
     public Dictionary<string, Action> cardAttaks = new Dictionary<string, Action>();
@@ -21,8 +24,10 @@ public class ActionsKnight : Cards
         deckManagement = gameObject.GetComponent<DeckManagement>();
         energy = GetComponent<EnergySystem>();
         cardAttaks.Clear();
+        roundTracker = gameObject.GetComponent<RoundTracker>();
+        pStatus = GetComponent<StatusEffects>();
         InitializeCardActions();
-
+       
     }
 
 
@@ -50,6 +55,13 @@ public class ActionsKnight : Cards
     [Range(2, 5)][SerializeField] public int battleCryXTdmg;
     [Range(0, 3)][SerializeField] public int battleCryECost;
 
+    [Header("Parry ")]
+    [Range(0, 3)][SerializeField] public int parryECost;
+
+    public void ParryCard() // needs testing 
+    {
+        pStatus.currentStatus = StatusEffect.IVENCIBLE; // should be invencible for one round
+    }
     public void BattleCry() // buffs next attk 
     {
         xtStrenght = battleCryXTdmg;

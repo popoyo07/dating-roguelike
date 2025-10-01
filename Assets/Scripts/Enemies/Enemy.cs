@@ -11,6 +11,9 @@ public class Enemy : MonoBehaviour
     bool doingS;
     public bool stuned; // change to true to stunn enemy    
     bool selectionUsed;
+    StatusEffects EnemyStatus;
+    StatusEffects PlayerStatus;
+
     void Awake()
     {
          system = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
@@ -18,6 +21,8 @@ public class Enemy : MonoBehaviour
 
         system.enemy = this.gameObject;
         system.enemyHP = this.gameObject.GetComponent<SimpleHealth>();
+        EnemyStatus = this.gameObject.GetComponent<StatusEffects>();
+        PlayerStatus = player.GetComponent<StatusEffects>();
     }
      
     // Update is called once per frame
@@ -32,6 +37,7 @@ public class Enemy : MonoBehaviour
 
         if (system.state == BattleState.ENEMYTURN && !doingS) 
         {
+
             doingS = true;
             StartCoroutine(DelayEndOfTurn(2f));
            
