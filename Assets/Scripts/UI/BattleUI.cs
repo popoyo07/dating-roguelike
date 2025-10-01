@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,7 @@ public class BattleUI : MonoBehaviour
     public Button endTurnB;
     bool doing;
     public DialogueUI dialogueUI; // assign in inspector or find in Awake
+    public DialogueActivator enemyDialogue;
     //public GameObject CardUI;
 
 
@@ -26,6 +28,20 @@ public class BattleUI : MonoBehaviour
         // Initialize the button at start
         StartCoroutine(InitializeButton());
     }
+
+    void Start()
+    {
+        //Check did the enemy have the activator or not
+        if (enemyDialogue == null)
+        {
+            GameObject enemyGO = GameObject.FindWithTag("Enemy");
+            if (enemyGO != null)
+            {
+                enemyDialogue = enemyGO.GetComponent<DialogueActivator>();
+            }
+        }
+    }
+
 
     IEnumerator InitializeButton()
     {
@@ -83,17 +99,20 @@ public class BattleUI : MonoBehaviour
                 }
                 break;
 
-          
+
             case BattleState.WON:
                 dialogueUI.StartCoroutine(dialogueUI.DelayDisable(0.2f));
 
                 break;
             case BattleState.DEFAULT:
 
-                if (dialogueUI.isTalking) // if is stalking swithc to Dialogue state
+                if (dialogueUI.isTalking) // if is talking switch to Dialogue state
                 {
                     StartCoroutine(bSystem.DelaySwitchState(0f, BattleState.DIALOGUE, "isTalking = false "));
-
+                }
+                else if (enemyDialogue == null) //if the enemy doesn't have dialogue activator, then switch to Playerturn state
+                {
+                    StartCoroutine(bSystem.DelaySwitchState(0.2f, BattleState.PLAYERTURN, "Enemy has no dialogue"));
                 }
                 break;
             case BattleState.ENEMYTURN:
@@ -117,7 +136,7 @@ public class BattleUI : MonoBehaviour
                     doing = false;
                 }
                 break;
-               
+
             default:
                 doing = false;
                 break;
