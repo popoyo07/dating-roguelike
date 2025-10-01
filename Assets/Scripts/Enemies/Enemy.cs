@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -30,7 +31,7 @@ public class Enemy : MonoBehaviour
     {
         if (system.state == BattleState.PLAYERTURN && selectionUsed) 
         {
-            actionSelector = Random.Range(0, 2); // remember that range the last digit is ignored in slecetion 
+            actionSelector = Random.Range(0, 4); // remember that range the last digit is ignored in slecetion 
             attkDmg = Random.Range(5, 11);
             selectionUsed = false;
         }
@@ -47,6 +48,7 @@ public class Enemy : MonoBehaviour
         }
 
     }
+
     IEnumerator DelayEndOfTurn(float deleay) // add delay so we can run animations and things like that 
     {
         yield return new WaitForSeconds(deleay);
@@ -60,6 +62,7 @@ public class Enemy : MonoBehaviour
             StartCoroutine(system.EndEnemyTurn());
         }
     }
+
     void Action()
     {
         doingS = true;
@@ -72,6 +75,12 @@ public class Enemy : MonoBehaviour
             case 1:
                 StartCoroutine(doubleAttk());
                 break;
+            case 2:
+                stanceUp();
+                break;
+            case 3:
+                Guard();
+                break;
             default:
                 Debug.Log("Nothing happened");
                 break;
@@ -79,6 +88,7 @@ public class Enemy : MonoBehaviour
         StartCoroutine(system.EndEnemyTurn());
 
     }
+
     // basic enemy attacks 
     void regular()
     {
@@ -96,8 +106,16 @@ public class Enemy : MonoBehaviour
         player.ReceiveDMG(attkDmg);
 
         Debug.Log("DoubleAttk");
+    }
 
+    void stanceUp()
+    {
+        attkDmg += Random.Range(1, 3);
+        Debug.Log("Stanced Up");
+    }
 
-
+    void Guard()
+    {
+        system.enemyHP.shield += 4;
     }
 }

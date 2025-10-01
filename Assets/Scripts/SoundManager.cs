@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class SoundManager : MonoBehaviour
 {
     [SerializeField] Slider volumeSlider;
+    [SerializeField] Slider sfxVolume;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

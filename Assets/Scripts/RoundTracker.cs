@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class RoundTracker : MonoBehaviour
 {
-    public int rounds;
+    public int Rounds;
     BattleSystem BSystem;
     bool playerTurn;
     private void Start()
@@ -15,13 +15,13 @@ public class RoundTracker : MonoBehaviour
         if (!playerTurn && BSystem.state == BattleState.PLAYERTURN) 
         {
             playerTurn = true;
-            rounds++;
+            Rounds++;
         }
 
         if (playerTurn && BSystem.state == BattleState.WON) 
         {
             playerTurn = false;
-            rounds = 0; 
+            Rounds = 0; 
         }
     }
 }

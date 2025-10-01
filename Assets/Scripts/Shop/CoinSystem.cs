@@ -31,6 +31,7 @@ public class CoinSystem : MonoBehaviour, IDataPersistence
 
     private void Awake()
     {
+        DontDestroyOnLoad(this);
         coinTotal = GameObject.Find("TotalCoins").GetComponent<TextMeshProUGUI>();
         coinUI = GameObject.Find("coinUI").GetComponent<TextMeshProUGUI>();
         battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();

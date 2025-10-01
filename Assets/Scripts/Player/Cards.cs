@@ -11,7 +11,7 @@ public class Cards : MonoBehaviour
     public int xtStrenght; // used for whenever you want to temporarily increas or deacrease player dmg
     private SimpleHealth playerHp;
  
-    public void GenerateAttk()
+    public void GenerateAttk(StatusEffect attackerState)
     {
 
         Debug.Log ("Attk is " +  attkAmmount);
@@ -22,7 +22,7 @@ public class Cards : MonoBehaviour
             int dmg = attkAmmount + xtStrenght;
             if (dmg < 0) dmg = 0;
 
-            enemy.GetComponent<SimpleHealth>().ReceiveDMG(dmg);
+            enemy.GetComponent<SimpleHealth>().ReceiveDMG(dmg, attackerState);
             Debug.Log("Player does " + dmg + "DMG to the Enemy");
 
         }else

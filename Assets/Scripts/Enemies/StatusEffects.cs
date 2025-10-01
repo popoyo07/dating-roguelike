@@ -21,7 +21,7 @@ public class StatusEffects : MonoBehaviour
         
         round = currentRound;
 
-        yield return new  WaitUntil(() => round != roundTracker.rounds);
+        yield return new  WaitUntil(() => round != roundTracker.Rounds);
         if (currentStatus == StatusEffect.IVENCIBLE)
         {
             currentStatus = StatusEffect.NORMAL;
@@ -38,7 +38,7 @@ public class StatusEffects : MonoBehaviour
                 if (!waitingFor)
                 {
                     waitingFor = true;
-                    StartCoroutine(ResetInvencible(roundTracker.rounds));
+                    StartCoroutine(ResetInvencible(roundTracker.Rounds));
                 }
                 break;
         }

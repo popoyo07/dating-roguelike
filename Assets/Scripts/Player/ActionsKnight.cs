@@ -83,7 +83,7 @@ public class ActionsKnight : Cards
         ConsumeEnergy(swordStrikeECost);
         attkAmmount = swordStrike;
         Debug.Log("Attk should be " + swordStrike);
-        GenerateAttk();
+        GenerateAttk(pStatus.currentStatus);
     }
 
 
@@ -92,8 +92,8 @@ public class ActionsKnight : Cards
         attkAmmount = doubleAttk;
         Debug.Log("Attk should be " + doubleAttk);
         ConsumeEnergy(doubleAttk);
-        GenerateAttk();
-        GenerateAttk();
+        GenerateAttk(pStatus.currentStatus);
+        GenerateAttk(pStatus.currentStatus);
 
     }
     public void SmallHealing()
@@ -107,7 +107,7 @@ public class ActionsKnight : Cards
         ConsumeEnergy(biggerHeal);
         player.GetComponent<SimpleHealth>().RecoverHP(biggerHeal);
     }
-    public void LoveyDoveyLogic()
+    public void LoveyDoveyLogic()  // do nothing type of cards 
     {
         ConsumeEnergy(1);
         Debug.Log("Lovely");
