@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class SimpleHealth : MonoBehaviour
 {
+    StatusEffects status;
     [Range(1,100)]
     public int maxHealth;
     public int health;
@@ -51,18 +52,30 @@ public class SimpleHealth : MonoBehaviour
             }
             isPlayer = true;
         }
+        status = gameObject.GetComponent<StatusEffects>();
+        if (status == null) 
+        {
+            status = gameObject.GetComponentInChildren<StatusEffects>();
+        }
     }
-    public void ReceiveDMG(int dmg) 
+    public void ReceiveDMG(int dmg, StatusEffect attackerStatus) 
     {
       
         if (dmg != 0)
         {
+            int dmgDone;
+
             Debug.Log("player has " + shield);
             Debug.Log("Dmg before shield is " + dmg);
-            int dmgDone = dmg - shield;
-            shield -= dmg;
-            if (shield < 0) { shield = 0; }
-            Debug.Log("Damage done to is " + dmgDone);
+            if (attackerStatus != StatusEffect.SHIELDIGNORED)
+            {
+                dmgDone = dmg - shield;
+                shield -= dmg;
+                if (shield < 0) { shield = 0; }
+                Debug.Log("Damage done to is " + dmgDone);
+            }
+            else { dmgDone = dmg; }
+
             if (dmgDone > 0)
             {
                 health = health - dmgDone;
