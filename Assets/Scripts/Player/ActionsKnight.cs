@@ -12,6 +12,7 @@ public class ActionsKnight : Cards
     private void Start()
     {
         player = GameObject.FindWithTag("Player");
+        playerHp = player.GetComponent<SimpleHealth>();
         deckManagement = gameObject.GetComponent<DeckManagement>();
         energy = GetComponent<EnergySystem>();
         cardAttaks.Clear();
@@ -23,44 +24,116 @@ public class ActionsKnight : Cards
 
 
     [Header("Double Attk DMG")]
-    [Range(1, 5)][SerializeField] private int doubleAttk;
+    [Range(1, 10)][SerializeField] private int doubleAttk;
     [Range(1, 3)][SerializeField] private int doubleAttkECost;
 
     [Header("Single Attk DMG")]
-    [Range(1, 5)][SerializeField] private int swordStrike;
+    [Range(1, 10)][SerializeField] private int swordStrike;
     [Range(1, 3)][SerializeField] private int swordStrikeECost;
 
-    [Header("Single Shield")]
+    [Header("Small Shield")]
     [Range(1, 5)][SerializeField] public int shield;
     [Range(1, 3)][SerializeField] public int shieldECost;
 
-    [Header("Small heal hability")]
-    [Range(5, 10)][SerializeField] public int smallHealing;
-    [Range(1, 3)][SerializeField] public int smallHealingECost;
-
-    [Header("Big heal hability")]
-    [Range(2, 3)][SerializeField] public int healingMultiplier;
-    [Range(1, 3)][SerializeField] public int bigHealingECost;
 
     [Header("Battle Cry")]
     [Range(2, 5)][SerializeField] public int battleCryXTdmg;
     [Range(0, 3)][SerializeField] public int battleCryECost;
 
     [Header("Parry ")]
-    [Range(0, 3)][SerializeField] public int parryECost;
+    [Range(0, 3)][SerializeField] public int parryECost; 
+    
+    [Header("Shield Bash (stun) ")]
+    [Range(2, 10)][SerializeField] public int stun;
+    [Range(1, 3)][SerializeField] public int stunECost;
 
+    [Header("Piercing Jab ")]
+    [Range(2, 10)][SerializeField] public int piercing;
+    [Range(1, 3)][SerializeField] public int piercingECost;
+
+    [Header("Protective Oath")]
+    [Range(1, 20)][SerializeField] public int bigShield;
+    [Range(1, 3)][SerializeField] public int bigShieldECost; 
+
+    [Header("Second Wind")]
+    [Range(1, 3)][SerializeField] public int secondWindECost;
+    
+    [Header("Iron Resolve")]
+    [SerializeField] public int ironResolve;
+    [Range(1, 3)][SerializeField] public int ironResolveECost;
+
+    [Header("Taunt")]
+    [Range(1, 10)][SerializeField] public int taunt;
+    [Range(1, 3)][SerializeField] public int tauntECost;  
+    
+    [Header("Pocket Pebble")]
+    [Range(1, 10)][SerializeField] public int pocketPebble;
+    [Range(1, 3)][SerializeField] public int pocketPebbleECost;
+
+    public void PocketPebble()
+    {
+        int r = UnityEngine.Random.Range(1, 6);
+        // 20% chance of happening 
+        if (r == 1)
+        {
+            enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.STUN;
+
+        }
+        GenerateAttk(pStatus.currentStatus);
+
+    }
+
+
+    public void Taunt()
+    {
+        ConsumeEnergy(tauntECost);
+        enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.WEAK;
+        attkAmmount = taunt;
+        GenerateAttk(pStatus.currentStatus);
+
+    }
+    public void IronResolve()
+    {
+        ConsumeEnergy(ironResolveECost);
+        ironResolve = playerHp.shield;
+        attkAmmount = ironResolve;
+        GenerateAttk(pStatus.currentStatus);
+    }
+    public void SecondWind()
+    {
+        ConsumeEnergy(secondWindECost);
+        enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.VULNERABLE;
+    }
+    public void BigShield()
+    {
+        ConsumeEnergy(bigShieldECost);
+        GenerateShield(bigShield);
+    }
+    public void Piercing()
+    {
+        ConsumeEnergy(piercingECost);
+        LastStatus = pStatus.currentStatus;
+        attkAmmount = piercing;
+        pStatus.currentStatus = StatusEffect.SHIELDIGNORED;
+        GenerateAttk(pStatus.currentStatus);
+        pStatus.currentStatus = LastStatus; 
+    }
+    public void StunCard()
+    {
+        ConsumeEnergy(stunECost);
+        attkAmmount = stun;
+        enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.STUN;
+    }
     public void ParryCard() // needs testing 
     {
-        pStatus.currentStatus = StatusEffect.IVENCIBLE; // should be invencible for one round
+        ConsumeEnergy(parryECost);
+        pStatus.currentStatus = StatusEffect.IVINCIBLE; // should be invencible for one round
     }
     public void BattleCry() // buffs next attk 
     {
+        ConsumeEnergy(battleCryECost);
         xtStrenght = battleCryXTdmg;
         Debug.Log("Gave player extra dmg " + xtStrenght);
-    }
-    void ConsumeEnergy(int cost) // unsert enery cost in cost 
-    {
-        energy.energyCounter -= cost;
     }
     public void Shield()
     {
@@ -87,27 +160,7 @@ public class ActionsKnight : Cards
         GenerateAttk(pStatus.currentStatus);
 
     }
-    public void SmallHealing()
-    {
-        ConsumeEnergy(smallHealingECost);
-        player.GetComponent<SimpleHealth>().RecoverHP(smallHealing);
-    }
-    public void BigHealing()
-    {
-        int biggerHeal = smallHealing * 2;
-        ConsumeEnergy(biggerHeal);
-        player.GetComponent<SimpleHealth>().RecoverHP(biggerHeal);
-    }
-    public void LoveyDoveyLogic()  // do nothing type of cards 
-    {
-        ConsumeEnergy(1);
-        Debug.Log("Lovely");
-    }
-    public void LoveyDoveyLogic2() // need to add to list   
-    {
-        ConsumeEnergy(1);
-        Debug.Log("Lovely2");
-    }
+    
 
     private void InitializeCardActions()
     {
@@ -124,17 +177,28 @@ public class ActionsKnight : Cards
 
         // Define a mapping between card names and their corresponding methods + costs
         var actionMap = new Dictionary<string, (Action action, int cost)>
-    {
-        { cards[0], (SwordStrike, swordStrikeECost) },
-        { cards[1], (AttackTwice, doubleAttkECost) },
-        { cards[2], (Shield, shieldECost) },
-        { cards[3], (SmallHealing, smallHealingECost) },
-        { cards[4], (LoveyDoveyLogic, 1) },
-        { cards[5], (BigHealing, bigHealingECost) },
-        { cards[6], (BattleCry, battleCryECost) },
-        { cards[7], (ParryCard, parryECost) },
-        { cards[8], (BattleCry, battleCryECost) }
-    };
+        {
+                // scriptable object should be in this order 
+            { cards[0], (SwordStrike, swordStrikeECost) },
+            { cards[1], (AttackTwice, doubleAttkECost) },
+            { cards[2], (Shield, shieldECost) },
+            { cards[3], (SmallHealing, smallHealingECost) },
+            { cards[4], (LoveyDoveyLogic, 1) },
+            { cards[5], (BigHealing, bigHealingECost) },
+            { cards[6], (BattleCry, battleCryECost) },
+            { cards[7], (ParryCard, parryECost) },
+            { cards[8], (StunCard, stunECost) },
+            { cards[9], (Piercing, piercingECost) },
+            { cards[10], (BigShield, bigShieldECost) },
+            { cards[11], (SecondWind, secondWindECost) },
+            { cards[12], (IronResolve, ironResolveECost) },
+            { cards[13], (Taunt, tauntECost) },
+            { cards[14], (IronResolve, ironResolveECost) },
+            { cards[15], (LoveyDoveyLogic2, 1) },
+            { cards[16], (LoveyDoveyLogic3, 1) },
+            { cards[17], (LoveyDoveyLogic4, 1) },
+
+        };
 
         foreach (var kvp in actionMap)
         {

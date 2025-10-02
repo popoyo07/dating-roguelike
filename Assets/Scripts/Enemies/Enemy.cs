@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour
         system.enemyHP = this.gameObject.GetComponent<SimpleHealth>();
         EnemyStatus = this.gameObject.GetComponent<StatusEffects>();
         PlayerStatus = player.GetComponent<StatusEffects>();
+        
     }
      
     // Update is called once per frame

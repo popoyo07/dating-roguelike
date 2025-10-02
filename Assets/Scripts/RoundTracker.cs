@@ -1,10 +1,14 @@
 using UnityEngine;
 
+// later will need another check that makes a counter for enemy turn and not only player turm
+
 public class RoundTracker : MonoBehaviour
 {
-    public int Rounds;
-    BattleSystem BSystem;
+    public int playerRounds;
+    public int enemyRounds;
+    public BattleSystem BSystem;
     bool playerTurn;
+    bool enemyTurn;
     private void Start()
     {
         BSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
@@ -15,13 +19,18 @@ public class RoundTracker : MonoBehaviour
         if (!playerTurn && BSystem.state == BattleState.PLAYERTURN) 
         {
             playerTurn = true;
-            Rounds++;
+            playerRounds++;
+        }
+        else if (!enemyTurn && BSystem.state == BattleState.ENEMYTURN)
+        { 
+            enemyTurn = true;
+            enemyRounds++;
         }
 
         if (playerTurn && BSystem.state == BattleState.WON) 
         {
             playerTurn = false;
-            Rounds = 0; 
+            playerRounds = 0; 
         }
     }
 }

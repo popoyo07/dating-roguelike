@@ -65,17 +65,30 @@ public class SimpleHealth : MonoBehaviour
         {
             int dmgDone;
 
-            Debug.Log("player has " + shield);
+           
             Debug.Log("Dmg before shield is " + dmg);
-            if (attackerStatus != StatusEffect.SHIELDIGNORED)
+            switch (attackerStatus)
             {
-                dmgDone = dmg - shield;
-                shield -= dmg;
-                if (shield < 0) { shield = 0; }
-                Debug.Log("Damage done to is " + dmgDone);
+                case StatusEffect.SHIELDIGNORED:
+                    dmgDone = dmg;
+                    break; 
+                case StatusEffect.VULNERABLE: // increases the dmg received by 50%
+                    dmgDone = (int)((float)dmg * 1.5);
+                    Debug.Log("increase calculation " + ((float)dmg * 1.5));
+                    Debug.Log("shown dmg before shield calc " + dmgDone);
+                    break;
+                case StatusEffect.WEAK:
+                    dmgDone = (int)((float)dmg * .75f); // lower dmg by 25%
+                    break;
+                default:
+                    dmgDone = dmg - shield;
+                    shield -= dmg;
+                    if (shield < 0) { shield = 0; }
+                    Debug.Log("Damage done to is " + dmgDone);
+                    break;
             }
-            else { dmgDone = dmg; }
 
+            
             if (dmgDone > 0)
             {
                 health = health - dmgDone;
