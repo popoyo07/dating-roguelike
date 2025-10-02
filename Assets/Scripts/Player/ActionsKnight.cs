@@ -9,15 +9,6 @@ using System.Xml;
 
 public class ActionsKnight : Cards
 {
-    bool attkDone;
-    bool turnBuff; 
-    RoundTracker roundTracker;
-    StatusEffects pStatus;
-    StatusEffects eStatus;
-
-    public Dictionary<string, int> cardEnergyCost = new Dictionary<string, int>();
-
-    public Dictionary<string, Action> cardAttaks = new Dictionary<string, Action>();
     private void Start()
     {
         player = GameObject.FindWithTag("Player");
@@ -25,7 +16,7 @@ public class ActionsKnight : Cards
         energy = GetComponent<EnergySystem>();
         cardAttaks.Clear();
         roundTracker = gameObject.GetComponent<RoundTracker>();
-        pStatus = GetComponent<StatusEffects>();
+        pStatus = player.GetComponent<StatusEffects>();
         InitializeCardActions();
        
     }
@@ -43,11 +34,11 @@ public class ActionsKnight : Cards
     [Range(1, 5)][SerializeField] public int shield;
     [Range(1, 3)][SerializeField] public int shieldECost;
 
-    [Header("small heal hability")]
+    [Header("Small heal hability")]
     [Range(5, 10)][SerializeField] public int smallHealing;
     [Range(1, 3)][SerializeField] public int smallHealingECost;
 
-    [Header("big heal hability")]
+    [Header("Big heal hability")]
     [Range(2, 3)][SerializeField] public int healingMultiplier;
     [Range(1, 3)][SerializeField] public int bigHealingECost;
 
@@ -121,95 +112,36 @@ public class ActionsKnight : Cards
     private void InitializeCardActions()
     {
         cardAttaks.Clear();
+        cardEnergyCost.Clear();
 
-        // Use the same source as runtimeDeck - startingDeck.allCards
-        if (deckManagement.cardDatabase != null && deckManagement.cardDatabase.allCards != null)
-        {
-            // Make sure we have enough cards for the actions
-            if (deckManagement.cardDatabase.allCards.Count >= 5)
-            {
-                // make sure names and acctions match properly in here 
-                cardAttaks.Add(deckManagement.cardDatabase.allCards[0], SwordStrike);
-                cardAttaks.Add(deckManagement.cardDatabase.allCards[1], AttackTwice);
-                cardAttaks.Add(deckManagement.cardDatabase.allCards[2], Shield);
-                cardAttaks.Add(deckManagement.cardDatabase.allCards[3], SmallHealing);
-                cardAttaks.Add(deckManagement.cardDatabase.allCards[4], LoveyDoveyLogic);
-                cardAttaks.Add(deckManagement.cardDatabase.allCards[5], BigHealing);
-                cardAttaks.Add(deckManagement.cardDatabase.allCards[6], BattleCry);
-                Debug.Log("Card actions dictionary initialized with " + cardAttaks.Count + " entries");
-
-                // set card's energy cost
-                cardEnergyCost.Add(deckManagement.cardDatabase.allCards[0], swordStrikeECost);
-                cardEnergyCost.Add(deckManagement.cardDatabase.allCards[1], doubleAttkECost);
-                cardEnergyCost.Add(deckManagement.cardDatabase.allCards[2], shieldECost);
-                cardEnergyCost.Add(deckManagement.cardDatabase.allCards[3], smallHealingECost); 
-                cardEnergyCost.Add(deckManagement.cardDatabase.allCards[4], doubleAttkECost);
-                cardEnergyCost.Add(deckManagement.cardDatabase.allCards[5], bigHealingECost);
-                cardEnergyCost.Add(deckManagement.cardDatabase.allCards[6], battleCryECost);
-            }
-            else
-            {
-                Debug.LogError("Not enough cards in starting deck for all actions!");
-            }
-        }
-        else
+        if (deckManagement.cardDatabase?.allCards == null)
         {
             Debug.LogError("Starting deck or allCards is null!");
+            return;
         }
 
+        var cards = deckManagement.cardDatabase.allCards;
 
-
-
-    }
-}
-
-
-
-
-
-#if UNITY_EDITOR
-
-[CustomEditor(typeof(ActionsKnight)), CanEditMultipleObjects]
-public class TheEditor : Editor
-{
-    SerializedProperty doubleAttk;
-    SerializedProperty singleAttk;
-    SerializedProperty singleShield;
-    SerializedProperty healing;
-
-    private void OnEnable()
+        // Define a mapping between card names and their corresponding methods + costs
+        var actionMap = new Dictionary<string, (Action action, int cost)>
     {
-        doubleAttk = serializedObject.FindProperty("doubleAttk");
-        singleAttk = serializedObject.FindProperty("swordStrike");
-        singleShield = serializedObject.FindProperty("shield");
-        healing = serializedObject.FindProperty("smallHealing");
-    }
+        { cards[0], (SwordStrike, swordStrikeECost) },
+        { cards[1], (AttackTwice, doubleAttkECost) },
+        { cards[2], (Shield, shieldECost) },
+        { cards[3], (SmallHealing, smallHealingECost) },
+        { cards[4], (LoveyDoveyLogic, 1) },
+        { cards[5], (BigHealing, bigHealingECost) },
+        { cards[6], (BattleCry, battleCryECost) },
+        { cards[7], (ParryCard, parryECost) },
+        { cards[8], (BattleCry, battleCryECost) }
+    };
 
-    public override void OnInspectorGUI()
-    {
-        // Always update the serialized object
-        serializedObject.Update();
-
-        // Draw the default inspector
-        DrawDefaultInspector();
-
-        // Check each property and display warnings
-        // Add entry for each new card 
-        CheckValue(doubleAttk, "Double Attack");
-        CheckValue(singleAttk, "Sword Strike");
-        CheckValue(singleShield, "Shield");
-        CheckValue(healing, "Small Healing");
-
-        // Apply changes
-        serializedObject.ApplyModifiedProperties();
-    }
-
-    private void CheckValue(SerializedProperty property, string label)
-    {
-        if (property.intValue <= 0)
+        foreach (var kvp in actionMap)
         {
-            EditorGUILayout.HelpBox($"{label} should be greater than 0", MessageType.Warning);
+            cardAttaks[kvp.Key] = kvp.Value.action;
+            cardEnergyCost[kvp.Key] = kvp.Value.cost;
         }
+
+        Debug.Log($"Card actions dictionary initialized with {cardAttaks.Count} entries");
     }
 }
-#endif

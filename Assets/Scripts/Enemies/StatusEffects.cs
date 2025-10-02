@@ -15,6 +15,7 @@ public class StatusEffects : MonoBehaviour
     private void Start()
     {
         roundTracker = GameObject.Find("CardManager").GetComponent<RoundTracker>();
+        currentStatus = StatusEffect.NORMAL;
     }
     public IEnumerator ResetInvencible(int currentRound)
     {

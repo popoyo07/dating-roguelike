@@ -99,6 +99,11 @@ MonoBehaviour:
   deckManagement: {fileID: 0}
   energy: {fileID: 0}
   xtStrenght: 0
+  attkDone: 0
+  turnBuff: 0
+  roundTracker: {fileID: 0}
+  pStatus: {fileID: 0}
+  eStatus: {fileID: 0}
   doubleAttk: 2
   doubleAttkECost: 1
   swordStrike: 3
@@ -111,6 +116,7 @@ MonoBehaviour:
   bigHealingECost: 1
   battleCryXTdmg: 2
   battleCryECost: 0
+  parryECost: 2
 --- !u!114 &7829788775852373185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,6 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32cc70fbb65d6b440a76f24dc3e3c558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RoundTracker
+  Rounds: 0
 --- !u!1 &4134785340651724058
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Cards : MonoBehaviour
 {
@@ -10,7 +12,20 @@ public class Cards : MonoBehaviour
     public EnergySystem energy; // reference enrgy system 
     public int xtStrenght; // used for whenever you want to temporarily increas or deacrease player dmg
     private SimpleHealth playerHp;
- 
+
+
+    
+    public bool attkDone;
+    public bool turnBuff;
+    public RoundTracker roundTracker;
+    public StatusEffects pStatus;
+    public StatusEffects eStatus;
+    
+    // stores the 
+    public Dictionary<string, int> cardEnergyCost = new Dictionary<string, int>();
+
+    public Dictionary<string, Action> cardAttaks = new Dictionary<string, Action>();
+
     public void GenerateAttk(StatusEffect attackerState)
     {
 
