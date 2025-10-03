@@ -4,7 +4,7 @@ using UnityEngine;
 public class DeckUIManager : MonoBehaviour
 {
     [Header("UI References")]
-    public Transform contentParent; // assign ScrollView -> Viewport -> Content here
+    public Transform contentParent; // assign Content here
     public GameObject cardUIPrefab; // assign CardUI prefab here
 
     [Header("References")]
@@ -38,7 +38,7 @@ public class DeckUIManager : MonoBehaviour
         spawnedCards.Add(cardObj);
     }
 
-    public void RemoveCardUI(string cardName)
+    /*public void RemoveCardUI(string cardName)
     {
         var found = spawnedCards.Find(go => go.GetComponent<CardUI>().cardNameText.text == cardName);
         if (found != null)
@@ -46,7 +46,7 @@ public class DeckUIManager : MonoBehaviour
             spawnedCards.Remove(found);
             Destroy(found);
         }
-    }
+    }*/
 
     private void ClearDeckUI()
     {

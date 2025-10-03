@@ -68,7 +68,7 @@ public class DeckManagement : MonoBehaviour
         // adds card to discarded pile 
         discardedCards.Add(cardName);
         // remove visual
-        GameObject.FindWithTag("DUM").GetComponent<DeckUIManager>().RemoveCardUI(cardName);
+        //GameObject.FindWithTag("DUM").GetComponent<DeckUIManager>().RemoveCardUI(cardName);
         Debug.Log($"Card discarded: {cardName}. Discarded pile now has {discardedCards.Count} cards");
     }
 

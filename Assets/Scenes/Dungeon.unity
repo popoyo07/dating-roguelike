@@ -637,7 +637,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6100094602918948234, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_Spacing.x
-      value: 5
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6100094602918948234, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_Spacing.y
