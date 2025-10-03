@@ -19,7 +19,7 @@ TagManager:
   - RoomManager
   - RoomPopUp
   - CoinSystem
-  - CardMan
+  - ShowCards
   layers:
   - Default
   - TransparentFX

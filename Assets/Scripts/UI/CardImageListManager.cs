@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class CardImageListManager : MonoBehaviour
 {
-    public GameObject imageItemPrefab;
+    //public GameObject imageItemPrefab;
     private DeckDraw deckDraw;
 
     [SerializeField] private AllCardsOfCharacter cardDatabase;
@@ -25,7 +25,7 @@ public class CardImageListManager : MonoBehaviour
 
         foreach (var sprite in cardDatabase.allSprites)
         {
-            GameObject imageGO = Instantiate(imageItemPrefab, transform); // Instantiate as a child of this GameObject
+            /*GameObject imageGO = Instantiate(imageItemPrefab, transform); // Instantiate as a child of this GameObject
 
             Image img = imageGO.GetComponent<Image>();
             if (img != null)
@@ -35,7 +35,7 @@ public class CardImageListManager : MonoBehaviour
             else
             {
                 Debug.LogWarning("Image component not found on prefab!");
-            }
+            }*/
         }
     }
 }

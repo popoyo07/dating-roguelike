@@ -12,10 +12,13 @@ public class MenuButtons : MonoBehaviour
     public GameObject settings;
     public GameObject rewardsPopup;
     public GameObject roomPopup;
+    public GameObject showDeckPopup;
 
     BattleSystem battleSystem;
     Rewards rewards;
     ChooseRoom chooseRoom;
+
+    public bool showDeckToggleBool;
 
     private void Start()
     {
@@ -54,6 +57,15 @@ public class MenuButtons : MonoBehaviour
         {
             roomPopup.SetActive(false);
         }
+
+        if (showDeckToggleBool)
+        {
+            showDeckPopup.SetActive(true);
+        }
+        if (!showDeckToggleBool)
+        {
+            showDeckPopup.SetActive(false);
+        }
     }
 
     public void ExitApplication()
@@ -85,5 +97,10 @@ public class MenuButtons : MonoBehaviour
     public void CloseSettings()
     {
         settings.SetActive(false);
+    }
+
+    public void ShowDeck()
+    {
+        showDeckToggleBool = !showDeckToggleBool;
     }
 }
