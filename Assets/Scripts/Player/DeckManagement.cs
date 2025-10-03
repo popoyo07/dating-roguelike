@@ -106,7 +106,7 @@ public class DeckManagement : MonoBehaviour
 
         runtimeDeck = new List<string>(startingDeck.allCards);
 
-        //visual runtime deck
+        //visual runtime deck show starting cards
         GameObject.FindWithTag("DUM").GetComponent<DeckUIManager>().PopulateDeckUI(runtimeDeck);
 
         discardedCards = new List<string>();
