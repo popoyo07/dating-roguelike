@@ -31,12 +31,9 @@ public class DeckManagement : MonoBehaviour
     public  bool deckWasSet;
     void Awake()
     {
-
-        
         BSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
     } // does not do shit on child 
 
-    
     void FixedUpdate() // does not do shit on child 
     {
         if (BSystem != null)
@@ -70,6 +67,8 @@ public class DeckManagement : MonoBehaviour
     {
         // adds card to discarded pile 
         discardedCards.Add(cardName);
+        // remove visual
+        GameObject.FindWithTag("DUM").GetComponent<DeckUIManager>().RemoveCardUI(cardName);
         Debug.Log($"Card discarded: {cardName}. Discarded pile now has {discardedCards.Count} cards");
     }
 
@@ -106,6 +105,10 @@ public class DeckManagement : MonoBehaviour
         }
 
         runtimeDeck = new List<string>(startingDeck.allCards);
+
+        //visual runtime deck
+        GameObject.FindWithTag("DUM").GetComponent<DeckUIManager>().PopulateDeckUI(runtimeDeck);
+
         discardedCards = new List<string>();
         Debug.Log($"Runtime deck now has {runtimeDeck.Count} cards");
      

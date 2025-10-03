@@ -8,7 +8,10 @@ public class Rewards : MonoBehaviour
     [Header("Bools")]
     public bool openRewardsPop;
     public bool pickedReward;
-    public bool rewardsForCurrent; 
+    public bool rewardsForCurrent;
+
+    private DeckUIManager deckUI;
+
 
     [System.Serializable]
     public class Reward
@@ -40,11 +43,11 @@ public class Rewards : MonoBehaviour
     void Start()
     {
         playerHP = GameObject.FindWithTag("Player").GetComponent<SimpleHealth>();
-        //battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
         coinSystem = GameObject.FindWithTag("CoinSystem").GetComponent<CoinSystem>();
         deck = GameObject.Find("Managers").GetComponentInChildren<DeckDraw>();
+        deckUI = GameObject.FindWithTag("DUM").GetComponent<DeckUIManager>(); // or drag in inspector
     }
-  
+
     public void ShowRewardOptions()
     {
         if (rewardsForCurrent)
@@ -101,7 +104,14 @@ public class Rewards : MonoBehaviour
                 break;
             case RewardType.Card:
                 int r = Random.Range(0, deck.cardDatabase.allCards.Count);
-                deck.runtimeDeck.Add(deck.cardDatabase.allCards[r]); 
+                string newCard = deck.cardDatabase.allCards[r];
+
+                deck.runtimeDeck.Add(newCard);
+
+                if (deckUI != null)
+                {
+                    deckUI.AddCardUI(newCard);
+                }
 
                 Debug.LogWarning("New Card ADDED called " + deck.cardDatabase.allCards[r]);
                 Debug.Log(" deck now has " + deck.runtimeDeck.Count + " and discard has " + deck.discardedCards.Count);

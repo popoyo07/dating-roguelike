@@ -7320,6 +7320,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1602486437968536410}
+  - component: {fileID: 583771153192526945}
+  - component: {fileID: 6100094602918948234}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -7346,6 +7348,44 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
+--- !u!114 &583771153192526945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8339082180103709404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ContentSizeFitter
+  m_HorizontalFit: 2
+  m_VerticalFit: 2
+--- !u!114 &6100094602918948234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8339082180103709404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GridLayoutGroup
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 25, y: 25}
+  m_Spacing: {x: 10, y: 10}
+  m_Constraint: 0
+  m_ConstraintCount: 2
 --- !u!1 &8383318593615385990
 GameObject:
   m_ObjectHideFlags: 0
@@ -7355,9 +7395,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4410537560637258547}
+  - component: {fileID: 30430328245927524}
   m_Layer: 5
   m_Name: ShowDeck
-  m_TagString: Untagged
+  m_TagString: DUM
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7382,6 +7423,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &30430328245927524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8383318593615385990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbe661047a16872419b4f351bbd99716, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeckUIManager
+  contentParent: {fileID: 1602486437968536410}
+  cardUIPrefab: {fileID: 7844679705363213388, guid: 438089b313fead348b95e68aed27aa9c, type: 3}
+  deckManager: {fileID: 5835213839605387625}
 --- !u!1 &9197433941476431104
 GameObject:
   m_ObjectHideFlags: 0
@@ -7544,6 +7600,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+--- !u!114 &5835213839605387625 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6651855241109148109, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+  m_PrefabInstance: {fileID: 912817900866158756}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2c85b9932fd77d44ac6ef077a9cb2ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeckDraw
 --- !u!4 &7025805018716935279 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7866195888513307851, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
