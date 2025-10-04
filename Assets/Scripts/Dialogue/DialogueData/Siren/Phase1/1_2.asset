@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb04ed8146191ab4b98ce1e8256bab43, type: 3}
-  m_Name: 1_2CorrectCard
+  m_Name: 1_2
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
   dialogue:
   - dialogueText: "She seems to like this present \u2014 she even eats the conch
@@ -51,7 +51,10 @@ MonoBehaviour:
     characterImage: {fileID: 0}
     dialogueEnd: 0
   responses:
-  - respnseText: Fight
-    dialogueObject: {fileID: 11400000, guid: 86862d76a0855e7439a83da59571e561, type: 2}
   - respnseText: Persuade
     dialogueObject: {fileID: 11400000, guid: 2b36e36286a305f42beca69a69c0aa49, type: 2}
+  - respnseText: Fight
+    dialogueObject: {fileID: 11400000, guid: 86862d76a0855e7439a83da59571e561, type: 2}
+  LovyCounting:
+    LovyCount: 0
+    MinusLovyCount: 0

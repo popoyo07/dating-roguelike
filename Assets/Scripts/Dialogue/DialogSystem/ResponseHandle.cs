@@ -8,7 +8,7 @@ public class ResponseHandle : MonoBehaviour
     [SerializeField] private RectTransform responseBox;
     [SerializeField] private RectTransform responseButtonTemplate;
     [SerializeField] private RectTransform responseContainer;
-    private int LovyPlus;
+    public int LovyPlus;
 
     private DialogueUI dialogueUI;
     private ResponseEvent[] responseEvents;
@@ -58,7 +58,11 @@ public class ResponseHandle : MonoBehaviour
 
         if (responseIndex == 0)
         {
-            LovyPlus++;
+            LovyCountAdd(1);
+            if (LovyPlus > 0) 
+            {
+                //LovyDovyCardSelectionUI.Show(OnCardSelected);
+            }
             Debug.Log("LovyPlus = " + LovyPlus);
         }
 
@@ -83,5 +87,15 @@ public class ResponseHandle : MonoBehaviour
         {
             dialogueUI.CloseDialogueBox();
         }
+    }
+
+    public void ResetLovyCount() 
+    {
+        LovyPlus = 0;
+    }
+
+    public void LovyCountAdd(int numberAdd)
+    {
+        LovyPlus += numberAdd;
     }
 }

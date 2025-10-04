@@ -16,23 +16,24 @@ public class DialogueActivator : MonoBehaviour
     [SerializeField] private Image characterImage;
     [SerializeField] private static int currentDialogueIndex;
     [SerializeField] private DialogueProgression progression;
+    [SerializeField] private ResponseHandle response;
 
+    public bool showLovyUI;
 
     private DialogueUI dialogueUI;
 
-    public void UpdateDialogueObject(DialogueObject dialogueObject, int index)
+/*    public void UpdateDialogueObject(DialogueObject dialogueObject, int index)
     {
         if (index >= 0 && index < dialogueObject.Dialogue.Length)
         {
             this.dialogueObject[index] = dialogueObject;
         }
-    }
+    }*/
 
 
     private void Awake()
     {
         Canvas = GameObject.Find("Canvas");
-
 
         if (Canvas != null)
         {
@@ -79,7 +80,14 @@ public class DialogueActivator : MonoBehaviour
             }
 
             if (currentDialogueIndex < dialogueObject.Length - 1)
+            {
                 progression.currentDialogueIndex++;
+            }
+            else if(currentDialogueIndex == dialogueObject.Length - 1)
+            {
+                response.ResetLovyCount();
+            }
+                
         }
     }
 
