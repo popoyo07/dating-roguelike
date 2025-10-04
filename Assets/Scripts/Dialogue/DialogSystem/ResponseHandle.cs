@@ -8,15 +8,18 @@ public class ResponseHandle : MonoBehaviour
     [SerializeField] private RectTransform responseBox;
     [SerializeField] private RectTransform responseButtonTemplate;
     [SerializeField] private RectTransform responseContainer;
+    private int LovyPlus;
 
     private DialogueUI dialogueUI;
     private ResponseEvent[] responseEvents;
+    private LovyCounting LovyCounting;
 
     private List<GameObject> tempResponseButton = new List<GameObject>();
 
     private void Start()
     {
         dialogueUI = GetComponent<DialogueUI>();
+        LovyPlus = LovyCounting.lovyCount;
     }
 
     public void AddRespnoseEvents(ResponseEvent[] responseEvents)
@@ -53,7 +56,13 @@ public class ResponseHandle : MonoBehaviour
     {
         responseBox.gameObject.SetActive(false);
 
-        foreach(GameObject button in tempResponseButton)
+        if (responseIndex == 0)
+        {
+            LovyPlus++;
+            Debug.Log("LovyPlus = " + LovyPlus);
+        }
+
+        foreach (GameObject button in tempResponseButton)
         {
             Destroy(button);
         }
