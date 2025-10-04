@@ -18,6 +18,8 @@ public class ResponseHandle : MonoBehaviour
         currentActivator = activator;
     }
 
+    public DialogueActivator CurrentActivator => currentActivator;
+
     public int LovyPlus;
     private DialogueUI dialogueUI;
     private ResponseEvent[] responseEvents;

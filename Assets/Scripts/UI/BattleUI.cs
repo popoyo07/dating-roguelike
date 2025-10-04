@@ -5,12 +5,15 @@ using UnityEngine.UI;
 
 public class BattleUI : MonoBehaviour
 {
+    [SerializeField] private GameObject Canvas;
+
     BattleSystem bSystem;
     GameObject[] cards;
     public Button endTurnB;
     bool doing;
     public DialogueUI dialogueUI; // assign in inspector or find in Awake
     public DialogueActivator enemyDialogue;
+    public ResponseHandle responseHandle; 
     //public GameObject CardUI;
 
 
@@ -21,10 +24,11 @@ public class BattleUI : MonoBehaviour
             dialogueUI = GameObject.FindObjectOfType<DialogueUI>();
         }
 
+        Canvas = GameObject.Find("Canvas");
         bSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
         cards = GameObject.FindGameObjectsWithTag("Cards");
         endTurnB = GameObject.Find("EndTurn")?.GetComponent<Button>();
-
+        responseHandle = Canvas.GetComponent<ResponseHandle>();
         // Initialize the button at start
         StartCoroutine(InitializeButton());
     }
