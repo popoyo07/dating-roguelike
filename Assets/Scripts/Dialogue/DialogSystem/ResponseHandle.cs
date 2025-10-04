@@ -5,21 +5,35 @@ using System.Collections.Generic;
 
 public class ResponseHandle : MonoBehaviour
 {
+
     [SerializeField] private RectTransform responseBox;
     [SerializeField] private RectTransform responseButtonTemplate;
     [SerializeField] private RectTransform responseContainer;
-    public int LovyPlus;
+    [SerializeField] private LovyCounting LovyCounting;
+    
+    private DialogueActivator currentActivator;
 
+    public void SetCurrentActivator(DialogueActivator activator)
+    {
+        currentActivator = activator;
+    }
+
+    public int LovyPlus;
     private DialogueUI dialogueUI;
     private ResponseEvent[] responseEvents;
-    private LovyCounting LovyCounting;
 
     private List<GameObject> tempResponseButton = new List<GameObject>();
+
+    private void Awake()
+    {
+
+    }
 
     private void Start()
     {
         dialogueUI = GetComponent<DialogueUI>();
         LovyPlus = LovyCounting.lovyCount;
+
     }
 
     public void AddRespnoseEvents(ResponseEvent[] responseEvents)
@@ -61,9 +75,11 @@ public class ResponseHandle : MonoBehaviour
             LovyCountAdd(1);
             if (LovyPlus > 0) 
             {
+                currentActivator.TriggerLovyCardSelection();
+
+                
                 //LovyDovyCardSelectionUI.Show(OnCardSelected);
             }
-            Debug.Log("LovyPlus = " + LovyPlus);
         }
 
         foreach (GameObject button in tempResponseButton)

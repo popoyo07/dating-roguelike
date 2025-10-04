@@ -5,6 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 
 
 public class DialogueActivator : MonoBehaviour
@@ -16,7 +17,7 @@ public class DialogueActivator : MonoBehaviour
     [SerializeField] private Image characterImage;
     [SerializeField] private static int currentDialogueIndex;
     [SerializeField] private DialogueProgression progression;
-    [SerializeField] private ResponseHandle response;
+    [SerializeField] private ResponseHandle responseHandle;
 
     public bool showLovyUI;
 
@@ -33,6 +34,7 @@ public class DialogueActivator : MonoBehaviour
 
     private void Awake()
     {
+
         Canvas = GameObject.Find("Canvas");
 
         if (Canvas != null)
@@ -50,6 +52,11 @@ public class DialogueActivator : MonoBehaviour
             Debug.LogError("DialogueObject not assigned to Enemy!");
         }
 
+/*        if (responseHandle != null)
+        {
+            responseHandle.Init(this);
+        }*/
+
         currentDialogueIndex = progression.currentDialogueIndex;
     }
 
@@ -58,11 +65,14 @@ public class DialogueActivator : MonoBehaviour
         // Wait one frame to ensure DialogueUI has run its Start() and initialized all components
         yield return null;
 
-/*        foreach (DialogueResponseEvents responseEvents in GetComponents<DialogueResponseEvents>())
-        {
-            dialogueUI.AddResponseEvenet(responseEvents.Events);
-            break;
-        }*/
+        /*        foreach (DialogueResponseEvents responseEvents in GetComponents<DialogueResponseEvents>())
+                {
+                    dialogueUI.AddResponseEvenet(responseEvents.Events);
+                    break;
+                }*/
+        responseHandle = Canvas.GetComponent< ResponseHandle>();
+        
+        responseHandle.SetCurrentActivator(this);
 
         if (dialogueUI != null && dialogueObject.Length > 0 && dialogueObject[0] != null)
         {
@@ -73,6 +83,7 @@ public class DialogueActivator : MonoBehaviour
             nameText = GameObject.Find("NameTxt").GetComponent<TMP_Text>();
             characterImage = GameObject.Find("CharacterImage").GetComponent<Image>();
 
+            //Display Name and 2D Image
             if (currentDialogue.Dialogue.Length > 0)
             {
                 nameText.text = currentDialogue.Dialogue[0].CharacterName;
@@ -83,10 +94,10 @@ public class DialogueActivator : MonoBehaviour
             {
                 progression.currentDialogueIndex++;
             }
-            else if(currentDialogueIndex == dialogueObject.Length - 1)
+/*            else if(currentDialogueIndex == dialogueObject.Length - 1)
             {
-                response.ResetLovyCount();
-            }
+                responseHandle.ResetLovyCount();
+            }*/
                 
         }
     }
@@ -94,5 +105,18 @@ public class DialogueActivator : MonoBehaviour
     public void ResetDialogueIndex()
     {
         progression.currentDialogueIndex = 0;
+    }
+
+    public void TriggerLovyCardSelection()
+    {
+        showLovyUI = true;
+        Debug.Log("LovyPlus++");
+
+
+        /*        LovyCardSelectionUI ui = FindObjectOfType<LovyCardSelectionUI>();
+                if (ui != null)
+                {
+                    ui.Show(OnLovyCardResult);
+                }*/
     }
 }
