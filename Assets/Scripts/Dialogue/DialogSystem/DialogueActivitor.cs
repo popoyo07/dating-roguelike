@@ -5,7 +5,6 @@ using TMPro;
 using Unity.VisualScripting;
 using System.Collections.Generic;
 using UnityEngine.UI;
-using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 
 
 public class DialogueActivator : MonoBehaviour
