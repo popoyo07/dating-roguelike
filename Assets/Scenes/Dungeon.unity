@@ -489,7 +489,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1602486437968536410, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 114
       objectReference: {fileID: 0}
     - target: {fileID: 1602486437968536410, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_SizeDelta.y
@@ -529,7 +529,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2691346731706005164, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2799760912371963999, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_AnchorMax.x
@@ -657,11 +657,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6100094602918948234, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_Spacing.x
-      value: 60
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6100094602918948234, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_Spacing.y
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6100094602918948234, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_StartAxis
@@ -669,19 +669,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6100094602918948234, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_CellSize.x
-      value: 50
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 6100094602918948234, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_CellSize.y
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6100094602918948234, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: m_Padding.m_Top
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100094602918948234, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_Padding.m_Left
-      value: 32
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6100094602918948234, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_Padding.m_Right
-      value: 32
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100094602918948234, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: m_Padding.m_Bottom
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6420571650231993551, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_AnchorMax.x
@@ -695,6 +703,26 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7218606150051989901, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: roomRewards.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7218606150051989901, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: roomRewards.Array.data[2].rewardName
+      value: Health
+      objectReference: {fileID: 0}
+    - target: {fileID: 7218606150051989901, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: roomRewards.Array.data[0].rewardSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 509c26c990dd4434680af69cbec54de1, type: 3}
+    - target: {fileID: 7218606150051989901, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: roomRewards.Array.data[1].rewardSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a348568807d16bf45955a280041ab183, type: 3}
+    - target: {fileID: 7218606150051989901, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: roomRewards.Array.data[2].rewardSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1b21c15c0e23c644d8d3d372564280e7, type: 3}
     - target: {fileID: 7230328681048878003, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_LocalScale.x
       value: 3.0666
