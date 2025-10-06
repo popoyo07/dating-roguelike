@@ -262,3 +262,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CardUI
   cardNameText: {fileID: 4481724287425871062}
+  cardSpriteImage: {fileID: 4005110822057176571}

@@ -4,11 +4,11 @@ using UnityEngine;
 public class DeckUIManager : MonoBehaviour
 {
     [Header("UI References")]
-    public Transform contentParent; // assign Content here
-    public GameObject cardUIPrefab; // assign CardUI prefab here
+    public Transform contentParent;
+    public GameObject cardUIPrefab;
 
     [Header("References")]
-    public DeckManagement deckManager; // assign DeckManagement instance
+    public DeckManagement deckManager;
 
     private List<GameObject> spawnedCards = new List<GameObject>();
 
@@ -24,9 +24,9 @@ public class DeckUIManager : MonoBehaviour
     {
         ClearDeckUI();
 
-        foreach (var card in deck)
+        foreach (var cardName in deck)
         {
-            AddCardUI(card);
+            AddCardUI(cardName);
         }
     }
 
@@ -34,19 +34,21 @@ public class DeckUIManager : MonoBehaviour
     {
         GameObject cardObj = Instantiate(cardUIPrefab, contentParent);
         CardUI ui = cardObj.GetComponent<CardUI>();
-        ui.Setup(cardName);
+
+        // Find sprite that matches card name
+        Sprite sprite = null;
+        if (deckManager.cardDatabase != null)
+        {
+            int index = deckManager.cardDatabase.allCards.IndexOf(cardName);
+            if (index >= 0 && index < deckManager.cardDatabase.allCardSprites.Count)
+            {
+                sprite = deckManager.cardDatabase.allCardSprites[index];
+            }
+        }
+
+        ui.Setup(cardName, sprite);
         spawnedCards.Add(cardObj);
     }
-
-    /*public void RemoveCardUI(string cardName)
-    {
-        var found = spawnedCards.Find(go => go.GetComponent<CardUI>().cardNameText.text == cardName);
-        if (found != null)
-        {
-            spawnedCards.Remove(found);
-            Destroy(found);
-        }
-    }*/
 
     private void ClearDeckUI()
     {
