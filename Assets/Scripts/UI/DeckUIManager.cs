@@ -16,37 +16,30 @@ public class DeckUIManager : MonoBehaviour
     {
         if (deckManager != null)
         {
-            PopulateDeckUI(deckManager.runtimeDeck);
+            PopulateDeckUI(deckManager.runtimeDeck, deckManager.runtimeDeckImages);
         }
     }
 
-    public void PopulateDeckUI(List<string> deck)
+    public void PopulateDeckUI(List<string> deck, List<Sprite> deckImages)
     {
         ClearDeckUI();
 
-        foreach (var card in deck)
+        // Use index to keep name & image aligned
+        for (int i = 0; i < deck.Count; i++)
         {
-            AddCardUI(card);
+            string cardName = deck[i];
+            Sprite cardImage = (i < deckImages.Count) ? deckImages[i] : null;
+            AddCardUI(cardName, cardImage);
         }
     }
 
-    public void AddCardUI(string cardName)
+    public void AddCardUI(string cardName, Sprite cardImage)
     {
         GameObject cardObj = Instantiate(cardUIPrefab, contentParent);
         CardUI ui = cardObj.GetComponent<CardUI>();
-        ui.Setup(cardName);
+        ui.Setup(cardName, cardImage);
         spawnedCards.Add(cardObj);
     }
-
-    /*public void RemoveCardUI(string cardName)
-    {
-        var found = spawnedCards.Find(go => go.GetComponent<CardUI>().cardNameText.text == cardName);
-        if (found != null)
-        {
-            spawnedCards.Remove(found);
-            Destroy(found);
-        }
-    }*/
 
     private void ClearDeckUI()
     {

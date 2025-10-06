@@ -10,4 +10,8 @@ public class AllCardsOfCharacter : ScriptableObject
      public List<string> allCards = new List<string>()
      {
      };
+
+    public List<Sprite> allCardsImage = new List<Sprite>()
+    {
+    };
 }  

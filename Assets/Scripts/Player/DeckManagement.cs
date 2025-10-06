@@ -24,11 +24,15 @@ public class DeckManagement : MonoBehaviour
     public BattleSystem BSystem;
 
 
-    [Header("Cards in Run Tiem")]
+    [Header("Cards in Run Time")]
     public List<string> runtimeDeck;
     public List<string> discardedCards;
+    public List<Sprite> runtimeDeckImages;
+    public List<Sprite> discardedCardImages;
+
     public bool discardDeck;
     public  bool deckWasSet;
+
     void Awake()
     {
         BSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
@@ -63,10 +67,11 @@ public class DeckManagement : MonoBehaviour
         }       
     }
 
-    public void DiscardCard(string cardName)
+    public void DiscardCard(string cardName, Sprite cardNameImage)
     {
         // adds card to discarded pile 
         discardedCards.Add(cardName);
+        discardedCardImages.Add(cardNameImage); 
         // remove visual
         //GameObject.FindWithTag("DUM").GetComponent<DeckUIManager>().RemoveCardUI(cardName);
         Debug.Log($"Card discarded: {cardName}. Discarded pile now has {discardedCards.Count} cards");
@@ -76,6 +81,8 @@ public class DeckManagement : MonoBehaviour
     public void FindAndAssignCharacter()
     {
         runtimeDeck.Clear();
+        runtimeDeckImages.Clear();
+
        // discardedCards.Clear();
         switch (characterClass)
         {
@@ -101,13 +108,15 @@ public class DeckManagement : MonoBehaviour
             foreach (var card in startingDeck.allCards)
             {
                 Debug.Log($"- {card}");
+
             }
         }
 
         runtimeDeck = new List<string>(startingDeck.allCards);
+        runtimeDeckImages = new List<Sprite>(startingDeck.allCardsImage);
 
         //visual runtime deck show starting cards
-        GameObject.FindWithTag("DUM").GetComponent<DeckUIManager>().PopulateDeckUI(runtimeDeck);
+        GameObject.FindWithTag("DUM").GetComponent<DeckUIManager>().PopulateDeckUI(runtimeDeck, runtimeDeckImages);
 
         discardedCards = new List<string>();
         Debug.Log($"Runtime deck now has {runtimeDeck.Count} cards");
