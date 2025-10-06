@@ -110,7 +110,7 @@ public class Rewards : MonoBehaviour
 
                 if (deckUI != null)
                 {
-                    deckUI.AddCardUI(newCard);
+                    //deckUI.AddCardUI(newCard);
                 }
 
                 Debug.LogWarning("New Card ADDED called " + deck.cardDatabase.allCards[r]);
@@ -122,4 +122,5 @@ public class Rewards : MonoBehaviour
                 break;
         }
     }
+    //Game with a room of many differnt doors, do not create room until door is open, each door is an aproxiy of the room, when door is open, create room, if room is cleared, destroy room and all its content
 }
