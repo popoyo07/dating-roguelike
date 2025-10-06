@@ -663,10 +663,6 @@ PrefabInstance:
       propertyPath: m_Padding.m_Left
       value: 32
       objectReference: {fileID: 0}
-    - target: {fileID: 6100094602918948234, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: m_Padding.m_Right
-      value: 32
-      objectReference: {fileID: 0}
     - target: {fileID: 6420571650231993551, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
