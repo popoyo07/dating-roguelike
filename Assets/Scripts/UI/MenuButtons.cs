@@ -103,4 +103,9 @@ public class MenuButtons : MonoBehaviour
     {
         showDeckToggleBool = !showDeckToggleBool;
     }
+
+    public void CloseDeck()
+    {
+        showDeckToggleBool = false;
+    }
 }
