@@ -26,7 +26,10 @@ MonoBehaviour:
     characterImage: {fileID: 0}
     dialogueEnd: 0
   responses:
-  - respnseText: Yes
+  - respnseText: LoveyDovey
     dialogueObject: {fileID: 11400000, guid: 4f434d0356f9ebf469ff248395e280e7, type: 2}
-  - respnseText: No
+  - respnseText: No, fight
     dialogueObject: {fileID: 11400000, guid: f9a4d0c4a75744d48a4f4ace1ad74e53, type: 2}
+  LovyCounting:
+    LovyCount: 0
+    MinusLovyCount: 0

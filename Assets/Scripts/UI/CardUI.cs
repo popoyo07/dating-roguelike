@@ -10,7 +10,22 @@ public class CardUI : MonoBehaviour
     public Image cardSpriteImage;
     public Button cardButton;
 
+
+
+    [Header("Dialogue References")]
+    public GameObject canvas;
+    public DialogueUI DialogueUI;
+    public MenuButtons MenuButtons;
+
+
     private string cardName;
+
+    private void Awake()
+    {
+        canvas = GameObject.Find("Canvas");
+        DialogueUI = canvas.GetComponent<DialogueUI>();
+        MenuButtons = canvas.GetComponent<MenuButtons>();
+    }
 
     public void Setup(string cardName, Sprite cardSprite)
     {
@@ -27,5 +42,10 @@ public class CardUI : MonoBehaviour
     public void OnButtonClick()
     {
         Debug.LogWarning($"Card clicked: {cardName}");
+        if (DialogueUI.showAllDeck)
+        {
+            MenuButtons.CloseDeck();
+            DialogueUI.showAllDeck = false;
+        }
     }
 }
