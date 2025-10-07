@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
-using Unity.VisualScripting;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -42,15 +41,26 @@ public class EnemySpawner : MonoBehaviour
                 boss = sirenBoss;
                 break;
             case 1:
-                activeList = vampireList;
-                Debug.Log("Vampire boss");
-                boss = vampireBoss;
+                activeList = sirenList;
+                Debug.Log("Siren boss");
+                boss = sirenBoss;
                 break;
             case 2:
-                activeList = idkList;
-                Debug.Log("Idk boss");
-                boss = idkBoss;
+                activeList = sirenList;
+                Debug.Log("Siren boss");
+                boss = sirenBoss;
                 break;
+
+                /*case 1:
+                    activeList = vampireList;
+                    Debug.Log("Vampire boss");
+                    boss = vampireBoss;
+                    break;
+                /case 2:
+                    activeList = idkList;
+                    Debug.Log("Idk boss");
+                    boss = idkBoss;
+                    break;*/
         }
 
         Debug.Log("Chosen list: " + chosenList);
@@ -87,6 +97,11 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    /*public List<GameObject> GetActiveList()
+    {
+        return activeList;
+    }*/
+
     IEnumerator DelayTrash()
     {
         yield return new WaitForSeconds(2.5f);
@@ -113,6 +128,21 @@ public class EnemySpawner : MonoBehaviour
             spawnedList.Add(enemyInstance);
           }
     }
+
+    /*public void SpawnPickedEnemy(int enemyIndex)
+    {
+        if (enemyIndex >= 0 && enemyIndex < activeList.Count)
+        {
+            GameObject pickedEnemy = activeList[enemyIndex];
+            enemyInstance = Instantiate(pickedEnemy, spawnPoint, Quaternion.identity);
+            spawnedList.Add(enemyInstance);
+            Debug.Log($"Spawned specific enemy: {pickedEnemy.name}");
+        }
+        else
+        {
+            Debug.LogWarning("Invalid enemy index for SpawnPickedEnemy.");
+        }
+    }*/
 
     public void DestroyEnemy()
     {
