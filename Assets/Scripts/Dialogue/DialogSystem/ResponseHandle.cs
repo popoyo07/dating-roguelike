@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System;
 
 public class ResponseHandle : MonoBehaviour
 {
@@ -10,7 +11,8 @@ public class ResponseHandle : MonoBehaviour
     [SerializeField] private RectTransform responseButtonTemplate;
     [SerializeField] private RectTransform responseContainer;
     [SerializeField] private LovyCounting LovyCounting;
-    
+
+    private string usedLoveyDovey = "LoveyDovey";
     private DialogueActivator currentActivator;
 
     public void SetCurrentActivator(DialogueActivator activator)
@@ -28,7 +30,6 @@ public class ResponseHandle : MonoBehaviour
 
     private void Awake()
     {
-
     }
 
     private void Start()
@@ -72,16 +73,10 @@ public class ResponseHandle : MonoBehaviour
     {
         responseBox.gameObject.SetActive(false);
 
-        if (responseIndex == 0)
+        if (responseIndex == 0 && string.Equals(response.ResonpseText, usedLoveyDovey, StringComparison.OrdinalIgnoreCase))
         {
             LovyCountAdd(1);
-            if (LovyPlus > 0) 
-            {
-                currentActivator.TriggerLovyCardSelection();
-
-                
-                //LovyDovyCardSelectionUI.Show(OnCardSelected);
-            }
+            Debug.Log(LovyPlus);
         }
 
         foreach (GameObject button in tempResponseButton)

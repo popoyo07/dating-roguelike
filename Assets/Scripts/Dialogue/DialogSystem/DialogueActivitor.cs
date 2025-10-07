@@ -20,6 +20,7 @@ public class DialogueActivator : MonoBehaviour
 
     public bool showLovyUI;
 
+    private MenuButtons DeckUI;
     private DialogueUI dialogueUI;
 
 /*    public void UpdateDialogueObject(DialogueObject dialogueObject, int index)
@@ -39,6 +40,7 @@ public class DialogueActivator : MonoBehaviour
         if (Canvas != null)
         {
             dialogueUI = Canvas.GetComponent<DialogueUI>();
+            DeckUI = Canvas.GetComponent<MenuButtons>();
         }
 
         if (dialogueUI == null)
@@ -51,10 +53,6 @@ public class DialogueActivator : MonoBehaviour
             Debug.LogError("DialogueObject not assigned to Enemy!");
         }
 
-/*        if (responseHandle != null)
-        {
-            responseHandle.Init(this);
-        }*/
 
         currentDialogueIndex = progression.currentDialogueIndex;
     }
@@ -69,7 +67,7 @@ public class DialogueActivator : MonoBehaviour
                     dialogueUI.AddResponseEvenet(responseEvents.Events);
                     break;
                 }*/
-        responseHandle = Canvas.GetComponent< ResponseHandle>();
+        responseHandle = Canvas.GetComponent<ResponseHandle>();
         
         responseHandle.SetCurrentActivator(this);
 
@@ -93,11 +91,13 @@ public class DialogueActivator : MonoBehaviour
             {
                 progression.currentDialogueIndex++;
             }
-/*            else if(currentDialogueIndex == dialogueObject.Length - 1)
-            {
-                responseHandle.ResetLovyCount();
-            }*/
-                
+
+
+            /*            else if(currentDialogueIndex == dialogueObject.Length - 1)
+                        {
+                            responseHandle.ResetLovyCount();
+                        }*/
+
         }
     }
 
@@ -110,12 +110,6 @@ public class DialogueActivator : MonoBehaviour
     {
         showLovyUI = true;
         Debug.Log("LovyPlus++");
-
-
-        /*        LovyCardSelectionUI ui = FindObjectOfType<LovyCardSelectionUI>();
-                if (ui != null)
-                {
-                    ui.Show(OnLovyCardResult);
-                }*/
+        DeckUI.ShowDeck();
     }
 }

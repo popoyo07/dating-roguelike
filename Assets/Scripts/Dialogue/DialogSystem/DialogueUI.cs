@@ -12,20 +12,19 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private GameObject CardUI;
     [SerializeField] private TMP_Text nameText;
     [SerializeField] private Image characterImage;
+    [SerializeField] private MenuButtons AllDeckUI;
+    [SerializeField] private ResponseHandle responseHandle;
 
-
-
-    //[SerializeField] private DialogueObject testDialogue;
-
-    private ResponseHandle responseHandle;
     private TextEffect textEffect;
     public bool isTalking;
     public bool isTalkingTake2;
+    public bool showAllDeck = false;
 
     private void Start()
     {
         textEffect = GetComponent<TextEffect>();
         responseHandle = GetComponent<ResponseHandle>();
+        AllDeckUI = GetComponent<MenuButtons>();
         if (textEffect == null) Debug.LogError("TextEffect component is missing!");
         if (responseHandle == null) Debug.LogError("ResponseHandle component is missing!");
         if (textLabel == null) Debug.LogError("TextLabel is not assigned!");
@@ -112,10 +111,21 @@ public class DialogueUI : MonoBehaviour
             if (i == dialogueObject.Dialogue.Length - 1 && dialogueObject.HasResponses)
                 break;
 
-            // Next dialogue by pressing space key or tapping
-            yield return new WaitUntil(() => Keyboard.current.spaceKey.wasPressedThisFrame || Input.touchCount > 0);
+                // Next dialogue by pressing space key or tapping
+                yield return new WaitUntil(() => Keyboard.current.spaceKey.wasPressedThisFrame || Input.touchCount > 0);
         }
 
+        if (responseHandle.LovyPlus > 0)
+        {
+            yield return new WaitForSeconds(1f); // wait 2 seconds
+            AllDeckUI.ShowDeck();
+            showAllDeck = true;
+            //Debug.Log("AllDeck UI popped up because LovyPlus > 1 (after delay)");
+        }
+        else
+        {
+            Debug.Log(message: "AllDeck UI didn't popped up because LovyPlus < 0, count:" + responseHandle.LovyPlus);
+        }
 
         if (dialogueObject.HasResponses)
         {
@@ -124,6 +134,7 @@ public class DialogueUI : MonoBehaviour
         else 
         {
             CloseDialogueBox();
+
         }
     }
 
