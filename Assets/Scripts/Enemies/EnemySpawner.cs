@@ -41,15 +41,26 @@ public class EnemySpawner : MonoBehaviour
                 boss = sirenBoss;
                 break;
             case 1:
-                activeList = vampireList;
-                Debug.Log("Vampire boss");
-                boss = vampireBoss;
+                activeList = sirenList;
+                Debug.Log("Siren boss");
+                boss = sirenBoss;
                 break;
             case 2:
-                activeList = idkList;
-                Debug.Log("Idk boss");
-                boss = idkBoss;
+                activeList = sirenList;
+                Debug.Log("Siren boss");
+                boss = sirenBoss;
                 break;
+
+                /*case 1:
+                    activeList = vampireList;
+                    Debug.Log("Vampire boss");
+                    boss = vampireBoss;
+                    break;
+                /case 2:
+                    activeList = idkList;
+                    Debug.Log("Idk boss");
+                    boss = idkBoss;
+                    break;*/
         }
 
         Debug.Log("Chosen list: " + chosenList);
