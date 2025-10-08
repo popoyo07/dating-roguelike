@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class DataPersistenceManager : MonoBehaviour
 {
@@ -20,7 +21,12 @@ public class DataPersistenceManager : MonoBehaviour
         if (instance != null)
         {
             Debug.LogError("Tried to spawn a second DataPersistenceManager thats a nono");
-        }
+            if (instance != this)
+            {
+                Destroy(this.gameObject);
+            }
+            
+        } 
 
         instance = this;
     }
@@ -64,6 +70,10 @@ public class DataPersistenceManager : MonoBehaviour
         dataHandler.Save(gameData);
     }
 
+    private void OnDestroy()
+    {
+        SaveGame();
+    }
     private void OnApplicationQuit()
     {
         SaveGame();
