@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using System;
 
 public class CardUI : MonoBehaviour
 {
@@ -22,12 +23,36 @@ public class CardUI : MonoBehaviour
 
     private void Awake()
     {
-        Boss = GameObject.FindWithTag("Boss");
+        //Boss = GameObject.FindWithTag("Boss");
         canvas = GameObject.Find("Canvas");
         DialogueUI = canvas.GetComponent<DialogueUI>();
         MenuButtons = canvas.GetComponent<MenuButtons>();
-        Activator = Boss.GetComponent<DialogueActivator>();
+        //Activator = Boss.GetComponent<DialogueActivator>();
     }
+
+
+    private void Update()
+    {
+        // Try to find boss only once after it spawns
+        if (Boss == null)
+        {
+            Boss = GameObject.FindWithTag("Boss");
+            if (Boss != null)
+            {
+                Activator = Boss.GetComponent<DialogueActivator>();
+                if (Activator != null)
+                {
+                    Debug.Log("Boss found and DialogueActivator cached!");
+                }
+            }
+            else
+            {
+                // If still not found, try again next frame
+                return;
+            }
+        }
+    }
+
 
     public void Setup(string cardName, Sprite cardSprite)
     {
@@ -58,6 +83,9 @@ public class CardUI : MonoBehaviour
     {
         switch (chosenCard)
         {
+            case "LoveCard":
+                Debug.Log("You chose: " + chosenCard + "for LoveyDovey");
+                break;
             case "LoveCard2":
                 Debug.Log("You chose: " + chosenCard + "for LoveyDovey");
                 break;
@@ -69,11 +97,11 @@ public class CardUI : MonoBehaviour
                 break;
             case "Shield":
                 Debug.Log("You chose: Shield for LoveyDovey");
-                Activator.ContinueDialogue();
+                Activator.ContinueDialogue(2);
                 break;
             default:
                 Debug.Log("You chose: " + chosenCard + "for LoveyDovey");
-                Activator.ContinueDialogue();
+                Activator.ContinueDialogue(1);
                 break;
 
         }

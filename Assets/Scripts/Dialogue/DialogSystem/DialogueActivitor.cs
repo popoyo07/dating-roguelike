@@ -87,10 +87,10 @@ public class DialogueActivator : MonoBehaviour
                 characterImage.sprite = currentDialogue.Dialogue[0].CharacterImage;
             }
 
-            if (currentDialogueIndex < dialogueObject.Length - 1)
+/*            if (currentDialogueIndex < dialogueObject.Length - 1)
             {
                 progression.currentDialogueIndex++;
-            }
+            }*/
 
 
             /*            else if(currentDialogueIndex == dialogueObject.Length - 1)
@@ -101,7 +101,7 @@ public class DialogueActivator : MonoBehaviour
         }
     }
 
-    public void ContinueDialogue()
+    public void ContinueDialogue(int number)
     {
         Debug.Log("ContinueDialogue Activated");
 
@@ -109,6 +109,13 @@ public class DialogueActivator : MonoBehaviour
 
         // Get current index
         int index = progression.currentDialogueIndex;
+
+        if (index < dialogueObject.Length - 1)
+        {
+            progression.currentDialogueIndex += number;
+
+            index = progression.currentDialogueIndex;
+        }
 
         if (index >= dialogueObject.Length)
         {
@@ -127,12 +134,6 @@ public class DialogueActivator : MonoBehaviour
         {
             nameText.text = currentDialogue.Dialogue[0].CharacterName;
             characterImage.sprite = currentDialogue.Dialogue[0].CharacterImage;
-        }
-
-        // Increment index for next time
-        if (index < dialogueObject.Length - 1)
-        {
-            progression.currentDialogueIndex++;
         }
     }
 
