@@ -40,14 +40,14 @@ MonoBehaviour:
     dialogueEnd: 0
   - dialogueText: Only one? Pathetic. I hunger for more
     characterName: ???
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
   - dialogueText: The monster leans closer, eyes narrowing, sharp teeth visible.
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
   - dialogueText: What will you do?
-    characterName: Siren
+    characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
   responses:
