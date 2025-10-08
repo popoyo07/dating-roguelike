@@ -18,6 +18,9 @@ public class MenuButtons : MonoBehaviour
     Rewards rewards;
     ChooseRoom chooseRoom;
 
+    [Header("Dialogue Data")]
+    [SerializeField] private DialogueProgression dialogueProgression;
+
     public bool showDeckToggleBool;
 
     private void Start()
@@ -107,5 +110,10 @@ public class MenuButtons : MonoBehaviour
     public void CloseDeck()
     {
         showDeckToggleBool = false;
+    }
+
+    public void ResetDialogueIndex()
+    {
+        dialogueProgression.currentDialogueIndex = 0;
     }
 }
