@@ -13,7 +13,6 @@ public class Cards : MonoBehaviour
     public int xtStrenght; // used for whenever you want to temporarily increas or deacrease player dmg
     public SimpleHealth playerHp;
     
-
     
     public bool attkDone;
     public bool turnBuff;
@@ -25,6 +24,7 @@ public class Cards : MonoBehaviour
     public Dictionary<string, int> cardEnergyCost = new Dictionary<string, int>();
 
     public Dictionary<string, Action> cardAttaks = new Dictionary<string, Action>();
+
 
     [Header("Small heal hability")]
     [Range(5, 10)][SerializeField] public int smallHealing;

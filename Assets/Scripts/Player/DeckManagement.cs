@@ -23,6 +23,8 @@ public class DeckManagement : MonoBehaviour
  
     public BattleSystem BSystem;
 
+    public Dictionary<string, Sprite> allPossibleSprites = new Dictionary<string, Sprite>();
+
 
     [Header("Cards in Run Tiem")]
     public List<string> runtimeDeck;
@@ -75,7 +77,8 @@ public class DeckManagement : MonoBehaviour
 
     public void FindAndAssignCharacter()
     {
-        runtimeDeck.Clear();
+        runtimeDeck.Clear(); 
+        allPossibleSprites.Clear();
        // discardedCards.Clear();
         switch (characterClass)
         {
@@ -105,6 +108,11 @@ public class DeckManagement : MonoBehaviour
         }
 
         runtimeDeck = new List<string>(startingDeck.allCards);
+
+        for (int i = 0; i < cardDatabase.allCardSprites.Count; i++)
+        {
+            allPossibleSprites.Add(cardDatabase.allCards[i], cardDatabase.allCardSprites[i]);
+        }
 
         //visual runtime deck show starting cards
         GameObject.FindWithTag("DUM").GetComponent<DeckUIManager>().PopulateDeckUI(runtimeDeck);

@@ -7,20 +7,22 @@ public class AssignCard : MonoBehaviour
 {
     public string cardNameFromList;
     public Button cardButton;
-    public TextMeshProUGUI txt;
+    //public TextMeshProUGUI txt;
     public bool cardUsed;
 
     private BattleSystem BSystem;
-    private ActionsKnight theCardAttks;
+    private ActionsKnight theCardAttks; // will eventually change to swithc statment that decides from which function to pull stuff 
     private DeckDraw cardDraw;
     private bool displayTxt;
     private bool cardSet;
+    private Image cardImage;
 
     bool resetForNewTurn;
     EnergySystem energy;
 
     private void OnEnable()
     {
+        cardImage = GetComponent<Image>();
         BSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
         cardDraw = GameObject.Find("CardManager").GetComponent<DeckDraw>();
         cardButton = GetComponent<Button>();
@@ -53,12 +55,7 @@ public class AssignCard : MonoBehaviour
     {
         if (BSystem == null) return;
 
-        // Handle card text display
-        if (cardNameFromList != null && !displayTxt)
-        {
-            txt.SetText(cardNameFromList);
-            displayTxt = true;
-        }
+      
 
         // Reset card for new turn
         if (BSystem.state == BattleState.PLAYERTURN && cardUsed)
@@ -88,6 +85,7 @@ public class AssignCard : MonoBehaviour
     {
         if (cardButton == null || theCardAttks == null) return;
 
+        cardImage.sprite = cardDraw.allPossibleSprites[cardNameFromList]; // assign sprite according to the name and the database
         cardButton.onClick.RemoveAllListeners();
         cardButton.onClick.AddListener(OnCardClicked);
         cardButton.interactable = true;
@@ -140,7 +138,7 @@ public class AssignCard : MonoBehaviour
 
         // Clear old card name and prepare for new assignment
         cardNameFromList = null;
-        txt.SetText("");
+       
 
         // Reactivate button
         if (cardButton != null)

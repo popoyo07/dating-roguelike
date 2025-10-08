@@ -11,6 +11,7 @@ public class ActionsKnight : Cards
 {
     private void Start()
     {
+
         player = GameObject.FindWithTag("Player");
         playerHp = player.GetComponent<SimpleHealth>();
         deckManagement = gameObject.GetComponent<DeckManagement>();
@@ -205,6 +206,9 @@ public class ActionsKnight : Cards
             cardAttaks[kvp.Key] = kvp.Value.action;
             cardEnergyCost[kvp.Key] = kvp.Value.cost;
         }
+
+
+        
 
         Debug.Log($"Card actions dictionary initialized with {cardAttaks.Count} entries");
     }
