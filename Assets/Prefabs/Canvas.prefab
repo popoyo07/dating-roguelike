@@ -1911,6 +1911,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3967055896382909537}
+        m_TargetAssemblyTypeName: MenuButtons, Assembly-CSharp
+        m_MethodName: ResetDialogueIndex
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2215749696619184694
 GameObject:
   m_ObjectHideFlags: 0
@@ -3916,6 +3928,7 @@ MonoBehaviour:
   rewardsPopup: {fileID: 9197433941476431104}
   roomPopup: {fileID: 1792220267545015199}
   showDeckPopup: {fileID: 2691346731706005164}
+  dialogueProgression: {fileID: 11400000, guid: f7a6907b8270b9040b904fcf41099455, type: 2}
   showDeckToggleBool: 0
 --- !u!223 &4856690515069249112
 Canvas:

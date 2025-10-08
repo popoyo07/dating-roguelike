@@ -85,15 +85,19 @@ public class CardUI : MonoBehaviour
         {
             case "LoveCard":
                 Debug.Log("You chose: " + chosenCard + "for LoveyDovey");
+                Activator.ContinueDialogue(1);
                 break;
             case "LoveCard2":
                 Debug.Log("You chose: " + chosenCard + "for LoveyDovey");
+                Activator.ContinueDialogue(1);
                 break;
             case "LoveCard3":
                 Debug.Log("You chose: " + chosenCard + "for LoveyDovey");
+                Activator.ContinueDialogue(1);
                 break;
             case "LoveCard4":
                 Debug.Log("You chose: " + chosenCard + "for LoveyDovey");
+                Activator.ContinueDialogue(1);
                 break;
             case "Shield":
                 Debug.Log("You chose: Shield for LoveyDovey");
@@ -101,7 +105,7 @@ public class CardUI : MonoBehaviour
                 break;
             default:
                 Debug.Log("You chose: " + chosenCard + "for LoveyDovey");
-                Activator.ContinueDialogue(1);
+                Activator.ContinueDialogue(2);
                 break;
 
         }

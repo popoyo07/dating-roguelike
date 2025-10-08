@@ -541,6 +541,39 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b6d197e9a2a9084080e4f0128db89af, type: 3}
+--- !u!114 &1110750382 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8258211013642233861, guid: 7b6d197e9a2a9084080e4f0128db89af, type: 3}
+  m_PrefabInstance: {fileID: 1110750381}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
+--- !u!114 &1110750383 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1762860410780347638, guid: 7b6d197e9a2a9084080e4f0128db89af, type: 3}
+  m_PrefabInstance: {fileID: 1110750381}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
+--- !u!114 &1110750384 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3411413306082914270, guid: 7b6d197e9a2a9084080e4f0128db89af, type: 3}
+  m_PrefabInstance: {fileID: 1110750381}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!114 &1639852621 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3035151827386756835, guid: f9e176ae607e2864989c242ced672c01, type: 3}
@@ -639,6 +672,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3035151827386756835, guid: f9e176ae607e2864989c242ced672c01, type: 3}
+      propertyPath: sfxSlider
+      value: 
+      objectReference: {fileID: 1110750382}
+    - target: {fileID: 3035151827386756835, guid: f9e176ae607e2864989c242ced672c01, type: 3}
+      propertyPath: musicSlider
+      value: 
+      objectReference: {fileID: 1110750383}
+    - target: {fileID: 3035151827386756835, guid: f9e176ae607e2864989c242ced672c01, type: 3}
+      propertyPath: masterSlider
+      value: 
+      objectReference: {fileID: 1110750384}
     - target: {fileID: 3901500647145850977, guid: f9e176ae607e2864989c242ced672c01, type: 3}
       propertyPath: m_LocalPosition.x
       value: 335.5307
