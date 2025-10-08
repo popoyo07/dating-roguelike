@@ -296,10 +296,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoomA
       objectReference: {fileID: 0}
-    - target: {fileID: 7730367884786826620, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
-      propertyPath: cardUI
-      value: 
-      objectReference: {fileID: 5484708218991827091, guid: 438089b313fead348b95e68aed27aa9c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

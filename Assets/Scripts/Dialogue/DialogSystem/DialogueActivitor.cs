@@ -62,6 +62,15 @@ public class DialogueActivator : MonoBehaviour
         // Wait one frame to ensure DialogueUI has run its Start() and initialized all components
         yield return null;
 
+        /*        foreach (DialogueResponseEvents responseEvents in GetComponents<DialogueResponseEvents>())
+                {
+                    dialogueUI.AddResponseEvenet(responseEvents.Events);
+                    break;
+                }*/
+        responseHandle = Canvas.GetComponent<ResponseHandle>();
+        
+        responseHandle.SetCurrentActivator(this);
+
         if (dialogueUI != null && dialogueObject.Length > 0 && dialogueObject[0] != null)
         {
 
@@ -83,6 +92,7 @@ public class DialogueActivator : MonoBehaviour
                 progression.currentDialogueIndex++;
             }
 
+
             /*            else if(currentDialogueIndex == dialogueObject.Length - 1)
                         {
                             responseHandle.ResetLovyCount();
@@ -90,42 +100,6 @@ public class DialogueActivator : MonoBehaviour
 
         }
     }
-
-    public void ContinueDialogue()
-    {
-        Debug.Log("ContinueDialogue Activated");
-
-        if (dialogueObject == null || dialogueObject.Length == 0) return;
-
-        // Get current index
-        int index = progression.currentDialogueIndex;
-
-        if (index >= dialogueObject.Length)
-        {
-            Debug.Log("No more dialogue left for this character.");
-            return;
-        }
-
-        // Get current DialogueObject
-        DialogueObject currentDialogue = dialogueObject[index];
-
-        // Show dialogue
-        dialogueUI.ShowDialogue(currentDialogue);
-
-        // Update name and image
-        if (currentDialogue.Dialogue.Length > 0)
-        {
-            nameText.text = currentDialogue.Dialogue[0].CharacterName;
-            characterImage.sprite = currentDialogue.Dialogue[0].CharacterImage;
-        }
-
-        // Increment index for next time
-        if (index < dialogueObject.Length - 1)
-        {
-            progression.currentDialogueIndex++;
-        }
-    }
-
 
     public void ResetDialogueIndex()
     {
