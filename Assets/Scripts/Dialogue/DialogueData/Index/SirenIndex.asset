@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b297a4e755738445bd4ca62a027cd35, type: 3}
   m_Name: SirenIndex
   m_EditorClassIdentifier: Assembly-CSharp::DialogueProgression
-  currentDialogueIndex: 0
+  currentDialogueIndex: 2

@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb04ed8146191ab4b98ce1e8256bab43, type: 3}
+  m_Name: 3_1
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
+  dialogue:
+  - dialogueText: A familiar monster emerges from the misty waters.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "There\u2019s more blood on you now\u2026 you\u2019ve survived
+      longer than I expected."
+    characterName: Siren
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "But tell me\u2014do you really think you can escape this place?"
+    characterName: Siren
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "I\u2019ve been trapped here for longer than you can imagine. This
+      place is a cage."
+    characterName: Siren
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: She lashes out, striking the wall. The stone trembles, then instantly
+      heals, sealing itself as if nothing happened.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "The only way out for people like you\u2026 is through me."
+    characterName: Siren
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: Prove yourself. Defeat me.
+    characterName: Siren
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: She leans forward, her voice laced with both challenge and temptation.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: What is your next step?
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  responses:
+  - respnseText: LoveyDovey
+    dialogueObject: {fileID: 11400000, guid: 4f434d0356f9ebf469ff248395e280e7, type: 2}
+  - respnseText: Fight
+    dialogueObject: {fileID: 11400000, guid: f5aeaf2021af04541b49a8b405ba1cf1, type: 2}
+  LovyCounting:
+    LovyCount: 0
+    MinusLovyCount: 0

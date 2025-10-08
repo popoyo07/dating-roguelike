@@ -120,6 +120,7 @@ public class DialogueUI : MonoBehaviour
             yield return new WaitForSeconds(1f); // wait 2 seconds
             AllDeckUI.ShowDeck();
             showAllDeck = true;
+            responseHandle.LovyPlus = 0;
             //Debug.Log("AllDeck UI popped up because LovyPlus > 1 (after delay)");
         }
         else

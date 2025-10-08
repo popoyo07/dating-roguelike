@@ -7,6 +7,9 @@ using System.Collections;
 public class GameData
 {
     public int coins;
+    public float masterVolume;
+    public float musicVolume;
+    public float sfxVolume;
 
     // the values defined in this constructor will be the default values
     // the game starts with when there is no data to load
@@ -15,6 +18,9 @@ public class GameData
     public GameData()
     {
         this.coins = 0;
+        this.masterVolume = 0;
+        this.musicVolume = 0;
+        this.sfxVolume = 0;
     }
 
 
