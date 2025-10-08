@@ -100,6 +100,7 @@ public class MenuButtons : MonoBehaviour
     public void CloseSettings()
     {
         settings.SetActive(false);
+        Debug.Log("Close Setting");
     }
 
     public void ShowDeck()

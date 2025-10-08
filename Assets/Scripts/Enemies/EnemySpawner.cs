@@ -106,12 +106,12 @@ public class EnemySpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(2.5f);
 
-        if (roomsSpawnBoss < 1 || roomsSpawnBoss >= 8 || roomsSpawnBoss < 14 || roomsSpawnBoss >= 15|| roomsSpawnBoss < 21 || roomsSpawnBoss >= 22)
+        if (roomsSpawnBoss < 7 || roomsSpawnBoss >= 8 || roomsSpawnBoss < 14 || roomsSpawnBoss >= 15|| roomsSpawnBoss < 21 || roomsSpawnBoss >= 22)
         {
             SpawnEnemy();
             ifBossExists = false;
         }
-        if (roomsSpawnBoss == 1 || roomsSpawnBoss == 14 || roomsSpawnBoss == 22 && !ifBossExists)
+        if (roomsSpawnBoss == 7 || roomsSpawnBoss == 14 || roomsSpawnBoss == 22 && !ifBossExists)
         {
             DestroyEnemy();
             ifBossExists = true;

@@ -1193,6 +1193,7 @@ GameObject:
   - component: {fileID: 1551033735312797084}
   - component: {fileID: 214690346427590933}
   - component: {fileID: 3288447154010061542}
+  - component: {fileID: 6116387572041681225}
   m_Layer: 5
   m_Name: CharacterImage
   m_TagString: Untagged
@@ -1217,7 +1218,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: -118}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 100, y: 120}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &214690346427590933
 CanvasRenderer:
@@ -1257,6 +1258,29 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!223 &6116387572041681225
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522110529229179925}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: -2
+  m_TargetDisplay: 0
 --- !u!1 &1547515845929573279
 GameObject:
   m_ObjectHideFlags: 0
@@ -2131,7 +2155,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: -1
   m_TargetDisplay: 0
 --- !u!1 &2480251991039751615
 GameObject:
@@ -3895,8 +3919,8 @@ RectTransform:
   - {fileID: 3879615727582169250}
   - {fileID: 9041459523165129297}
   - {fileID: 676971625282417083}
-  - {fileID: 8516785337573245244}
   - {fileID: 4410537560637258547}
+  - {fileID: 8516785337573245244}
   - {fileID: 2324415801319860881}
   - {fileID: 1062545616892401304}
   - {fileID: 3770825072103357530}
@@ -5562,7 +5586,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: -1
   m_TargetDisplay: 0
 --- !u!1 &5930708891424097655
 GameObject:
