@@ -265,6 +265,11 @@ MonoBehaviour:
   cardNameText: {fileID: 4481724287425871062}
   cardSpriteImage: {fileID: 4005110822057176571}
   cardButton: {fileID: 3526955272131271371}
+  Boss: {fileID: 4668596756076677665, guid: d2d9ac2d4c7efe647bc61379950800a6, type: 3}
+  canvas: {fileID: 0}
+  DialogueUI: {fileID: 0}
+  MenuButtons: {fileID: 0}
+  Activator: {fileID: 0}
 --- !u!114 &3526955272131271371
 MonoBehaviour:
   m_ObjectHideFlags: 0
