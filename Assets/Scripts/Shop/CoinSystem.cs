@@ -39,7 +39,7 @@ public class CoinSystem : MonoBehaviour, IDataPersistence
 
     private void Start()
     {
-        coinTotal.SetText("Coins: " + coins);
+        StartCoroutine(LoadCoins());
     }
 
     private void Update()
@@ -55,6 +55,12 @@ public class CoinSystem : MonoBehaviour, IDataPersistence
             //Debug.LogWarning("Banana bool reverted");
             banana = false;
         }
+    }
+
+    public IEnumerator LoadCoins()
+    {
+        yield return new WaitForSeconds(.1f);
+        coinTotal.SetText("Coins: " + coins);
     }
 
     public IEnumerator AddCoins(int addcoins)
