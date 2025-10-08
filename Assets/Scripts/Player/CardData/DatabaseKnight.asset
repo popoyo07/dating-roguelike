@@ -32,9 +32,9 @@ MonoBehaviour:
   - LoveCard3
   - LoveCard4
   allCardSprites:
+  - {fileID: 21300000, guid: 4bc95d4994d78e64c89ffade62f81b2c, type: 3}
   - {fileID: 21300000, guid: 109789bf1c325044b8a623424adc051c, type: 3}
-  - {fileID: 21300000, guid: 109789bf1c325044b8a623424adc051c, type: 3}
-  - {fileID: 21300000, guid: 109789bf1c325044b8a623424adc051c, type: 3}
+  - {fileID: 21300000, guid: f7b4c9f48e16b4b4ea8540906c612b6c, type: 3}
   - {fileID: 21300000, guid: 109789bf1c325044b8a623424adc051c, type: 3}
   - {fileID: 21300000, guid: 109789bf1c325044b8a623424adc051c, type: 3}
   - {fileID: 21300000, guid: 109789bf1c325044b8a623424adc051c, type: 3}
