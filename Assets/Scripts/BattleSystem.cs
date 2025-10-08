@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public enum BattleState {
     START,
@@ -107,7 +108,7 @@ public class BattleSystem : MonoBehaviour
 
                 break;
             case BattleState.LOST:
-            
+                SceneManager.LoadScene("MainMenu");
                 break;
         }
 
@@ -127,7 +128,7 @@ public class BattleSystem : MonoBehaviour
     public IEnumerator EndPlayerTurn()
     {
         state = BattleState.ENDPLAYERTURN;
-        yield return new WaitForSeconds(1f);  // delay a little so everything else can be run 
+        yield return new WaitForSeconds(.1f);  // delay a little so everything else can be run 
         state = BattleState.ENEMYTURN;
         Debug.Log("Current state is " + state);
     }

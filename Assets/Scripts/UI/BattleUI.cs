@@ -14,7 +14,7 @@ public class BattleUI : MonoBehaviour
     public DialogueUI dialogueUI; // assign in inspector or find in Awake
     public DialogueActivator enemyDialogue;
     public ResponseHandle responseHandle; 
-    //public GameObject CardUI;
+    public GameObject cardsUI;
 
 
     void Awake()
@@ -29,6 +29,7 @@ public class BattleUI : MonoBehaviour
         cards = GameObject.FindGameObjectsWithTag("Cards");
         endTurnB = GameObject.Find("EndTurn")?.GetComponent<Button>();
         responseHandle = Canvas.GetComponent<ResponseHandle>();
+        cardsUI = GameObject.Find("CARDS UI");
         // Initialize the button at start
         StartCoroutine(InitializeButton());
     }
@@ -80,7 +81,9 @@ public class BattleUI : MonoBehaviour
 
         switch (bSystem.state)
         {
+ 
             case BattleState.DIALOGUE:
+                cardsUI.SetActive(false);
 
                 if (dialogueUI.isTalking == false)
                 {
@@ -120,25 +123,9 @@ public class BattleUI : MonoBehaviour
                 }
                 break;
             case BattleState.ENEMYTURN:
+                cardsUI.SetActive(false);
+
                 dialogueUI.StartCoroutine(dialogueUI.DelayDisable(0.1f));
-
-                if (doing)
-                {
-                    // Deactivate cards
-                    for (int i = 0; i < cards.Length; i++)
-                    {
-                        cards[i].SetActive(false);
-                    }
-
-                    // Deactivate or disable button
-                    if (endTurnB != null)
-                    {
-                        endTurnB.interactable = false;
-                        endTurnB.gameObject.SetActive(false);
-                    }
-
-                    doing = false;
-                }
                 break;
 
             default:

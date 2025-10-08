@@ -23,6 +23,7 @@ public class DeckManagement : MonoBehaviour
  
     public BattleSystem BSystem;
 
+    // stores all the 
     public Dictionary<string, Sprite> allPossibleSprites = new Dictionary<string, Sprite>();
 
 

@@ -11,7 +11,7 @@ public class AssignCard : MonoBehaviour
     public bool cardUsed;
 
     private BattleSystem BSystem;
-    private ActionsKnight theCardAttks; // will eventually change to swithc statment that decides from which function to pull stuff 
+    private ActionsKnight theCardAttks; // will eventually change to swithc statment that decides from which function to pu
     private DeckDraw cardDraw;
     private bool displayTxt;
     private bool cardSet;
@@ -84,11 +84,12 @@ public class AssignCard : MonoBehaviour
     public void SetupCardButton()
     {
         if (cardButton == null || theCardAttks == null) return;
-
+        cardImage.enabled = true;
         cardImage.sprite = cardDraw.allPossibleSprites[cardNameFromList]; // assign sprite according to the name and the database
         cardButton.onClick.RemoveAllListeners();
         cardButton.onClick.AddListener(OnCardClicked);
         cardButton.interactable = true;
+
     }
     private void OnCardClicked()
     {
@@ -104,6 +105,8 @@ public class AssignCard : MonoBehaviour
                 cardUsed = true; // <-- mark the card as used immediately
                 DiscardAndReset();
                 cardButton.interactable = false;
+                cardImage.enabled = false;
+
             }
             else
             {
