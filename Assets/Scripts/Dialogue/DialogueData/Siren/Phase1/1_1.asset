@@ -15,7 +15,7 @@ MonoBehaviour:
   dialogue:
   - dialogueText: ^&$@^#@#%
     characterName: ???
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
   - dialogueText: A monster hisses in an unknown tongue.
     characterName: Narrator

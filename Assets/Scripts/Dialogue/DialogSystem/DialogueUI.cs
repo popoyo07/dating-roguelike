@@ -117,7 +117,7 @@ public class DialogueUI : MonoBehaviour
 
         if (responseHandle.LovyPlus > 0)
         {
-            yield return new WaitForSeconds(1f); // wait 2 seconds
+            yield return new WaitForSeconds(0.5f); // wait 2 seconds
             AllDeckUI.ShowDeck();
             showAllDeck = true;
             responseHandle.LovyPlus = 0;
@@ -135,7 +135,6 @@ public class DialogueUI : MonoBehaviour
         else 
         {
             CloseDialogueBox();
-
         }
     }
 
