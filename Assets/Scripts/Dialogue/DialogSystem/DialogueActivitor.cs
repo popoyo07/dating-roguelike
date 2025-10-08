@@ -101,6 +101,41 @@ public class DialogueActivator : MonoBehaviour
         }
     }
 
+    public void ContinueDialogue()
+    {
+        Debug.Log("ContinueDialogue Activated");
+
+        if (dialogueObject == null || dialogueObject.Length == 0) return;
+
+        // Get current index
+        int index = progression.currentDialogueIndex;
+
+        if (index >= dialogueObject.Length)
+        {
+            Debug.Log("No more dialogue left for this character.");
+            return;
+        }
+
+        // Get current DialogueObject
+        DialogueObject currentDialogue = dialogueObject[index];
+
+        // Show dialogue
+        dialogueUI.ShowDialogue(currentDialogue);
+
+        // Update name and image
+        if (currentDialogue.Dialogue.Length > 0)
+        {
+            nameText.text = currentDialogue.Dialogue[0].CharacterName;
+            characterImage.sprite = currentDialogue.Dialogue[0].CharacterImage;
+        }
+
+        // Increment index for next time
+        if (index < dialogueObject.Length - 1)
+        {
+            progression.currentDialogueIndex++;
+        }
+    }
+
     public void ResetDialogueIndex()
     {
         progression.currentDialogueIndex = 0;
