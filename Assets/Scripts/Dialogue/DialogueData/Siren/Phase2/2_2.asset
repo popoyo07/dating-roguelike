@@ -20,7 +20,7 @@ MonoBehaviour:
     dialogueEnd: 0
   - dialogueText: You always surprise me, human.
     characterName: Siren
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
   - dialogueText: The monster is holding the crystal and shows a look of nostalgia.
     characterName: Narrator
@@ -28,11 +28,11 @@ MonoBehaviour:
     dialogueEnd: 0
   - dialogueText: What a Crystal. It's a feeling I haven't felt in a long time.
     characterName: Siren
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
   - dialogueText: "It reminds me\u2026"
     characterName: Siren
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
   - dialogueText: The monster approaches, each step deliberate.
     characterName: Narrator
@@ -40,15 +40,15 @@ MonoBehaviour:
     dialogueEnd: 0
   - dialogueText: All of them fear me when they scent me.
     characterName: Siren
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
   - dialogueText: All of them bow before me when they see me.
-    characterName: Narrator
-    characterImage: {fileID: 0}
+    characterName: ???
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
   - dialogueText: All of them are drawn to me when they hear me.
-    characterName: Narrator
-    characterImage: {fileID: 0}
+    characterName: ???
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
   - dialogueText: The monster halts, looming before you.
     characterName: Narrator
@@ -64,8 +64,8 @@ MonoBehaviour:
     characterImage: {fileID: 0}
     dialogueEnd: 0
   - dialogueText: They name me...
-    characterName: Siren
-    characterImage: {fileID: 0}
+    characterName: ???
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
   - dialogueText: Your heartbeat quickens.
     characterName: Narrator
@@ -77,7 +77,7 @@ MonoBehaviour:
     dialogueEnd: 0
   - dialogueText: the Siren
     characterName: Siren
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
   - dialogueText: "Siren\u2026"
     characterName: Player
@@ -86,34 +86,34 @@ MonoBehaviour:
   - dialogueText: "Yes\u2026 you feel it too, don\u2019t you? That pull\u2026 that
       inevitability."
     characterName: Siren
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
   - dialogueText: Her gaze locks onto yours, unrelenting, as if she can see into
       the deepest currents of your soul.
     characterName: Siren
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
   - dialogueText: "Few dare approach\u2026 and even fewer leave unchanged."
     characterName: Siren
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
   - dialogueText: "No\u2026 I won\u2019t succumb."
-    characterName: Player
+    characterName: You
     characterImage: {fileID: 0}
     dialogueEnd: 0
   - dialogueText: You take a deep breath, forcing your mind to focus, to push back
       against the allure.
-    characterName: Player
+    characterName: You
     characterImage: {fileID: 0}
     dialogueEnd: 0
   - dialogueText: "Hah\u2026 defiance. Intriguing\u2026"
     characterName: Siren
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
   - dialogueText: Your heartbeat slowly steadies. Each pulse is a drum of resolve,
       each thought a tether to your will.
     characterName: Siren
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
   - dialogueText: I will continue my fight. No one can sway me, Siren.
     characterName: Siren
@@ -135,13 +135,8 @@ MonoBehaviour:
     characterName: Siren
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: Then, she slowly turns, her form shimmering and fading among the
-      ripples of the water.
-    characterName: Narrator
-    characterImage: {fileID: 0}
-    dialogueEnd: 0
-  - dialogueText: Then, she slowly turns, her form shimmering and fading among the
-      ripples of the water.
+  - dialogueText: The sea breeze carries away her presence, yet the echo of her gaze
+      lingers in your mind.
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0

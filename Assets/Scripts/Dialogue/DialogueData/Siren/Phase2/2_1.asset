@@ -15,18 +15,14 @@ MonoBehaviour:
   dialogue:
   - dialogueText: "\u2026\u2026"
     characterName: ???
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
   - dialogueText: ......
-    characterName: Me
+    characterName: You
     characterImage: {fileID: 0}
     dialogueEnd: 0
   - dialogueText: What a wonderful fate, you guys met for the second time so soon.
     characterName: Narrator
-    characterImage: {fileID: 0}
-    dialogueEnd: 0
-  - dialogueText: What a wonderful fate, you guys met for the second time so soon
-    characterName: 
     characterImage: {fileID: 0}
     dialogueEnd: 0
   - dialogueText: The monster is looking at you silently, but you know what is waiting

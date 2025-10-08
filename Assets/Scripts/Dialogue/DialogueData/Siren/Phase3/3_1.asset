@@ -20,16 +20,16 @@ MonoBehaviour:
   - dialogueText: "There\u2019s more blood on you now\u2026 you\u2019ve survived
       longer than I expected."
     characterName: Siren
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
   - dialogueText: "But tell me\u2014do you really think you can escape this place?"
     characterName: Siren
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
   - dialogueText: "I\u2019ve been trapped here for longer than you can imagine. This
       place is a cage."
     characterName: Siren
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
   - dialogueText: She lashes out, striking the wall. The stone trembles, then instantly
       heals, sealing itself as if nothing happened.
@@ -38,11 +38,11 @@ MonoBehaviour:
     dialogueEnd: 0
   - dialogueText: "The only way out for people like you\u2026 is through me."
     characterName: Siren
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
   - dialogueText: Prove yourself. Defeat me.
     characterName: Siren
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
   - dialogueText: She leans forward, her voice laced with both challenge and temptation.
     characterName: Narrator
