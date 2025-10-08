@@ -132,6 +132,8 @@ MonoBehaviour:
   nameText: {fileID: 0}
   characterImage: {fileID: 0}
   progression: {fileID: 11400000, guid: 46a7f4d680fa2dd4198bbf1292ceeb1a, type: 2}
+  responseHandle: {fileID: 0}
+  showLovyUI: 0
 --- !u!1001 &2636347614548511179
 PrefabInstance:
   m_ObjectHideFlags: 0
