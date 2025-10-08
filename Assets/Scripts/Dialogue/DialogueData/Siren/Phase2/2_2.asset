@@ -1,0 +1,173 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb04ed8146191ab4b98ce1e8256bab43, type: 3}
+  m_Name: 2_2
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
+  dialogue:
+  - dialogueText: Although you don't have exactly the same conch, your substitute
+      is enough to interest her.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: You always surprise me, human.
+    characterName: Siren
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: The monster is holding the crystal and shows a look of nostalgia.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: What a Crystal. It's a feeling I haven't felt in a long time.
+    characterName: Siren
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "It reminds me\u2026"
+    characterName: Siren
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: The monster approaches, each step deliberate.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: All of them fear me when they scent me.
+    characterName: Siren
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: All of them bow before me when they see me.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: All of them are drawn to me when they hear me.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: The monster halts, looming before you.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: An otherworldly beauty.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "Her eyes hold the secrets of uncharted depths, and the subtle
+      sway of her tail pulses like a dark, endless tide\u2014seductive, yet merciless."
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: They name me...
+    characterName: Siren
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: Your heartbeat quickens.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "Is it fear\u2026or something more?"
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: the Siren
+    characterName: Siren
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "Siren\u2026"
+    characterName: Player
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "Yes\u2026 you feel it too, don\u2019t you? That pull\u2026 that
+      inevitability."
+    characterName: Siren
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: Her gaze locks onto yours, unrelenting, as if she can see into
+      the deepest currents of your soul.
+    characterName: Siren
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "Few dare approach\u2026 and even fewer leave unchanged."
+    characterName: Siren
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "No\u2026 I won\u2019t succumb."
+    characterName: Player
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: You take a deep breath, forcing your mind to focus, to push back
+      against the allure.
+    characterName: Player
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "Hah\u2026 defiance. Intriguing\u2026"
+    characterName: Siren
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: Your heartbeat slowly steadies. Each pulse is a drum of resolve,
+      each thought a tether to your will.
+    characterName: Siren
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: I will continue my fight. No one can sway me, Siren.
+    characterName: Siren
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "For a moment, the Siren pauses, her mesmerizing eyes flickering
+      with something like curiosity\u2026 or admiration."
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "Very well\u2026 human. Show me the strength that keeps you standing.
+      Narrator: The Siren studies you for a moment, as if weighing the strength of
+      your resolve. "
+    characterName: Siren
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: The Siren studies you for a moment, as if weighing the strength
+      of your resolve.
+    characterName: Siren
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: Then, she slowly turns, her form shimmering and fading among the
+      ripples of the water.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: Then, she slowly turns, her form shimmering and fading among the
+      ripples of the water.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: She leaves.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: Your heartbeat gradually returns to its own rhythm.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "A shiver runs down your spine\u2014not from fear, but from the
+      awareness of what you have resisted."
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "The memory of her eyes, the pull of her voice, still lingers\u2014tempting,
+      haunting\u2014but you stood firm."
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: You have chosen your own path.
+    characterName: Siren
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  responses: []
+  LovyCounting:
+    LovyCount: 0
+    MinusLovyCount: 0

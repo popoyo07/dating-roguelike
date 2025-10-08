@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb04ed8146191ab4b98ce1e8256bab43, type: 3}
+  m_Name: 3_2
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
+  dialogue:
+  - dialogueText: "We can both escape\u2014take this."
+    characterName: Player
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: You present the card. A glow radiates between you as the gift manifests.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "\u2026Interesting. You understand me better than I thought."
+    characterName: Siren
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "Her song softens, the killing edge dulled\u2014yet her eyes remain
+      sharp, unyielding."
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "But don\u2019t think I\u2019ll follow so easily."
+    characterName: Siren
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: Show me your power. Persuade me.
+    characterName: Siren
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: This is still a trial.
+    characterName: Siren
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "The battle begins, but the Siren restrains her strength\u2014testing
+      rather than destroying."
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  responses: []
+  LovyCounting:
+    LovyCount: 0
+    MinusLovyCount: 0
