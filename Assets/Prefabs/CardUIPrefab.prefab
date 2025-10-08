@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 100, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1542169510092536063
 CanvasRenderer:
@@ -238,7 +238,7 @@ RectTransform:
   m_GameObject: {fileID: 7844679705363213388}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.35, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5650377169338270225}
@@ -270,7 +270,6 @@ MonoBehaviour:
   DialogueUI: {fileID: 0}
   MenuButtons: {fileID: 0}
   Activator: {fileID: 0}
-  triedFindingBoss: 0
 --- !u!114 &3526955272131271371
 MonoBehaviour:
   m_ObjectHideFlags: 0
