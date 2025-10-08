@@ -4,6 +4,7 @@ using UnityEngine.Audio;
 public class MusicManager : MonoBehaviour
 {
     [SerializeField] private AudioMixer audioMixer;
+
     public void SetMaster(float level)
     {
         audioMixer.SetFloat("Master", level);

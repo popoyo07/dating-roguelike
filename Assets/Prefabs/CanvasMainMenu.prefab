@@ -1081,7 +1081,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 258342364867500292}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MusicManager, Assembly-CSharp
         m_MethodName: SetSFX
         m_Mode: 0
@@ -4096,7 +4096,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 258342364867500292}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MusicManager, Assembly-CSharp
         m_MethodName: SetMaster
         m_Mode: 0
@@ -6058,7 +6058,6 @@ GameObject:
   - component: {fileID: 6964219683261450362}
   - component: {fileID: 7036166442275987356}
   - component: {fileID: 8128678192850088646}
-  - component: {fileID: 258342364867500292}
   m_Layer: 5
   m_Name: CanvasMainMenu
   m_TagString: Untagged
@@ -6265,19 +6264,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &258342364867500292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7880671717277778175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bef4b734f7e0ea140b4143a34c085d02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MusicManager
-  audioMixer: {fileID: 24100000, guid: 4fd55af7add7b1243ae933054c4c1b0b, type: 2}
 --- !u!1 &8120887518616047839
 GameObject:
   m_ObjectHideFlags: 0
@@ -6882,7 +6868,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 258342364867500292}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MusicManager, Assembly-CSharp
         m_MethodName: SetMusic
         m_Mode: 0
