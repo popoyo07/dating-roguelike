@@ -127,10 +127,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueActivator
   dialogueObject:
   - {fileID: 11400000, guid: 7ec5dfd65cb8cce4ca19d8f2c87189f7, type: 2}
+  - {fileID: 11400000, guid: b0344ff216f05f1438e937084bf6cfd8, type: 2}
+  - {fileID: 11400000, guid: 318caaf382ad4eb4cb372a554a572d53, type: 2}
   Canvas: {fileID: 0}
   nameText: {fileID: 0}
   characterImage: {fileID: 0}
   progression: {fileID: 11400000, guid: f7a6907b8270b9040b904fcf41099455, type: 2}
+  responseHandle: {fileID: 0}
+  showLovyUI: 0
 --- !u!1001 &1078527527641506750
 PrefabInstance:
   m_ObjectHideFlags: 0

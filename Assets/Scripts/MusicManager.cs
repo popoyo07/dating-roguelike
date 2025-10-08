@@ -1,16 +1,22 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class MusicManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private AudioMixer audioMixer;
+
+    public void SetMaster(float level)
     {
-        
+        audioMixer.SetFloat("Master", level);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetMusic(float level)
     {
-        
+        audioMixer.SetFloat("Music", level);
+    }
+
+    public void SetSFX(float level)
+    {
+        audioMixer.SetFloat("SFX", level);
     }
 }

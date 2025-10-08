@@ -10,21 +10,23 @@ public class CardUI : MonoBehaviour
     public Image cardSpriteImage;
     public Button cardButton;
 
-
-
     [Header("Dialogue References")]
+    public GameObject Boss;
     public GameObject canvas;
     public DialogueUI DialogueUI;
     public MenuButtons MenuButtons;
+    public DialogueActivator Activator;
 
 
     private string cardName;
 
     private void Awake()
     {
+        Boss = GameObject.FindWithTag("Boss");
         canvas = GameObject.Find("Canvas");
         DialogueUI = canvas.GetComponent<DialogueUI>();
         MenuButtons = canvas.GetComponent<MenuButtons>();
+        Activator = Boss.GetComponent<DialogueActivator>();
     }
 
     public void Setup(string cardName, Sprite cardSprite)
@@ -67,10 +69,11 @@ public class CardUI : MonoBehaviour
                 break;
             case "Shield":
                 Debug.Log("You chose: Shield for LoveyDovey");
-
+                Activator.ContinueDialogue();
                 break;
             default:
                 Debug.Log("You chose: " + chosenCard + "for LoveyDovey");
+                Activator.ContinueDialogue();
                 break;
 
         }
