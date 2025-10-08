@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
   dialogue:
   - dialogueText: "Enough talk. You\u2019re too greedy, monster!"
-    characterName: Me
+    characterName: You
     characterImage: {fileID: 0}
     dialogueEnd: 0
   - dialogueText: Foolish human.
     characterName: Siren
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
   - dialogueText: Foolish human. I will drag your bones to the deep.
     characterName: Siren
-    characterImage: {fileID: 0}
-    dialogueEnd: 0
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 1
   responses: []
   LovyCounting:
     LovyCount: 0

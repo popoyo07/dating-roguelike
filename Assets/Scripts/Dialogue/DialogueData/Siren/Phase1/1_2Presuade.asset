@@ -36,7 +36,7 @@ MonoBehaviour:
     dialogueEnd: 0
   - dialogueText: "Fine. I\u2019ll give you one chance. But if you return empty-handed\u2026"
     characterName: ???
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
   - dialogueText: Her nails elongate into dagger-like points, a cruel smile curling
       across her face.
@@ -53,3 +53,6 @@ MonoBehaviour:
     characterImage: {fileID: 0}
     dialogueEnd: 1
   responses: []
+  LovyCounting:
+    LovyCount: 0
+    MinusLovyCount: 0
