@@ -41,26 +41,15 @@ public class EnemySpawner : MonoBehaviour
                 boss = sirenBoss;
                 break;
             case 1:
-                activeList = sirenList;
-                Debug.Log("Siren boss");
-                boss = sirenBoss;
+                activeList = vampireList;
+                Debug.Log("Vampire boss");
+                boss = vampireBoss;
                 break;
             case 2:
-                activeList = sirenList;
-                Debug.Log("Siren boss");
-                boss = sirenBoss;
+                activeList = idkList;
+                Debug.Log("Idk boss");
+                boss = idkBoss;
                 break;
-
-                /*case 1:
-                    activeList = vampireList;
-                    Debug.Log("Vampire boss");
-                    boss = vampireBoss;
-                    break;
-                /case 2:
-                    activeList = idkList;
-                    Debug.Log("Idk boss");
-                    boss = idkBoss;
-                    break;*/
         }
 
         Debug.Log("Chosen list: " + chosenList);
@@ -129,7 +118,7 @@ public class EnemySpawner : MonoBehaviour
           }
     }
 
-    /*public void SpawnPickedEnemy(int enemyIndex)
+    public void SpawnPickedEnemy(int enemyIndex)
     {
         if (enemyIndex >= 0 && enemyIndex < activeList.Count)
         {
@@ -142,7 +131,7 @@ public class EnemySpawner : MonoBehaviour
         {
             Debug.LogWarning("Invalid enemy index for SpawnPickedEnemy.");
         }
-    }*/
+    }
 
     public void DestroyEnemy()
     {

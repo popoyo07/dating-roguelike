@@ -33,6 +33,7 @@ public class ChooseRoom : MonoBehaviour
 
     private BattleSystem battleSystem;
     private EnemySpawner enemySpawner;
+
     void Start()
     {
         battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
@@ -81,6 +82,8 @@ public class ChooseRoom : MonoBehaviour
                 Debug.LogWarning("Right Room Chosen");
                 break;
         }
+
+        //enemySpawner.SpawnPickedEnemy(enemyIndex);
 
        /* if (enemySpawner != null)
         {
