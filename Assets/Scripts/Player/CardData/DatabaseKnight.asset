@@ -28,9 +28,9 @@ MonoBehaviour:
   - IronResolve
   - Taunt
   - PocketPebble
-  - LoveCard2
-  - LoveCard3
-  - LoveCard4
+  - LoveyDovy2
+  - LoveyDovy3
+  - LoveyDovy4
   allCardSprites:
   - {fileID: 21300000, guid: 4bc95d4994d78e64c89ffade62f81b2c, type: 3}
   - {fileID: 21300000, guid: 109789bf1c325044b8a623424adc051c, type: 3}
@@ -47,6 +47,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ab741da4586161148ba4cb8c2ab243a4, type: 3}
   - {fileID: 21300000, guid: 389b2b683583d994bb0d051118c0fa03, type: 3}
   - {fileID: 21300000, guid: 19a40ab9f1db1204580b2499f261292f, type: 3}
-  - {fileID: 21300000, guid: d951d77abf2f7d84aba4ac3a35ddd0f6, type: 3}
-  - {fileID: 21300000, guid: 29a534029489af844a0527681c4f696e, type: 3}
   - {fileID: 21300000, guid: 13a721e851caa934592ee8c052d04499, type: 3}
+  - {fileID: 21300000, guid: 29a534029489af844a0527681c4f696e, type: 3}
+  - {fileID: 21300000, guid: d951d77abf2f7d84aba4ac3a35ddd0f6, type: 3}
