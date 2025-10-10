@@ -14,6 +14,9 @@ public class ItemSpawner : MonoBehaviour
     public List<GameObject> wallItemPrefabs;
     public List<GameObject> ceilingItemPrefabs;
 
+    public GameObject torchLeftPrefab;
+    public GameObject torchRightPrefab;
+
     public GameObject[] pooooooooop;
 
     private int groundRandomItem;
@@ -154,8 +157,8 @@ public class ItemSpawner : MonoBehaviour
                     Instantiate(groundItemPrefabs[groundRandomItem], randomSpawn, Quaternion.identity);
                     canSpawnArea1 = false;
 
-                    Instantiate(wallObject, selectedWallSpawnPoint, Quaternion.identity);
-                    availableWallSpawnPoints.RemoveAt(randomWallSpawnPointIndex);
+                    Vector3 torchLeftSpawn = new Vector3(4.98f, 5.14f, 1.64f);
+                    Instantiate(torchLeftPrefab, torchLeftSpawn, Quaternion.identity);
                 }
                 else
                 {
@@ -171,8 +174,8 @@ public class ItemSpawner : MonoBehaviour
                     Instantiate(groundItemPrefabs[groundRandomItem], randomSpawn, Quaternion.identity);
                     canSpawnArea2 = false;
 
-                    Instantiate(wallObject, selectedWallSpawnPoint, Quaternion.identity);
-                    availableWallSpawnPoints.RemoveAt(randomWallSpawnPointIndex);
+                    Vector3 torchRightSpawn = new Vector3(-4.98f, 5.14f, 1.64f);
+                    Instantiate(torchRightPrefab, torchRightSpawn, Quaternion.identity);
                 }
                 else
                 {

@@ -253,8 +253,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 494784695503224701, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
+      propertyPath: torchLeftPrefab
+      value: 
+      objectReference: {fileID: 3563789075462658821, guid: 0bea54d79dd62f649b3dc85df5abb7fb, type: 3}
+    - target: {fileID: 494784695503224701, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
+      propertyPath: torchRightPrefab
+      value: 
+      objectReference: {fileID: 3563789075462658821, guid: d5e38f3005a3a9247945a0ee3f022de0, type: 3}
+    - target: {fileID: 494784695503224701, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
+      propertyPath: pooooooooop.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 494784695503224701, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
       propertyPath: wallItemPrefabs.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 494784695503224701, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
+      propertyPath: wallSpawnPoints.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 494784695503224701, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
       propertyPath: groundItemPrefabs.Array.size
