@@ -7,12 +7,12 @@ public class AssignCard : MonoBehaviour
 {
     public string cardNameFromList;
     public Button cardButton;
-    public HoldTest hold;
+    public HoldCardBehavior hold;
     public bool cardUsed;
 
     private BattleSystem BSystem;
     private ActionsKnight knightCardAttks; // will eventually change to swithc statment that decides from which function to pu
-    
+    private ActionsRogue actionsRogue;
 
     private DeckDraw cardDraw;
     private bool displayTxt;
@@ -31,7 +31,7 @@ public class AssignCard : MonoBehaviour
         cardUsed = false;
         resetForNewTurn = false;
         energy = GameObject.Find("Managers").GetComponentInChildren<EnergySystem>();
-        hold = GetComponent<HoldTest>();
+        hold = GetComponent<HoldCardBehavior>();
         StartCoroutine(InitializeCard());
 
     }
@@ -48,15 +48,15 @@ public class AssignCard : MonoBehaviour
             cardDraw.GetComponent<ActionsKnight>() != null &&
             cardDraw.GetComponent<ActionsKnight>().cardAttaks.Count > 0 &&
             energy.GetComponent<EnergySystem>() != null &&
-            hold.GetComponent<HoldTest>() != null);
+            hold.GetComponent<HoldCardBehavior>() != null);
 
         switch (cardDraw.characterClass)
         {
             case CharacterClass.KNIGHT:
                 knightCardAttks = cardDraw.GetComponent<ActionsKnight>();
                 break;
-            case CharacterClass.ROGUE: 
-                //code
+            case CharacterClass.ROGUE:
+                actionsRogue = cardDraw.GetComponent<ActionsRogue>();
                 break;
             case CharacterClass.WIZZARD:
                 break;

@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
-public class HoldTest : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
+public class HoldCardBehavior : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
     public float holdDuration = 1f;
     
