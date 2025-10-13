@@ -7,11 +7,13 @@ public class AssignCard : MonoBehaviour
 {
     public string cardNameFromList;
     public Button cardButton;
-    //public TextMeshProUGUI txt;
+    public HoldTest hold;
     public bool cardUsed;
 
     private BattleSystem BSystem;
-    private ActionsKnight theCardAttks; // will eventually change to swithc statment that decides from which function to pu
+    private ActionsKnight knightCardAttks; // will eventually change to swithc statment that decides from which function to pu
+    
+
     private DeckDraw cardDraw;
     private bool displayTxt;
     private bool cardSet;
@@ -29,6 +31,7 @@ public class AssignCard : MonoBehaviour
         cardUsed = false;
         resetForNewTurn = false;
         energy = GameObject.Find("Managers").GetComponentInChildren<EnergySystem>();
+        hold = GetComponent<HoldTest>();
         StartCoroutine(InitializeCard());
 
     }
@@ -43,10 +46,21 @@ public class AssignCard : MonoBehaviour
         // Wait for card actions to be initialized
         yield return new WaitUntil(() =>
             cardDraw.GetComponent<ActionsKnight>() != null &&
-            cardDraw.GetComponent<ActionsKnight>().cardAttaks.Count > 0 && 
-            energy.GetComponent<EnergySystem>() != null );
+            cardDraw.GetComponent<ActionsKnight>().cardAttaks.Count > 0 &&
+            energy.GetComponent<EnergySystem>() != null &&
+            hold.GetComponent<HoldTest>() != null);
 
-        theCardAttks = cardDraw.GetComponent<ActionsKnight>();
+        switch (cardDraw.characterClass)
+        {
+            case CharacterClass.KNIGHT:
+                knightCardAttks = cardDraw.GetComponent<ActionsKnight>();
+                break;
+            case CharacterClass.ROGUE: 
+                //code
+                break;
+            case CharacterClass.WIZZARD:
+                break;
+        }
         cardSet = true;
         SetupCardButton();
     }
@@ -83,24 +97,31 @@ public class AssignCard : MonoBehaviour
     }
     public void SetupCardButton()
     {
-        if (cardButton == null || theCardAttks == null) return;
+        if (cardButton == null || knightCardAttks == null) return;
         cardImage.enabled = true;
         cardImage.sprite = cardDraw.allPossibleSprites[cardNameFromList]; // assign sprite according to the name and the database
         cardButton.onClick.RemoveAllListeners();
         cardButton.onClick.AddListener(OnCardClicked);
         cardButton.interactable = true;
+        
+        hold.HoldingButton.RemoveAllListeners();
+        hold.HoldingButton.AddListener(OnCardHold);
+    }
 
+    void OnCardHold()
+    {
+        Debug.Log("This method is running the hold");
     }
     private void OnCardClicked()
     {
             
 
-        if (theCardAttks.cardEnergyCost[cardNameFromList] <= energy.energyCounter)
+        if (knightCardAttks.cardEnergyCost[cardNameFromList] <= energy.energyCounter)
         {
-            Debug.Log("Enrgy cost is " + theCardAttks.cardEnergyCost[cardNameFromList] + " and the current energy is " + energy.energyCounter);
-            if (theCardAttks.cardAttaks.ContainsKey(cardNameFromList))
+            Debug.Log("Enrgy cost is " + knightCardAttks.cardEnergyCost[cardNameFromList] + " and the current energy is " + energy.energyCounter);
+            if (knightCardAttks.cardAttaks.ContainsKey(cardNameFromList))
             {
-                theCardAttks.cardAttaks[cardNameFromList].Invoke();
+                knightCardAttks.cardAttaks[cardNameFromList].Invoke();
 
                 cardUsed = true; // <-- mark the card as used immediately
                 DiscardAndReset();
@@ -122,9 +143,9 @@ public class AssignCard : MonoBehaviour
 
     void DiscardAndReset()
     {
-        if (theCardAttks != null && theCardAttks.deckManagement != null)
+        if (knightCardAttks != null && knightCardAttks.deckManagement != null)
         {
-            theCardAttks.deckManagement.DiscardCard(cardNameFromList);
+            knightCardAttks.deckManagement.DiscardCard(cardNameFromList);
         }
 
         cardUsed = true;

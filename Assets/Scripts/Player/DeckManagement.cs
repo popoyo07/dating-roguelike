@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 
 // Character selector should assign the character class enum as one of this after choosing character 
-public enum CharacterClass { PLAYER1, PLAYER2, PLAYER3, PLAYERLOST} // set all character classes 
+public enum CharacterClass { KNIGHT, ROGUE, WIZZARD, PLAYERLOST} // set all character classes 
 public class DeckManagement : MonoBehaviour
 {
 
@@ -83,16 +83,16 @@ public class DeckManagement : MonoBehaviour
        // discardedCards.Clear();
         switch (characterClass)
         {
-            case CharacterClass.PLAYER1:
+            case CharacterClass.KNIGHT:
                 Debug.Log("Should assing this");
                 cardDatabase = theDatabaseArray[0];
                 startingDeck = theStartingDeckArray[0];
                 break;
-            case CharacterClass.PLAYER2: 
+            case CharacterClass.ROGUE: 
                 cardDatabase = theDatabaseArray[1];
                 startingDeck = theStartingDeckArray[1];
                 break;
-            case CharacterClass.PLAYER3:
+            case CharacterClass.WIZZARD:
                 cardDatabase = theDatabaseArray[2];
                 startingDeck = theStartingDeckArray[2]; 
                 break;
