@@ -23,9 +23,11 @@ public class DeckManagement : MonoBehaviour
  
     public BattleSystem BSystem;
 
-    // stores all the 
+    // stores all the sprites 
     public Dictionary<string, Sprite> allPossibleSprites = new Dictionary<string, Sprite>();
 
+    // stores all cards descriptions 
+    public Dictionary<string, string> allCardDescriptions = new Dictionary<string, string>();   
 
     [Header("Cards in Run Tiem")]
     public List<string> runtimeDeck;
@@ -115,6 +117,10 @@ public class DeckManagement : MonoBehaviour
             allPossibleSprites.Add(cardDatabase.allCards[i], cardDatabase.allCardSprites[i]);
         }
 
+        for (int i = 0; i < cardDatabase.descriptionCard.Count; i++)
+        {
+            allCardDescriptions.Add(cardDatabase.allCards[i], cardDatabase.descriptionCard[i]);
+        }
         //visual runtime deck show starting cards
         GameObject.FindWithTag("DUM").GetComponent<DeckUIManager>().PopulateDeckUI(runtimeDeck);
 

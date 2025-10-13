@@ -9,4 +9,7 @@ public class AllCardsOfCharacter : ScriptableObject
 
     [Tooltip("All matching card sprites (index must match allCards)")]
     public List<Sprite> allCardSprites = new List<Sprite>();
+
+    [Tooltip("All card Descriptions")]
+    public List<string> descriptionCard = new List<string>();
 }

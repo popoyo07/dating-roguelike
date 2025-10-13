@@ -110,7 +110,7 @@ public class AssignCard : MonoBehaviour
 
     void OnCardHold()
     {
-        Debug.Log("This method is running the hold");
+        hold.ShowExplanation(cardDraw.allCardDescriptions[cardNameFromList]);
     }
     private void OnCardClicked()
     {
