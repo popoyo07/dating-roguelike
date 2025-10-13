@@ -131,4 +131,9 @@ public class SimpleHealth : MonoBehaviour
         RecoverHP((int)addHP);
     }
 
+    public void IncreaseHP(int amount)
+    {
+        health += amount;   
+    }
+
 }

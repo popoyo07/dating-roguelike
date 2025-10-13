@@ -35,4 +35,9 @@ public class EnergySystem : MonoBehaviour
             energyCounter = 3;
         }
     }
+
+    public void IncreaseEnergy(int amount)
+    {
+        energyCounter += amount;
+    }
 }
