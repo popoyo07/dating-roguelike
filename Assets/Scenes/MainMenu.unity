@@ -494,6 +494,30 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1639852621}
+    - target: {fileID: 3825410781603944619, guid: 7b6d197e9a2a9084080e4f0128db89af, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.000065579734
+      objectReference: {fileID: 0}
+    - target: {fileID: 6309753103996257286, guid: 7b6d197e9a2a9084080e4f0128db89af, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6309753103996257286, guid: 7b6d197e9a2a9084080e4f0128db89af, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6309753103996257286, guid: 7b6d197e9a2a9084080e4f0128db89af, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6375718814074499590, guid: 7b6d197e9a2a9084080e4f0128db89af, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6375718814074499590, guid: 7b6d197e9a2a9084080e4f0128db89af, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7717403821017681428, guid: 7b6d197e9a2a9084080e4f0128db89af, type: 3}
       propertyPath: m_Pivot.x
       value: 0

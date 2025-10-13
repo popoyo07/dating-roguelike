@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public BattleSystem system; 
+    public BattleSystem system;
+    public NextAttackUI nextAttackUI;
     public int actionSelector;
     SimpleHealth player;
     public int attkDmg;
@@ -17,13 +18,16 @@ public class Enemy : MonoBehaviour
 
     void Awake()
     {
-         system = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
-         player = GameObject.FindWithTag("Player").GetComponent<SimpleHealth>();
+        system = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
+        player = GameObject.FindWithTag("Player").GetComponent<SimpleHealth>();
+        nextAttackUI = GameObject.Find("NextAttack").GetComponent<NextAttackUI>();
 
         system.enemy = this.gameObject;
         system.enemyHP = this.gameObject.GetComponent<SimpleHealth>();
         EnemyStatus = this.gameObject.GetComponent<StatusEffects>();
         PlayerStatus = player.GetComponent<StatusEffects>();
+        nextAttackUI.gameObject.SetActive(true);
+        nextAttackUI.enemy = this;
         
     }
      
@@ -33,6 +37,8 @@ public class Enemy : MonoBehaviour
         if (system.state == BattleState.PLAYERTURN && selectionUsed) 
         {
             actionSelector = Random.Range(0, 4); // remember that range the last digit is ignored in slecetion 
+            nextAttackUI.attack = actionSelector;
+            nextAttackUI.UpdateNextAttackUI();
             attkDmg = Random.Range(5, 11);
             selectionUsed = false;
         }
@@ -118,5 +124,11 @@ public class Enemy : MonoBehaviour
     void Guard()
     {
         system.enemyHP.shield += 4;
+    }
+
+    void OnDestroy()
+    {
+        nextAttackUI.enemy = null;
+        nextAttackUI.gameObject.SetActive(false);
     }
 }
