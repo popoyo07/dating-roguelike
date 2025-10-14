@@ -18,6 +18,11 @@ public class Animation : MonoBehaviour
         animator.SetTrigger("Bounce");
     }
 
+    public void TriggerAttack()
+    {
+        animator.SetTrigger("Attack");
+    }
+
     // Update is called once per frame
     void Update()
     {

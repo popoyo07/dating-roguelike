@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     bool selectionUsed;
     StatusEffects EnemyStatus;
     StatusEffects PlayerStatus;
+    Animation animation;
 
     void Awake()
     {
@@ -28,7 +29,7 @@ public class Enemy : MonoBehaviour
         PlayerStatus = player.GetComponent<StatusEffects>();
         nextAttackUI.gameObject.SetActive(true);
         nextAttackUI.enemy = this;
-        
+        animation = this.gameObject.GetComponent<Animation>(); 
     }
      
     // Update is called once per frame
@@ -73,6 +74,7 @@ public class Enemy : MonoBehaviour
     void Action()
     {
         doingS = true;
+        animation.TriggerAttack();
 
         switch (actionSelector) // randomly select an enemy attack
         {
