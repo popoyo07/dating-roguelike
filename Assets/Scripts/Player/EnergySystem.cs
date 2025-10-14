@@ -39,5 +39,6 @@ public class EnergySystem : MonoBehaviour
     public void IncreaseEnergy(int amount)
     {
         energyCounter += amount;
+        maxEnergy += amount;
     }
 }

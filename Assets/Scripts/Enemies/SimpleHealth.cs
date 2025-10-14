@@ -133,7 +133,8 @@ public class SimpleHealth : MonoBehaviour
 
     public void IncreaseHP(int amount)
     {
-        health += amount;   
+        health += amount;
+        maxHealth += amount;
     }
 
 }

@@ -9,6 +9,7 @@ public class BuffManager : MonoBehaviour
     int coins;
 
     private int maxActiveBuffs = 0;
+    private int currentActiveBuffs = 0;
 
     public int healthBuff = 10;
     public int healthBuffCost = 2;
@@ -38,52 +39,88 @@ public class BuffManager : MonoBehaviour
     }
     public void buyHealthBuff()
     {
-        if (coins >= healthBuffCost && maxActiveBuffs < 3)
+        if(maxActiveBuffs < 3)
         {
-            coins -= healthBuffCost;
-            simpleHealth.IncreaseHP(healthBuff);
-            Debug.Log("Health added");
-            maxActiveBuffs += 1;
+            if (coins >= healthBuffCost)
+            {
+                coins -= healthBuffCost;
+               // simpleHealth.IncreaseHP(healthBuff);
+                Debug.Log("Health added");
+                currentActiveBuffs++;
+            }
+            else
+            {
+                Debug.Log("Not enough coins");
+                Debug.Log("coins: " + coins);
+            }
+
         }
+
         else
         {
-            Debug.Log("Not enough coins");
+            Debug.Log("Can not have more then 3 buffs active");
         }
+
+        maxActiveBuffs = currentActiveBuffs;
     }
 
     public void buyEnergyBuff()
     {
-        if (coins >= energyBuffCost && maxActiveBuffs < 3)
+        if (maxActiveBuffs < 3)
         {
-            coins -= energyBuffCost;
-            energySystem.IncreaseEnergy(energyBuff);
-            Debug.Log("Energy added");
-            maxActiveBuffs += 1;
+            if (coins >= energyBuffCost && maxActiveBuffs < 3)
+            {
+                coins -= energyBuffCost;
+               // energySystem.IncreaseEnergy(energyBuff);
+                Debug.Log("Energy added");
+                currentActiveBuffs++;
+            }
+            else
+            {
+                Debug.Log("Not enough coins");
+                Debug.Log("coins: " + coins);
+            }
         }
+
         else
         {
-            Debug.Log("Not enough coins");
+            Debug.Log("Can not have more then 3 buffs active");
         }
+
+        maxActiveBuffs = currentActiveBuffs;
     }
 
     public void buyExtraCoinsBuff()
     {
-        if (coins >= doubleCoinsBuffCost && maxActiveBuffs < 3)
+        if (maxActiveBuffs < 3)
         {
-            coins -= doubleCoinsBuffCost;
-            Debug.Log("Extra coins added");
-            coinSystem.AddCoins(4);
-            maxActiveBuffs += 1;
+            if (coins >= doubleCoinsBuffCost && maxActiveBuffs < 3)
+            {
+                coins -= doubleCoinsBuffCost;
+                Debug.Log("Extra coins added");
+               // coinSystem.AddCoins(4);
+                currentActiveBuffs++;
+            }
+            else
+            {
+                Debug.Log("Not enough coins");
+                Debug.Log("coins: " + coins);
+            }
+
         }
+
         else
         {
-            Debug.Log("Not enough coins");
+            Debug.Log("Can not have more then 3 buffs active");
         }
+
+        maxActiveBuffs = currentActiveBuffs;
     }
 
     public void resetBuffs()
     {
-        maxActiveBuffs = 0;
+        Debug.Log("Buffs Reset");
+        currentActiveBuffs = 0;
         energySystem.energyCounter = 3;
         simpleHealth.health = 100;
         coinSystem.AddCoins(2);
