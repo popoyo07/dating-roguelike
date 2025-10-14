@@ -531,6 +531,7 @@ GameObject:
   - component: {fileID: 7261393985230014642}
   - component: {fileID: 1440691590273427780}
   - component: {fileID: 5524490255156320570}
+  - component: {fileID: 2054603822893135638}
   m_Layer: 5
   m_Name: Card 2
   m_TagString: Cards
@@ -620,7 +621,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -651,6 +652,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5e48496a98ac414bbe7a10f5543c393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AssignCard
+  location: {x: 0.00006103516, y: -10.29997, z: 0}
+  setRotation: {x: 0, y: 0, z: 0.06}
   cardNameFromList: 
   cardButton: {fileID: 0}
   hold: {fileID: 0}
@@ -673,6 +676,28 @@ MonoBehaviour:
   HoldingButton:
     m_PersistentCalls:
       m_Calls: []
+--- !u!95 &2054603822893135638
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885038206726806002}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2b3fd69fd02119d45be21f677faaf065, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2505872718580543687
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,6 +821,7 @@ GameObject:
   - component: {fileID: 3533823610778350988}
   - component: {fileID: 4113359588576810804}
   - component: {fileID: 2899964096869817659}
+  - component: {fileID: 356706366128715059}
   m_Layer: 5
   m_Name: Card 3
   m_TagString: Cards
@@ -810,13 +836,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2791884614630925372}
-  m_LocalRotation: {x: -0, y: -0, z: -0.11569305, w: 0.99328506}
+  m_LocalRotation: {x: 0, y: 0, z: -0.050566833, w: 0.99872077}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8128147386199070593}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -13.287}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -5.797}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 161.1001, y: -18.999985}
@@ -885,7 +911,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -916,6 +942,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5e48496a98ac414bbe7a10f5543c393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AssignCard
+  location: {x: 161.1001, y: -18.99998, z: 0}
+  setRotation: {x: 0, y: 0, z: -5.797}
   cardNameFromList: 
   cardButton: {fileID: 0}
   hold: {fileID: 0}
@@ -938,6 +966,28 @@ MonoBehaviour:
   HoldingButton:
     m_PersistentCalls:
       m_Calls: []
+--- !u!95 &356706366128715059
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2791884614630925372}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f277c1af431c965489a8c346004bb61e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3449265922679727931
 GameObject:
   m_ObjectHideFlags: 0
@@ -1213,6 +1263,7 @@ GameObject:
   - component: {fileID: 6257209436386840980}
   - component: {fileID: 4083014492414595612}
   - component: {fileID: 1626653540522178858}
+  - component: {fileID: 7032689927567299159}
   m_Layer: 5
   m_Name: Card 5
   m_TagString: Cards
@@ -1227,16 +1278,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7819365545131066403}
-  m_LocalRotation: {x: -0, y: -0, z: -0.17812729, w: 0.9840075}
+  m_LocalRotation: {x: 0, y: 0, z: -0.14103088, w: 0.9900052}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8128147386199070593}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -20.521}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -16.215}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 263.8001, y: -46.299973}
+  m_AnchoredPosition: {x: 263.8001, y: -43.1}
   m_SizeDelta: {x: 400, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8152297192612746049
@@ -1302,7 +1353,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1333,6 +1384,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5e48496a98ac414bbe7a10f5543c393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AssignCard
+  location: {x: 263.8001, y: -43.1, z: 0}
+  setRotation: {x: 0, y: 0, z: -16.215}
   cardNameFromList: 
   cardButton: {fileID: 0}
   hold: {fileID: 0}
@@ -1355,6 +1408,28 @@ MonoBehaviour:
   HoldingButton:
     m_PersistentCalls:
       m_Calls: []
+--- !u!95 &7032689927567299159
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7819365545131066403}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 63b16c507611d17438e0363a79e3a618, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8149270560828676144
 GameObject:
   m_ObjectHideFlags: 0
@@ -1522,6 +1597,7 @@ GameObject:
   - component: {fileID: 3980350682627097757}
   - component: {fileID: 4127836510929502631}
   - component: {fileID: 2596890651096229179}
+  - component: {fileID: 6153620258109312120}
   m_Layer: 5
   m_Name: Card 4
   m_TagString: Cards
@@ -1545,7 +1621,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 16.215}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -157.29997, y: -46.299973}
+  m_AnchoredPosition: {x: -157.29997, y: -43.1}
   m_SizeDelta: {x: 400, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7288082183908373629
@@ -1611,7 +1687,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1642,6 +1718,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5e48496a98ac414bbe7a10f5543c393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AssignCard
+  location: {x: -157.3, y: -43.1, z: 0}
+  setRotation: {x: 0, y: 0, z: 16.215}
   cardNameFromList: 
   cardButton: {fileID: 0}
   hold: {fileID: 0}
@@ -1664,6 +1742,28 @@ MonoBehaviour:
   HoldingButton:
     m_PersistentCalls:
       m_Calls: []
+--- !u!95 &6153620258109312120
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8228320329955747502}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8275122186307717800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1814,6 +1914,7 @@ GameObject:
   - component: {fileID: 6601108831736530207}
   - component: {fileID: 6579917795272438612}
   - component: {fileID: 311051112353398664}
+  - component: {fileID: 5882175098531354582}
   m_Layer: 5
   m_Name: Card 1
   m_TagString: Cards
@@ -1890,6 +1991,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5e48496a98ac414bbe7a10f5543c393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AssignCard
+  location: {x: -53.89996, y: -20.2, z: 0}
+  setRotation: {x: 0, y: 0, z: 5.797}
   cardNameFromList: 
   cardButton: {fileID: 0}
   hold: {fileID: 0}
@@ -1937,7 +2040,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1956,6 +2059,28 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!95 &5882175098531354582
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8782429362946687553}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2a934839eaf86134d8f0831c023a3937, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8787432465943019865
 GameObject:
   m_ObjectHideFlags: 0
