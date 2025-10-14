@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7345289608574351742}
@@ -111,6 +111,8 @@ MonoBehaviour:
   nameText: {fileID: 0}
   characterImage: {fileID: 0}
   progression: {fileID: 11400000, guid: e45e8b0dbd1d70d4fb21d6063b99472c, type: 2}
+  responseHandle: {fileID: 0}
+  showLovyUI: 0
 --- !u!65 &5841740508932274782
 BoxCollider:
   m_ObjectHideFlags: 0
