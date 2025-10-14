@@ -45,7 +45,7 @@ public class Cards : MonoBehaviour
             if (dmg < 0) dmg = 0;
 
             enemy.GetComponent<SimpleHealth>().ReceiveDMG(dmg, attackerState);
-            enemy.GetComponent<Animation>().TriggerBounce();
+            enemy.GetComponent<Animation>().AnimationTrigger(attackerState);
             Debug.Log("Player does " + dmg + "DMG to the Enemy");
 
         }else

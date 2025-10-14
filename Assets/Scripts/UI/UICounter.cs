@@ -47,7 +47,7 @@ public class UICounter : MonoBehaviour
             case CounterSelection.Energy:
                 if (energy != null && energy.energyCounter != shownEnergy)
                 {
-                    UpdateAndShowValue(ref shownEnergy, energy.energyCounter, "Energy: ");
+                    UpdateAndShowValue(ref shownEnergy, energy.energyCounter, "Energy: \n");
                     Debug.LogWarning("shown Energy " + shownEnergy + " and current energy " + energy.energyCounter);
                 }
                 break;
