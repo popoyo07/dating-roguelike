@@ -52,11 +52,11 @@ MonoBehaviour:
   currentDeckSize: 0
   theDatabaseArray:
   - {fileID: 11400000, guid: a49db9bae68117040b51e9d31241e11e, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 816148b04bc3f7344915a73009fbef5c, type: 2}
   - {fileID: 0}
   theStartingDeckArray:
   - {fileID: 11400000, guid: 0801bfacd5d951144b8365b446167e37, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: cd16ef655d4ee874c84157964df3591d, type: 2}
   - {fileID: 0}
   cardDatabase: {fileID: 0}
   startingDeck: {fileID: 0}
@@ -80,6 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnergySystem
   energyCounter: 3
   maxEnergy: 3
+  energyBuff: 0
 --- !u!114 &8350772356307164605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,24 +100,38 @@ MonoBehaviour:
   deckManagement: {fileID: 0}
   energy: {fileID: 0}
   xtStrenght: 0
+  playerHp: {fileID: 0}
   attkDone: 0
   turnBuff: 0
   roundTracker: {fileID: 0}
   pStatus: {fileID: 0}
-  eStatus: {fileID: 0}
+  LastStatus: 0
+  smallHealing: 10
+  smallHealingECost: 1
+  healingMultiplier: 2
+  bigHealingECost: 1
   doubleAttk: 2
   doubleAttkECost: 1
   swordStrike: 3
   swordStrikeECost: 1
   shield: 5
   shieldECost: 1
-  smallHealing: 10
-  smallHealingECost: 1
-  healingMultiplier: 2
-  bigHealingECost: 1
   battleCryXTdmg: 2
   battleCryECost: 0
   parryECost: 2
+  stun: 2
+  stunECost: 1
+  piercing: 2
+  piercingECost: 1
+  bigShield: 1
+  bigShieldECost: 1
+  secondWindECost: 1
+  ironResolve: 0
+  ironResolveECost: 1
+  taunt: 1
+  tauntECost: 1
+  pocketPebble: 1
+  pocketPebbleECost: 1
 --- !u!114 &7829788775852373185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,7 +144,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32cc70fbb65d6b440a76f24dc3e3c558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RoundTracker
-  Rounds: 0
+  playerRounds: 0
+  enemyRounds: 0
+  BSystem: {fileID: 0}
 --- !u!1 &4134785340651724058
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,9 +212,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 034d2e1d6f837dd468b96fc82d46278d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleUI
+  Canvas: {fileID: 0}
   endTurnB: {fileID: 0}
   dialogueUI: {fileID: 0}
   enemyDialogue: {fileID: 0}
+  responseHandle: {fileID: 0}
+  cardsUI: {fileID: 0}
 --- !u!1 &7180089294026773356
 GameObject:
   m_ObjectHideFlags: 0
