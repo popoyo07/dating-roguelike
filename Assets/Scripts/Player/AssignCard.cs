@@ -89,8 +89,8 @@ public class AssignCard : MonoBehaviour
     {
         // Wait for card actions to be initialized
         yield return new WaitUntil(() =>
-            cardDraw.GetComponent<ActionsKnight>() != null &&
-            cardDraw.GetComponent<ActionsKnight>().cardAttaks.Count > 0 &&
+            cardDraw.GetComponent<ActionsKnight>() != null ||
+            cardDraw.GetComponent<ActionsKnight>().cardAttaks.Count > 0 ||
             energy.GetComponent<EnergySystem>() != null &&
             hold.GetComponent<HoldCardBehavior>() != null);
 
@@ -106,7 +106,7 @@ public class AssignCard : MonoBehaviour
                 break;
         }
         cardSet = true;
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(.5f);
         SetupCardButton();
     }
 
@@ -142,7 +142,17 @@ public class AssignCard : MonoBehaviour
     }
     public void SetupCardButton()
     {
-        if (cardButton == null && knightCardAttks == null && actionsRogue == null) return;
+        if (cardButton == null && knightCardAttks == null && actionsRogue == null) 
+        {
+            Debug.Log("Card ACtions not hooked up");
+            return;
+        }
+        Debug.Log("card tried to run set up ");
+        if (cardNameFromList == "")
+        {
+            Debug.Log("it is empty name ");
+            return;
+        }
         cardImage.enabled = true;
         cardImage.sprite = cardDraw.allPossibleSprites[cardNameFromList]; // assign sprite according to the name and the database
         cardButton.onClick.RemoveAllListeners();
@@ -151,6 +161,7 @@ public class AssignCard : MonoBehaviour
         
         hold.HoldingButton.RemoveAllListeners();
         hold.HoldingButton.AddListener(OnCardHold);
+        Debug.Log("card set up ");
     }
 
     void OnCardHold()
@@ -250,8 +261,9 @@ public class AssignCard : MonoBehaviour
     }
 
     // This method should be called by DeckDraw when assigning a new card
-    public void AssignNewCard(string newCardName)
+    public IEnumerator AssignNewCard(string newCardName)
     {
+        yield return new WaitForSeconds(.15f);
         cardNameFromList = newCardName;
         displayTxt = false; // Allow text to be updated in next Update
         cardUsed = false; 

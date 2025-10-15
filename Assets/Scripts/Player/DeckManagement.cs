@@ -27,8 +27,8 @@ public class DeckManagement : MonoBehaviour, IDataPersistence
     public int currentDeckSize;
 
     [Header("Scriptable Objects")]
-    [SerializeField]private AllCardsOfCharacter[] theDatabaseArray;
-    [SerializeField]private AllCardsOfCharacter[] theStartingDeckArray;
+    public AllCardsOfCharacter[] theDatabaseArray;
+     public AllCardsOfCharacter[] theStartingDeckArray;
 
     [Header("References")]
     // Reference to the ScriptableObject
@@ -73,7 +73,7 @@ public class DeckManagement : MonoBehaviour, IDataPersistence
                 case BattleState.STARTRUN:
                     if (!deckWasSet)
                     {
-                        FindAndAssignCharacter();
+                        StartCoroutine(FindAndAssignCharacter());
                        
 
                     }
@@ -94,10 +94,11 @@ public class DeckManagement : MonoBehaviour, IDataPersistence
 
     public IEnumerator FindAndAssignCharacter()
     {
-        yield return new WaitForSeconds(.2f);
+       
+        yield return new WaitForSeconds(.1f);
         runtimeDeck.Clear(); 
         allPossibleSprites.Clear();
-     
+        Debug.Log("RUUUUUUUUUUUUUN");
         // discardedCards.Clear();
         switch (characterClass)
         {
@@ -106,13 +107,14 @@ public class DeckManagement : MonoBehaviour, IDataPersistence
                 cardDatabase = theDatabaseArray[0];
                 startingDeck = theStartingDeckArray[0];
                 break;
-            case CharacterClass.ROGUE: 
+            case CharacterClass.ROGUE:
+                Debug.Log("it is assigning rogue");
                 cardDatabase = theDatabaseArray[1];
                 startingDeck = theStartingDeckArray[1];
                 break;
             case CharacterClass.WIZZARD:
                 cardDatabase = theDatabaseArray[2];
-                startingDeck = theStartingDeckArray[2]; 
+                startingDeck = theStartingDeckArray[2];
                 break;
 
         }
@@ -125,7 +127,7 @@ public class DeckManagement : MonoBehaviour, IDataPersistence
                 Debug.Log($"- {card}");
             }
         }
-
+        Debug.Log("Runtimedeck initialized");
         runtimeDeck = new List<string>(startingDeck.allCards);
 
         for (int i = 0; i < cardDatabase.allCardSprites.Count; i++)
