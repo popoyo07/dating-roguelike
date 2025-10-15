@@ -13,36 +13,43 @@ MonoBehaviour:
   m_Name: 2_1
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
   dialogue:
-  - dialogueText: "\u2026\u2026"
-    characterName: ???
-    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+  - dialogueText: He breathes in longingly, and relieves a sigh.
+    characterName: Narrator
+    characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: ......
+  - dialogueText: NO!
+    characterName: Vampire
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: He proceeds to slap himself and regains his composure
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: Hello again...
+    characterName: Vampire
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: Hello...
     characterName: You
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: What a wonderful fate, you guys met for the second time so soon.
+  - dialogueText: (Remain silent)
+    characterName: 
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: Well, this is awkward... Why not have some fun with him?
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: The monster is looking at you silently, but you know what is waiting
-      to.
-    characterName: Narrator
-    characterImage: {fileID: 0}
-    dialogueEnd: 0
-  - dialogueText: Time to deliver on your promises, hope you have your card ready.
-    characterName: Narrator
-    characterImage: {fileID: 0}
-    dialogueEnd: 0
-  - dialogueText: Do you want to use the LoveyDovey card?
+  - dialogueText: Do you want to use LoveyDovey card?
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
   responses:
   - respnseText: Yes
-    dialogueObject: {fileID: 11400000, guid: 4f434d0356f9ebf469ff248395e280e7, type: 2}
-  - respnseText: Fight
-    dialogueObject: {fileID: 11400000, guid: ee446cd0117ab5b4cb6fc7d6acb5e931, type: 2}
+    dialogueObject: {fileID: 11400000, guid: d67f71fedd3a2484e8ba52922ab79fe7, type: 2}
+  - respnseText: No, fight
+    dialogueObject: {fileID: 11400000, guid: 7bfbaf22c7704d9468408f21a98539bc, type: 2}
   LovyCounting:
     LovyCount: 0
     MinusLovyCount: 0

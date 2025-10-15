@@ -12,7 +12,7 @@ public class ResponseHandle : MonoBehaviour
     [SerializeField] private RectTransform responseContainer;
     [SerializeField] private LovyCounting LovyCounting;
 
-    private string usedLoveyDovey = "LoveyDovey";
+    private string usedLoveyDovey = "Yes";
     private DialogueActivator currentActivator;
 
     public void SetCurrentActivator(DialogueActivator activator)

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb04ed8146191ab4b98ce1e8256bab43, type: 3}
+  m_Name: E_1
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
+  dialogue:
+  - dialogueText: You did not kill me? Why?
+    characterName: Vampire
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  responses:
+  - respnseText: Love You
+    dialogueObject: {fileID: 11400000, guid: 1f9b28246c909ae4a813727ad45ae6d7, type: 2}
+  - respnseText: Friend
+    dialogueObject: {fileID: 11400000, guid: 9b6ec97998b01e74183018b590225951, type: 2}
+  LovyCounting:
+    LovyCount: 0
+    MinusLovyCount: 0

@@ -48,12 +48,12 @@ MonoBehaviour:
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: What is your next step?
+  - dialogueText: I guess your next step is to use LoveyDovey card, isn't it?
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
   responses:
-  - respnseText: LoveyDovey
+  - respnseText: Yes
     dialogueObject: {fileID: 11400000, guid: 4f434d0356f9ebf469ff248395e280e7, type: 2}
   - respnseText: Fight
     dialogueObject: {fileID: 11400000, guid: f5aeaf2021af04541b49a8b405ba1cf1, type: 2}
