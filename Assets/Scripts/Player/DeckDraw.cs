@@ -4,22 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class DeckDraw : DeckManagement, IDataPersistence
+public class DeckDraw : DeckManagement
 {
 
-    #region Save and Load
-
-    public void LoadData(GameData data)
-    {
-        this.characterClass = data.playerClass;
-    }
-
-    public void SaveData(ref GameData data)
-    {
-        
-    }
-
-    #endregion
     GameObject[] cardGameObj;
     public AssignCard[] cards;
     bool cardsAssigned;
@@ -30,9 +17,17 @@ public class DeckDraw : DeckManagement, IDataPersistence
 
         cardGameObj = GameObject.FindGameObjectsWithTag("Cards"); // find card game objects 
         BSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
-        FindAndAssignCharacter();
-       
 
+
+        AsigningCards();
+
+
+
+    }
+
+    IEnumerator AsigningCards()
+    {
+        yield return StartCoroutine(FindAndAssignCharacter());
         cards = new AssignCard[cardGameObj.Length];
         if (cardGameObj != null)
         {
@@ -41,7 +36,7 @@ public class DeckDraw : DeckManagement, IDataPersistence
                 cards[i] = cardGameObj[i].GetComponent<AssignCard>(); // get their assign card reference 
             }
         }
-      
+        Debug.Log(characterClass);
     }
     IEnumerator GetRandomFromDeck(AssignCard c)
     {

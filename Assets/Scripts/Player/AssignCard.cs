@@ -106,6 +106,7 @@ public class AssignCard : MonoBehaviour
                 break;
         }
         cardSet = true;
+        yield return new WaitForSeconds(.2f);
         SetupCardButton();
     }
 
@@ -141,7 +142,7 @@ public class AssignCard : MonoBehaviour
     }
     public void SetupCardButton()
     {
-        if (cardButton == null || knightCardAttks == null) return;
+        if (cardButton == null && knightCardAttks == null && actionsRogue == null) return;
         cardImage.enabled = true;
         cardImage.sprite = cardDraw.allPossibleSprites[cardNameFromList]; // assign sprite according to the name and the database
         cardButton.onClick.RemoveAllListeners();
@@ -158,28 +159,58 @@ public class AssignCard : MonoBehaviour
     }
     private void OnCardClicked()
     {
-            
-
-        if (knightCardAttks.cardEnergyCost[cardNameFromList] <= energy.energyCounter)
+            switch (cardDraw.characterClass)
         {
-            Debug.Log("Enrgy cost is " + knightCardAttks.cardEnergyCost[cardNameFromList] + " and the current energy is " + energy.energyCounter);
-            if (knightCardAttks.cardAttaks.ContainsKey(cardNameFromList))
-            {
-                knightCardAttks.cardAttaks[cardNameFromList].Invoke();
+            case CharacterClass.KNIGHT:
+                if (knightCardAttks.cardEnergyCost[cardNameFromList] <= energy.energyCounter)
+                {
+                    Debug.Log("Enrgy cost is " + knightCardAttks.cardEnergyCost[cardNameFromList] + " and the current energy is " + energy.energyCounter);
+                    if (knightCardAttks.cardAttaks.ContainsKey(cardNameFromList))
+                    {
+                        knightCardAttks.cardAttaks[cardNameFromList].Invoke();
 
-                cardUsed = true; // <-- mark the card as used immediately
-                DiscardAndReset();
-                cardButton.interactable = false;
+                        cardUsed = true; // <-- mark the card as used immediately
+                        DiscardAndReset();
+                        cardButton.interactable = false;
 
-            }
-            else
-            {
-                Debug.LogWarning("No action found for key: " + cardNameFromList);
-            }
-        } else
-        {
-            Debug.LogWarning("Not enough Energy");
+                    }
+                    else
+                    {
+                        Debug.LogWarning("No action found for key: " + cardNameFromList);
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning("Not enough Energy");
+                }
+                break;
+            case CharacterClass.ROGUE:
+                if (actionsRogue.cardEnergyCost[cardNameFromList] <= energy.energyCounter)
+                {
+                    Debug.Log("Enrgy cost is " + actionsRogue.cardEnergyCost[cardNameFromList] + " and the current energy is " + energy.energyCounter);
+                    if (actionsRogue.cardAttaks.ContainsKey(cardNameFromList))
+                    {
+                        actionsRogue.cardAttaks[cardNameFromList].Invoke();
+
+                        cardUsed = true; // <-- mark the card as used immediately
+                        DiscardAndReset();
+                        cardButton.interactable = false;
+
+                    }
+                    else
+                    {
+                        Debug.LogWarning("No action found for key: " + cardNameFromList);
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning("Not enough Energy");
+                }
+                break;
+
         }
+
+  
         
     }
 
