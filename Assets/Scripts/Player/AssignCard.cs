@@ -43,6 +43,20 @@ public class AssignCard : MonoBehaviour
         StartCoroutine(InitializeCard());
 
     }
+    void SetUpLocation()
+    {
+        if (animator != null && animator.GetBool("spawned") == false && animator.GetBool("used") == false) 
+        {
+            rectTransform.anchoredPosition = location;
+            rectTransform.localEulerAngles = setRotation;
+            //Debug.Log("For the object " + gameObject.name + " the locaton is " + rectTransform.anchoredPosition + "and the rotation is " + rectTransform.localEulerAngles);
+        }
+       
+    }
+    void LateUpdate()
+    {
+        SetUpLocation();
+    }
     IEnumerator StartingAnimation(int i)
     {
         if (animator != null)
@@ -51,9 +65,9 @@ public class AssignCard : MonoBehaviour
             {
                 animator.SetBool("spawned", true);
                 yield return new WaitForSeconds(1f);
+             
                 animator.SetBool("spawned", false);
-                rectTransform.position = location;
-                rectTransform.localEulerAngles = setRotation;
+                
             }
             else
             {
@@ -99,7 +113,7 @@ public class AssignCard : MonoBehaviour
     {
         if (BSystem == null) return;
 
-      
+        
 
         // Reset card for new turn
         if (BSystem.state == BattleState.PLAYERTURN && cardUsed)
