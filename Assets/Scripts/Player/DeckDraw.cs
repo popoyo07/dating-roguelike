@@ -4,13 +4,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class DeckDraw : DeckManagement
+public class DeckDraw : DeckManagement, IDataPersistence
 {
+
+    #region Save and Load
+
+    public void LoadData(GameData data)
+    {
+        this.characterClass = data.playerClass;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        
+    }
+
+    #endregion
     GameObject[] cardGameObj;
     public AssignCard[] cards;
     bool cardsAssigned;
     bool combatEnded;
-   
 
     private void Awake()
     {
