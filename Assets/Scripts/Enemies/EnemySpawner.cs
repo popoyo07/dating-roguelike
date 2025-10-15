@@ -45,19 +45,8 @@ public class EnemySpawner : MonoBehaviour
                 boss = vampireBoss;
                 break;
                 break;
-            case 1:
-                activeList = vampireList;
-                Debug.Log("Vampire boss");
-                boss = vampireBoss;
-                break;
-            case 2:
-                activeList = vampireList;
-                Debug.Log("Vampire boss");
-                boss = vampireBoss;
-                break;
-
-                /*
-                 * case 1:
+      
+             case 1:
                 activeList = vampireList;
                 Debug.Log("Vampire boss");
                 boss = vampireBoss;
@@ -67,7 +56,6 @@ public class EnemySpawner : MonoBehaviour
                 Debug.Log("Idk boss");
                 boss = idkBoss;
                 break;
-                 * */
         }
 
         Debug.Log("Chosen list: " + chosenList);
