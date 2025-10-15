@@ -6,6 +6,8 @@ using System.Collections;
 public class CoinSystem : MonoBehaviour, IDataPersistence
 {
     public int coins;
+    public int coinBuff;
+ 
     [SerializeField] BattleSystem battleSystem;
     [SerializeField] private TextMeshProUGUI coinUI;
     [SerializeField] private TextMeshProUGUI coinTotal;
@@ -19,12 +21,15 @@ public class CoinSystem : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
+        Debug.Log("Load data CoinSystem is running");
         this.coins = data.coins;
+        this.coinBuff = data.coinBuff;
     }
 
     public void SaveData(ref GameData data)
     {
         data.coins = this.coins;
+        data.coinBuff = this.coinBuff;
     }
 
     #endregion
@@ -65,8 +70,8 @@ public class CoinSystem : MonoBehaviour, IDataPersistence
 
     public IEnumerator AddCoins(int addcoins)
     {
-        coins += addcoins;
-        coinUI.SetText("+" + addcoins + " Coin");
+        coins += addcoins + coinBuff;
+        coinUI.SetText("+" + addcoins +  " Coin" + coinBuff + " Coinbuff");
         coinTotal.SetText("Coins: " + coins);
         yield return new WaitForSeconds(2f);
         coinUI.SetText("");

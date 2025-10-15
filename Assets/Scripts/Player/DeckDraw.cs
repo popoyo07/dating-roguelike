@@ -6,20 +6,29 @@ using UnityEngine;
 
 public class DeckDraw : DeckManagement
 {
+
     GameObject[] cardGameObj;
     public AssignCard[] cards;
     bool cardsAssigned;
     bool combatEnded;
-   
 
     private void Awake()
     {
 
         cardGameObj = GameObject.FindGameObjectsWithTag("Cards"); // find card game objects 
         BSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
-        FindAndAssignCharacter();
-       
 
+       // StartCoroutine(FindAndAssignCharacter());
+        StartCoroutine(AsigningCards());
+
+
+    
+    }
+
+    IEnumerator AsigningCards()
+    {
+        yield return StartCoroutine(FindAndAssignCharacter());
+        Debug.Log("assing cards is runing ");
         cards = new AssignCard[cardGameObj.Length];
         if (cardGameObj != null)
         {
@@ -28,27 +37,28 @@ public class DeckDraw : DeckManagement
                 cards[i] = cardGameObj[i].GetComponent<AssignCard>(); // get their assign card reference 
             }
         }
-      
+        Debug.Log(characterClass);
     }
     IEnumerator GetRandomFromDeck(AssignCard c)
     {
         if (runtimeDeck.Count == 0)
         {
-            //Debug.LogWarning("Trying to draw from empty deck!");
+            Debug.Log("Trying to draw from empty deck!");
             yield return new WaitUntil(() => runtimeDeck.Count != 0); // wait for reset  
         }
-
+        Debug.Log("should get random from deck");
+      
         int r = Random.Range(0, runtimeDeck.Count);
         string cardName = runtimeDeck[r];
 
         // Use the new method to assign the card
-        c.AssignNewCard(cardName);
+        StartCoroutine(c.AssignNewCard(cardName));
 
         Debug.Log("The cards got assigned " + cardName);
         runtimeDeck.RemoveAt(r);
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (BSystem != null)
         {
@@ -57,9 +67,15 @@ public class DeckDraw : DeckManagement
                 case BattleState.PLAYERTURN:
                     if (!cardsAssigned)
                     {
+                        if (cards == null || cards.Length == 0)
+                        {
+                            Debug.LogWarning("Cards array is empty or not assigned!");
+                            return;
+                        }
+
                         for (int i = 0; i < cards.Length; i++)
                         {
-
+                            Debug.Log("The fucking loop");
                             if (runtimeDeck.Count == 0)
                             {
                                 Debug.LogWarning("Recover for " + i);
@@ -77,7 +93,8 @@ public class DeckDraw : DeckManagement
                 case BattleState.STARTRUN:
                     if (!deckWasSet)
                     {
-                        FindAndAssignCharacter();
+                        Debug.Log("sohuld run coroutine ");
+                        StartCoroutine(FindAndAssignCharacter());
                        
 
                     }

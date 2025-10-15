@@ -6,6 +6,7 @@ using System.Collections;
 
 public class GameData
 {
+    public CharacterClass playerClass;
     public int coins;
     public int healthBuff;
     public int coinBuff;
@@ -20,6 +21,7 @@ public class GameData
     // define values and their type above and set their default value in GameData()
     public GameData()
     {
+        this.playerClass = CharacterClass.KNIGHT;
         this.coins = 0;
         this.coinBuff = 0;
         this.energyBuff = 0;

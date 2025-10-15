@@ -89,8 +89,8 @@ public class AssignCard : MonoBehaviour
     {
         // Wait for card actions to be initialized
         yield return new WaitUntil(() =>
-            cardDraw.GetComponent<ActionsKnight>() != null &&
-            cardDraw.GetComponent<ActionsKnight>().cardAttaks.Count > 0 &&
+            cardDraw.GetComponent<ActionsKnight>() != null ||
+            cardDraw.GetComponent<ActionsKnight>().cardAttaks.Count > 0 ||
             energy.GetComponent<EnergySystem>() != null &&
             hold.GetComponent<HoldCardBehavior>() != null);
 
@@ -106,6 +106,7 @@ public class AssignCard : MonoBehaviour
                 break;
         }
         cardSet = true;
+        yield return new WaitForSeconds(.5f);
         SetupCardButton();
     }
 
@@ -141,7 +142,17 @@ public class AssignCard : MonoBehaviour
     }
     public void SetupCardButton()
     {
-        if (cardButton == null || knightCardAttks == null) return;
+        if (cardButton == null && knightCardAttks == null && actionsRogue == null) 
+        {
+            Debug.Log("Card ACtions not hooked up");
+            return;
+        }
+        Debug.Log("card tried to run set up ");
+        if (cardNameFromList == "")
+        {
+            Debug.Log("it is empty name ");
+            return;
+        }
         cardImage.enabled = true;
         cardImage.sprite = cardDraw.allPossibleSprites[cardNameFromList]; // assign sprite according to the name and the database
         cardButton.onClick.RemoveAllListeners();
@@ -150,6 +161,7 @@ public class AssignCard : MonoBehaviour
         
         hold.HoldingButton.RemoveAllListeners();
         hold.HoldingButton.AddListener(OnCardHold);
+        Debug.Log("card set up ");
     }
 
     void OnCardHold()
@@ -158,28 +170,58 @@ public class AssignCard : MonoBehaviour
     }
     private void OnCardClicked()
     {
-            
-
-        if (knightCardAttks.cardEnergyCost[cardNameFromList] <= energy.energyCounter)
+            switch (cardDraw.characterClass)
         {
-            Debug.Log("Enrgy cost is " + knightCardAttks.cardEnergyCost[cardNameFromList] + " and the current energy is " + energy.energyCounter);
-            if (knightCardAttks.cardAttaks.ContainsKey(cardNameFromList))
-            {
-                knightCardAttks.cardAttaks[cardNameFromList].Invoke();
+            case CharacterClass.KNIGHT:
+                if (knightCardAttks.cardEnergyCost[cardNameFromList] <= energy.energyCounter)
+                {
+                    Debug.Log("Enrgy cost is " + knightCardAttks.cardEnergyCost[cardNameFromList] + " and the current energy is " + energy.energyCounter);
+                    if (knightCardAttks.cardAttaks.ContainsKey(cardNameFromList))
+                    {
+                        knightCardAttks.cardAttaks[cardNameFromList].Invoke();
 
-                cardUsed = true; // <-- mark the card as used immediately
-                DiscardAndReset();
-                cardButton.interactable = false;
+                        cardUsed = true; // <-- mark the card as used immediately
+                        DiscardAndReset();
+                        cardButton.interactable = false;
 
-            }
-            else
-            {
-                Debug.LogWarning("No action found for key: " + cardNameFromList);
-            }
-        } else
-        {
-            Debug.LogWarning("Not enough Energy");
+                    }
+                    else
+                    {
+                        Debug.LogWarning("No action found for key: " + cardNameFromList);
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning("Not enough Energy");
+                }
+                break;
+            case CharacterClass.ROGUE:
+                if (actionsRogue.cardEnergyCost[cardNameFromList] <= energy.energyCounter)
+                {
+                    Debug.Log("Enrgy cost is " + actionsRogue.cardEnergyCost[cardNameFromList] + " and the current energy is " + energy.energyCounter);
+                    if (actionsRogue.cardAttaks.ContainsKey(cardNameFromList))
+                    {
+                        actionsRogue.cardAttaks[cardNameFromList].Invoke();
+
+                        cardUsed = true; // <-- mark the card as used immediately
+                        DiscardAndReset();
+                        cardButton.interactable = false;
+
+                    }
+                    else
+                    {
+                        Debug.LogWarning("No action found for key: " + cardNameFromList);
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning("Not enough Energy");
+                }
+                break;
+
         }
+
+  
         
     }
 
@@ -219,8 +261,9 @@ public class AssignCard : MonoBehaviour
     }
 
     // This method should be called by DeckDraw when assigning a new card
-    public void AssignNewCard(string newCardName)
+    public IEnumerator AssignNewCard(string newCardName)
     {
+        yield return new WaitForSeconds(.15f);
         cardNameFromList = newCardName;
         displayTxt = false; // Allow text to be updated in next Update
         cardUsed = false; 

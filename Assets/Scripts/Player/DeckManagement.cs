@@ -1,11 +1,25 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using System.Collections;
 
 // Character selector should assign the character class enum as one of this after choosing character 
 public enum CharacterClass { KNIGHT, ROGUE, WIZZARD, PLAYERLOST} // set all character classes 
-public class DeckManagement : MonoBehaviour
+public class DeckManagement : MonoBehaviour, IDataPersistence
 {
+    #region Save and Load
+    public void LoadData(GameData data)
+    {
+        this.characterClass = data.playerClass;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        
+    }
+
+#endregion
+    DataPersistenceManager Manager;
 
     public CharacterClass characterClass; // refenrece for enum 
 
@@ -13,8 +27,8 @@ public class DeckManagement : MonoBehaviour
     public int currentDeckSize;
 
     [Header("Scriptable Objects")]
-    [SerializeField]private AllCardsOfCharacter[] theDatabaseArray;
-    [SerializeField]private AllCardsOfCharacter[] theStartingDeckArray;
+    public AllCardsOfCharacter[] theDatabaseArray;
+     public AllCardsOfCharacter[] theStartingDeckArray;
 
     [Header("References")]
     // Reference to the ScriptableObject
@@ -59,7 +73,7 @@ public class DeckManagement : MonoBehaviour
                 case BattleState.STARTRUN:
                     if (!deckWasSet)
                     {
-                        FindAndAssignCharacter();
+                        StartCoroutine(FindAndAssignCharacter());
                        
 
                     }
@@ -78,11 +92,14 @@ public class DeckManagement : MonoBehaviour
     }
 
 
-    public void FindAndAssignCharacter()
+    public IEnumerator FindAndAssignCharacter()
     {
+       
+        yield return new WaitForSeconds(.1f);
         runtimeDeck.Clear(); 
         allPossibleSprites.Clear();
-       // discardedCards.Clear();
+        Debug.Log("RUUUUUUUUUUUUUN");
+        // discardedCards.Clear();
         switch (characterClass)
         {
             case CharacterClass.KNIGHT:
@@ -90,13 +107,14 @@ public class DeckManagement : MonoBehaviour
                 cardDatabase = theDatabaseArray[0];
                 startingDeck = theStartingDeckArray[0];
                 break;
-            case CharacterClass.ROGUE: 
+            case CharacterClass.ROGUE:
+                Debug.Log("it is assigning rogue");
                 cardDatabase = theDatabaseArray[1];
                 startingDeck = theStartingDeckArray[1];
                 break;
             case CharacterClass.WIZZARD:
                 cardDatabase = theDatabaseArray[2];
-                startingDeck = theStartingDeckArray[2]; 
+                startingDeck = theStartingDeckArray[2];
                 break;
 
         }
@@ -109,7 +127,7 @@ public class DeckManagement : MonoBehaviour
                 Debug.Log($"- {card}");
             }
         }
-
+        Debug.Log("Runtimedeck initialized");
         runtimeDeck = new List<string>(startingDeck.allCards);
 
         for (int i = 0; i < cardDatabase.allCardSprites.Count; i++)

@@ -163,15 +163,16 @@ public class ActionsKnight : Cards
     }
     
 
-    private void InitializeCardActions()
+    private IEnumerator InitializeCardActions()
     {
+        yield return new WaitForSeconds(.2f);
         cardAttaks.Clear();
         cardEnergyCost.Clear();
 
         if (deckManagement.cardDatabase?.allCards == null)
         {
             Debug.LogError("Starting deck or allCards is null!");
-            return;
+            yield break;
         }
 
         var cards = deckManagement.cardDatabase.allCards;
