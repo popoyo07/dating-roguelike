@@ -35,7 +35,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        chosenList = Random.Range(0, 3);
+        chosenList = Random.Range(2, 2);
 
         switch (chosenList)
         {
