@@ -7,6 +7,9 @@ using System.Collections;
 public class GameData
 {
     public int coins;
+    public int healthBuff;
+    public int coinBuff;
+    public int energyBuff;
     public float masterVolume;
     public float musicVolume;
     public float sfxVolume;
@@ -18,6 +21,9 @@ public class GameData
     public GameData()
     {
         this.coins = 0;
+        this.coinBuff = 0;
+        this.energyBuff = 0;
+        this.healthBuff = 0;
         this.masterVolume = 0;
         this.musicVolume = 0;
         this.sfxVolume = 0;

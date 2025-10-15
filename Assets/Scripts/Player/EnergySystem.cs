@@ -1,11 +1,26 @@
 using UnityEngine;
 
-public class EnergySystem : MonoBehaviour
+public class EnergySystem : MonoBehaviour, IDataPersistence
 {
     public int energyCounter;
     public int maxEnergy;
+    public int energyBuff;
     BattleSystem bSystem;
-   
+
+    #region Save and Load
+
+    public void LoadData(GameData data)
+    {
+        this.energyBuff = data.energyBuff;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.energyBuff = this.energyBuff;
+    }
+
+    #endregion
+
     void Start()
     {
         energyCounter = 3;

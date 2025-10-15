@@ -3,14 +3,29 @@ using System.Xml.Schema;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class SimpleHealth : MonoBehaviour
+public class SimpleHealth : MonoBehaviour, IDataPersistence
 {
     StatusEffects status;
     [Range(1,100)]
     public int maxHealth;
     public int health;
+    public int healthBuff;
     bool isPlayer;
     public int shield;
+
+    #region Save and Load
+
+    public void LoadData(GameData data)
+    {
+        this.healthBuff = data.healthBuff;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.healthBuff = this.healthBuff;
+    }
+
+    #endregion
     public bool dead() // changes between true and false dpending on object's HP
     {
         if (health <= 0)
