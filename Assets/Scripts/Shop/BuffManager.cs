@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class BuffManager : MonoBehaviour, IDataPersistence
 {
-    private SimpleHealth simpleHealth;
-
     int coins;
 
     private int maxActiveBuffs = 0;
@@ -46,10 +44,10 @@ public class BuffManager : MonoBehaviour, IDataPersistence
 
     private void Update()
     {
-        if (simpleHealth.health == 0)
+       /* if (player dies)
         {
             resetBuffs();
-        }
+        }*/
 
     }
     public void buyHealthBuff()
