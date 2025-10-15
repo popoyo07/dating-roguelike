@@ -128,7 +128,7 @@ public class BattleSystem : MonoBehaviour
     public IEnumerator EndPlayerTurn()
     {
         state = BattleState.ENDPLAYERTURN;
-        yield return new WaitForSeconds(.1f);  // delay a little so everything else can be run 
+        yield return new WaitForSeconds(1f);  // delay a little so everything else can be run 
         state = BattleState.ENEMYTURN;
         Debug.Log("Current state is " + state);
     }

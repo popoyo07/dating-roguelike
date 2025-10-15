@@ -19,7 +19,7 @@ public class ActionsKnight : Cards
         cardAttaks.Clear();
         roundTracker = gameObject.GetComponent<RoundTracker>();
         pStatus = player.GetComponent<StatusEffects>();
-        InitializeCardActions();
+        StartCoroutine(InitializeCardActions());
        
     }
 

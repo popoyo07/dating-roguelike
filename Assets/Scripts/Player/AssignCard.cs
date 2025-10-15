@@ -173,6 +173,10 @@ public class AssignCard : MonoBehaviour
             switch (cardDraw.characterClass)
         {
             case CharacterClass.KNIGHT:
+                if( knightCardAttks == null)
+                {
+                    knightCardAttks = cardDraw.GetComponent<ActionsKnight>();
+                }
                 if (knightCardAttks.cardEnergyCost[cardNameFromList] <= energy.energyCounter)
                 {
                     Debug.Log("Enrgy cost is " + knightCardAttks.cardEnergyCost[cardNameFromList] + " and the current energy is " + energy.energyCounter);
@@ -196,6 +200,10 @@ public class AssignCard : MonoBehaviour
                 }
                 break;
             case CharacterClass.ROGUE:
+               if(actionsRogue == null)
+                {
+                    actionsRogue = cardDraw.GetComponent<ActionsRogue>();
+                }
                 if (actionsRogue.cardEnergyCost[cardNameFromList] <= energy.energyCounter)
                 {
                     Debug.Log("Enrgy cost is " + actionsRogue.cardEnergyCost[cardNameFromList] + " and the current energy is " + energy.energyCounter);
