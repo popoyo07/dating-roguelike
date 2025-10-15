@@ -6,49 +6,52 @@ public class BuffManager : MonoBehaviour, IDataPersistence
     private CoinSystem coinSystem;
     private EnergySystem energySystem;
 
-    int coins;
+    int coins = 500;
 
     private int maxActiveBuffs = 0;
     private int currentActiveBuffs = 0;
 
-    public int healthBuff = 10;
+    public int healthBuffCount;
     public int healthBuffCost = 2;
 
-    public int energyBuff = 1;
+    public int energyBuffCount;
     public int energyBuffCost = 4;
 
-    public int doubleCoinsBuff;
+    public int doubleCoinsBuffCount;
     public int doubleCoinsBuffCost = 5;
 
     #region Save and Load
 
     public void LoadData(GameData data)
     {
+        Debug.Log("Load data is running");
+        this.healthBuffCount = data.healthBuff;
+        this.energyBuffCount = data.energyBuff;
+        this.doubleCoinsBuffCount = data.coinBuff;
         this.coins = data.coins;
     }
 
     public void SaveData(ref GameData data)
     {
         data.coins = this.coins;
+        data.healthBuff = this.healthBuffCount;
+        data.energyBuff = this.energyBuffCount;
+        data.coinBuff = this.doubleCoinsBuffCount;
     }
 
     #endregion
 
     private void Start()
     {
-        coinSystem = GameObject.Find("CoinSystem").GetComponent<CoinSystem>();
-        simpleHealth = GameObject.Find("SimpleHealth").GetComponent<SimpleHealth>();
-        energySystem = GameObject.Find("EnergySystem").GetComponent<EnergySystem>();
 
-        coins = coinSystem.coins;
     }
 
     private void Update()
     {
-        if (simpleHealth.health == 0)
+      /*  if (simpleHealth.health == 0)
         {
             resetBuffs();
-        }
+        }*/
 
     }
     public void buyHealthBuff()
@@ -58,9 +61,9 @@ public class BuffManager : MonoBehaviour, IDataPersistence
             if (coins >= healthBuffCost)
             {
                 coins -= healthBuffCost;
-               // simpleHealth.IncreaseHP(healthBuff);
                 Debug.Log("Health added");
                 currentActiveBuffs++;
+                healthBuffCount++;
             }
             else
             {
@@ -85,9 +88,9 @@ public class BuffManager : MonoBehaviour, IDataPersistence
             if (coins >= energyBuffCost && maxActiveBuffs < 3)
             {
                 coins -= energyBuffCost;
-               // energySystem.IncreaseEnergy(energyBuff);
                 Debug.Log("Energy added");
                 currentActiveBuffs++;
+                energyBuffCount++;
             }
             else
             {
@@ -112,8 +115,8 @@ public class BuffManager : MonoBehaviour, IDataPersistence
             {
                 coins -= doubleCoinsBuffCost;
                 Debug.Log("Extra coins added");
-               // coinSystem.AddCoins(4);
                 currentActiveBuffs++;
+                doubleCoinsBuffCost = coins;
             }
             else
             {

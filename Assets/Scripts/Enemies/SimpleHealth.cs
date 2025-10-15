@@ -6,10 +6,11 @@ using UnityEngine;
 public class SimpleHealth : MonoBehaviour, IDataPersistence
 {
     StatusEffects status;
-    [Range(1,100)]
+    [Range(1,130)]
     public int maxHealth;
     public int health;
     public int healthBuff;
+    public int healthAmount;
     bool isPlayer;
     public int shield;
 
@@ -43,7 +44,10 @@ public class SimpleHealth : MonoBehaviour, IDataPersistence
     private BattleSystem battleSystem;
     private void Awake()
     {
+        healthAmount = healthBuff * 10;
+        maxHealth += healthAmount;
         health = maxHealth;
+        
         attackManager = GameObject.Find("CardManager").GetComponent<ActionsKnight>();
         battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
         healthBar = this.gameObject.GetComponent<HealthBar>();
@@ -145,11 +149,4 @@ public class SimpleHealth : MonoBehaviour, IDataPersistence
         float addHP = (float)maxHealth * (percent * 0.001f);
         RecoverHP((int)addHP);
     }
-
-    public void IncreaseHP(int amount)
-    {
-        health += amount;
-        maxHealth += amount;
-    }
-
 }
