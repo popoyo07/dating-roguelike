@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     public int shiledAdded;
     bool doingS;
     public bool stuned; // change to true to stunn enemy    
-    bool selectionUsed;
+    [SerializeField] bool selectionUsed;
     StatusEffects EnemyStatus;
     StatusEffects PlayerStatus;
     Animation animation;
@@ -27,8 +27,8 @@ public class Enemy : MonoBehaviour
         system.enemyHP = this.gameObject.GetComponent<SimpleHealth>();
         EnemyStatus = this.gameObject.GetComponent<StatusEffects>();
         PlayerStatus = player.GetComponent<StatusEffects>();
-        nextAttackUI.gameObject.SetActive(true);
-        nextAttackUI.enemy = this;
+        nextAttackUI.ShowNextAttack();
+
         animation = this.gameObject.GetComponent<Animation>(); 
     }
      
@@ -38,8 +38,7 @@ public class Enemy : MonoBehaviour
         if (system.state == BattleState.PLAYERTURN && selectionUsed) 
         {
             actionSelector = Random.Range(0, 4); // remember that range the last digit is ignored in slecetion 
-            nextAttackUI.attack = actionSelector;
-            nextAttackUI.UpdateNextAttackUI();
+            nextAttackUI.UpdateNextAttackUI(actionSelector);
             attkDmg = Random.Range(5, 11);
             selectionUsed = false;
         }
@@ -80,15 +79,19 @@ public class Enemy : MonoBehaviour
         {
             case 0:
                 regular();
+                Debug.Log("Single Attack");
                 break;
             case 1:
                 StartCoroutine(doubleAttk());
+                Debug.Log("Double Attack");
                 break;
             case 2:
                 stanceUp();
+                Debug.Log("Stance Up");
                 break;
             case 3:
                 Guard();
+                Debug.Log("Guard");
                 break;
             default:
                 Debug.Log("Nothing happened");
@@ -130,7 +133,6 @@ public class Enemy : MonoBehaviour
 
     void OnDestroy()
     {
-        nextAttackUI.enemy = null;
-        nextAttackUI.gameObject.SetActive(false);
+        nextAttackUI.HideNextAttack();
     }
 }

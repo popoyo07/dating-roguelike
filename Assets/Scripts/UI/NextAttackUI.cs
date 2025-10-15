@@ -8,16 +8,17 @@ public class NextAttackUI : MonoBehaviour
 {
     public Enemy enemy;
     [SerializeField] private TextMeshProUGUI nextAttackText;
-    public int attack;
+    bool isVisible;
 
     private void Awake()
     {
         nextAttackText = GameObject.Find("NextAttack").GetComponent<TextMeshProUGUI>();
     }
 
-    public void UpdateNextAttackUI()
+    public void UpdateNextAttackUI(int action)
     {
-        switch (attack)
+        Debug.Log("Attempting to Update Next Attack UI");
+        switch (action)
         {
             case 0:
                 nextAttackText.text = "Regular Attack";
@@ -37,5 +38,13 @@ public class NextAttackUI : MonoBehaviour
         }
     }
 
+    public void ShowNextAttack()
+    {
+        nextAttackText.color = new Color32(255, 255, 255, 255);
+    }
 
+    public void HideNextAttack()
+    {
+        nextAttackText.color = new Color32(255, 255, 255, 0);
+    }
 }
