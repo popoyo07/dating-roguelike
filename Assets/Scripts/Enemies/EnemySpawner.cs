@@ -100,7 +100,7 @@ public class EnemySpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(2.5f);
 
-        if (roomsSpawnBoss < 7 || roomsSpawnBoss >= 8 || roomsSpawnBoss < 14 || roomsSpawnBoss >= 15 || roomsSpawnBoss < 21 || roomsSpawnBoss >= 22)
+        if (roomsSpawnBoss < 6 || roomsSpawnBoss >= 7 || roomsSpawnBoss < 12 || roomsSpawnBoss >= 13 || roomsSpawnBoss < 18 || roomsSpawnBoss >= 19)
         {
             // Spawn queued enemy if player chose one, otherwise random
             if (spawnSpecificNext && queuedEnemyPrefab != null)
@@ -117,7 +117,7 @@ public class EnemySpawner : MonoBehaviour
             ifBossExists = false;
         }
 
-        if ((roomsSpawnBoss == 7 || roomsSpawnBoss == 14 || roomsSpawnBoss == 22) && !ifBossExists)
+        if ((roomsSpawnBoss == 6 || roomsSpawnBoss == 12 || roomsSpawnBoss == 18) && !ifBossExists)
         {
             DestroyEnemy();
             ifBossExists = true;
