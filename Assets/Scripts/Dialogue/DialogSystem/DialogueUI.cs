@@ -159,7 +159,7 @@ public class DialogueUI : MonoBehaviour
 
         if (!isTalking && pendingSkip)
         {
-           // enemySpawner.skipBossFight();
+           enemySpawner.skipBossFight();
             pendingSkip = false;
             Debug.Log("Boss skipped after dialogue finished!");
         }

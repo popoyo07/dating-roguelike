@@ -40,10 +40,9 @@ public class EnemySpawner : MonoBehaviour
         switch (chosenList)
         {
             case 0:
-                activeList = vampireList;
+                activeList = sirenList;
                 Debug.Log("Vampire boss");
-                boss = vampireBoss;
-                break;
+                boss = sirenBoss;
                 break;
       
              case 1:
@@ -178,5 +177,13 @@ public class EnemySpawner : MonoBehaviour
         {
             Destroy(bossInstance);
         }
+    }
+
+    public void skipBossFight()
+    {
+        DestroyBoss();
+
+        battleSystem.state = BattleState.WON;
+
     }
 }
