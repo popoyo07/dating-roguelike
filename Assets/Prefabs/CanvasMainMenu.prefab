@@ -2950,14 +2950,14 @@ RectTransform:
   m_GameObject: {fileID: 2552797383270357553}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4603, y: 0.65384996, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3825410781603944619}
+  m_Father: {fileID: 1796986359858592230}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 136, y: -136.20001}
+  m_AnchoredPosition: {x: 212.93726, y: -14.11792}
   m_SizeDelta: {x: 200, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9187898212440052909
@@ -2988,7 +2988,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Description
+  m_text: Knight
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3543,14 +3543,14 @@ RectTransform:
   m_GameObject: {fileID: 3261760891194858392}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4603, y: 0.65384996, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3825410781603944619}
+  m_Father: {fileID: 279637293254752973}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 136, y: -56.200012}
+  m_AnchoredPosition: {x: 212.93726, y: -14.117905}
   m_SizeDelta: {x: 200, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2917912647762652699
@@ -3581,7 +3581,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Description
+  m_text: Rogue character class
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5897,6 +5897,7 @@ GameObject:
   - component: {fileID: 3879052642221265398}
   - component: {fileID: 7901211836866638550}
   - component: {fileID: 255310196665943779}
+  - component: {fileID: 4071833351681603992}
   m_Layer: 5
   m_Name: Lover
   m_TagString: Untagged
@@ -5917,6 +5918,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1598211546310645975}
+  - {fileID: 3540937031632330003}
   m_Father: {fileID: 3825410781603944619}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -6006,6 +6008,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 4071833351681603992}
+        m_TargetAssemblyTypeName: PickDeckButton, Assembly-CSharp
+        m_MethodName: ChangeToKnight
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 7036166442275987356}
         m_TargetAssemblyTypeName: CanvasMainMenu, Assembly-CSharp
         m_MethodName: Main
@@ -6018,6 +6032,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4071833351681603992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6207600709429311766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c00db809914b61c4db71ee4ce8daec6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PickDeckButton
+  c: 0
 --- !u!1 &6234233850574510166
 GameObject:
   m_ObjectHideFlags: 0
@@ -7300,8 +7327,6 @@ RectTransform:
   - {fileID: 8042366305689469523}
   - {fileID: 279637293254752973}
   - {fileID: 1796986359858592230}
-  - {fileID: 5672444487639953782}
-  - {fileID: 3540937031632330003}
   - {fileID: 1242559053544777606}
   - {fileID: 2641251679826750495}
   - {fileID: 4722597663667804132}
@@ -8071,8 +8096,9 @@ GameObject:
   - component: {fileID: 6101015581488388967}
   - component: {fileID: 5733451048600614071}
   - component: {fileID: 937377759683639551}
+  - component: {fileID: 8446549808919087697}
   m_Layer: 5
-  m_Name: Basic
+  m_Name: ROGUE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8091,6 +8117,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 730084037843274411}
+  - {fileID: 5672444487639953782}
   m_Father: {fileID: 3825410781603944619}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -8180,6 +8207,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 8446549808919087697}
+        m_TargetAssemblyTypeName: PickDeckButton, Assembly-CSharp
+        m_MethodName: ChangeToRogue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 7036166442275987356}
         m_TargetAssemblyTypeName: CanvasMainMenu, Assembly-CSharp
         m_MethodName: Main
@@ -8192,6 +8231,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8446549808919087697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8978593496871798039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c00db809914b61c4db71ee4ce8daec6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PickDeckButton
+  c: 1
 --- !u!1 &9042647387502447881
 GameObject:
   m_ObjectHideFlags: 0

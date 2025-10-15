@@ -1,11 +1,25 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using System.Collections;
 
 // Character selector should assign the character class enum as one of this after choosing character 
 public enum CharacterClass { KNIGHT, ROGUE, WIZZARD, PLAYERLOST} // set all character classes 
-public class DeckManagement : MonoBehaviour
+public class DeckManagement : MonoBehaviour, IDataPersistence
 {
+    #region Save and Load
+    public void LoadData(GameData data)
+    {
+        this.characterClass = data.playerClass;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        
+    }
+
+#endregion
+    DataPersistenceManager Manager;
 
     public CharacterClass characterClass; // refenrece for enum 
 
@@ -78,11 +92,13 @@ public class DeckManagement : MonoBehaviour
     }
 
 
-    public void FindAndAssignCharacter()
+    public IEnumerator FindAndAssignCharacter()
     {
+        yield return new WaitForSeconds(.2f);
         runtimeDeck.Clear(); 
         allPossibleSprites.Clear();
-       // discardedCards.Clear();
+     
+        // discardedCards.Clear();
         switch (characterClass)
         {
             case CharacterClass.KNIGHT:
