@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 using System.Collections;
 using UnityEngine.InputSystem;
@@ -15,6 +15,8 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private MenuButtons AllDeckUI;
     [SerializeField] private ResponseHandle responseHandle;
 
+    private EnemySpawner enemySpawner;
+
     private TextEffect textEffect;
     public bool isTalking;
     public bool isTalkingTake2;
@@ -25,10 +27,12 @@ public class DialogueUI : MonoBehaviour
         textEffect = GetComponent<TextEffect>();
         responseHandle = GetComponent<ResponseHandle>();
         AllDeckUI = GetComponent<MenuButtons>();
-        if (textEffect == null) Debug.LogError("TextEffect component is missing!");
+/*        if (textEffect == null) Debug.LogError("TextEffect component is missing!");
         if (responseHandle == null) Debug.LogError("ResponseHandle component is missing!");
         if (textLabel == null) Debug.LogError("TextLabel is not assigned!");
-        if (dialogueBox == null) Debug.LogError("DialogueBox is not assigned!");
+        if (dialogueBox == null) Debug.LogError("DialogueBox is not assigned!");*/
+        enemySpawner = GameObject.FindWithTag("EnemyS").GetComponent<EnemySpawner>();
+
         CloseDialogueBox();
     }
     public IEnumerator DelayDisable(float i)
@@ -112,7 +116,8 @@ public class DialogueUI : MonoBehaviour
                 break;
 
                 // Next dialogue by pressing space key or tapping
-                yield return new WaitUntil(() => Keyboard.current.spaceKey.wasPressedThisFrame || Input.touchCount > 0);
+            yield return new WaitUntil(() => Keyboard.current.spaceKey.wasPressedThisFrame || Input.touchCount > 0);
+
         }
 
         if (responseHandle.LovyPlus > 0)
@@ -138,12 +143,25 @@ public class DialogueUI : MonoBehaviour
         }
     }
 
-    //Close Dialogue
+
+    private bool pendingSkip = false;
+
+    public void MarkPendingSkip()
+    {
+        pendingSkip = true;
+    }
+
     public void CloseDialogueBox()
     {
         isTalking = false;
-
         dialogueBox.SetActive(false);
         textLabel.text = string.Empty;
+
+        if (!isTalking && pendingSkip)
+        {
+            enemySpawner.skipBossFight();
+            pendingSkip = false;
+            Debug.Log("Boss skipped after dialogue finished!");
+        }
     }
 }

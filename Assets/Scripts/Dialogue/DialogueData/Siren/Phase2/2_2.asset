@@ -116,7 +116,7 @@ MonoBehaviour:
     characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
   - dialogueText: I will continue my fight. No one can sway me, Siren.
-    characterName: Siren
+    characterName: You
     characterImage: {fileID: 0}
     dialogueEnd: 0
   - dialogueText: "For a moment, the Siren pauses, her mesmerizing eyes flickering
@@ -124,9 +124,7 @@ MonoBehaviour:
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: "Very well\u2026 human. Show me the strength that keeps you standing.
-      Narrator: The Siren studies you for a moment, as if weighing the strength of
-      your resolve. "
+  - dialogueText: "Very well\u2026 human. Show me the strength that keeps you standing."
     characterName: Siren
     characterImage: {fileID: 0}
     dialogueEnd: 0
@@ -159,7 +157,7 @@ MonoBehaviour:
     characterImage: {fileID: 0}
     dialogueEnd: 0
   - dialogueText: You have chosen your own path.
-    characterName: Siren
+    characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
   responses: []

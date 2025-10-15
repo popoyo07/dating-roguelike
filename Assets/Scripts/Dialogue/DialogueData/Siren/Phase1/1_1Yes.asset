@@ -16,7 +16,7 @@ MonoBehaviour:
   - dialogueText: Choose a card
     characterName: 
     characterImage: {fileID: 0}
-    dialogueEnd: 1
+    dialogueEnd: 0
   responses: []
   LovyCounting:
     LovyCount: 0

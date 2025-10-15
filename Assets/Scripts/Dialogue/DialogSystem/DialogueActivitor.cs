@@ -135,6 +135,25 @@ public class DialogueActivator : MonoBehaviour
             nameText.text = currentDialogue.Dialogue[0].CharacterName;
             characterImage.sprite = currentDialogue.Dialogue[0].CharacterImage;
         }
+
+        switch (number)
+        {
+            case 1:
+                if (progression.currentDialogueIndex < 2)
+                {
+                    progression.currentDialogueIndex += 2;
+                }
+                else
+                {
+                    progression.currentDialogueIndex++;
+                }
+                break;
+            case 2:
+                progression.currentDialogueIndex ++;
+                break;
+        
+        }
+
     }
 
     public void ResetDialogueIndex()

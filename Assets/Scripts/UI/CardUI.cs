@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using System;
+using Unity.VisualScripting;
 
 public class CardUI : MonoBehaviour
 {
@@ -17,7 +18,6 @@ public class CardUI : MonoBehaviour
     public DialogueUI DialogueUI;
     public MenuButtons MenuButtons;
     public DialogueActivator Activator;
-
 
     private string cardName;
 
@@ -42,7 +42,7 @@ public class CardUI : MonoBehaviour
                 Activator = Boss.GetComponent<DialogueActivator>();
                 if (Activator != null)
                 {
-                    Debug.Log("Boss found and DialogueActivator cached!");
+                    //Debug.Log("Boss found and DialogueActivator cached!");
                 }
             }
             else
@@ -83,25 +83,32 @@ public class CardUI : MonoBehaviour
     {
         switch (chosenCard)
         {
-            case "LoveyDovy":
-                Debug.Log("You chose: " + chosenCard + "for LoveyDovey");
+            case "LoveyDovy"://Beating Heart
+                //Debug.Log("You chose: " + chosenCard + "for LoveyDovey");
                 Activator.ContinueDialogue(2);
+
                 break;
+
             case "LoveyDovy2":
-                Debug.Log("You chose: " + chosenCard + "for LoveyDovey");
+                //Debug.Log("You chose: " + chosenCard + "for LoveyDovey");
                 Activator.ContinueDialogue(2);
+
                 break;
             case "LoveyDovy3":
-                Debug.Log("You chose: " + chosenCard + "for LoveyDovey");
+                //Debug.Log("You chose: " + chosenCard + "for LoveyDovey");
                 Activator.ContinueDialogue(2);
+
                 break;
-            case "LoveyDovy4":
-                Debug.Log("You chose: " + chosenCard + "for LoveyDovey");
+            case "LoveyDovy4": //Magic conch
+                //Debug.Log("You chose: " + chosenCard + " for LoveyDovey");
+                DialogueUI.MarkPendingSkip();
                 Activator.ContinueDialogue(1);
+
                 break;
             case "Shield":
                 Debug.Log("You chose: Shield for LoveyDovey");
                 Activator.ContinueDialogue(2);
+
                 break;
             default:
                 Debug.Log("You chose: " + chosenCard + "for LoveyDovey");
