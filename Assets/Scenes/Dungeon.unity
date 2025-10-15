@@ -404,6 +404,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoomA
       objectReference: {fileID: 0}
+    - target: {fileID: 7730367884786826620, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
+      propertyPath: idkBoss
+      value: 
+      objectReference: {fileID: 4668596756076677665, guid: c32b825ac7fafb043a7080fa98f42b3a, type: 3}
+    - target: {fileID: 7730367884786826620, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
+      propertyPath: vampireBoss
+      value: 
+      objectReference: {fileID: 4668596756076677665, guid: e95a3c8b41a25624687894560fb088d3, type: 3}
+    - target: {fileID: 7730367884786826620, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
+      propertyPath: 'idkList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3563789075462658821, guid: e65afaec6d4c3664ab74ba1b6729f6bc, type: 3}
+    - target: {fileID: 7730367884786826620, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
+      propertyPath: 'idkList.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2795040712188621090, guid: 8a0a7386a10b61544960154b009a1e34, type: 3}
+    - target: {fileID: 7730367884786826620, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
+      propertyPath: 'idkList.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8226272766380277888, guid: 0a1626cfffc89cd4380245bb66fbc998, type: 3}
+    - target: {fileID: 7730367884786826620, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
+      propertyPath: 'vampireList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3563789075462658821, guid: 005e91ed7a4bf884db17528fd7a3dc03, type: 3}
+    - target: {fileID: 7730367884786826620, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
+      propertyPath: 'vampireList.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2795040712188621090, guid: 02a8f15f2c5c4c04ba2a38b00df7a08a, type: 3}
+    - target: {fileID: 7730367884786826620, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
+      propertyPath: 'vampireList.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8226272766380277888, guid: 9df5ae8fe61c70647931000e6748ac33, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

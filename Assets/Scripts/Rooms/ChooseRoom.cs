@@ -1,5 +1,5 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class ChooseRoom : MonoBehaviour
@@ -15,8 +15,7 @@ public class ChooseRoom : MonoBehaviour
         public string roomName;
         public Sprite roomSprite;
         public RoomType roomType;
-
-       // public GameObject enemyPrefab;
+        public GameObject enemyPrefab; // linked to enemy from activeList
     }
 
     public enum RoomType { Left, Right }
@@ -42,54 +41,65 @@ public class ChooseRoom : MonoBehaviour
 
     public void ShowRoomOptions()
     {
-        if (currentRoom)
+        if (currentRoom) return;
+        currentRoom = true;
+
+        // Get active enemy list from spawner
+        List<GameObject> activeEnemies = enemySpawner.GetActiveList();
+
+        if (activeEnemies == null || activeEnemies.Count == 0)
         {
+            Debug.LogWarning("No active enemies available for room options.");
             return;
         }
 
-        currentRoom = true;
+        // Pick two different enemies for left/right options
+        int leftIndex = Random.Range(0, activeEnemies.Count);
+        int rightIndex;
+        do { rightIndex = Random.Range(0, activeEnemies.Count); } while (rightIndex == leftIndex);
 
-        leftRoom = typeOfRoom[0];
-        rightRoom =  typeOfRoom[1];
+        GameObject leftEnemy = activeEnemies[leftIndex];
+        GameObject rightEnemy = activeEnemies[rightIndex];
 
-        // Assign sprites
+        // Create room data
+        leftRoom = new Room
+        {
+            roomName = "Left Room",
+            roomSprite = leftEnemy.GetComponentInChildren<SpriteRenderer>().sprite,
+            roomType = RoomType.Left,
+            enemyPrefab = leftEnemy
+        };
+
+        rightRoom = new Room
+        {
+            roomName = "Right Room",
+            roomSprite = rightEnemy.GetComponentInChildren<SpriteRenderer>().sprite,
+            roomType = RoomType.Right,
+            enemyPrefab = rightEnemy
+        };
+
+        // Set button visuals
         leftButton.image.sprite = leftRoom.roomSprite;
         rightButton.image.sprite = rightRoom.roomSprite;
 
-        // Assign behavior
+        // Set click behavior
         leftButton.onClick.RemoveAllListeners();
         rightButton.onClick.RemoveAllListeners();
-        
+
         leftButton.onClick.AddListener(() => ApplyRoom(leftRoom));
         rightButton.onClick.AddListener(() => ApplyRoom(rightRoom));
+
+        Debug.Log("Room options displayed.");
     }
 
     void ApplyRoom(Room room)
     {
-        if (!currentRoom)
-        {
-            return;
-        }
+        if (!currentRoom) return;
 
         chosenRoom = true;
+        Debug.Log($"Room chosen: {room.roomName}");
 
-        switch (room.roomType)
-        {
-            case RoomType.Left:
-                Debug.LogWarning("Left Room Chosen");
-                break;
-            case RoomType.Right:
-                Debug.LogWarning("Right Room Chosen");
-                break;
-        }
-
-        //enemySpawner.SpawnPickedEnemy(enemyIndex);
-
-       /* if (enemySpawner != null)
-        {
-            Debug.LogWarning("enemy spawned from choose room");
-            enemySpawner.SpawnEnemy();
-        }*/
+        // Queue the chosen enemy for the next delayed spawn
+        enemySpawner.QueueSpecificEnemy(room.enemyPrefab);
     }
-
 }

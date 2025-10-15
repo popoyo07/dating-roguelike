@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BuffManager : MonoBehaviour
+public class BuffManager : MonoBehaviour, IDataPersistence
 {
     private SimpleHealth simpleHealth;
     private CoinSystem coinSystem;
@@ -19,6 +19,20 @@ public class BuffManager : MonoBehaviour
 
     public int doubleCoinsBuff;
     public int doubleCoinsBuffCost = 5;
+
+    #region Save and Load
+
+    public void LoadData(GameData data)
+    {
+        this.coins = data.coins;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.coins = this.coins;
+    }
+
+    #endregion
 
     private void Start()
     {
