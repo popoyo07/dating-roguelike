@@ -18,6 +18,7 @@ public class SimpleHealth : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
+        Debug.Log("Load data SimpleHealth is running");
         this.healthBuff = data.healthBuff;
     }
 
@@ -76,6 +77,14 @@ public class SimpleHealth : MonoBehaviour, IDataPersistence
         {
             status = gameObject.GetComponentInChildren<StatusEffects>();
         }
+    }
+
+    private void Start()
+    {
+       /* healthAmount = healthBuff * 10;
+        maxHealth += healthAmount;
+        health = maxHealth;*/
+
     }
     public void ReceiveDMG(int dmg, StatusEffect attackerStatus) 
     {

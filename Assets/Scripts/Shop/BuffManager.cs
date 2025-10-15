@@ -2,11 +2,7 @@ using UnityEngine;
 
 public class BuffManager : MonoBehaviour, IDataPersistence
 {
-    private SimpleHealth simpleHealth;
-    private CoinSystem coinSystem;
-    private EnergySystem energySystem;
-
-    int coins = 500;
+    int coins;
 
     private int maxActiveBuffs = 0;
     private int currentActiveBuffs = 0;
@@ -48,7 +44,7 @@ public class BuffManager : MonoBehaviour, IDataPersistence
 
     private void Update()
     {
-      /*  if (simpleHealth.health == 0)
+       /* if (player dies)
         {
             resetBuffs();
         }*/
@@ -137,10 +133,11 @@ public class BuffManager : MonoBehaviour, IDataPersistence
     public void resetBuffs()
     {
         Debug.Log("Buffs Reset");
+        healthBuffCount = 0;
+        energyBuffCount = 0;
+        doubleCoinsBuffCount = 0;
+        maxActiveBuffs = 0;
         currentActiveBuffs = 0;
-        energySystem.energyCounter = 3;
-        simpleHealth.health = 100;
-        coinSystem.AddCoins(2);
     }
 
 }

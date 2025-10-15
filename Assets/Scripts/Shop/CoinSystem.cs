@@ -21,6 +21,7 @@ public class CoinSystem : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
+        Debug.Log("Load data CoinSystem is running");
         this.coins = data.coins;
         this.coinBuff = data.coinBuff;
     }
