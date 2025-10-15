@@ -11,6 +11,7 @@ public class EnergySystem : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
+        Debug.Log("Load data is energySystem");
         this.energyBuff = data.energyBuff;
     }
 
@@ -24,7 +25,6 @@ public class EnergySystem : MonoBehaviour, IDataPersistence
     void Start()
     {
         maxEnergy += energyBuff;
-        energyCounter = 3;
    
         bSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
     }

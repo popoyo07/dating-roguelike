@@ -18,6 +18,7 @@ public class SimpleHealth : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
+        Debug.Log("Load data SimpleHealth is running");
         this.healthBuff = data.healthBuff;
     }
 

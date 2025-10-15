@@ -21,6 +21,7 @@ public class CoinSystem : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
+        Debug.Log("Load data CoinSystem is running");
         this.coins = data.coins;
         this.coinBuff = data.coinBuff;
     }
@@ -69,7 +70,8 @@ public class CoinSystem : MonoBehaviour, IDataPersistence
 
     public IEnumerator AddCoins(int addcoins)
     {
-        coins += addcoins + coinBuff;
+        coins += addcoins;
+        coins += coinBuff;
         coinUI.SetText("+" + addcoins +  " Coin" + coinBuff + " Coinbuff");
         coinTotal.SetText("Coins: " + coins);
         yield return new WaitForSeconds(2f);

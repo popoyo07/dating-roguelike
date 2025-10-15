@@ -4349,7 +4349,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5932058662048192893
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4381,11 +4381,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 728044ff55736d149b4aa225d1ee0696, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuffManager
-  healthBuff: 10
+  healthBuffCount: 0
   healthBuffCost: 5
-  energyBuff: 1
+  energyBuffCount: 0
   energyBuffCost: 5
-  doubleCoinsBuff: 0
+  doubleCoinsBuffCount: 0
   doubleCoinsBuffCost: 5
 --- !u!1 &4385650630970390891
 GameObject:
