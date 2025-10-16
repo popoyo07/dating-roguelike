@@ -6,9 +6,7 @@ using TMPro;
 
 public class NextAttackUI : MonoBehaviour
 {
-    public Enemy enemy;
     [SerializeField] private TextMeshProUGUI nextAttackText;
-    bool isVisible;
 
     private void Awake()
     {

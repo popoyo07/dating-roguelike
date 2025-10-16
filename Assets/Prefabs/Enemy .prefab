@@ -68,8 +68,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SimpleHealth
   maxHealth: 20
   health: 11
+  healthBuff: 0
+  healthAmount: 0
   shield: 0
-  animate: {fileID: 0}
   healthBar: {fileID: 4424579581365281425}
 --- !u!114 &7560086426456845732
 MonoBehaviour:
@@ -89,6 +90,7 @@ MonoBehaviour:
   attkDmg: 8
   shiledAdded: 0
   stuned: 0
+  selectionUsed: 1
 --- !u!114 &4424579581365281425
 MonoBehaviour:
   m_ObjectHideFlags: 0
