@@ -101,5 +101,6 @@ public class ChooseRoom : MonoBehaviour
 
         // Queue the chosen enemy for the next delayed spawn
         enemySpawner.QueueSpecificEnemy(room.enemyPrefab);
+        currentRoom = false;
     }
 }
