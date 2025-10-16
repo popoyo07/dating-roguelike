@@ -12,7 +12,7 @@ public class EnemySpawner : MonoBehaviour
     private GameObject boss;
     public GameObject sirenBoss;
     public GameObject vampireBoss;
-    public GameObject kinnaraBoss;
+    public GameObject idkBoss;
     private GameObject bossInstance;
     private Vector3 bossSpawn;
     private bool ifBossExists;
@@ -20,7 +20,7 @@ public class EnemySpawner : MonoBehaviour
     [Header("Enemy Prefabs")]
     public List<GameObject> sirenList;
     public List<GameObject> vampireList;
-    public List<GameObject> kinnaraList;
+    public List<GameObject> idkList;
 
     private List<GameObject> activeList;
     private List<GameObject> spawnedList = new List<GameObject>();
@@ -51,9 +51,9 @@ public class EnemySpawner : MonoBehaviour
                 boss = vampireBoss;
                 break;
             case 2:
-                activeList = kinnaraList;
-                Debug.Log("Kinnara boss");
-                boss = kinnaraBoss;
+                activeList = idkList;
+                Debug.Log("Idk boss");
+                boss = idkBoss;
                 break;
         }
 
