@@ -148,7 +148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3900137015995239691, guid: b8e3fcb72f8c1a24cb1d956dbed91eef, type: 3}
       propertyPath: maxHealth
-      value: 2
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6108568391419360553, guid: b8e3fcb72f8c1a24cb1d956dbed91eef, type: 3}
       propertyPath: m_Size.x
@@ -161,7 +161,7 @@ PrefabInstance:
     - target: {fileID: 6108568391419360553, guid: b8e3fcb72f8c1a24cb1d956dbed91eef, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 934b3252a9b03a7498b8ae5b235b4aee, type: 3}
+      objectReference: {fileID: 21300000, guid: d52108d7ee51c7442aa15cce996f1822, type: 3}
     - target: {fileID: 6108568391419360553, guid: b8e3fcb72f8c1a24cb1d956dbed91eef, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
