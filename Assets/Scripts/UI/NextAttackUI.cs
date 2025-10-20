@@ -7,10 +7,13 @@ using TMPro;
 public class NextAttackUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI nextAttackText;
+    [SerializeField] private Image nextAttackImage;
+    [SerializeField] private Sprite[] spriteList;
 
     private void Awake()
     {
-        nextAttackText = GameObject.Find("NextAttack").GetComponent<TextMeshProUGUI>();
+        nextAttackText = this.gameObject.GetComponentInChildren<TextMeshProUGUI>();            //Find("NextAttackText").GetComponent<TextMeshProUGUI>();
+        nextAttackImage = this.gameObject.GetComponentInChildren<Image>();
     }
 
     public void UpdateNextAttackUI(int action)
@@ -19,16 +22,16 @@ public class NextAttackUI : MonoBehaviour
         switch (action)
         {
             case 0:
-                nextAttackText.text = "Regular Attack";
+                nextAttackImage.sprite = spriteList[0];
                 break;
             case 1:
-                nextAttackText.text = "Double Attack";
+                nextAttackImage.sprite = spriteList[0];
                 break;
             case 2:
-                nextAttackText.text = "Attack Stance";
+                nextAttackImage.sprite = spriteList[1];
                 break;
             case 3:
-                nextAttackText.text = "Guard";
+                nextAttackImage.sprite = spriteList[1];
                 break;
             default:
                 Debug.Log("Nothing happened");
@@ -38,11 +41,11 @@ public class NextAttackUI : MonoBehaviour
 
     public void ShowNextAttack()
     {
-        nextAttackText.color = new Color32(255, 255, 255, 255);
+        nextAttackImage.color = new Color32(255, 255, 255, 255);
     }
 
     public void HideNextAttack()
     {
-        nextAttackText.color = new Color32(255, 255, 255, 0);
+        nextAttackImage.color = new Color32(255, 255, 255, 0);
     }
 }
