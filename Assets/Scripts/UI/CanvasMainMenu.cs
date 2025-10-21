@@ -8,6 +8,7 @@ public class CanvasMainMenu : MonoBehaviour
     public GameObject settingsMenu;
     public GameObject shopMenu;
     public GameObject loadingScreen;
+    public GameObject creditsScreen;
 
     /*private void Start()
     {
@@ -45,6 +46,18 @@ public class CanvasMainMenu : MonoBehaviour
     {
         settingsMenu.SetActive(true);
         mainMenu.SetActive(false);
+    }
+
+    public void Credits()
+    {
+        settingsMenu.SetActive(false);
+        creditsScreen.SetActive(true);
+    }
+
+    public void CloseCredits()
+    {
+        settingsMenu.SetActive(true);
+        creditsScreen.SetActive(false);
     }
 
     /*private IEnumerator HideLoading()
