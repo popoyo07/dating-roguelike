@@ -15,27 +15,25 @@ public class ChooseRoom : MonoBehaviour
         public string roomName;
         public Sprite roomSprite;
         public RoomType roomType;
-        public GameObject enemyPrefab; // linked to enemy from activeList
+        public GameObject enemyPrefab;
     }
 
     public enum RoomType { Left, Right }
-
-    [Header("Rooms")]
-    public List<Room> typeOfRoom;
 
     [Header("Buttons")]
     public Button leftButton;
     public Button rightButton;
 
+    [Header("Boss UI Override")]
+    public Sprite defaultBossSprite;
+
     private Room leftRoom;
     private Room rightRoom;
 
-    private BattleSystem battleSystem;
     private EnemySpawner enemySpawner;
 
     void Start()
     {
-        battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
         enemySpawner = GameObject.FindWithTag("EnemyS").GetComponent<EnemySpawner>();
     }
 
@@ -44,7 +42,6 @@ public class ChooseRoom : MonoBehaviour
         if (currentRoom) return;
         currentRoom = true;
 
-        // Get active enemy list from spawner
         List<GameObject> activeEnemies = enemySpawner.GetActiveList();
 
         if (activeEnemies == null || activeEnemies.Count == 0)
@@ -53,7 +50,7 @@ public class ChooseRoom : MonoBehaviour
             return;
         }
 
-        // Pick two different enemies for left/right options
+        // pick two random enemies
         int leftIndex = Random.Range(0, activeEnemies.Count);
         int rightIndex;
         do { rightIndex = Random.Range(0, activeEnemies.Count); } while (rightIndex == leftIndex);
@@ -61,7 +58,6 @@ public class ChooseRoom : MonoBehaviour
         GameObject leftEnemy = activeEnemies[leftIndex];
         GameObject rightEnemy = activeEnemies[rightIndex];
 
-        // Create room data
         leftRoom = new Room
         {
             roomName = "Left Room",
@@ -78,11 +74,28 @@ public class ChooseRoom : MonoBehaviour
             enemyPrefab = rightEnemy
         };
 
-        // Set button visuals
+        //Set normal enemy sprites first
         leftButton.image.sprite = leftRoom.roomSprite;
         rightButton.image.sprite = rightRoom.roomSprite;
 
-        // Set click behavior
+        //Check boss condition and override if needed
+        if (enemySpawner.roomsSpawnBoss == 5 ||
+            enemySpawner.roomsSpawnBoss == 11 ||
+            enemySpawner.roomsSpawnBoss == 17)
+        {
+            if (defaultBossSprite != null)
+            {
+                leftButton.image.overrideSprite = defaultBossSprite;
+                rightButton.image.overrideSprite = defaultBossSprite;
+                Debug.Log("Boss room detected — overriding room button sprites.");
+            }
+            else
+            {
+                Debug.LogWarning("defaultBossSprite is not assigned in Inspector.");
+            }
+        }
+
+        //Assign button clicks
         leftButton.onClick.RemoveAllListeners();
         rightButton.onClick.RemoveAllListeners();
 
@@ -97,9 +110,6 @@ public class ChooseRoom : MonoBehaviour
         if (!currentRoom) return;
 
         chosenRoom = true;
-        Debug.Log($"Room chosen: {room.roomName}");
-
-        // Queue the chosen enemy for the next delayed spawn
         enemySpawner.QueueSpecificEnemy(room.enemyPrefab);
         currentRoom = false;
     }

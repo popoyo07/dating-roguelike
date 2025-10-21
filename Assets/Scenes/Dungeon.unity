@@ -587,6 +587,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1020901527363727910, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: defaultBossSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 13c29f3b4e7a17545a0eec21570eeef2, type: 3}
     - target: {fileID: 2869943144883502491, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_Pivot.x
       value: 0
