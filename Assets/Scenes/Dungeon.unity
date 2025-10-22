@@ -409,25 +409,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4668596756076677665, guid: c32b825ac7fafb043a7080fa98f42b3a, type: 3}
     - target: {fileID: 7730367884786826620, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
-      propertyPath: defultMusic
-      value: 
-      objectReference: {fileID: 1053999515}
-    - target: {fileID: 7730367884786826620, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
       propertyPath: vampireBoss
       value: 
       objectReference: {fileID: 4668596756076677665, guid: e95a3c8b41a25624687894560fb088d3, type: 3}
-    - target: {fileID: 7730367884786826620, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
-      propertyPath: vampBossMusic
-      value: 
-      objectReference: {fileID: 9167437029170077051, guid: e95a3c8b41a25624687894560fb088d3, type: 3}
-    - target: {fileID: 7730367884786826620, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
-      propertyPath: sirenBossMusic
-      value: 
-      objectReference: {fileID: 7445812035431574535, guid: d2d9ac2d4c7efe647bc61379950800a6, type: 3}
-    - target: {fileID: 7730367884786826620, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
-      propertyPath: karnaraBossMusic
-      value: 
-      objectReference: {fileID: 7557225655924516847, guid: c32b825ac7fafb043a7080fa98f42b3a, type: 3}
     - target: {fileID: 7730367884786826620, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
       propertyPath: 'idkList.Array.data[0]'
       value: 
@@ -595,11 +579,6 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
---- !u!82 &1053999515 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 7206201473534883723, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-  m_PrefabInstance: {fileID: 1333872139}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1333872139
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -608,10 +587,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1020901527363727910, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: defaultBossSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 13c29f3b4e7a17545a0eec21570eeef2, type: 3}
     - target: {fileID: 2869943144883502491, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -692,94 +667,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4054994539115047327, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: taunt
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4054994539115047327, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: blocks
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4054994539115047327, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: waterJet
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4054994539115047327, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: rockSmash
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4054994539115047327, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: bubbleHeal
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4054994539115047327, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: doubleAttk
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4054994539115047327, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: plantBlade
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4054994539115047327, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: blocksECost
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4054994539115047327, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: plantSapDMG
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4054994539115047327, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: waterClense
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4054994539115047327, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: pocketPebble
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4054994539115047327, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: plantSapECost
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4054994539115047327, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: rockSkinECost
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4054994539115047327, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: waterJetECost
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4054994539115047327, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: rockSmashECost
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4054994539115047327, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: bubbleHealECost
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4054994539115047327, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: plantBladeECost
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4054994539115047327, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: shieldMultiplier
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4054994539115047327, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: waterClenseECost
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4054994539115047327, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: shoothingPlantsDMG
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4054994539115047327, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: shoothingPlantsECost
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4054994539115047327, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: shoothingPlantsXtDmg
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 4608457261662142800, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -791,86 +678,6 @@ PrefabInstance:
     - target: {fileID: 5359559250360613157, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: acid
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: taunt
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: acidECost
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: doubleAttk
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: emptyFlask
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: pocketPebble
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: ultimateBrew
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: antidoteECost
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: dmgMultiplier
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: strenghtECost
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: emptyFlaskECost
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: shieldingPotion
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: smokeScreenECost
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: selfMedicateECost
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: ultimateBrewECost
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: selfMedicateShield
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: strenghtMultiplier
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: shieldingPotionECost
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: weakeningPotionECost
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: ultimateDmgMultiplier
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6054858379968941020, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_AnchorMax.x
@@ -896,54 +703,6 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1808764163}
-    - target: {fileID: 9171893168133233945, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: stun
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 9171893168133233945, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: taunt
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9171893168133233945, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: piercing
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9171893168133233945, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: bigShield
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 9171893168133233945, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: doubleAttk
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 9171893168133233945, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: parryECost
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9171893168133233945, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: swordStrike
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 9171893168133233945, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: pocketPebble
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 9171893168133233945, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: smallHealing
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9171893168133233945, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: bigShieldECost
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9171893168133233945, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: secondWindECost
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9171893168133233945, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: healingMultiplier
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
