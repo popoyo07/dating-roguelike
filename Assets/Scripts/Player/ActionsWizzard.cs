@@ -7,7 +7,7 @@ using UnityEditor;
 using System.Drawing;
 using System.Xml;
 
-public class ActionsChemist : Cards
+public class ActionsWizzard : Cards
 {
     private void Start()
     {

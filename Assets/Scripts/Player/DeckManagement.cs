@@ -7,6 +7,7 @@ using System.Collections;
 public enum CharacterClass { KNIGHT, CHEMIST, WIZZARD, PLAYERLOST} // set all character classes 
 public class DeckManagement : MonoBehaviour
 {
+    public int cardPlayedCount;
 
     DataPersistenceManager Manager;
 
@@ -124,6 +125,7 @@ public class DeckManagement : MonoBehaviour
         for (int i = 0; i < cardDatabase.allCardSprites.Count; i++)
         {
             allPossibleSprites.Add(cardDatabase.allCards[i], cardDatabase.allCardSprites[i]);
+            Debug.Log("Sprite added" + cardDatabase.allCards[i]);        
         }
 
         for (int i = 0; i < cardDatabase.descriptionCard.Count; i++)

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    GameObject playerObject;
     public BattleSystem system;
     public NextAttackUI nextAttackUI;
     public int actionSelector;
@@ -16,11 +17,12 @@ public class Enemy : MonoBehaviour
     StatusEffects EnemyStatus;
     StatusEffects PlayerStatus;
     Animation animation;
-
+  
     void Awake()
     {
+        playerObject = GameObject.FindWithTag("Player");
         system = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
-        player = GameObject.FindWithTag("Player").GetComponent<SimpleHealth>();
+        player = playerObject.GetComponent<SimpleHealth>();
         nextAttackUI = GameObject.Find("NextAttack").GetComponent<NextAttackUI>();
 
         system.enemy = this.gameObject;
@@ -29,7 +31,10 @@ public class Enemy : MonoBehaviour
         PlayerStatus = player.GetComponent<StatusEffects>();
         nextAttackUI.ShowNextAttack();
 
-        animation = this.gameObject.GetComponent<Animation>(); 
+        animation = this.gameObject.GetComponent<Animation>();
+
+     
+
     }
      
     // Update is called once per frame

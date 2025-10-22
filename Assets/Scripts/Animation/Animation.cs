@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using System.Collections;
 using UnityEngine;
 using static UnityEngine.Rendering.DebugUI;
@@ -5,15 +6,25 @@ using static UnityEngine.Rendering.DebugUI;
 public class Animation : MonoBehaviour
 {
     public Animator animator;
-
-
+    GameObject cardmanager;
+ 
+    ActionsKnight knight;
+    ActionsChemist chemist;
+    ActionsWizzard wiz;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         animator = this.gameObject.GetComponentInChildren<Animator>();
-
-
+        cardmanager = GameObject.Find("CardManager");
+        Debug.Log("it is assigning enemy for the card managers from the animation script");
+        knight = cardmanager.GetComponent<ActionsKnight>();
+        knight.enemy = this.gameObject;
+        chemist = cardmanager.GetComponent<ActionsChemist>();
+        chemist.enemy = this.gameObject;
+        wiz = cardmanager.GetComponent<ActionsWizzard>();
+        wiz.enemy = this.gameObject;
+       
     }
 
     public void AnimationTrigger(StatusEffect attackerStatus)

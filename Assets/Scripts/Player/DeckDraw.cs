@@ -26,7 +26,6 @@ public class DeckDraw : DeckManagement, IDataPersistence
     public AssignCard[] cards;
     bool cardsAssigned;
     bool combatEnded;
-
     private void Awake()
     {
 
@@ -119,6 +118,7 @@ public class DeckDraw : DeckManagement, IDataPersistence
 
                 case BattleState.ENEMYTURN:
                     cardsAssigned = false;
+                    cardPlayedCount = 0;
                     break;
 
 

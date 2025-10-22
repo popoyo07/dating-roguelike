@@ -13,12 +13,13 @@ MonoBehaviour:
   m_Name: DeckChemist
   m_EditorClassIdentifier: Assembly-CSharp::AllCardsOfCharacter
   allCards:
-  - SwordStrike
-  - SwordStrike
-  - SwordStrike
-  - SwordStrike
-  - Shield
-  - Shield
+  - EmptyFlask
+  - EmptyFlask
+  - EmptyFlask
+  - EmptyFlask
+  - ShieldingPotion
+  - ShieldingPotion
   - LoveyDovy4
   - LoveyDovy
   allCardSprites: []
+  descriptionCard: []

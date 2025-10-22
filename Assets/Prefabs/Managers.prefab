@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8350772356307164605}
   - component: {fileID: 7829788775852373185}
   - component: {fileID: 6649543096048209190}
+  - component: {fileID: 3813641821308266811}
   m_Layer: 0
   m_Name: CardManager
   m_TagString: Untagged
@@ -48,6 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2c85b9932fd77d44ac6ef077a9cb2ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeckDraw
+  cardPlayedCount: 0
   characterClass: 0
   startingCards: 0
   currentDeckSize: 0
@@ -101,6 +103,7 @@ MonoBehaviour:
   deckManagement: {fileID: 0}
   energy: {fileID: 0}
   xtStrenght: 0
+  multStrenght: 0
   playerHp: {fileID: 0}
   attkDone: 0
   turnBuff: 0
@@ -111,6 +114,10 @@ MonoBehaviour:
   smallHealingECost: 1
   healingMultiplier: 2
   bigHealingECost: 1
+  taunt: 1
+  tauntECost: 1
+  pocketPebble: 1
+  pocketPebbleECost: 1
   doubleAttk: 2
   doubleAttkECost: 1
   swordStrike: 3
@@ -129,10 +136,6 @@ MonoBehaviour:
   secondWindECost: 1
   ironResolve: 0
   ironResolveECost: 1
-  taunt: 1
-  tauntECost: 1
-  pocketPebble: 1
-  pocketPebbleECost: 1
 --- !u!114 &7829788775852373185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,6 +170,7 @@ MonoBehaviour:
   deckManagement: {fileID: 0}
   energy: {fileID: 0}
   xtStrenght: 0
+  multStrenght: 0
   playerHp: {fileID: 0}
   attkDone: 0
   turnBuff: 0
@@ -177,28 +181,82 @@ MonoBehaviour:
   smallHealingECost: 1
   healingMultiplier: 2
   bigHealingECost: 1
-  doubleAttk: 1
-  doubleAttkECost: 1
-  swordStrike: 1
-  swordStrikeECost: 1
-  shield: 1
-  shieldECost: 1
-  battleCryXTdmg: 2
-  battleCryECost: 0
-  parryECost: 0
-  stun: 2
-  stunECost: 1
-  piercing: 2
-  piercingECost: 1
-  bigShield: 1
-  bigShieldECost: 1
-  secondWindECost: 1
-  ironResolve: 0
-  ironResolveECost: 1
   taunt: 1
   tauntECost: 1
   pocketPebble: 1
   pocketPebbleECost: 1
+  doubleAttk: 1
+  doubleAttkECost: 1
+  smokeScreenECost: 1
+  acid: 1
+  acidECost: 1
+  strenghtMultiplier: 1
+  strenghtECost: 1
+  weakeningPotionECost: 1
+  antidoteECost: 1
+  emptyFlask: 1
+  emptyFlaskECost: 1
+  selfMedicateShield: 1
+  dmgMultiplier: 1
+  selfMedicateECost: 1
+  shieldingPotion: 1
+  shieldingPotionECost: 1
+  ultimateBrew: 1
+  ultimateDmgMultiplier: 1
+  ultimateBrewECost: 1
+--- !u!114 &3813641821308266811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292839831765639643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d41e26027114a499e820d47a52c05d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ActionsWizzard
+  battleSystem: {fileID: 0}
+  attkAmmount: 0
+  enemy: {fileID: 0}
+  player: {fileID: 0}
+  deckManagement: {fileID: 0}
+  energy: {fileID: 0}
+  xtStrenght: 0
+  multStrenght: 0
+  playerHp: {fileID: 0}
+  attkDone: 0
+  turnBuff: 0
+  roundTracker: {fileID: 0}
+  pStatus: {fileID: 0}
+  LastStatus: 0
+  smallHealing: 5
+  smallHealingECost: 1
+  healingMultiplier: 2
+  bigHealingECost: 1
+  taunt: 1
+  tauntECost: 1
+  pocketPebble: 1
+  pocketPebbleECost: 1
+  doubleAttk: 1
+  doubleAttkECost: 1
+  smokeScreenECost: 1
+  acid: 1
+  acidECost: 1
+  strenghtMultiplier: 1
+  strenghtECost: 1
+  weakeningPotionECost: 1
+  antidoteECost: 1
+  emptyFlask: 1
+  emptyFlaskECost: 1
+  selfMedicateShield: 1
+  dmgMultiplier: 1
+  selfMedicateECost: 1
+  shieldingPotion: 1
+  shieldingPotionECost: 1
+  ultimateBrew: 1
+  ultimateDmgMultiplier: 1
+  ultimateBrewECost: 1
 --- !u!1 &4134785340651724058
 GameObject:
   m_ObjectHideFlags: 0

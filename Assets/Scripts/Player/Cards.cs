@@ -11,6 +11,7 @@ public class Cards : MonoBehaviour
     public DeckManagement deckManagement;
     public EnergySystem energy; // reference enrgy system 
     public int xtStrenght; // used for whenever you want to temporarily increas or deacrease player dmg
+    public float multStrenght;
     public SimpleHealth playerHp;
     
     
@@ -41,6 +42,10 @@ public class Cards : MonoBehaviour
     [Header("Pocket Pebble")]
     [Range(1, 10)][SerializeField] public int pocketPebble;
     [Range(1, 3)][SerializeField] public int pocketPebbleECost;
+
+    [Header("Double Attk DMG")]
+    [Range(1, 10)][SerializeField] public int doubleAttk;
+    [Range(1, 3)][SerializeField] public int doubleAttkECost;
     public void GenerateAttk(StatusEffect attackerState)
     {
 
@@ -49,7 +54,14 @@ public class Cards : MonoBehaviour
         // create logic to attack enemy 
         if(enemy != null)
         {
-            int dmg = attkAmmount + xtStrenght;
+            int dmg ;
+            if (multStrenght > 0)
+            {
+                dmg = (int)((float)multStrenght * ((float)attkAmmount + xtStrenght)); 
+            } else
+            {
+                dmg = attkAmmount + xtStrenght;
+            }
             if (dmg < 0) dmg = 0;
 
             enemy.GetComponent<SimpleHealth>().ReceiveDMG(dmg, attackerState);
@@ -60,6 +72,7 @@ public class Cards : MonoBehaviour
         {
             Debug.Log("Enemy null");
         }
+        multStrenght = 0;
     }
 
     public void GenerateShield(int shield)
@@ -86,6 +99,7 @@ public class Cards : MonoBehaviour
     public void ConsumeEnergy(int cost) // unsert enery cost in cost 
     {
         energy.energyCounter -= cost;
+        deckManagement.cardPlayedCount++;
     }
 
     public void BigHealing()
@@ -97,6 +111,7 @@ public class Cards : MonoBehaviour
     public void LoveyDoveyLogic()  // do nothing type of cards 
     {
         ConsumeEnergy(1);
+        enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.STUN;
         Debug.Log("Lovely");
     }
     public void LoveyDoveyLogic2() // needs to do something ? 
@@ -140,4 +155,15 @@ public class Cards : MonoBehaviour
         GenerateAttk(pStatus.currentStatus);
 
     }
+
+    public void AttackTwice()
+    {
+        attkAmmount = doubleAttk;
+        Debug.Log("Attk should be " + doubleAttk);
+        ConsumeEnergy(doubleAttk);
+        GenerateAttk(pStatus.currentStatus);
+        GenerateAttk(pStatus.currentStatus);
+
+    }
+
 }

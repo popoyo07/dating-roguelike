@@ -24,9 +24,6 @@ public class ActionsKnight : Cards
     }
 
 
-    [Header("Double Attk DMG")]
-    [Range(1, 10)][SerializeField] private int doubleAttk;
-    [Range(1, 3)][SerializeField] private int doubleAttkECost;
 
     [Header("Single Attk DMG")]
     [Range(1, 10)][SerializeField] private int swordStrike;
@@ -124,16 +121,7 @@ public class ActionsKnight : Cards
     }
 
 
-    public void AttackTwice()
-    {
-        attkAmmount = doubleAttk;
-        Debug.Log("Attk should be " + doubleAttk);
-        ConsumeEnergy(doubleAttk);
-        GenerateAttk(pStatus.currentStatus);
-        GenerateAttk(pStatus.currentStatus);
-
-    }
-    
+  
 
     private IEnumerator InitializeCardActions()
     {

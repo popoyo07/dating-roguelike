@@ -11,7 +11,7 @@ public class MusicManager : MonoBehaviour, IDataPersistence
     [SerializeField] private float masterVolume;
     [SerializeField] private float musicVolume;
     [SerializeField] private float sfxVolume;
-    [SerializeField] public CharacterClass c;
+    [SerializeField] public CharacterClass c; 
 
     private void Start()
     {
