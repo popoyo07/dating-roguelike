@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0f4dfe1bf3465045b0c4fd602c4cc73, type: 3}
+  m_Name: DatabaseWiz
+  m_EditorClassIdentifier: Assembly-CSharp::AllCardsOfCharacter
+  allCards:
+  - SmallHealing
+  - BigHealing
+  - Taunt
+  - PocketPebble
+  - DoubleShield
+  - RockSkin
+  - RockSmash
+  - HealingBubble
+  - WaterJet
+  - WaterCleanse
+  - PlantBlade
+  - ShoothingPlants
+  - Plant Sap
+  - AttackTwice
+  - LoveyDovy
+  - LoveyDovy2
+  - LoveyDovy3
+  - LoveyDovy4
+  allCardSprites:
+  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
+  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
+  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
+  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
+  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
+  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
+  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
+  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
+  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
+  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
+  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
+  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
+  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
+  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
+  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
+  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
+  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
+  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
+  descriptionCard:
+  - 'Heals '
+  - Heals more
+  - 'Taunts '
+  - Does dmg to enemy and makes them weak
+  - Big shield
+  - 'Multiplies current block times 2 '
+  - 'Throws a rock doing dmg '
+  - Heals a lot
+  - Deals dmg in using water
+  - Clenses from all debuff
+  - Deals dmg using plant
+  - 'Does dmg and adds a +5 to next attk '
+  - 'Does a lot of dmg and heals of dmg done '
+  - Throws to empty flasks at enemy dealing twice the dmg
+  - 'Makes enemy fall asleep '
+  - does nothing 2
+  - does nothing 3
+  - does nothing 4

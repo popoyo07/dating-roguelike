@@ -30,7 +30,6 @@ public class ActionsChemist : Cards
 
 
     [Header("Somoke Screen")]
-     private int smokeStun;
     [Range(1, 3)][SerializeField] private int smokeScreenECost;  
     
     [Header("Acid Splash")]

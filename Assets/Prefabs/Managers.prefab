@@ -56,11 +56,11 @@ MonoBehaviour:
   theDatabaseArray:
   - {fileID: 11400000, guid: a49db9bae68117040b51e9d31241e11e, type: 2}
   - {fileID: 11400000, guid: 816148b04bc3f7344915a73009fbef5c, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 7260c47043a49ea4cb0b59a310ce9259, type: 2}
   theStartingDeckArray:
   - {fileID: 11400000, guid: 0801bfacd5d951144b8365b446167e37, type: 2}
   - {fileID: 11400000, guid: cd16ef655d4ee874c84157964df3591d, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 3e133c6503d25a245a8ca0a5c4375707, type: 2}
   cardDatabase: {fileID: 0}
   startingDeck: {fileID: 0}
   BSystem: {fileID: 0}
@@ -240,23 +240,25 @@ MonoBehaviour:
   pocketPebbleECost: 1
   doubleAttk: 1
   doubleAttkECost: 1
-  smokeScreenECost: 1
-  acid: 1
-  acidECost: 1
-  strenghtMultiplier: 1
-  strenghtECost: 1
-  weakeningPotionECost: 1
-  antidoteECost: 1
-  emptyFlask: 1
-  emptyFlaskECost: 1
-  selfMedicateShield: 1
-  dmgMultiplier: 1
-  selfMedicateECost: 1
-  shieldingPotion: 1
-  shieldingPotionECost: 1
-  ultimateBrew: 1
-  ultimateDmgMultiplier: 1
-  ultimateBrewECost: 1
+  blocks: 1
+  blocksECost: 1
+  shieldMultiplier: 1
+  rockSkinECost: 1
+  rockSmash: 1
+  rockSmashECost: 1
+  bubbleHeal: 1
+  bubbleHealECost: 1
+  waterJet: 1
+  waterJetECost: 1
+  waterClense: 1
+  waterClenseECost: 1
+  plantBlade: 1
+  plantBladeECost: 1
+  shoothingPlantsDMG: 1
+  shoothingPlantsXtDmg: 1
+  shoothingPlantsECost: 1
+  plantSapDMG: 1
+  plantSapECost: 1
 --- !u!1 &4134785340651724058
 GameObject:
   m_ObjectHideFlags: 0
