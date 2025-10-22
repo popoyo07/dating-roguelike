@@ -33,6 +33,12 @@ public class EnemySpawner : MonoBehaviour
     private GameObject queuedEnemyPrefab; // next enemy chosen by player
     private bool spawnSpecificNext;
 
+    [Header("Audio")]
+    public AudioSource sirenBossMusic;
+    public AudioSource karnaraBossMusic;
+    public AudioSource vampBossMusic;
+    public AudioSource defultMusic;
+
     void Start()
     {
         chosenList = Random.Range(2, 2);
@@ -88,6 +94,24 @@ public class EnemySpawner : MonoBehaviour
         if (battleSystem.state != BattleState.WON && enemySpawn)
         {
             enemySpawn = false;
+        }
+
+        if (vampireBoss != null && boss == vampireBoss && ifBossExists == true)
+        {
+            defultMusic.Stop();
+            vampBossMusic.Play();
+        }
+
+        if (sirenBoss != null && boss == sirenBoss && ifBossExists == true)
+        {
+            defultMusic.Stop();
+            sirenBossMusic.Play();
+        }
+
+        if (idkBoss != null && boss == idkBoss && ifBossExists == true)
+        {
+            defultMusic.Stop();
+            karnaraBossMusic.Play();
         }
     }
 
