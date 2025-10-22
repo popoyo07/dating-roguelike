@@ -409,9 +409,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4668596756076677665, guid: c32b825ac7fafb043a7080fa98f42b3a, type: 3}
     - target: {fileID: 7730367884786826620, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
+      propertyPath: defultMusic
+      value: 
+      objectReference: {fileID: 1053999515}
+    - target: {fileID: 7730367884786826620, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
       propertyPath: vampireBoss
       value: 
       objectReference: {fileID: 4668596756076677665, guid: e95a3c8b41a25624687894560fb088d3, type: 3}
+    - target: {fileID: 7730367884786826620, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
+      propertyPath: vampBossMusic
+      value: 
+      objectReference: {fileID: 9167437029170077051, guid: e95a3c8b41a25624687894560fb088d3, type: 3}
+    - target: {fileID: 7730367884786826620, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
+      propertyPath: sirenBossMusic
+      value: 
+      objectReference: {fileID: 7445812035431574535, guid: d2d9ac2d4c7efe647bc61379950800a6, type: 3}
+    - target: {fileID: 7730367884786826620, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
+      propertyPath: karnaraBossMusic
+      value: 
+      objectReference: {fileID: 7557225655924516847, guid: c32b825ac7fafb043a7080fa98f42b3a, type: 3}
     - target: {fileID: 7730367884786826620, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
       propertyPath: 'idkList.Array.data[0]'
       value: 
@@ -579,6 +595,11 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!82 &1053999515 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7206201473534883723, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+  m_PrefabInstance: {fileID: 1333872139}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1333872139
 PrefabInstance:
   m_ObjectHideFlags: 0
