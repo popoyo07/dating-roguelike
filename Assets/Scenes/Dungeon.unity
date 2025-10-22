@@ -683,6 +683,74 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: acid
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: acidECost
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: emptyFlask
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: ultimateBrew
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: antidoteECost
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: dmgMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: strenghtECost
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: emptyFlaskECost
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: shieldingPotion
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: smokeScreenECost
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: selfMedicateECost
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: ultimateBrewECost
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: selfMedicateShield
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: strenghtMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: shieldingPotionECost
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: weakeningPotionECost
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: ultimateDmgMultiplier
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6054858379968941020, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
