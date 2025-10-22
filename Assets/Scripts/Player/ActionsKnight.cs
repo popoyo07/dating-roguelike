@@ -15,6 +15,11 @@ public class ActionsKnight : Cards
         player = GameObject.FindWithTag("Player");
         playerHp = player.GetComponent<SimpleHealth>();
         deckManagement = gameObject.GetComponent<DeckManagement>();
+        if (deckManagement != null && deckManagement.characterClass != CharacterClass.KNIGHT)
+        {
+            Debug.Log("disable knight");
+            gameObject.GetComponent<ActionsKnight>().enabled = false;
+        }
         energy = GetComponent<EnergySystem>();
         cardAttaks.Clear();
         roundTracker = gameObject.GetComponent<RoundTracker>();

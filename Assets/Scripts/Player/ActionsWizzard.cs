@@ -15,6 +15,11 @@ public class ActionsWizzard : Cards
         player = GameObject.FindWithTag("Player");
         playerHp = player.GetComponent<SimpleHealth>();
         deckManagement = gameObject.GetComponent<DeckManagement>();
+        if (deckManagement != null && deckManagement.characterClass != CharacterClass.WIZZARD)
+        {
+            Debug.Log("disable wizzard");
+           gameObject.GetComponent<ActionsWizzard>().enabled = false;
+        }
         energy = GetComponent<EnergySystem>();
         cardAttaks.Clear();
         roundTracker = gameObject.GetComponent<RoundTracker>();
