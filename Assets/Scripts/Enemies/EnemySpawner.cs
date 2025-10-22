@@ -77,11 +77,6 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
-        if (ifBossExists == false && boss == null)
-        {
-            defultMusic.Play();
-        }
-
         if (battleSystem.state == BattleState.WON)
         {
             DestroyEnemy();
@@ -101,23 +96,6 @@ public class EnemySpawner : MonoBehaviour
             enemySpawn = false;
         }
 
-        if (vampireBoss != null && boss == vampireBoss && ifBossExists == true)
-        {
-            defultMusic.Pause();
-            vampBossMusic.Play();
-        }
-
-        if (sirenBoss != null && boss == sirenBoss && ifBossExists == true)
-        {
-            defultMusic.Pause();
-            sirenBossMusic.Play();
-        }
-
-        if (idkBoss != null && boss == idkBoss && ifBossExists == true)
-        {
-            defultMusic.Pause();
-            karnaraBossMusic.Play();
-        }
     }
 
     public List<GameObject> GetActiveList()
@@ -151,6 +129,9 @@ public class EnemySpawner : MonoBehaviour
             DestroyEnemy();
             ifBossExists = true;
             bossInstance = Instantiate(boss, bossSpawn, Quaternion.identity);
+
+            // Play corresponding boss music once
+            PlayBossMusic(boss);
         }
     }
 
@@ -192,6 +173,19 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    private void PlayBossMusic(GameObject boss)
+    {
+        // Stop all music first
+        defultMusic.Pause();
+        vampBossMusic.Pause();
+        sirenBossMusic.Pause();
+        karnaraBossMusic.Pause();
+
+        if (boss == vampireBoss) vampBossMusic.UnPause();
+        else if (boss == sirenBoss) sirenBossMusic.UnPause();
+        else if (boss == idkBoss) karnaraBossMusic.UnPause();
+    }
+
     public void DestroyEnemy()
     {
         if (spawnedList.Contains(enemyInstance))
@@ -205,6 +199,16 @@ public class EnemySpawner : MonoBehaviour
         if (bossInstance != null)
         {
             Destroy(bossInstance);
+            bossInstance = null;
+            ifBossExists = false;
+
+            // Stop all boss music
+            vampBossMusic.Pause();
+            sirenBossMusic.Pause();
+            karnaraBossMusic.Pause();
+
+            // Resume default
+            defultMusic.UnPause();
         }
     }
 
