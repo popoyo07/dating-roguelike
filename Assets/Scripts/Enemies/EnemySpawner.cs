@@ -77,6 +77,11 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
+        if (ifBossExists == false && boss == null)
+        {
+            defultMusic.Play();
+        }
+
         if (battleSystem.state == BattleState.WON)
         {
             DestroyEnemy();
@@ -98,19 +103,19 @@ public class EnemySpawner : MonoBehaviour
 
         if (vampireBoss != null && boss == vampireBoss && ifBossExists == true)
         {
-            defultMusic.Stop();
+            defultMusic.Pause();
             vampBossMusic.Play();
         }
 
         if (sirenBoss != null && boss == sirenBoss && ifBossExists == true)
         {
-            defultMusic.Stop();
+            defultMusic.Pause();
             sirenBossMusic.Play();
         }
 
         if (idkBoss != null && boss == idkBoss && ifBossExists == true)
         {
-            defultMusic.Stop();
+            defultMusic.Pause();
             karnaraBossMusic.Play();
         }
     }

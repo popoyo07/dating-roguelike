@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6297742627888258127}
   - component: {fileID: 7730367884786826620}
+  - component: {fileID: 8148680699332920439}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: EnemyS
@@ -46,20 +47,121 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   roomsSpawnBoss: 0
   sirenBoss: {fileID: 4668596756076677665, guid: d2d9ac2d4c7efe647bc61379950800a6, type: 3}
-  vampireBoss: {fileID: 4668596756076677665, guid: b051e80f378943e4381dc5ed18bc9d82, type: 3}
-  idkBoss: {fileID: 4668596756076677665, guid: 8a2437490faa1d64bbcfa4da261cdeb2, type: 3}
+  vampireBoss: {fileID: 4668596756076677665, guid: e95a3c8b41a25624687894560fb088d3, type: 3}
+  idkBoss: {fileID: 4668596756076677665, guid: c32b825ac7fafb043a7080fa98f42b3a, type: 3}
   sirenList:
   - {fileID: 3563789075462658821, guid: 02cbe141ab133f64f915179bc6dc06da, type: 3}
   - {fileID: 2795040712188621090, guid: 8a65582711590a946b104024c7f0100e, type: 3}
   - {fileID: 8226272766380277888, guid: 7c65f9a2ff448cc4fbf2b06d907ef5a1, type: 3}
   vampireList:
-  - {fileID: 3563789075462658821, guid: c3885e372fdfad842bedf687da38063e, type: 3}
-  - {fileID: 2795040712188621090, guid: da44944eaabc8b643b79fe8fa57ade19, type: 3}
-  - {fileID: 8226272766380277888, guid: 13aafc535b37edd43b6dfa0ffbd305ee, type: 3}
+  - {fileID: 3563789075462658821, guid: 005e91ed7a4bf884db17528fd7a3dc03, type: 3}
+  - {fileID: 2795040712188621090, guid: 02a8f15f2c5c4c04ba2a38b00df7a08a, type: 3}
+  - {fileID: 8226272766380277888, guid: 9df5ae8fe61c70647931000e6748ac33, type: 3}
   idkList:
-  - {fileID: 3563789075462658821, guid: 483fc1861d2ff98478e9b35b10514633, type: 3}
-  - {fileID: 2795040712188621090, guid: 5816c20bed80ca9498575975beb8f95e, type: 3}
-  - {fileID: 8226272766380277888, guid: e1d5c70015b609449b00fb742f4186dd, type: 3}
+  - {fileID: 3563789075462658821, guid: e65afaec6d4c3664ab74ba1b6729f6bc, type: 3}
+  - {fileID: 2795040712188621090, guid: 8a0a7386a10b61544960154b009a1e34, type: 3}
+  - {fileID: 8226272766380277888, guid: 0a1626cfffc89cd4380245bb66fbc998, type: 3}
+  sirenBossMusic: {fileID: 7445812035431574535, guid: d2d9ac2d4c7efe647bc61379950800a6, type: 3}
+  karnaraBossMusic: {fileID: 7557225655924516847, guid: c32b825ac7fafb043a7080fa98f42b3a, type: 3}
+  vampBossMusic: {fileID: 9167437029170077051, guid: e95a3c8b41a25624687894560fb088d3, type: 3}
+  defultMusic: {fileID: 0}
+--- !u!82 &8148680699332920439
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968018858988546471}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 585fc35fc905aa94da22c8f9f333ef14, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &3194166986252233490
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,17 +212,19 @@ MonoBehaviour:
   poolSize: 4
   groundItemPrefabs:
   - {fileID: 2795040712188621090, guid: 85fb98ffc8dc0fd44973d3e70566699f, type: 3}
+  - {fileID: 8226272766380277888, guid: 64b2b9495ff54f84bb2b700aa63d0523, type: 3}
+  - {fileID: 4159210154124007948, guid: d3bb78c0c0628a04fa4d73bca5c71bda, type: 3}
   wallItemPrefabs:
   - {fileID: 3563789075462658821, guid: d0d852c20def1fd499f3a73534a4e9e8, type: 3}
   ceilingItemPrefabs:
   - {fileID: 6882903552030569118, guid: 89fa2e3db372fc147bb02f069b6603c9, type: 3}
-  - {fileID: 4159210154124007948, guid: d3bb78c0c0628a04fa4d73bca5c71bda, type: 3}
+  - {fileID: 6882903552030569118, guid: 89fa2e3db372fc147bb02f069b6603c9, type: 3}
+  torchLeftPrefab: {fileID: 3563789075462658821, guid: 0bea54d79dd62f649b3dc85df5abb7fb, type: 3}
+  torchRightPrefab: {fileID: 3563789075462658821, guid: d5e38f3005a3a9247945a0ee3f022de0, type: 3}
   pooooooooop: []
   wallSpawnPoints:
   - {x: 3.4, y: 3.25, z: -7.992}
   - {x: -3.4, y: 3.25, z: -7.992}
-  - {x: 4.98, y: 5.14, z: 1.64}
-  - {x: -4.98, y: 5.14, z: 1.64}
   ceilingSpawnPoints:
   - {x: -0.38, y: 9.19, z: -6.58}
   - {x: 3.4, y: 9.19, z: -7.992}
