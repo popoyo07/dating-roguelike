@@ -15,6 +15,11 @@ public class ActionsChemist : Cards
         player = GameObject.FindWithTag("Player");
         playerHp = player.GetComponent<SimpleHealth>();
         deckManagement = gameObject.GetComponent<DeckManagement>();
+        if (deckManagement != null && deckManagement.characterClass != CharacterClass.CHEMIST)
+        {
+            Debug.Log("disable chemist");
+            this.gameObject.GetComponent<ActionsChemist>().enabled = false;
+        }
         energy = GetComponent<EnergySystem>();
         cardAttaks.Clear();
         roundTracker = gameObject.GetComponent<RoundTracker>();
