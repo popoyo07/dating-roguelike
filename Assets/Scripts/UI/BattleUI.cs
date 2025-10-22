@@ -16,14 +16,17 @@ public class BattleUI : MonoBehaviour
     public ResponseHandle responseHandle; 
     public GameObject cardsUI;
 
-
+    MoveRoomA roomA;
+    MoveRoomB roomB;
+    bool isWaiting;
     void Awake()
     {
         if (dialogueUI == null)
         {
             dialogueUI = GameObject.FindObjectOfType<DialogueUI>();
         }
-
+        roomA = GameObject.Find("RoomA").GetComponent<MoveRoomA>();
+        roomB = GameObject.Find("RoomB").GetComponent<MoveRoomB>();
         Canvas = GameObject.Find("Canvas");
         bSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
         cards = GameObject.FindGameObjectsWithTag("Cards");
@@ -108,7 +111,10 @@ public class BattleUI : MonoBehaviour
 
 
             case BattleState.WON:
-                dialogueUI.StartCoroutine(dialogueUI.DelayDisable(0.2f));
+                if (roomA != null && roomB != null)
+                {
+                    StartCoroutine(CheckTeleport());
+                }
 
                 break;
             case BattleState.DEFAULT:
@@ -131,6 +137,24 @@ public class BattleUI : MonoBehaviour
             default:
                 doing = false;
                 break;
+        }
+        
+    }
+    IEnumerator CheckTeleport()
+    {
+        if (isWaiting)
+        {
+            yield break;
+        }
+        isWaiting = true;
+        yield return new WaitUntil (() => roomA.teleported == true || roomB.teleported == false);
+        yield return new WaitForSeconds(2.5f);
+        isWaiting = false;  
+        if (!roomA.teleported || !roomB.teleported)
+        {
+            Debug.Log("pp");
+            dialogueUI.StartCoroutine(dialogueUI.DelayDisable(0f));
+
         }
     }
 }

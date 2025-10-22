@@ -63,36 +63,8 @@ public class ActionsKnight : Cards
     [SerializeField] public int ironResolve;
     [Range(1, 3)][SerializeField] public int ironResolveECost;
 
-    [Header("Taunt")]
-    [Range(1, 10)][SerializeField] public int taunt;
-    [Range(1, 3)][SerializeField] public int tauntECost;  
-    
-    [Header("Pocket Pebble")]
-    [Range(1, 10)][SerializeField] public int pocketPebble;
-    [Range(1, 3)][SerializeField] public int pocketPebbleECost;
-
-    public void PocketPebble()
-    {
-        int r = UnityEngine.Random.Range(1, 6);
-        // 20% chance of happening 
-        if (r == 1)
-        {
-            enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.STUN;
-
-        }
-        GenerateAttk(pStatus.currentStatus);
-
-    }
 
 
-    public void Taunt()
-    {
-        ConsumeEnergy(tauntECost);
-        enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.WEAK;
-        attkAmmount = taunt;
-        GenerateAttk(pStatus.currentStatus);
-
-    }
     public void IronResolve()
     {
         ConsumeEnergy(ironResolveECost);
@@ -201,16 +173,18 @@ public class ActionsKnight : Cards
             { cards[17], (LoveyDoveyLogic4, 1) },
 
         };
+        Debug.Log("hello");
 
         foreach (var kvp in actionMap)
         {
             cardAttaks[kvp.Key] = kvp.Value.action;
             cardEnergyCost[kvp.Key] = kvp.Value.cost;
+            Debug.Log(kvp.Key + " is the key");
         }
 
 
         
 
-        Debug.Log($"Card actions dictionary initialized with {cardAttaks.Count} entries");
+        Debug.Log($"Card actions for Knight dictionary initialized with {cardAttaks.Count} entries");
     }
 }

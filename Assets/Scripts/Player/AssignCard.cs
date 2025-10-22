@@ -17,7 +17,7 @@ public class AssignCard : MonoBehaviour
 
     private BattleSystem BSystem;
     private ActionsKnight knightCardAttks; // will eventually change to swithc statment that decides from which function to pu
-    private ActionsRogue actionsRogue;
+    private ActionsChemist actionsChemist;
 
     private DeckDraw cardDraw;
     private bool displayTxt;
@@ -99,8 +99,8 @@ public class AssignCard : MonoBehaviour
             case CharacterClass.KNIGHT:
                 knightCardAttks = cardDraw.GetComponent<ActionsKnight>();
                 break;
-            case CharacterClass.ROGUE:
-                actionsRogue = cardDraw.GetComponent<ActionsRogue>();
+            case CharacterClass.CHEMIST:
+                actionsChemist = cardDraw.GetComponent<ActionsChemist>();
                 break;
             case CharacterClass.WIZZARD:
                 break;
@@ -142,7 +142,7 @@ public class AssignCard : MonoBehaviour
     }
     public void SetupCardButton()
     {
-        if (cardButton == null && knightCardAttks == null && actionsRogue == null) 
+        if (cardButton == null && knightCardAttks == null && actionsChemist == null) 
         {
             Debug.Log("Card ACtions not hooked up");
             return;
@@ -199,17 +199,17 @@ public class AssignCard : MonoBehaviour
                     Debug.LogWarning("Not enough Energy");
                 }
                 break;
-            case CharacterClass.ROGUE:
-               if(actionsRogue == null)
+            case CharacterClass.CHEMIST:
+               if(actionsChemist == null)
                 {
-                    actionsRogue = cardDraw.GetComponent<ActionsRogue>();
+                    actionsChemist = cardDraw.GetComponent<ActionsChemist>();
                 }
-                if (actionsRogue.cardEnergyCost[cardNameFromList] <= energy.energyCounter)
+                if (actionsChemist.cardEnergyCost[cardNameFromList] <= energy.energyCounter)
                 {
-                    Debug.Log("Enrgy cost is " + actionsRogue.cardEnergyCost[cardNameFromList] + " and the current energy is " + energy.energyCounter);
-                    if (actionsRogue.cardAttaks.ContainsKey(cardNameFromList))
+                    Debug.Log("Enrgy cost is " + actionsChemist.cardEnergyCost[cardNameFromList] + " and the current energy is " + energy.energyCounter);
+                    if (actionsChemist.cardAttaks.ContainsKey(cardNameFromList))
                     {
-                        actionsRogue.cardAttaks[cardNameFromList].Invoke();
+                        actionsChemist.cardAttaks[cardNameFromList].Invoke();
 
                         cardUsed = true; // <-- mark the card as used immediately
                         DiscardAndReset();

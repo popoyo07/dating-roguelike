@@ -2,11 +2,26 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.Controls;
 
 
-public class DeckDraw : DeckManagement
+public class DeckDraw : DeckManagement, IDataPersistence
 {
+    #region Save and Load
+    public void LoadData(GameData data)
+    {
+        
+        Debug.Log(data.playerClass +" loading data " + Time.deltaTime) ;
+        this.characterClass = data.playerClass;
+        Debug.Log(" loading data loaded " + this.characterClass);
+    }
 
+    public void SaveData(ref GameData data)
+    {
+
+    }
+
+    #endregion
     GameObject[] cardGameObj;
     public AssignCard[] cards;
     bool cardsAssigned;
@@ -18,11 +33,12 @@ public class DeckDraw : DeckManagement
         cardGameObj = GameObject.FindGameObjectsWithTag("Cards"); // find card game objects 
         BSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
 
-       // StartCoroutine(FindAndAssignCharacter());
+        // StartCoroutine(FindAndAssignCharacter());
         StartCoroutine(AsigningCards());
+       // Debug.Log(" loading data loaded bit this" + characterClass);
 
 
-    
+
     }
 
     IEnumerator AsigningCards()
@@ -60,6 +76,7 @@ public class DeckDraw : DeckManagement
 
     private void Update()
     {
+       // Debug.Log(this.characterClass + " loading data loaded " + Time.deltaTime);
         if (BSystem != null)
         {
             switch (BSystem.state)

@@ -4,21 +4,10 @@ using System.Collections.Generic;
 using System.Collections;
 
 // Character selector should assign the character class enum as one of this after choosing character 
-public enum CharacterClass { KNIGHT, ROGUE, WIZZARD, PLAYERLOST} // set all character classes 
-public class DeckManagement : MonoBehaviour, IDataPersistence
+public enum CharacterClass { KNIGHT, CHEMIST, WIZZARD, PLAYERLOST} // set all character classes 
+public class DeckManagement : MonoBehaviour
 {
-    #region Save and Load
-    public void LoadData(GameData data)
-    {
-        this.characterClass = data.playerClass;
-    }
 
-    public void SaveData(ref GameData data)
-    {
-        
-    }
-
-#endregion
     DataPersistenceManager Manager;
 
     public CharacterClass characterClass; // refenrece for enum 
@@ -96,6 +85,8 @@ public class DeckManagement : MonoBehaviour, IDataPersistence
     {
        
         yield return new WaitForSeconds(.1f);
+        Debug.Log(" loading data find " + Time.deltaTime) ;
+
         runtimeDeck.Clear(); 
         allPossibleSprites.Clear();
         Debug.Log("RUUUUUUUUUUUUUN");
@@ -107,7 +98,7 @@ public class DeckManagement : MonoBehaviour, IDataPersistence
                 cardDatabase = theDatabaseArray[0];
                 startingDeck = theStartingDeckArray[0];
                 break;
-            case CharacterClass.ROGUE:
+            case CharacterClass.CHEMIST:
                 Debug.Log("it is assigning rogue");
                 cardDatabase = theDatabaseArray[1];
                 startingDeck = theStartingDeckArray[1];

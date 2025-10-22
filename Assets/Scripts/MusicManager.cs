@@ -11,6 +11,7 @@ public class MusicManager : MonoBehaviour, IDataPersistence
     [SerializeField] private float masterVolume;
     [SerializeField] private float musicVolume;
     [SerializeField] private float sfxVolume;
+    [SerializeField] public CharacterClass c;
 
     private void Start()
     {
@@ -24,6 +25,8 @@ public class MusicManager : MonoBehaviour, IDataPersistence
         this.masterVolume = data.masterVolume;
         this.musicVolume = data.musicVolume;
         this.sfxVolume = data.sfxVolume;
+        this.c = data.playerClass;
+        
     }
 
     public void SaveData(ref GameData data)
@@ -31,6 +34,8 @@ public class MusicManager : MonoBehaviour, IDataPersistence
         data.masterVolume = this.masterVolume;
         data.musicVolume = this.musicVolume;
         data.sfxVolume = this.sfxVolume;
+        data.playerClass = this.c;
+
     }
 
     #endregion

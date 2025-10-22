@@ -33,6 +33,14 @@ public class Cards : MonoBehaviour
     [Header("Big heal hability")]
     [Range(2, 3)][SerializeField] public int healingMultiplier;
     [Range(1, 3)][SerializeField] public int bigHealingECost;
+
+    [Header("Taunt")]
+    [Range(1, 10)][SerializeField] public int taunt;
+    [Range(1, 3)][SerializeField] public int tauntECost;
+
+    [Header("Pocket Pebble")]
+    [Range(1, 10)][SerializeField] public int pocketPebble;
+    [Range(1, 3)][SerializeField] public int pocketPebbleECost;
     public void GenerateAttk(StatusEffect attackerState)
     {
 
@@ -108,4 +116,28 @@ public class Cards : MonoBehaviour
         Debug.Log("Lovely2");
     }
 
+
+
+    public void PocketPebble()
+    {
+        int r = UnityEngine.Random.Range(1, 6);
+        // 20% chance of happening 
+        if (r == 1)
+        {
+            enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.STUN;
+
+        }
+        GenerateAttk(pStatus.currentStatus);
+
+    }
+
+
+    public void Taunt()
+    {
+        ConsumeEnergy(tauntECost);
+        enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.WEAK;
+        attkAmmount = taunt;
+        GenerateAttk(pStatus.currentStatus);
+
+    }
 }

@@ -1,39 +1,32 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PickDeckButton : MonoBehaviour, IDataPersistence 
+public class PickDeckButton : MonoBehaviour 
 {
     Button b;
-    [SerializeField] CharacterClass c;
+    [SerializeField] MusicManager c;
     DataPersistenceManager DATA;
 
-    #region Save and Load
-
-    public void LoadData(GameData data)
+    private void Awake()
     {
-       
+        c = GameObject.Find("MusicManager").GetComponent<MusicManager>();
     }
-
-    public void SaveData(ref GameData data)
-    {
-        data.playerClass = this.c;
-    }
-
-    #endregion
-
 
     public void ChangeToKnight()
     {
-        c = CharacterClass.KNIGHT;
+        c.c = CharacterClass.KNIGHT;
+        Debug.Log("choice " + c.c);
     }
 
     public void ChangeToRogue()
     {
-        c = CharacterClass.ROGUE;
+        c.c = CharacterClass.CHEMIST;
+        Debug.Log("choice " + c.c);
     }
 
     public void ChangeToWizzard()
     {
-        c = CharacterClass.WIZZARD;
+        c.c = CharacterClass.WIZZARD;
+        Debug.Log("choice " + c.c);
     }
 }
