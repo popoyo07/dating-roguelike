@@ -33,11 +33,11 @@ public class EnemySpawner : MonoBehaviour
     private GameObject queuedEnemyPrefab; // next enemy chosen by player
     private bool spawnSpecificNext;
 
-    /*[Header("Audio")]
+    [Header("Audio")]
     public AudioSource sirenBossMusic;
     public AudioSource karnaraBossMusic;
     public AudioSource vampBossMusic;
-    public AudioSource defultMusic;*/
+    public AudioSource defultMusic;
 
     void Start()
     {
@@ -96,38 +96,23 @@ public class EnemySpawner : MonoBehaviour
             enemySpawn = false;
         }
 
-        /*if (vampireBoss != null)
+        if (vampireBoss != null && boss == vampireBoss && ifBossExists == true)
         {
             defultMusic.Stop();
             vampBossMusic.Play();
         }
-        else
-        {
-            vampBossMusic.Stop();
-            defultMusic.Play ();
-        }
 
-        if (sirenBoss != null)
+        if (sirenBoss != null && boss == sirenBoss && ifBossExists == true)
         {
             defultMusic.Stop();
             sirenBossMusic.Play();
         }
-        else
-        {
-            sirenBossMusic.Stop();
-            defultMusic.Play();
-        }
 
-        if (idkBoss != null)
+        if (idkBoss != null && boss == idkBoss && ifBossExists == true)
         {
             defultMusic.Stop();
             karnaraBossMusic.Play();
         }
-        else
-        {
-            karnaraBossMusic.Stop();
-            defultMusic.Play();
-        }*/
     }
 
     public List<GameObject> GetActiveList()
