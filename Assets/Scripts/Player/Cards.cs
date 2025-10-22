@@ -93,7 +93,7 @@ public class Cards : MonoBehaviour
     public void SmallHealing() // common card all will have 
     {
         ConsumeEnergy(smallHealingECost);
-        player.GetComponent<SimpleHealth>().RecoverHP(smallHealing);
+        playerHp.RecoverHP(smallHealing);
     }
 
     public void ConsumeEnergy(int cost) // unsert enery cost in cost 

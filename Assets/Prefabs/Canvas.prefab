@@ -7869,6 +7869,126 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2869943144883502491}
     m_Modifications:
+    - target: {fileID: 3813641821308266811, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: taunt
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813641821308266811, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: blocks
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813641821308266811, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: waterJet
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813641821308266811, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: rockSmash
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813641821308266811, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: bubbleHeal
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813641821308266811, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: doubleAttk
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813641821308266811, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: plantBlade
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813641821308266811, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: plantSapDMG
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813641821308266811, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: pocketPebble
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813641821308266811, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: plantSapECost
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813641821308266811, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: bubbleHealECost
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813641821308266811, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: shieldMultiplier
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813641821308266811, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: shoothingPlantsDMG
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813641821308266811, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: shoothingPlantsECost
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813641821308266811, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: shoothingPlantsXtDmg
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649543096048209190, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: acid
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649543096048209190, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: taunt
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649543096048209190, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: doubleAttk
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649543096048209190, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: emptyFlask
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649543096048209190, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: pocketPebble
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649543096048209190, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: ultimateBrew
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649543096048209190, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: antidoteECost
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649543096048209190, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: dmgMultiplier
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649543096048209190, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: strenghtECost
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649543096048209190, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: shieldingPotion
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649543096048209190, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: selfMedicateECost
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649543096048209190, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: ultimateBrewECost
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649543096048209190, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: selfMedicateShield
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649543096048209190, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: strenghtMultiplier
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649543096048209190, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: ultimateDmgMultiplier
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6651855241109148109, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
       propertyPath: cards.Array.size
       value: 5
@@ -7955,22 +8075,30 @@ PrefabInstance:
       objectReference: {fileID: 6424230952612506986}
     - target: {fileID: 8350772356307164605, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
       propertyPath: stun
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8350772356307164605, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
       propertyPath: taunt
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8350772356307164605, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
       propertyPath: piercing
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8350772356307164605, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
       propertyPath: bigShield
-      value: 1
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8350772356307164605, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
       propertyPath: stunECost
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8350772356307164605, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: doubleAttk
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8350772356307164605, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: parryECost
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8350772356307164605, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
@@ -7978,8 +8106,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8350772356307164605, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: swordStrike
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8350772356307164605, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
       propertyPath: pocketPebble
-      value: 1
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8350772356307164605, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: smallHealing
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8350772356307164605, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
       propertyPath: piercingECost
@@ -7987,7 +8123,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8350772356307164605, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
       propertyPath: bigShieldECost
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8350772356307164605, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
       propertyPath: secondWindECost

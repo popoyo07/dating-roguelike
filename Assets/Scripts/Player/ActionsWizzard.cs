@@ -29,93 +29,100 @@ public class ActionsWizzard : Cards
     }
 
 
-    [Header("Somoke Screen")]
-     private int smokeStun;
-    [Range(1, 3)][SerializeField] private int smokeScreenECost;  
+    [Header("Double Shield  ")]
+    [Range(1, 10)][SerializeField] private int blocks;
+    [Range(1, 3)][SerializeField] private int blocksECost;  
     
-    [Header("Acid Splash")]
-    [Range(1, 10)][SerializeField] private int acid;
-    [Range(1, 3)][SerializeField] private int acidECost;
+    [Header("Rock skin")]
+    [Range(1, 2)][SerializeField] private int shieldMultiplier;
+    [Range(1, 3)][SerializeField] private int rockSkinECost;
 
-    [Header("Strenght Potion")]
-    [Range(1, 5)][SerializeField] private int strenghtMultiplier;
-    [Range(1, 3)][SerializeField] private int strenghtECost;
+    [Header("Rock Smash")]
+    [Range(1, 5)][SerializeField] private int rockSmash;
+    [Range(1, 3)][SerializeField] private int rockSmashECost;
 
-    [Header("Weakening Potion")]
-    [Range(1, 3)][SerializeField] private int weakeningPotionECost; 
+    [Header("Healing Bubble")]
+    [Range(1, 15)][SerializeField] private int bubbleHeal; 
+    [Range(1, 3)][SerializeField] private int bubbleHealECost; 
     
-    [Header("Antidote")]   
-    [Range(1, 3)][SerializeField] private int antidoteECost; 
+    [Header("Water Jet")]   
+    [Range(1, 10)][SerializeField] private int waterJet; 
+    [Range(1, 3)][SerializeField] private int waterJetECost; 
 
-    [Header("Empty Flask")]
-    [Range(1, 10)][SerializeField] private int emptyFlask;
-    [Range(1, 3)][SerializeField] private int emptyFlaskECost;
+    [Header("Water Clense")]
+    [Range(1, 3)][SerializeField] private int waterClenseECost;
     
-    [Header("Self-medicate")]
-    [Range(1, 10)][SerializeField] private int selfMedicateShield;
-    [Range(1, 3)][SerializeField] private int dmgMultiplier;
-    [Range(1, 3)][SerializeField] private int selfMedicateECost;
+    [Header("Plant Blade")]
+    [Range(1, 10)][SerializeField] private int plantBlade;
+    [Range(1, 3)][SerializeField] private int plantBladeECost;
 
-      [Header("Shielding Potion")]
-    [Range(1, 10)][SerializeField] private int shieldingPotion;
-    [Range(1, 3)][SerializeField] private int shieldingPotionECost;
+      [Header("Shoothing Plants")]
+    [Range(1, 10)][SerializeField] private int shoothingPlantsDMG;
+    [Range(1, 10)][SerializeField] private int shoothingPlantsXtDmg;
+    [Range(1, 3)][SerializeField] private int shoothingPlantsECost;
 
-      [Header("Ultimate Brew")]
-    [Range(1, 20)][SerializeField] private int ultimateBrew;
-    [Range(1, 4)][SerializeField] private int ultimateDmgMultiplier;
-    [Range(1, 3)][SerializeField] private int ultimateBrewECost;
+      [Header("Plant Sap")]
+    [Range(1, 20)][SerializeField] private int plantSapDMG;
+    [Range(1, 3)][SerializeField] private int plantSapECost;
 
-    public void SmokeScreen()
+    public void DoubleShield()
     {
-        ConsumeEnergy(smokeScreenECost);
-        enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.STUN;
+        ConsumeEnergy(blocksECost);
+        GenerateShield(blocks);
         
     }
-    public void AcidSplash()
+    public void RockSkin()
     {
-        ConsumeEnergy(acidECost);
-        attkAmmount = acid;
-        GenerateAttk(pStatus.currentStatus);
+        ConsumeEnergy(rockSkinECost);
+        if (playerHp == null)
+        {
+            playerHp = player.GetComponent<SimpleHealth>();
+        }
+        playerHp.shield *= shieldMultiplier;
     }   
-    public void StrenghtPotion()
+    public void RockSmash()
     {
-        ConsumeEnergy(acidECost);
-        multStrenght = strenghtMultiplier;
-       
+        ConsumeEnergy(rockSmashECost);
+        attkAmmount = rockSmash;
+        GenerateAttk(pStatus.currentStatus);
     }
-    public void WeakeningPotion()
+    public void HealingBubble()
     {
-        ConsumeEnergy(weakeningPotionECost);
-        enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.VULNERABLE;
+        ConsumeEnergy(bubbleHealECost);
+        playerHp.RecoverHP(bubbleHeal);
     }
-    public void Antidote()
+    public void WaterJet()
     {
-        ConsumeEnergy(antidoteECost);
+        ConsumeEnergy(waterJetECost);
+        attkAmmount = waterJet;
+        GenerateAttk(pStatus.currentStatus);
+    }
+    public void WaterClense()
+    {
+        ConsumeEnergy(waterJetECost);
         // undo debuf or something 
     }
-    public void EmptyFlask()
+ 
+    public void PlantBlade()
     {
-        ConsumeEnergy(emptyFlaskECost);
-        attkAmmount = emptyFlask;   
+        ConsumeEnergy(plantBladeECost);
+        attkAmmount = plantBlade;
         GenerateAttk(pStatus.currentStatus);
-    } 
-    public void SelfMedicate()
-    {
-        ConsumeEnergy(selfMedicateECost);
-        multStrenght = dmgMultiplier;
-        GenerateShield(selfMedicateShield);
+
     }
-    public void ShieldingPotion()
+    public void ShoothingPlants()
     {
-        ConsumeEnergy(shieldingPotionECost);
-        GenerateShield(shieldingPotion);
-    }
-    public void UltimateBrew()
-    {
-        ConsumeEnergy(ultimateBrewECost);
+        ConsumeEnergy(shoothingPlantsECost);
+        attkAmmount = shoothingPlantsDMG;
         GenerateAttk(pStatus.currentStatus);
-        multStrenght = ultimateDmgMultiplier;
-        enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.WEAK;
+        xtStrenght = 5;
+    }
+    public void PlantSap()
+    {
+        ConsumeEnergy(plantSapECost);
+        attkAmmount = plantSapDMG;
+        GenerateAttk(pStatus.currentStatus);
+        playerHp.RecoverHP(plantSapDMG / 2);
     }
     private IEnumerator InitializeCardActions()
     {
@@ -139,15 +146,15 @@ public class ActionsWizzard : Cards
             { cards[1], (BigHealing, healingMultiplier) },
             { cards[2], (Taunt,  tauntECost  ) },
             { cards[3], (PocketPebble,  tauntECost) },
-            { cards[4], (SmokeScreen,  smokeScreenECost) },
-            { cards[5], ( AcidSplash,  acidECost) },
-            { cards[6], ( StrenghtPotion,  strenghtECost) },
-            { cards[7], ( WeakeningPotion,  weakeningPotionECost) },
-            { cards[8], ( Antidote,  antidoteECost) },
-            { cards[9], ( EmptyFlask,  emptyFlaskECost) },
-            { cards[10], ( SelfMedicate,  selfMedicateECost) },
-            { cards[11], ( ShieldingPotion,  shieldingPotionECost) },
-            { cards[12], ( UltimateBrew,  ultimateBrewECost) },
+            { cards[4], (DoubleShield,  blocksECost) },
+            { cards[5], ( RockSkin,  rockSkinECost) },
+            { cards[6], ( RockSmash,  rockSmashECost) },
+            { cards[7], ( HealingBubble,  bubbleHealECost) },
+            { cards[8], ( WaterJet,  waterJetECost) },
+            { cards[9], ( WaterClense,  waterClenseECost) },
+            { cards[10], ( PlantBlade,  plantBladeECost) },
+            { cards[11], ( ShoothingPlants,  shoothingPlantsECost) },
+            { cards[12], ( PlantSap,  plantSapECost) },
             { cards[13], ( AttackTwice,  doubleAttkECost) },
             { cards[14], (LoveyDoveyLogic, 1) },
             { cards[15], (LoveyDoveyLogic2, 1) },
