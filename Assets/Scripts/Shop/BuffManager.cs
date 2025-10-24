@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using TMPro;
 public class BuffManager : MonoBehaviour, IDataPersistence
 {
     int coins;
@@ -15,6 +15,10 @@ public class BuffManager : MonoBehaviour, IDataPersistence
 
     public int doubleCoinsBuffCount;
     public int doubleCoinsBuffCost = 5;
+
+    public TextMeshProUGUI activeHealthBuffCount;
+    public TextMeshProUGUI activeEnergyBuffCount;
+    public TextMeshProUGUI activeCoinBuffCount;
 
     #region Save and Load
 
@@ -41,14 +45,13 @@ public class BuffManager : MonoBehaviour, IDataPersistence
     {
         resetBuffs();
 
+       /* activeHealthBuffCount = GameObject.Find("ExtraHealthBuffCount").GetComponent<TextMeshProUGUI>();
+        activeEnergyBuffCount = GameObject.Find("ExtraEnergyBuffCount").GetComponent<TextMeshProUGUI>();
+        activeCoinBuffCount = GameObject.Find("ExtraCoinBuffCount").GetComponent<TextMeshProUGUI>();*/
     }
 
     private void Update()
     {
-       /* if (player dies)
-        {
-            resetBuffs();
-        }*/
 
     }
     public void buyHealthBuff()
@@ -61,6 +64,7 @@ public class BuffManager : MonoBehaviour, IDataPersistence
                 Debug.Log("Health added");
                 currentActiveBuffs++;
                 healthBuffCount++;
+                activeHealthBuffCount.SetText("Active Buffs: " + healthBuffCount);
             }
             else
             {
@@ -88,6 +92,7 @@ public class BuffManager : MonoBehaviour, IDataPersistence
                 Debug.Log("Energy added");
                 currentActiveBuffs++;
                 energyBuffCount++;
+                activeEnergyBuffCount.SetText("Active Buffs: " + energyBuffCount);
             }
             else
             {
@@ -114,6 +119,7 @@ public class BuffManager : MonoBehaviour, IDataPersistence
                 Debug.Log("Extra coins added");
                 currentActiveBuffs++;
                 doubleCoinsBuffCount++;
+                activeCoinBuffCount.SetText("Active Buffs: " + doubleCoinsBuffCount);
             }
             else
             {
@@ -139,6 +145,10 @@ public class BuffManager : MonoBehaviour, IDataPersistence
         doubleCoinsBuffCount = 0;
         maxActiveBuffs = 0;
         currentActiveBuffs = 0;
+
+        activeHealthBuffCount.SetText("Active Buffs: " + healthBuffCount);
+        activeEnergyBuffCount.SetText("Active Buffs: " + energyBuffCount);
+        activeCoinBuffCount.SetText("Active Buffs: " + doubleCoinsBuffCount);
     }
 
 }
