@@ -39,6 +39,7 @@ public class BuffManager : MonoBehaviour, IDataPersistence
 
     private void Start()
     {
+        resetBuffs();
 
     }
 
@@ -112,7 +113,7 @@ public class BuffManager : MonoBehaviour, IDataPersistence
                 coins -= doubleCoinsBuffCost;
                 Debug.Log("Extra coins added");
                 currentActiveBuffs++;
-                doubleCoinsBuffCost = coins;
+                doubleCoinsBuffCount++;
             }
             else
             {
