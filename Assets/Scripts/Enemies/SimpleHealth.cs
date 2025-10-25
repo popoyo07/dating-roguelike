@@ -83,7 +83,8 @@ public class SimpleHealth : MonoBehaviour, IDataPersistence
         healthAmount = healthBuff * 10;
         maxHealth += healthAmount;
         health = maxHealth;
-      //  healthBar.UpdateHealth();
+        healthBar.UpdateMaxHealth();
+        healthBar.UpdateHealth();
     }
     public void ReceiveDMG(int dmg, StatusEffect attackerStatus) 
     {
