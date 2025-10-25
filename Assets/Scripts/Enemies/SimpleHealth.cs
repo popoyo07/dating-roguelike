@@ -45,10 +45,9 @@ public class SimpleHealth : MonoBehaviour, IDataPersistence
     private BattleSystem battleSystem;
     private void Awake()
     {
-        healthAmount = healthBuff * 10;
-        maxHealth += healthAmount;
         health = maxHealth;
-        
+
+
         attackManager = GameObject.Find("CardManager").GetComponent<ActionsKnight>();
         battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
         healthBar = this.gameObject.GetComponent<HealthBar>();
@@ -81,10 +80,10 @@ public class SimpleHealth : MonoBehaviour, IDataPersistence
 
     private void Start()
     {
-       /* healthAmount = healthBuff * 10;
+        healthAmount = healthBuff * 10;
         maxHealth += healthAmount;
-        health = maxHealth;*/
-
+        health = maxHealth;
+      //  healthBar.UpdateHealth();
     }
     public void ReceiveDMG(int dmg, StatusEffect attackerStatus) 
     {

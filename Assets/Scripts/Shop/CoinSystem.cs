@@ -71,7 +71,7 @@ public class CoinSystem : MonoBehaviour, IDataPersistence
     public IEnumerator AddCoins(int addcoins)
     {
         coins += addcoins + coinBuff;
-        coinUI.SetText("+" + addcoins +  " Coin" + coinBuff + " Coinbuff");
+        coinUI.SetText("+" + addcoins +  " Coin<br>" + "+" + coinBuff + " Coinbuff");
         coinTotal.SetText("Coins: " + coins);
         yield return new WaitForSeconds(2f);
         coinUI.SetText("");
