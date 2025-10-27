@@ -92,7 +92,7 @@ public class BattleSystem : MonoBehaviour
 
             case BattleState.WON: 
                 
-                StartCoroutine(DelaySwitchState(.2f, BattleState.DEFAULT, "BattleSystem"));
+                StartCoroutine(DelaySwitchState(1.5f, BattleState.DEFAULT, "BattleSystem"));
                 break;
             case BattleState.PLAYERTURN: 
                

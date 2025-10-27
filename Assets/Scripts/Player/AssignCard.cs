@@ -18,9 +18,9 @@ public class AssignCard : MonoBehaviour
     private BattleSystem BSystem;
     private ActionsKnight knightCardAttks; // will eventually change to swithc statment that decides from which function to pu
     private ActionsChemist actionsChemist;
+    private ActionsWizzard actionsWizzard;
 
     private DeckDraw cardDraw;
-    private bool displayTxt;
     private bool cardSet;
     private Image cardImage;
 
@@ -103,6 +103,7 @@ public class AssignCard : MonoBehaviour
                 actionsChemist = cardDraw.GetComponent<ActionsChemist>();
                 break;
             case CharacterClass.WIZZARD:
+                actionsWizzard = cardDraw.GetComponent<ActionsWizzard>();
                 break;
         }
         cardSet = true;
@@ -142,17 +143,8 @@ public class AssignCard : MonoBehaviour
     }
     public void SetupCardButton()
     {
-        if (cardButton == null && knightCardAttks == null && actionsChemist == null) 
-        {
-            Debug.Log("Card ACtions not hooked up");
-            return;
-        }
         Debug.Log("card tried to run set up ");
-        if (cardNameFromList == "")
-        {
-            Debug.Log("it is empty name ");
-            return;
-        }
+      
         cardImage.enabled = true;
         cardImage.sprite = cardDraw.allPossibleSprites[cardNameFromList]; // assign sprite according to the name and the database
         cardButton.onClick.RemoveAllListeners();
@@ -226,24 +218,49 @@ public class AssignCard : MonoBehaviour
                     Debug.LogWarning("Not enough Energy");
                 }
                 break;
+                case CharacterClass.WIZZARD:
+                    if (actionsWizzard == null)
+                    {
+                        actionsWizzard = cardDraw.GetComponent<ActionsWizzard>();
+                    }
 
+                    if (actionsWizzard.cardEnergyCost[cardNameFromList] <= energy.energyCounter)
+                    {
+                        Debug.Log("Enrgy cost is " + actionsWizzard.cardEnergyCost[cardNameFromList] + " and the current energy is " + energy.energyCounter);
+                        if (    actionsWizzard.cardAttaks.ContainsKey(cardNameFromList))
+                        {
+                            actionsWizzard.cardAttaks[cardNameFromList].Invoke();
+
+                            cardUsed = true; // <-- mark the card as used immediately
+                            DiscardAndReset();
+                            cardButton.interactable = false;
+
+                        }
+                        else
+                        {
+                            Debug.LogWarning("No action found for key: " + cardNameFromList);
+                        }
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Not enough Energy");
+                    }
+                    break;
         }
 
-  
-        
+        Debug.Log($"After Using Card RuntimeDeck {cardDraw.runtimeDeck.Count}, Discarded: {cardDraw.discardedCards.Count}");
+
+
     }
 
 
     void DiscardAndReset()
     {
-        if (knightCardAttks != null && knightCardAttks.deckManagement != null)
-        {
-            knightCardAttks.deckManagement.DiscardCard(cardNameFromList);
-        }
-      
-        cardUsed = true;
+        cardDraw.DiscardCard(cardNameFromList); // discards the card and adds to the list
+
+         cardUsed = true;
         cardSet = false;
-        displayTxt = false;
+       
         StartCoroutine(StartingAnimation(1));
 
     }
@@ -253,7 +270,7 @@ public class AssignCard : MonoBehaviour
         // Reset card state for new turn
         cardUsed = false;
         cardSet = false;
-        displayTxt = false;
+        
 
         // Clear old card name and prepare for new assignment
         cardNameFromList = null;
@@ -273,7 +290,6 @@ public class AssignCard : MonoBehaviour
     {
         yield return new WaitForSeconds(.15f);
         cardNameFromList = newCardName;
-        displayTxt = false; // Allow text to be updated in next Update
         cardUsed = false; 
         resetForNewTurn = false;
         SetupCardButton();

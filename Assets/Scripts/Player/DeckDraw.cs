@@ -71,6 +71,8 @@ public class DeckDraw : DeckManagement, IDataPersistence
 
         Debug.Log("The cards got assigned " + cardName);
         runtimeDeck.RemoveAt(r);
+        Debug.Log($"After Assigning RuntimeDeck is {runtimeDeck.Count}, Discarded: {discardedCards.Count}");
+
     }
 
     private void Update()
