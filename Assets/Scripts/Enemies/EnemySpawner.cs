@@ -5,33 +5,33 @@ using System.Collections;
 public class EnemySpawner : MonoBehaviour
 {
     [Header("Spawn Point")]
-    private Vector3 spawnPoint;
+    private Vector3 spawnPoint; // Default spawn position for regular enemies
 
     [Header("Boss Settings")]
-    public int roomsSpawnBoss;
-    private GameObject boss;
-    public GameObject sirenBoss;
-    public GameObject vampireBoss;
-    public GameObject idkBoss;
-    private GameObject bossInstance;
-    private Vector3 bossSpawn;
-    private bool ifBossExists;
+    public int roomsSpawnBoss;        // Counter for rooms visited to determine boss spawn
+    private GameObject boss;          // Current boss prefab reference
+    public GameObject sirenBoss;      // Siren boss prefab
+    public GameObject vampireBoss;    // Vampire boss prefab
+    public GameObject idkBoss;        // Unknown boss prefab
+    private GameObject bossInstance;  // Instance of the spawned boss
+    private Vector3 bossSpawn;        // Spawn position for bosses
+    private bool ifBossExists;        // Tracks if a boss is already spawned
 
     [Header("Enemy Prefabs")]
-    public List<GameObject> sirenList;
-    public List<GameObject> vampireList;
-    public List<GameObject> idkList;
+    public List<GameObject> sirenList;   // List of regular enemies for Siren type
+    public List<GameObject> vampireList; // List of regular enemies for Vampire type
+    public List<GameObject> idkList;     // List of regular enemies for "idk" type
 
-    private List<GameObject> activeList;
-    private List<GameObject> spawnedList = new List<GameObject>();
-    private int chosenList;
-    private bool enemySpawn;
-    private GameObject enemyInstance;
+    private List<GameObject> activeList;           // Current active enemy list
+    private List<GameObject> spawnedList = new List<GameObject>(); // Keeps track of spawned enemies
+    private int chosenList;                        // Randomly chosen enemy list index
+    private bool enemySpawn;                       // Tracks if enemy has been spawned after battle
+    private GameObject enemyInstance;              // Current enemy instance
 
-    private BattleSystem battleSystem;
+    private BattleSystem battleSystem;             // Reference to BattleSystem script
 
-    private GameObject queuedEnemyPrefab; // next enemy chosen by player
-    private bool spawnSpecificNext;
+    private GameObject queuedEnemyPrefab;          // Next enemy chosen by player
+    private bool spawnSpecificNext;                // Flag to spawn the queued enemy next
 
     [Header("Audio")]
     public AudioSource sirenBossMusic;
@@ -41,7 +41,8 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        chosenList = Random.Range(2, 2);
+        // Randomly choose an enemy list
+        chosenList = Random.Range(2, 2); // Note: Random.Range(2,2) always returns 2
 
         switch (chosenList)
         {
@@ -50,12 +51,13 @@ public class EnemySpawner : MonoBehaviour
                 Debug.Log("Vampire boss");
                 boss = sirenBoss;
                 break;
-      
-             case 1:
+
+            case 1:
                 activeList = vampireList;
                 Debug.Log("Vampire boss");
                 boss = vampireBoss;
                 break;
+
             case 2:
                 activeList = idkList;
                 Debug.Log("Idk boss");
@@ -65,39 +67,44 @@ public class EnemySpawner : MonoBehaviour
 
         Debug.Log("Chosen list: " + chosenList);
 
+        // Get BattleSystem reference
         battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
 
+        // Set boss and enemy spawn positions
         bossSpawn = new Vector3(0f, 1.5f, 1.94f);
         roomsSpawnBoss = 0;
 
         spawnPoint = new Vector3(0f, 1.3f, 1.94f);
 
+        // Spawn the first enemy
         SpawnEnemy();
     }
 
     void Update()
     {
+        // Handle what happens when the battle is won
         if (battleSystem.state == BattleState.WON)
         {
-            DestroyEnemy();
+            DestroyEnemy(); // Remove current enemy
 
             if (!enemySpawn)
             {
-                StartCoroutine(DelayTrash());
+                StartCoroutine(DelayTrash()); // Wait and spawn next enemy or boss
                 enemySpawn = true;
-                roomsSpawnBoss++;
+                roomsSpawnBoss++; // Increment rooms visited
             }
 
-            DestroyBoss();
+            DestroyBoss(); // Remove boss if exists
         }
 
+        // Reset enemySpawn when battle is not won
         if (battleSystem.state != BattleState.WON && enemySpawn)
         {
             enemySpawn = false;
         }
-
     }
 
+    // Returns the currently active enemy list
     public List<GameObject> GetActiveList()
     {
         return activeList;
@@ -105,11 +112,12 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator DelayTrash()
     {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(2.5f); // Wait 2.5 seconds before spawning
 
+        // Check if next spawn is a normal enemy or boss
         if (roomsSpawnBoss < 6 || roomsSpawnBoss >= 7 || roomsSpawnBoss < 12 || roomsSpawnBoss >= 13 || roomsSpawnBoss < 18 || roomsSpawnBoss >= 19)
         {
-            // Spawn queued enemy if player chose one, otherwise random
+            // Spawn queued enemy if player chose one
             if (spawnSpecificNext && queuedEnemyPrefab != null)
             {
                 SpawnSpecificEnemy(queuedEnemyPrefab);
@@ -118,33 +126,36 @@ public class EnemySpawner : MonoBehaviour
             }
             else
             {
-                SpawnEnemy();
+                SpawnEnemy(); // Spawn a random enemy from the active list
             }
 
             ifBossExists = false;
         }
 
+        // Spawn boss on specific rooms
         if ((roomsSpawnBoss == 6 || roomsSpawnBoss == 12 || roomsSpawnBoss == 18) && !ifBossExists)
         {
-            DestroyEnemy();
+            DestroyEnemy(); // Clear normal enemies
             ifBossExists = true;
-            bossInstance = Instantiate(boss, bossSpawn, Quaternion.identity);
+            bossInstance = Instantiate(boss, bossSpawn, Quaternion.identity); // Spawn boss
 
-            // Play corresponding boss music once
+            // Play corresponding boss music
             PlayBossMusic(boss);
         }
     }
 
+    // Spawn a random enemy from the active list
     public void SpawnEnemy()
     {
         if (activeList.Count > 0)
-          {
+        {
             int randomEnemy = Random.Range(0, activeList.Count);
             enemyInstance = Instantiate(activeList[randomEnemy], spawnPoint, Quaternion.identity);
             spawnedList.Add(enemyInstance);
-          }
+        }
     }
 
+    // Spawn a specific enemy prefab
     public void SpawnSpecificEnemy(GameObject prefab)
     {
         if (prefab != null)
@@ -159,6 +170,7 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    // Queue an enemy to be spawned next
     public void QueueSpecificEnemy(GameObject prefab)
     {
         if (prefab != null)
@@ -173,6 +185,7 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    // Play boss music corresponding to the spawned boss
     private void PlayBossMusic(GameObject boss)
     {
         // Stop all music first
@@ -186,6 +199,7 @@ public class EnemySpawner : MonoBehaviour
         else if (boss == idkBoss) karnaraBossMusic.UnPause();
     }
 
+    // Destroy the current enemy instance
     public void DestroyEnemy()
     {
         if (spawnedList.Contains(enemyInstance))
@@ -194,6 +208,8 @@ public class EnemySpawner : MonoBehaviour
             Destroy(enemyInstance);
         }
     }
+
+    // Destroy the boss and stop boss music
     public void DestroyBoss()
     {
         if (bossInstance != null)
@@ -207,16 +223,15 @@ public class EnemySpawner : MonoBehaviour
             sirenBossMusic.Pause();
             karnaraBossMusic.Pause();
 
-            // Resume default
+            // Resume default music
             defultMusic.UnPause();
         }
     }
 
+    // Skip boss fight and mark battle as won
     public void skipBossFight()
     {
         DestroyBoss();
-
         battleSystem.state = BattleState.WON;
-
     }
 }

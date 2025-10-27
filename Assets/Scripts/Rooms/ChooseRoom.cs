@@ -5,52 +5,54 @@ using UnityEngine.UI;
 public class ChooseRoom : MonoBehaviour
 {
     [Header("Bools")]
-    public bool openRoomPop;
-    public bool chosenRoom;
-    public bool currentRoom;
+    public bool openRoomPop; // Tracks if the room selection popup should be open
+    public bool chosenRoom;  // Tracks if the player has chosen a room
+    public bool currentRoom; // Ensures room selection is only active once at a time
 
     [System.Serializable]
     public class Room
     {
-        public string roomName;
-        public Sprite roomSprite;
-        public RoomType roomType;
-        public GameObject enemyPrefab;
+        public string roomName;       // Name of the room (for identification)
+        public Sprite roomSprite;     // Sprite to display for the room button
+        public RoomType roomType;     // Enum type indicating Left or Right room
+        public GameObject enemyPrefab; // Enemy prefab associated with the room
     }
 
-    public enum RoomType { Left, Right }
+    public enum RoomType { Left, Right } // Simple enum for room positioning
 
     [Header("Buttons")]
-    public Button leftButton;
-    public Button rightButton;
+    public Button leftButton;  // Button for left room choice
+    public Button rightButton; // Button for right room choice
 
     [Header("Boss UI Override")]
-    public Sprite defaultBossSprite;
+    public Sprite defaultBossSprite; // Sprite to override normal enemies when a boss room appears
 
-    private Room leftRoom;
-    private Room rightRoom;
+    private Room leftRoom;  // Holds data for the left room option
+    private Room rightRoom; // Holds data for the right room option
 
-    private EnemySpawner enemySpawner;
+    private EnemySpawner enemySpawner; // Reference to EnemySpawner in the scene
 
     void Start()
     {
+        // Find the EnemySpawner object by tag and get its component
         enemySpawner = GameObject.FindWithTag("EnemyS").GetComponent<EnemySpawner>();
     }
 
     public void ShowRoomOptions()
     {
-        if (currentRoom) return;
-        currentRoom = true;
+        if (currentRoom) return; // Prevent opening room selection multiple times
+        currentRoom = true;      // Mark that the room selection is active
 
+        // Get the current list of active enemies
         List<GameObject> activeEnemies = enemySpawner.GetActiveList();
 
         if (activeEnemies == null || activeEnemies.Count == 0)
         {
             Debug.LogWarning("No active enemies available for room options.");
-            return;
+            return; // Exit if no enemies available
         }
 
-        // pick two random enemies
+        // Pick two random enemies from the active list
         int leftIndex = Random.Range(0, activeEnemies.Count);
         int rightIndex;
         do { rightIndex = Random.Range(0, activeEnemies.Count); } while (rightIndex == leftIndex);
@@ -58,6 +60,7 @@ public class ChooseRoom : MonoBehaviour
         GameObject leftEnemy = activeEnemies[leftIndex];
         GameObject rightEnemy = activeEnemies[rightIndex];
 
+        // Create Room objects for left and right buttons
         leftRoom = new Room
         {
             roomName = "Left Room",
@@ -74,17 +77,18 @@ public class ChooseRoom : MonoBehaviour
             enemyPrefab = rightEnemy
         };
 
-        //Set normal enemy sprites first
+        // Set normal enemy sprites for buttons first
         leftButton.image.sprite = leftRoom.roomSprite;
         rightButton.image.sprite = rightRoom.roomSprite;
 
-        //Check boss condition and override if needed
+        // Check if the current room should be a boss room
         if (enemySpawner.roomsSpawnBoss == 5 ||
             enemySpawner.roomsSpawnBoss == 11 ||
             enemySpawner.roomsSpawnBoss == 17)
         {
             if (defaultBossSprite != null)
             {
+                // Override button sprites with boss sprite
                 leftButton.image.overrideSprite = defaultBossSprite;
                 rightButton.image.overrideSprite = defaultBossSprite;
                 Debug.Log("Boss room detected — overriding room button sprites.");
@@ -95,10 +99,11 @@ public class ChooseRoom : MonoBehaviour
             }
         }
 
-        //Assign button clicks
+        // Remove previous listeners to avoid multiple triggers
         leftButton.onClick.RemoveAllListeners();
         rightButton.onClick.RemoveAllListeners();
 
+        // Assign click events to apply the chosen room
         leftButton.onClick.AddListener(() => ApplyRoom(leftRoom));
         rightButton.onClick.AddListener(() => ApplyRoom(rightRoom));
 
@@ -107,10 +112,10 @@ public class ChooseRoom : MonoBehaviour
 
     void ApplyRoom(Room room)
     {
-        if (!currentRoom) return;
+        if (!currentRoom) return; // Ensure a room is currently active before applying
 
-        chosenRoom = true;
-        enemySpawner.QueueSpecificEnemy(room.enemyPrefab);
-        currentRoom = false;
+        chosenRoom = true; // Mark that the player has chosen a room
+        enemySpawner.QueueSpecificEnemy(room.enemyPrefab); // Queue the chosen enemy to spawn
+        currentRoom = false; // Reset the room selection state
     }
 }
