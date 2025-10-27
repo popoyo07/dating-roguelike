@@ -17,9 +17,9 @@ public class HealthBar : MonoBehaviour
         healthBar.value = avatar.health;
     }
 
-    public void UpdateHealth() // this one will get component is avatar is null 
+    public void UpdateHealth() 
     {
-        if (avatar == null)
+        if (avatar == null) // this one will get component is avatar is null 
         {
             avatar = this.gameObject.GetComponent<SimpleHealth>();
 
@@ -29,12 +29,14 @@ public class HealthBar : MonoBehaviour
 
     }
 
-    public IEnumerator UpdateMaxHealth() // this will wait for avatar to be not null to run
+    public void UpdateMaxHealth() 
     {
-        yield return new WaitUntil(() => 
-        avatar.gameObject.GetComponent<SimpleHealth>() != null);
+        if (avatar == null) // this one will get component is avatar is null 
+        {
+            avatar = this.gameObject.GetComponent<SimpleHealth>();
 
-       healthBar.maxValue = avatar.maxHealth;
+        }
+        healthBar.maxValue = avatar.maxHealth;
         Debug.Log(healthBar.value + avatar.health);
     }
 }
