@@ -252,6 +252,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 494784695503224701, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
+      propertyPath: wallItemPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 494784695503224701, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
+      propertyPath: ceilingItemPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 494784695503224701, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
+      propertyPath: 'wallItemPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 3563789075462658821, guid: d0d852c20def1fd499f3a73534a4e9e8, type: 3}
+    - target: {fileID: 494784695503224701, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
+      propertyPath: 'wallItemPrefabs.Array.data[2]'
+      value: 
+      objectReference: {fileID: 3563789075462658821, guid: d0d852c20def1fd499f3a73534a4e9e8, type: 3}
+    - target: {fileID: 494784695503224701, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
+      propertyPath: 'ceilingItemPrefabs.Array.data[2]'
+      value: 
+      objectReference: {fileID: 6882903552030569118, guid: 89fa2e3db372fc147bb02f069b6603c9, type: 3}
     - target: {fileID: 3548966888048602327, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
