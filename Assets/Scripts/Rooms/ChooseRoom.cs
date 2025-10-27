@@ -78,8 +78,11 @@ public class ChooseRoom : MonoBehaviour
         };
 
         // Set normal enemy sprites for buttons first
-        leftButton.image.sprite = leftRoom.roomSprite;
-        rightButton.image.sprite = rightRoom.roomSprite;
+        if (enemySpawner.roomsSpawnBoss != 5 || enemySpawner.roomsSpawnBoss != 11 || enemySpawner.roomsSpawnBoss != 17)
+        {
+            leftButton.image.sprite = leftRoom.roomSprite;
+            rightButton.image.sprite = rightRoom.roomSprite;
+        }
 
         // Check if the current room should be a boss room
         if (enemySpawner.roomsSpawnBoss == 5 ||
@@ -89,8 +92,8 @@ public class ChooseRoom : MonoBehaviour
             if (defaultBossSprite != null)
             {
                 // Override button sprites with boss sprite
-                leftButton.image.overrideSprite = defaultBossSprite;
-                rightButton.image.overrideSprite = defaultBossSprite;
+                leftButton.image.sprite = defaultBossSprite;
+                rightButton.image.sprite = defaultBossSprite;
                 Debug.Log("Boss room detected — overriding room button sprites.");
             }
             else
