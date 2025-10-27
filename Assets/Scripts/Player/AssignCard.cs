@@ -1,15 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 using System.Collections;
 using Unity.VisualScripting;
 
 public class AssignCard : MonoBehaviour
 {
-    RectTransform rectTransform;
-    public Vector3 location;
-    public Vector3 setRotation;
-    Animator animator;
+    AssignCardAnimation cardAnim;
     public string cardNameFromList;
     public Button cardButton;
     public HoldCardBehavior hold;
@@ -22,15 +18,13 @@ public class AssignCard : MonoBehaviour
 
     private DeckDraw cardDraw;
     private bool cardSet;
-    private Image cardImage;
 
     bool resetForNewTurn;
     EnergySystem energy;
-
+    Image cardImage;
     private void OnEnable()
     {
-        rectTransform = GetComponent<RectTransform>();
-        animator = GetComponent<Animator>();    
+        cardAnim = GetComponent<AssignCardAnimation>();
         cardImage = GetComponent<Image>();
         BSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
         cardDraw = GameObject.Find("CardManager").GetComponent<DeckDraw>();
@@ -39,51 +33,12 @@ public class AssignCard : MonoBehaviour
         resetForNewTurn = false;
         energy = GameObject.Find("Managers").GetComponentInChildren<EnergySystem>();
         hold = GetComponent<HoldCardBehavior>();
-        StartCoroutine(StartingAnimation(0));
         StartCoroutine(InitializeCard());
 
     }
-    void SetUpLocation()
-    {
-        if (animator != null && animator.GetBool("spawned") == false && animator.GetBool("used") == false) 
-        {
-            rectTransform.anchoredPosition = location;
-            rectTransform.localEulerAngles = setRotation;
-            //Debug.Log("For the object " + gameObject.name + " the locaton is " + rectTransform.anchoredPosition + "and the rotation is " + rectTransform.localEulerAngles);
-        }
-       
-    }
-    void LateUpdate()
-    {
-        SetUpLocation();
-    }
-    IEnumerator StartingAnimation(int i)
-    {
-        if (animator != null)
-        {
-            if (i == 0)
-            {
-                animator.SetBool("spawned", true);
-                yield return new WaitForSeconds(1f);
-             
-                animator.SetBool("spawned", false);
-                
-            }
-            else
-            {
-                animator.SetBool("used", true);
-                yield return new WaitForSeconds(1f);
-                animator.SetBool("used", false);
-                cardImage.enabled = false;
-
-            }
-        }
-
-    }
-    void Start()
-    {
-     
-    }
+ 
+  
+ 
 
     private IEnumerator InitializeCard()
     {
@@ -261,7 +216,7 @@ public class AssignCard : MonoBehaviour
          cardUsed = true;
         cardSet = false;
        
-        StartCoroutine(StartingAnimation(1));
+        StartCoroutine(cardAnim.StartingAnimation(1));
 
     }
 

@@ -532,6 +532,7 @@ GameObject:
   - component: {fileID: 1440691590273427780}
   - component: {fileID: 5524490255156320570}
   - component: {fileID: 2054603822893135638}
+  - component: {fileID: 6497777327771810725}
   m_Layer: 5
   m_Name: Card 2
   m_TagString: Cards
@@ -698,6 +699,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6497777327771810725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885038206726806002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be42e428cdf5a3f418d842f34072d2c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AssignCardAnimation
+  location: {x: 0.00006103516, y: -10.29997, z: 0}
+  setRotation: {x: 0, y: 0, z: 0.06}
 --- !u!1 &2505872718580543687
 GameObject:
   m_ObjectHideFlags: 0
@@ -822,6 +837,7 @@ GameObject:
   - component: {fileID: 4113359588576810804}
   - component: {fileID: 2899964096869817659}
   - component: {fileID: 356706366128715059}
+  - component: {fileID: 7796396498057839412}
   m_Layer: 5
   m_Name: Card 3
   m_TagString: Cards
@@ -988,6 +1004,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7796396498057839412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2791884614630925372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be42e428cdf5a3f418d842f34072d2c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AssignCardAnimation
+  location: {x: 161.1001, y: -18.99998, z: 0}
+  setRotation: {x: 0, y: 0, z: -5.797}
 --- !u!1 &3449265922679727931
 GameObject:
   m_ObjectHideFlags: 0
@@ -1264,6 +1294,7 @@ GameObject:
   - component: {fileID: 4083014492414595612}
   - component: {fileID: 1626653540522178858}
   - component: {fileID: 7032689927567299159}
+  - component: {fileID: 9209537067252578821}
   m_Layer: 5
   m_Name: Card 5
   m_TagString: Cards
@@ -1430,6 +1461,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9209537067252578821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7819365545131066403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be42e428cdf5a3f418d842f34072d2c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AssignCardAnimation
+  location: {x: 263.8001, y: -43.1, z: 0}
+  setRotation: {x: 0, y: 0, z: -16.215}
 --- !u!1 &8149270560828676144
 GameObject:
   m_ObjectHideFlags: 0
@@ -1598,6 +1643,7 @@ GameObject:
   - component: {fileID: 4127836510929502631}
   - component: {fileID: 2596890651096229179}
   - component: {fileID: 6153620258109312120}
+  - component: {fileID: 7869287960777600101}
   m_Layer: 5
   m_Name: Card 4
   m_TagString: Cards
@@ -1764,6 +1810,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7869287960777600101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8228320329955747502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be42e428cdf5a3f418d842f34072d2c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AssignCardAnimation
+  location: {x: -157.3, y: -43.1, z: 0}
+  setRotation: {x: 0, y: 0, z: 16.215}
 --- !u!1 &8275122186307717800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1915,6 +1975,7 @@ GameObject:
   - component: {fileID: 6579917795272438612}
   - component: {fileID: 311051112353398664}
   - component: {fileID: 5882175098531354582}
+  - component: {fileID: 2975135565316616485}
   m_Layer: 5
   m_Name: Card 1
   m_TagString: Cards
@@ -2081,6 +2142,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2975135565316616485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8782429362946687553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be42e428cdf5a3f418d842f34072d2c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AssignCardAnimation
+  location: {x: -53.89996, y: -20.2, z: 0}
+  setRotation: {x: 0, y: 0, z: 5.797}
 --- !u!1 &8787432465943019865
 GameObject:
   m_ObjectHideFlags: 0

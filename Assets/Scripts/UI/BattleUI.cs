@@ -99,6 +99,7 @@ public class BattleUI : MonoBehaviour
                 break;
 
             case BattleState.PLAYERTURN:
+                
                 if (dialogueUI.isTalking)
                 {
                     StartCoroutine(bSystem.DelaySwitchState(0f, BattleState.DIALOGUE, "Battle UI Script "));
@@ -107,6 +108,8 @@ public class BattleUI : MonoBehaviour
                 {
                     dialogueUI.StartCoroutine(dialogueUI.DelayAble(0.1f));
                 }
+
+               
                 break;
 
 
@@ -156,5 +159,10 @@ public class BattleUI : MonoBehaviour
             dialogueUI.StartCoroutine(dialogueUI.DelayDisable(0f));
 
         }
+    }
+
+    IEnumerator DelayDisableUI()
+    {
+        yield return new WaitForSeconds(0f);
     }
 }

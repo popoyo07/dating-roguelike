@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public enum BattleState {
     START,
@@ -127,17 +128,20 @@ public class BattleSystem : MonoBehaviour
 
     public IEnumerator EndPlayerTurn()
     {
-        state = BattleState.ENDPLAYERTURN;
-        yield return new WaitForSeconds(1f);  // delay a little so everything else can be run 
-        state = BattleState.ENEMYTURN;
-        Debug.Log("Current state is " + state);
+        StartCoroutine(DelaySwitchState(0f, BattleState.ENDPLAYERTURN, "BattleSystem"));
+
+        if (enemyHP.dead())
+        {
+            yield break;
+        }
+
+        StartCoroutine(DelaySwitchState(1f, BattleState.ENEMYTURN, "BattleSystem")); // delay a little so everything else can be run 
     }
 
     public IEnumerator EndEnemyTurn()
     {
         yield return new WaitForSeconds(1f); // wait some time to switch back to player turn 
-        state = BattleState.ENDENEMYTURN ;
-        Debug.Log("Current state is " + state);
+        StartCoroutine(DelaySwitchState(0f, BattleState.ENDENEMYTURN, "BattleSystem"));
     }
 
     public IEnumerator DelaySwitchState(float delay, BattleState b, string whichScriptIsFrom)
