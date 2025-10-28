@@ -172,7 +172,7 @@ public class CardUI : MonoBehaviour
                     }
                     else if (phase != 1)
                     {
-
+                        Debug.LogWarning("Phase not = to 1");
                     }
                 }
                 else if (boss == enemySpawner.vampireBoss)

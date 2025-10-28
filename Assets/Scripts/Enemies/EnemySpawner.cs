@@ -42,7 +42,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         // Randomly choose an enemy list
-        chosenList = Random.Range(2, 2); // Note: Random.Range(2,2) always returns 2
+        chosenList = Random.Range(0, 3); // Note: Random.Range(2,2) always returns 2
 
         switch (chosenList)
         {
