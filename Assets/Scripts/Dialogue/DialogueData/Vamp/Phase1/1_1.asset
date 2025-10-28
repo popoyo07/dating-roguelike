@@ -27,9 +27,9 @@ MonoBehaviour:
     dialogueEnd: 0
   responses:
   - respnseText: Yes
-    dialogueObject: {fileID: 0}
+    dialogueObject: {fileID: 11400000, guid: 4f434d0356f9ebf469ff248395e280e7, type: 2}
   - respnseText: No
-    dialogueObject: {fileID: 0}
+    dialogueObject: {fileID: 11400000, guid: 958af812038b1c840b5c3981b7079e4d, type: 2}
   LovyCounting:
     LovyCount: 0
     MinusLovyCount: 0

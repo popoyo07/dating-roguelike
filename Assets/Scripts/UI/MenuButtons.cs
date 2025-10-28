@@ -133,5 +133,6 @@ public class MenuButtons : MonoBehaviour
     public void ResetDialogueIndex()
     {
         dialogueProgression[0].currentDialogueIndex = 0;
+        dialogueProgression[0].phase = 0;
     }
 }

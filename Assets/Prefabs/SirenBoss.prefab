@@ -74,8 +74,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 101e2f18c01d90745903f8cb2234d489, type: 2}
   - {fileID: 11400000, guid: 318caaf382ad4eb4cb372a554a572d53, type: 2}
   - {fileID: 11400000, guid: 0b01fe316aa904649b857709ee84c068, type: 2}
+  - {fileID: 11400000, guid: 101e2f18c01d90745903f8cb2234d489, type: 2}
   - {fileID: 11400000, guid: 39b4cd511fe637b459873df20b70f804, type: 2}
   - {fileID: 11400000, guid: e007f64deda3e934784d4df6e5cfb390, type: 2}
+  - {fileID: 11400000, guid: 101e2f18c01d90745903f8cb2234d489, type: 2}
   Canvas: {fileID: 0}
   nameText: {fileID: 0}
   characterImage: {fileID: 0}

@@ -19,6 +19,7 @@ public class CardUI : MonoBehaviour
     public MenuButtons MenuButtons;
     public DialogueActivator Activator;
     public EnemySpawner enemySpawner;
+    public DialogueProgression progression;
 
     private string cardName;
 
@@ -91,12 +92,60 @@ public class CardUI : MonoBehaviour
 
     void CardChosen(string chosenCard)
     {
+        var boss = enemySpawner.boss;
+        var phase = progression.phase;
+
         switch (chosenCard)
         {
             case "LoveyDovy"://Beating Heart
                 //Debug.Log("You chose: " + chosenCard + "for LoveyDovey");
                 Activator.ContinueDialogue(2, 1);
 
+                if (boss == enemySpawner.sirenBoss)
+                {
+                    if (phase == 1)
+                    {
+                        DialogueUI.MarkPendingSkip();
+                        Debug.Log("It's SirenBoss for LoveyDovy");
+                        Activator.ContinueDialogue(1, 2);
+                    }
+                    else if (phase != 1)
+                    {
+
+                    }
+                }
+                else if (boss == enemySpawner.vampireBoss)
+                {
+                    if (phase == 1)
+                    {
+
+                    }
+                    else if (phase == 2)
+                    {
+                        Debug.Log("enemySpawner.boss == enemySpawner.sirenBoss && progression.phase != 1");
+                        Activator.ContinueDialogue(2, nextArray: 1);
+                    }
+                    else
+                    {
+                        Debug.Log("enemySpawner.boss == enemySpawner.sirenBoss && progression.phase != 1");
+                        Activator.ContinueDialogue(2, nextArray: 1);
+                    }
+                }
+                else if (boss == enemySpawner.idkBoss)
+                {
+                    if (phase == 1)
+                    {
+
+                    }
+                    else if (phase == 2)
+                    {
+
+                    }
+                    else
+                    {
+
+                    }
+                }
 
                 break;
 
@@ -113,19 +162,55 @@ public class CardUI : MonoBehaviour
             case "LoveyDovy4": //Magic conch
                 //Debug.Log("You chose: " + chosenCard + " for LoveyDovey");
 
-                if (enemySpawner.boss == enemySpawner.sirenBoss)
+                if (boss == enemySpawner.sirenBoss)
                 {
-                    DialogueUI.MarkPendingSkip();
-                    Debug.Log("It's SirenBoss for LoveyDovy");
-                    Activator.ContinueDialogue(1, 2);
+                    if (phase == 1)
+                    {
+                        DialogueUI.MarkPendingSkip();
+                        Debug.Log("It's SirenBoss for LoveyDovy");
+                        Activator.ContinueDialogue(1, 2);
+                    }
+                    else if (phase != 1)
+                    {
+
+                    }
                 }
-                else
+                else if (boss == enemySpawner.vampireBoss)
                 {
-                    Debug.Log("It's not SirenBoss for LoveyDovy");
-                    Activator.ContinueDialogue(2, nextArray: 1);
+                    if (phase == 1)
+                    {
+
+                    }
+                    else if (phase == 2)
+                    {
+                        Debug.Log("enemySpawner.boss == enemySpawner.sirenBoss && progression.phase != 1");
+                        Activator.ContinueDialogue(2, nextArray: 1);
+                    }
+                    else
+                    {
+                        Debug.Log("enemySpawner.boss == enemySpawner.sirenBoss && progression.phase != 1");
+                        Activator.ContinueDialogue(2, nextArray: 1);
+                    }
+                }
+                else if (boss == enemySpawner.idkBoss)
+                {
+                    if (phase == 1)
+                    {
+
+                    }
+                    else if (phase == 2)
+                    {
+
+                    }
+                    else
+                    {
+
+                    }
                 }
 
                 break;
+
+
             case "LoveyDovy5":
                 //Debug.Log("You chose: " + chosenCard + " for LoveyDovey");
                 Activator.ContinueDialogue(2, 1);

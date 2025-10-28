@@ -20,7 +20,6 @@ public class DialogueActivator : MonoBehaviour
 
     public bool showLovyUI;
 
-    private int currentPhase;
     private MenuButtons DeckUI;
     private DialogueUI dialogueUI;
 
@@ -54,7 +53,7 @@ public class DialogueActivator : MonoBehaviour
             Debug.LogError("DialogueObject not assigned to Enemy!");
         }
 
-        currentPhase = progression.phase++;
+        progression.phase += 1;
         currentDialogueIndex = progression.currentDialogueIndex;
     }
 
