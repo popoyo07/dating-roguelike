@@ -9,7 +9,7 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Boss Settings")]
     public int roomsSpawnBoss;        // Counter for rooms visited to determine boss spawn
-    private GameObject boss;          // Current boss prefab reference
+    public GameObject boss;          // Current boss prefab reference
     public GameObject sirenBoss;      // Siren boss prefab
     public GameObject vampireBoss;    // Vampire boss prefab
     public GameObject idkBoss;        // Unknown boss prefab

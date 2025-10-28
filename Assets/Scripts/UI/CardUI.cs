@@ -18,11 +18,21 @@ public class CardUI : MonoBehaviour
     public DialogueUI DialogueUI;
     public MenuButtons MenuButtons;
     public DialogueActivator Activator;
+    public EnemySpawner enemySpawner;
 
     private string cardName;
 
     private void Awake()
     {
+        GameObject spawnerObj = GameObject.FindWithTag("EnemyS");
+        if (spawnerObj != null)
+        {
+            enemySpawner = spawnerObj.GetComponent<EnemySpawner>();
+        }
+        else
+        {
+            Debug.LogWarning("No object with tag 'EnemyS' found in the scene!");
+        }
         //Boss = GameObject.FindWithTag("Boss");
         canvas = GameObject.Find("Canvas");
         DialogueUI = canvas.GetComponent<DialogueUI>();
@@ -85,13 +95,14 @@ public class CardUI : MonoBehaviour
         {
             case "LoveyDovy"://Beating Heart
                 //Debug.Log("You chose: " + chosenCard + "for LoveyDovey");
-                Activator.ContinueDialogue(2,1);
+                Activator.ContinueDialogue(2, 1);
+
 
                 break;
 
             case "LoveyDovy2":
                 //Debug.Log("You chose: " + chosenCard + "for LoveyDovey");
-                Activator.ContinueDialogue(2,1);
+                Activator.ContinueDialogue(2,nextArray: 1);
 
                 break;
             case "LoveyDovy3":
@@ -101,17 +112,33 @@ public class CardUI : MonoBehaviour
                 break;
             case "LoveyDovy4": //Magic conch
                 //Debug.Log("You chose: " + chosenCard + " for LoveyDovey");
-                DialogueUI.MarkPendingSkip();
-                Activator.ContinueDialogue(1,2);
+
+                if (enemySpawner.boss == enemySpawner.sirenBoss)
+                {
+                    DialogueUI.MarkPendingSkip();
+                    Debug.Log("It's SirenBoss for LoveyDovy");
+                    Activator.ContinueDialogue(1, 2);
+                }
+                else
+                {
+                    Debug.Log("It's not SirenBoss for LoveyDovy");
+                    Activator.ContinueDialogue(2, nextArray: 1);
+                }
 
                 break;
-            case "Shield":
-                Debug.Log("You chose: Shield for LoveyDovey");
+            case "LoveyDovy5":
+                //Debug.Log("You chose: " + chosenCard + " for LoveyDovey");
+                Activator.ContinueDialogue(2, 1);
+
+                break;
+
+            case "LoveyDovy6":
+                Debug.Log("You chose: " + chosenCard + " for LoveyDovey");
                 Activator.ContinueDialogue(2, 1);
 
                 break;
             default:
-                Debug.Log("You chose: " + chosenCard + "for LoveyDovey");
+                Debug.Log("You chose: " + chosenCard);
                 Activator.ContinueDialogue(2,1);
                 break;
 

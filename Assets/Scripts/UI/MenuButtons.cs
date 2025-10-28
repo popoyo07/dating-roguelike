@@ -21,7 +21,7 @@ public class MenuButtons : MonoBehaviour
     ChooseRoom chooseRoom;           // Reference to room manager
 
     [Header("Dialogue Data")]
-    [SerializeField] private DialogueProgression dialogueProgression; // Tracks dialogue progression
+    [SerializeField] private DialogueProgression[] dialogueProgression;
 
     public bool showDeckToggleBool; // Tracks whether the deck popup should be displayed
 
@@ -132,6 +132,6 @@ public class MenuButtons : MonoBehaviour
     // Reset dialogue progression index
     public void ResetDialogueIndex()
     {
-        dialogueProgression.currentDialogueIndex = 0;
+        dialogueProgression[0].currentDialogueIndex = 0;
     }
 }
