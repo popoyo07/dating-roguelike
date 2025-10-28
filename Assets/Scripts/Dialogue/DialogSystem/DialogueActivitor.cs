@@ -20,6 +20,7 @@ public class DialogueActivator : MonoBehaviour
 
     public bool showLovyUI;
 
+    private int currentPhase;
     private MenuButtons DeckUI;
     private DialogueUI dialogueUI;
 
@@ -53,7 +54,7 @@ public class DialogueActivator : MonoBehaviour
             Debug.LogError("DialogueObject not assigned to Enemy!");
         }
 
-
+        currentPhase = progression.phase++;
         currentDialogueIndex = progression.currentDialogueIndex;
     }
 
@@ -101,7 +102,7 @@ public class DialogueActivator : MonoBehaviour
         }
     }
 
-    public void ContinueDialogue(int number)
+    public void ContinueDialogue(int number, int nextArray)
     {
         Debug.Log("ContinueDialogue Activated");
 
@@ -141,15 +142,15 @@ public class DialogueActivator : MonoBehaviour
             case 1:
                 if (progression.currentDialogueIndex < 2)
                 {
-                    progression.currentDialogueIndex += 2;
+                    progression.currentDialogueIndex += nextArray;
                 }
                 else
                 {
-                    progression.currentDialogueIndex++;
+                    progression.currentDialogueIndex += nextArray;
                 }
                 break;
             case 2:
-                progression.currentDialogueIndex ++;
+                progression.currentDialogueIndex += nextArray;
                 break;
         
         }
@@ -159,12 +160,13 @@ public class DialogueActivator : MonoBehaviour
     public void ResetDialogueIndex()
     {
         progression.currentDialogueIndex = 0;
+        progression.phase = 0;
     }
 
     public void TriggerLovyCardSelection()
     {
         showLovyUI = true;
-        Debug.Log("LovyPlus++");
+        //Debug.Log("LovyPlus++");
         DeckUI.ShowDeck();
     }
 }

@@ -85,34 +85,34 @@ public class CardUI : MonoBehaviour
         {
             case "LoveyDovy"://Beating Heart
                 //Debug.Log("You chose: " + chosenCard + "for LoveyDovey");
-                Activator.ContinueDialogue(2);
+                Activator.ContinueDialogue(2,1);
 
                 break;
 
             case "LoveyDovy2":
                 //Debug.Log("You chose: " + chosenCard + "for LoveyDovey");
-                Activator.ContinueDialogue(2);
+                Activator.ContinueDialogue(2,1);
 
                 break;
             case "LoveyDovy3":
                 //Debug.Log("You chose: " + chosenCard + "for LoveyDovey");
-                Activator.ContinueDialogue(2);
+                Activator.ContinueDialogue(2, 1);
 
                 break;
             case "LoveyDovy4": //Magic conch
                 //Debug.Log("You chose: " + chosenCard + " for LoveyDovey");
                 DialogueUI.MarkPendingSkip();
-                Activator.ContinueDialogue(1);
+                Activator.ContinueDialogue(1,2);
 
                 break;
             case "Shield":
                 Debug.Log("You chose: Shield for LoveyDovey");
-                Activator.ContinueDialogue(2);
+                Activator.ContinueDialogue(2, 1);
 
                 break;
             default:
                 Debug.Log("You chose: " + chosenCard + "for LoveyDovey");
-                Activator.ContinueDialogue(2);
+                Activator.ContinueDialogue(2,1);
                 break;
 
         }
