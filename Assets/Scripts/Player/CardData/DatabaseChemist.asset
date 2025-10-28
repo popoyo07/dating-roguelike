@@ -31,7 +31,11 @@ MonoBehaviour:
   - LoveyDovy2
   - LoveyDovy3
   - LoveyDovy4
+  - LoveyDovy5
+  - LoveyDovy6
   allCardSprites:
+  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
+  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
   - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
   - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
   - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
@@ -69,3 +73,5 @@ MonoBehaviour:
   - does nothing 2
   - does nothing 3
   - does nothing 4
+  - does nothing 5
+  - does nothing 6

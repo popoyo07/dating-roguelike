@@ -31,6 +31,8 @@ MonoBehaviour:
   - LoveyDovy2
   - LoveyDovy3
   - LoveyDovy4
+  - LoveyDovy5
+  - LoveyDovy6
   allCardSprites:
   - {fileID: 21300000, guid: 4bc95d4994d78e64c89ffade62f81b2c, type: 3}
   - {fileID: 21300000, guid: 109789bf1c325044b8a623424adc051c, type: 3}
@@ -50,6 +52,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 13a721e851caa934592ee8c052d04499, type: 3}
   - {fileID: 21300000, guid: 29a534029489af844a0527681c4f696e, type: 3}
   - {fileID: 21300000, guid: d951d77abf2f7d84aba4ac3a35ddd0f6, type: 3}
+  - {fileID: 21300000, guid: d951d77abf2f7d84aba4ac3a35ddd0f6, type: 3}
+  - {fileID: 21300000, guid: d951d77abf2f7d84aba4ac3a35ddd0f6, type: 3}
   descriptionCard:
   - 'deals 6 dmg  to the enemy '
   - 'deals 4 dng ti the enemy twice '
@@ -68,4 +72,6 @@ MonoBehaviour:
   - h
   - i
   - n
+  - k
+  - k
   - k
