@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 public class BuffManager : MonoBehaviour, IDataPersistence
 {
-    int coins;
+    public int coins;
 
     private int maxActiveBuffs = 0;
     private int currentActiveBuffs = 0;
@@ -19,6 +19,8 @@ public class BuffManager : MonoBehaviour, IDataPersistence
     public TextMeshProUGUI activeHealthBuffCount;
     public TextMeshProUGUI activeEnergyBuffCount;
     public TextMeshProUGUI activeCoinBuffCount;
+
+    public CoinUISHOP coinUI;
 
     #region Save and Load
 
@@ -65,6 +67,7 @@ public class BuffManager : MonoBehaviour, IDataPersistence
                 currentActiveBuffs++;
                 healthBuffCount++;
                 activeHealthBuffCount.SetText("Active Buffs: " + healthBuffCount);
+                coinUI.UpdateCoins();
             }
             else
             {
@@ -93,6 +96,7 @@ public class BuffManager : MonoBehaviour, IDataPersistence
                 currentActiveBuffs++;
                 energyBuffCount++;
                 activeEnergyBuffCount.SetText("Active Buffs: " + energyBuffCount);
+                coinUI.UpdateCoins();
             }
             else
             {
@@ -120,6 +124,7 @@ public class BuffManager : MonoBehaviour, IDataPersistence
                 currentActiveBuffs++;
                 doubleCoinsBuffCount++;
                 activeCoinBuffCount.SetText("Active Buffs: " + doubleCoinsBuffCount);
+                coinUI.UpdateCoins();
             }
             else
             {
