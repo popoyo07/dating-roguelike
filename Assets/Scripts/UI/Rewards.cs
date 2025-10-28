@@ -19,7 +19,6 @@ public class Rewards : MonoBehaviour
         public string rewardName;    // Name of the reward
         public Sprite rewardSprite;  // Sprite to show for the reward
         public RewardType rewardType; // Type of reward
-        //public GameObject enemyPrefab; // Optional for future enemy rewards
     }
 
     public enum RewardType { Coins, Card, RecoverHP } // Possible reward types
@@ -30,13 +29,11 @@ public class Rewards : MonoBehaviour
     [Header("Buttons")]
     public Button button1; // UI button for first reward
     public Button button2; // UI button for second reward
-    public Button button3; // UI button for third reward
 
     private Reward reward1; // First randomly selected reward
     private Reward reward2; // Second randomly selected reward
     private Reward reward3; // Third randomly selected reward
 
-    //private BattleSystem battleSystem;
     private CoinSystem coinSystem; // Reference to coin management system
     private DeckDraw deck;         // Reference to the deck management system
 
@@ -53,43 +50,60 @@ public class Rewards : MonoBehaviour
     public void ShowRewardOptions()
     {
         if (rewardsForCurrent)
-        {
-            return; // Prevent generating rewards multiple times for the same room
-        }
+            return; // prevent re-randomizing while popup is open
 
         rewardsForCurrent = true;
+        pickedReward = false;
 
-        // Pick three random rewards
+        // Pick 3 unique random rewards
         int index1 = Random.Range(0, roomRewards.Count);
         int index2 = Random.Range(0, roomRewards.Count);
         int index3 = Random.Range(0, roomRewards.Count);
 
-        // Ensure that indices are unique if there is more than one reward available
-        while (index2 == index1 || index2 == index3 || index3 == index1 && roomRewards.Count > 1)
-        {
+        // Ensure uniqueness
+        while (index2 == index1)
             index2 = Random.Range(0, roomRewards.Count);
+        while (index3 == index1 || index3 == index2)
             index3 = Random.Range(0, roomRewards.Count);
-        }
 
-        // Assign the chosen rewards
         reward1 = roomRewards[index1];
         reward2 = roomRewards[index2];
         reward3 = roomRewards[index3];
 
-        // Assign the reward sprites to the buttons
-        button1.image.sprite = reward1.rewardSprite;
-        button2.image.sprite = reward2.rewardSprite;
-        button3.image.sprite = reward3.rewardSprite;
+        // Choose 2 of the 3 rewards to display
+        List<Reward> availableRewards = new List<Reward> { reward1, reward2, reward3 };
 
-        // Remove any previous click listeners to prevent stacking
-        button1.onClick.RemoveAllListeners();
-        button2.onClick.RemoveAllListeners();
-        button3.onClick.RemoveAllListeners();
+        // Shuffle rewards
+        for (int i = 0; i < availableRewards.Count; i++)
+        {
+            Reward temp = availableRewards[i];
+            int randomIndex = Random.Range(i, availableRewards.Count);
+            availableRewards[i] = availableRewards[randomIndex];
+            availableRewards[randomIndex] = temp;
+        }
 
-        // Add new click listeners to apply the selected reward
-        button1.onClick.AddListener(() => ApplyReward(reward1));
-        button2.onClick.AddListener(() => ApplyReward(reward2));
-        button3.onClick.AddListener(() => ApplyReward(reward3));
+        // Keep first two to display
+        List<Reward> shownRewards = new List<Reward> { availableRewards[0], availableRewards[1] };
+
+        // Shuffle button order
+        List<Button> buttons = new List<Button> { button1, button2 };
+        for (int i = 0; i < buttons.Count; i++)
+        {
+            Button temp = buttons[i];
+            int randomIndex = Random.Range(i, buttons.Count);
+            buttons[i] = buttons[randomIndex];
+            buttons[randomIndex] = temp;
+        }
+
+        // Assign rewards to shuffled buttons
+        foreach (var btn in buttons)
+            btn.onClick.RemoveAllListeners();
+
+        buttons[0].image.sprite = shownRewards[0].rewardSprite;
+        buttons[0].onClick.AddListener(() => ApplyReward(shownRewards[0]));
+
+        buttons[1].image.sprite = shownRewards[1].rewardSprite;
+        buttons[1].onClick.AddListener(() => ApplyReward(shownRewards[1]));
     }
 
     // Applies the chosen reward to the player

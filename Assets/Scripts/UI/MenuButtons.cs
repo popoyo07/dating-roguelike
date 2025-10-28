@@ -54,11 +54,14 @@ public class MenuButtons : MonoBehaviour
         if (rewards.openRewardsPop && !rewardsPopup.activeSelf && !roomPopup.activeSelf)
         {
             rewardsPopup.SetActive(true);
+            StartCoroutine(ShowRewardsNextFrame());
+
         }
 
         if (!rewards.openRewardsPop && rewardsPopup.activeSelf)
         {
             rewardsPopup.SetActive(false);
+            rewards.rewardsForCurrent = false;
             roomPopup.SetActive(true); // Show room popup after rewards are closed
         }
 
@@ -137,5 +140,17 @@ public class MenuButtons : MonoBehaviour
     {
         dialogueProgression[0].currentDialogueIndex = 0;
         dialogueProgression[0].phase = 0;
+    }
+
+    private IEnumerator ShowRewardsNextFrame()
+    {
+        // Wait one frame to ensure UI elements are fully active
+        yield return null;
+
+        if (rewards != null)
+        {
+            rewards.rewardsForCurrent = false;
+            rewards.ShowRewardOptions();
+        }
     }
 }
