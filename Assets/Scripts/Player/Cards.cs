@@ -130,6 +130,16 @@ public class Cards : MonoBehaviour
         ConsumeEnergy(1);
         Debug.Log("Lovely2");
     }
+        public void LoveyDoveyLogic5() // needs to do something ? 
+    {
+        ConsumeEnergy(1);
+        Debug.Log("Lovely2");
+    }
+        public void LoveyDoveyLogic6() // needs to do something ? 
+    {
+        ConsumeEnergy(1);
+        Debug.Log("Lovely2");
+    }
 
 
 

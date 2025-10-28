@@ -160,7 +160,8 @@ public class ActionsWizzard : Cards
             { cards[15], (LoveyDoveyLogic2, 1) },
             { cards[16], (LoveyDoveyLogic3, 1) },
             { cards[17], (LoveyDoveyLogic4, 1) },
-
+            { cards[18], (LoveyDoveyLogic5, 1) },
+            { cards[19], (LoveyDoveyLogic6, 1) }
         };
         Debug.Log("hello");
         foreach (var kvp in actionMap)
