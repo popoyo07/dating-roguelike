@@ -21,6 +21,7 @@ TagManager:
   - CoinSystem
   - ShowCards
   - DUM
+  - Canvas
   layers:
   - Default
   - TransparentFX

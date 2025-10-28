@@ -94,7 +94,10 @@ public class MenuButtons : MonoBehaviour
     // Reload the dungeon scene
     public void Retry()
     {
+        loadingScreen.SetActive(true);
         SceneManager.LoadScene("Dungeon");
+        loseMenu.SetActive(false);
+        StartCoroutine(HideLoading());
     }
 
     // Coroutine to hide loading screen after a delay

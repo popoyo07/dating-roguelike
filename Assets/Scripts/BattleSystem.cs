@@ -34,6 +34,8 @@ public class BattleSystem : MonoBehaviour
     public bool moveA;
     public bool moveB;
 
+    MenuButtons menuButtons;
+
     void Start()
     {
         endTurnB = GameObject.Find("EndTurn");
@@ -43,6 +45,7 @@ public class BattleSystem : MonoBehaviour
 
         rewards = GameObject.FindWithTag("RewardsM").GetComponent<Rewards>();
         chooseRoom = GameObject.FindWithTag("RoomManager").GetComponent<ChooseRoom>();
+        menuButtons = GameObject.FindWithTag("Canvas").GetComponent<MenuButtons>();
     }
     private void FixedUpdate()
     {
@@ -109,7 +112,8 @@ public class BattleSystem : MonoBehaviour
 
                 break;
             case BattleState.LOST:
-                SceneManager.LoadScene("MainMenu");
+                menuButtons.loseMenu.SetActive(true);
+                //SceneManager.LoadScene("MainMenu");
                 break;
         }
 
