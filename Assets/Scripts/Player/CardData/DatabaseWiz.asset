@@ -57,7 +57,7 @@ MonoBehaviour:
   descriptionCard:
   - 'Heals '
   - Heals more
-  - 'Taunts '
+  - Lowers Enemy's Dmg. for # Turns
   - Does dmg to enemy and makes them weak
   - Big shield
   - 'Multiplies current block times 2 '

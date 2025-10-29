@@ -38,7 +38,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: dd35687ec21622448a8132657add3d30, type: 3}
   - {fileID: 21300000, guid: 3ec89a6476f4cbe4aa5682f7afc4a5c4, type: 3}
   - {fileID: 21300000, guid: 891dcf965657c1d4bb0784db86673664, type: 3}
-  - {fileID: 21300000, guid: 19a40ab9f1db1204580b2499f261292f, type: 3}
+  - {fileID: 21300000, guid: 891dcf965657c1d4bb0784db86673664, type: 3}
   - {fileID: 21300000, guid: d65a327d54659664a86e1d8c6a8d68e5, type: 3}
   - {fileID: 21300000, guid: 8fbb53d20cf79ab4f93b70d3d5e181fd, type: 3}
   - {fileID: 21300000, guid: 90407b9b5ac341449a3ab037d6d47c7b, type: 3}
@@ -48,16 +48,16 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 47d7bae032be3834b8496726bd983683, type: 3}
   - {fileID: 21300000, guid: 4096dd0703286c74297cf0a0f2ea212d, type: 3}
   - {fileID: 21300000, guid: 8b5a5a2bf04970543892241f722cfc3d, type: 3}
-  - {fileID: 21300000, guid: 124673ca65a444745943ce5825be6763, type: 3}
-  - {fileID: 21300000, guid: 124673ca65a444745943ce5825be6763, type: 3}
-  - {fileID: 21300000, guid: 124673ca65a444745943ce5825be6763, type: 3}
-  - {fileID: 21300000, guid: 124673ca65a444745943ce5825be6763, type: 3}
-  - {fileID: 21300000, guid: 124673ca65a444745943ce5825be6763, type: 3}
+  - {fileID: 21300000, guid: 1ee8e6e93b79e6846aef8f6db2beba60, type: 3}
+  - {fileID: 21300000, guid: de5e97c65c6dd7d4a92465cd1e9652fc, type: 3}
+  - {fileID: 21300000, guid: 23a89b4dd24f5044491069c8da65714e, type: 3}
+  - {fileID: 21300000, guid: b0633f608a6556c4b9069c771e07dd70, type: 3}
+  - {fileID: 21300000, guid: 4ba468a4cb9a19445a6355151f24b67f, type: 3}
   - {fileID: 21300000, guid: 124673ca65a444745943ce5825be6763, type: 3}
   descriptionCard:
   - 'Heals '
   - Heals more
-  - 'Taunts '
+  - Lowers Enemy's Dmg. for # Turns
   - Does dmg to enemy and makes them weak
   - Enemy is confused and can't attack next turn
   - 'Throws acid flask to enemy dealing dmg '
@@ -70,8 +70,8 @@ MonoBehaviour:
   - Does big dmg, multiplies next attack by 3 and makes enemy weak.
   - Throws to empty flasks at enemy dealing twice the dmg
   - 'Makes enemy fall asleep '
-  - Love card 2
+  - Gain Thorns # of Turns
   - Love card 3
-  - Love card 4
+  - Enemy Falls Asleep for 1 Turn
   - Love card 5
   - Love card 6
