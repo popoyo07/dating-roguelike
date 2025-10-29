@@ -78,12 +78,12 @@ public class CoinSystem : MonoBehaviour, IDataPersistence
 
         if (isCoinBuffActive == true)
         {
-            coinUI.SetText("+" + addcoins + " Coin<br>" + "+" + coinBuff + " Coinbuff");
+            coinUI.SetText("+" + addcoins + " Coins<br>" + "+" + coinBuff + " Coinbuff");
             coinTotal.SetText("Coins: " + coins);
         }
         else
         {
-            coinUI.SetText("+" + addcoins + " Coin");
+            coinUI.SetText("+" + addcoins + " Coins");
             coinTotal.SetText("Coins: " + coins);
         }
 
