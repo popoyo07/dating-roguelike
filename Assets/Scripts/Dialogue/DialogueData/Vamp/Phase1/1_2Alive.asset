@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1_2Alive
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
   dialogue:
-  - dialogueText: Cerious
+  - dialogueText: Cerious (disappears)
     characterName: Vampire
     characterImage: {fileID: 0}
     dialogueEnd: 1

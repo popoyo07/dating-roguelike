@@ -43,11 +43,9 @@ MonoBehaviour:
     dialogueEnd: 0
   responses:
   - respnseText: Alive
-    dialogueObject: {fileID: 0}
+    dialogueObject: {fileID: 11400000, guid: a74cc5e04305ef94e8f74b654b40a449, type: 2}
   - respnseText: Mistake
-    dialogueObject: {fileID: 0}
-  - respnseText: Fight
-    dialogueObject: {fileID: 0}
+    dialogueObject: {fileID: 11400000, guid: 49649df4e9c6b234baa026576499487e, type: 2}
   LovyCounting:
     LovyCount: 0
     MinusLovyCount: 0

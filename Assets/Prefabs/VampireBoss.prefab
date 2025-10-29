@@ -72,7 +72,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6b455d7c7331a2442a69d7f2ba8b4e92, type: 2}
   - {fileID: 11400000, guid: 588f6a483f8dd9b4fbffb8f829236fe0, type: 2}
   - {fileID: 11400000, guid: 863bd7b83a0c86742bf0df848dcd4ed6, type: 2}
-  - {fileID: 11400000, guid: 49649df4e9c6b234baa026576499487e, type: 2}
+  - {fileID: 11400000, guid: abf61d745a905134688d7951ba115027, type: 2}
+  - {fileID: 11400000, guid: 2277a58e8bdec5f49a67f339ac4aef11, type: 2}
+  - {fileID: 11400000, guid: d4c02ee4d97766d49bd72b83c7754c5c, type: 2}
+  - {fileID: 11400000, guid: 40a20b0b7565f3640ba7e4355dee0c24, type: 2}
+  - {fileID: 11400000, guid: 55d5e40efb299824d80eb235401f33c9, type: 2}
+  - {fileID: 11400000, guid: 862944ae82071234c8e890e070e81475, type: 2}
   Canvas: {fileID: 0}
   nameText: {fileID: 0}
   characterImage: {fileID: 0}
