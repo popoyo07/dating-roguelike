@@ -171,6 +171,7 @@ public class BattleUI : MonoBehaviour
         w = true;
         yield return new WaitForSeconds(1f);
         Debug.Log("It disable the thing");
+        w = false;
         cardsUI.SetActive(false);
 
     }
