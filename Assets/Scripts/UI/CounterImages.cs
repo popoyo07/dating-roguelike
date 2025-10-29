@@ -11,7 +11,7 @@ public class CounterImages : MonoBehaviour
     private void Start()
     {
         deckDraw = GameObject.Find("CardManager").GetComponent<DeckDraw>();
-        playerClass = deckDraw.
+      //  playerClass = deckDraw.
     }
 
 

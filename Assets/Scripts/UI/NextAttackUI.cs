@@ -47,6 +47,7 @@ public class NextAttackUI : MonoBehaviour
 
     public void HideNextAttack()
     {
+
         nextAttackImage.color = new Color32(255, 255, 255, 0);
         thoughtBubble.color = new Color32(255, 255, 255, 0);
     }
