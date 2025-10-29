@@ -25,7 +25,7 @@ public class SimpleHealth : MonoBehaviour, IDataPersistence
 
     public void SaveData(ref GameData data)
     {
-        data.healthBuff = this.healthBuff;
+        data.healthBuff = 0;
     }
 
     #endregion
