@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class BattleUI : MonoBehaviour
 {
     [SerializeField] private GameObject Canvas;
-
+    bool w;
     BattleSystem bSystem;
     GameObject[] cards;
     public Button endTurnB;
@@ -118,7 +118,7 @@ public class BattleUI : MonoBehaviour
                 {
                     StartCoroutine(CheckTeleport());
                 }
-
+                StartCoroutine(DelayDisableUI());
                 break;
             case BattleState.DEFAULT:
 
@@ -162,7 +162,16 @@ public class BattleUI : MonoBehaviour
     }
 
     IEnumerator DelayDisableUI()
-    {
-        yield return new WaitForSeconds(0f);
+    { 
+        if (w)
+        {
+            yield break;
+        }
+        Debug.Log("Waiting");
+        w = true;
+        yield return new WaitForSeconds(1f);
+        Debug.Log("It disable the thing");
+        cardsUI.SetActive(false);
+
     }
 }

@@ -67,8 +67,7 @@ public class BattleSystem : MonoBehaviour
                     state = BattleState.WONGAME;
                     SceneManager.LoadScene("MainMenu");
                 }
-                secondEncounter = true;
-                enemyHP = null;
+           
 
                 rewards.openRewardsPop = true;
                 rewards.ShowRewardOptions();
@@ -79,6 +78,7 @@ public class BattleSystem : MonoBehaviour
                     rewards.openRewardsPop = false;
                     chooseRoom.openRoomPop = true;
                     chooseRoom.ShowRoomOptions();
+  
                 }
   
                 if (chooseRoom.chosenRoom)
@@ -91,6 +91,7 @@ public class BattleSystem : MonoBehaviour
                     chooseRoom.chosenRoom = false;
                     chooseRoom.openRoomPop = false;
                     Debug.Log("Current state is " + state);
+                    secondEncounter = true;
                 }
             }
         }
