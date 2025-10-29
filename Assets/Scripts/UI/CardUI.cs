@@ -165,7 +165,8 @@ public class CardUI : MonoBehaviour
                     }
                     else if (phase != 2)
                     {
-                        Debug.LogWarning("Phase not = to 1");
+                        Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase not = 2: {phase}");
+                        Activator.ContinueDialogue(number: 2, 1);
                     }
                 }
                 else if (boss == enemySpawner.vampireBoss)
@@ -179,7 +180,7 @@ public class CardUI : MonoBehaviour
                     else if (phase != 1)
                     {
                         Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
-                        Activator.ContinueDialogue(2, 1);
+                        Activator.ContinueDialogue(number: 2, 1);
                     }
                 }
                 else if (boss == enemySpawner.idkBoss)
@@ -197,31 +198,52 @@ public class CardUI : MonoBehaviour
                     {
                         DialogueUI.MarkPendingSkip();
                         Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
-                        Activator.ContinueDialogue(2, 1);
+                        Activator.ContinueDialogue(number: 1, 2);
                     }
                     else if (phase != 1)
                     {
-                        Debug.LogWarning("Phase not = to 1");
-                        Activator.ContinueDialogue(1, 2);
+                        Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase not = 1: {phase}");
+                        Activator.ContinueDialogue(2, 1);
                     }
                 }
                 else if (boss == enemySpawner.vampireBoss)
                 {
                     Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
-                    Activator.ContinueDialogue(2, nextArray: 1);
+                    Activator.ContinueDialogue(2, 1);
                 }
                 else if (boss == enemySpawner.idkBoss)
                 {
                     Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
-                    Activator.ContinueDialogue(2, nextArray: 1);
+                    Activator.ContinueDialogue(2, 1);
                 }
 
                 break;
 
 
             case "LoveyDovy5": //Lyre Instrument
-                Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
-                Activator.ContinueDialogue(2, 1);
+                if (boss == enemySpawner.sirenBoss)
+                {
+                    if (phase == 3)
+                    {
+                        Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
+                        Activator.ContinueDialogue(1, 0);
+                    }
+                    else if (phase != 3)
+                    {
+                        Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase not = 3: {phase}");
+                        Activator.ContinueDialogue(2, 1);
+                    }
+                }
+                else if (boss == enemySpawner.vampireBoss)
+                {
+                    Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
+                    Activator.ContinueDialogue(2, 2);
+                }
+                else if (boss == enemySpawner.idkBoss)
+                {
+                    Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
+                    Activator.ContinueDialogue(2, nextArray: 1);
+                }
 
                 break;
 

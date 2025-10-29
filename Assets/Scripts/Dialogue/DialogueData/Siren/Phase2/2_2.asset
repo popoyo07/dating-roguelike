@@ -43,7 +43,7 @@ MonoBehaviour:
     characterImage: {fileID: 0}
     dialogueEnd: 0
   - dialogueText: They see beauty when they gaze upon me.
-    characterName: Siren
+    characterName: ???
     characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
   - dialogueText: They hear music when I call them.
@@ -83,8 +83,8 @@ MonoBehaviour:
     characterName: Siren
     characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
-  - dialogueText: "Si...ren\u2026"
-    characterName: Player
+  - dialogueText: "Siren\u2026"
+    characterName: You
     characterImage: {fileID: 0}
     dialogueEnd: 0
   - dialogueText: "Yes\u2026 you feel it too, don\u2019t you? That pull\u2026 that
@@ -94,7 +94,7 @@ MonoBehaviour:
     dialogueEnd: 0
   - dialogueText: Her gaze locks onto yours, unrelenting, as if she can see into
       the deepest currents of your soul.
-    characterName: Siren
+    characterName: Narrator
     characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
   - dialogueText: "Few dare approach\u2026 and even fewer leave unchanged."
@@ -107,7 +107,7 @@ MonoBehaviour:
     dialogueEnd: 0
   - dialogueText: You take a deep breath, forcing your mind to focus, to push back
       against the allure.
-    characterName: You
+    characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
   - dialogueText: "Hah\u2026 defiance. Intriguing\u2026"
