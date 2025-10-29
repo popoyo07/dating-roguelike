@@ -96,13 +96,13 @@ public class ActionsChemist : Cards
     {
         ConsumeEnergy(emptyFlaskECost);
         attkAmmount = emptyFlask;   
-        GenerateAttk(pStatus.currentStatus);
+        GenerateAttk(pStatus.currentStatus); // attk
     } 
-    public void SelfMedicate()
+    public void SelfMedicate() 
     {
         ConsumeEnergy(selfMedicateECost);
-        multStrenght = dmgMultiplier;
-        GenerateShield(selfMedicateShield);
+        multStrenght = dmgMultiplier;        // multiplies next attk 
+        GenerateShield(selfMedicateShield);    // gain shield 
     }
     public void ShieldingPotion()
     {

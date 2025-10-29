@@ -17,11 +17,12 @@ public class AssignCard : MonoBehaviour
     private ActionsWizzard actionsWizzard;
 
     private DeckDraw cardDraw;
-    private bool cardSet;
+    public bool cardSet;
 
     bool resetForNewTurn;
     EnergySystem energy;
     Image cardImage;
+    CardDescription cardDescription;
     private void OnEnable()
     {
         cardAnim = GetComponent<AssignCardAnimation>();
@@ -33,6 +34,7 @@ public class AssignCard : MonoBehaviour
         resetForNewTurn = false;
         energy = GameObject.Find("Managers").GetComponentInChildren<EnergySystem>();
         hold = GetComponent<HoldCardBehavior>();
+        cardDescription = GetComponent<CardDescription>();
         StartCoroutine(InitializeCard());
 
     }
@@ -61,7 +63,7 @@ public class AssignCard : MonoBehaviour
                 actionsWizzard = cardDraw.GetComponent<ActionsWizzard>();
                 break;
         }
-        cardSet = true;
+        cardSet = true; 
         yield return new WaitForSeconds(.5f);
         SetupCardButton();
     }
@@ -102,6 +104,7 @@ public class AssignCard : MonoBehaviour
       
         cardImage.enabled = true;
         cardImage.sprite = cardDraw.allPossibleSprites[cardNameFromList]; // assign sprite according to the name and the database
+        cardDescription.txt.gameObject.SetActive(true);
         cardButton.onClick.RemoveAllListeners();
         cardButton.onClick.AddListener(OnCardClicked);
         cardButton.interactable = true;
@@ -219,7 +222,7 @@ public class AssignCard : MonoBehaviour
         StartCoroutine(cardAnim.StartingAnimation(1));
 
     }
-
+  
     void ResetCardForNewCombat()
     {
         // Reset card state for new turn
