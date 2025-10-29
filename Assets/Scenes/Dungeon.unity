@@ -467,6 +467,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2386784141748436149, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 166.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2386784141748436149, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 106.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2869943144883502491, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -571,6 +579,14 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6655144514332981176, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 166.19998
+      objectReference: {fileID: 0}
+    - target: {fileID: 6655144514332981176, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 95.09999
+      objectReference: {fileID: 0}
     - target: {fileID: 7496991723004306567, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -587,6 +603,10 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1808764163}
+    - target: {fileID: 9060836823262024387, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e494f1cc5e3f4ea4a9265a75379cddc0, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
