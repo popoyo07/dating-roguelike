@@ -13,7 +13,8 @@ public class SimpleHealth : MonoBehaviour, IDataPersistence
     public int healthAmount;
     bool isPlayer;
     public int shield;
-
+    public bool isBoss;
+    
     #region Save and Load
 
     public void LoadData(GameData data)

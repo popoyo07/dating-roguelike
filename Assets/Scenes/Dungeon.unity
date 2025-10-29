@@ -781,6 +781,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
+--- !u!114 &1333872143 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3967055896382909537, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+  m_PrefabInstance: {fileID: 1333872139}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ef33a779a6bc754eb9b3ac063185c3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenuButtons
 --- !u!1001 &1402896033
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1074,6 +1085,10 @@ PrefabInstance:
       propertyPath: sfxSlider
       value: 
       objectReference: {fileID: 1333872140}
+    - target: {fileID: 3035151827386756835, guid: f9e176ae607e2864989c242ced672c01, type: 3}
+      propertyPath: menuButtons
+      value: 
+      objectReference: {fileID: 1333872143}
     - target: {fileID: 3035151827386756835, guid: f9e176ae607e2864989c242ced672c01, type: 3}
       propertyPath: musicSlider
       value: 
