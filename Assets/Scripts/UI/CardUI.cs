@@ -97,11 +97,11 @@ public class CardUI : MonoBehaviour
 
         switch (chosenCard)
         {
-            case "LoveyDovy"://Beating Heart --> Vampire Boss (Phase 3)
+            case "LoveyDovy"://Beating Heart --> Vampire (Phase 3)
                 if (boss == enemySpawner.sirenBoss)
                 {
                     Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
-                    Activator.ContinueDialogue(number: 1, nextArray: 2);
+                    Activator.ContinueDialogue(1, 2);
                 }
                 else if (boss == enemySpawner.vampireBoss)
                 {
@@ -114,23 +114,23 @@ public class CardUI : MonoBehaviour
                     else if (phase != 3)
                     {
                         Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
-                        Activator.ContinueDialogue(2, nextArray: 1);
+                        Activator.ContinueDialogue(2, 1);
                     }
                 }
                 else if (boss == enemySpawner.idkBoss)
                 {
                     Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
-                    Activator.ContinueDialogue(2, nextArray: 1);
+                    Activator.ContinueDialogue(2, 1);
                 }
 
                 break;
 
-            case "LoveyDovy2": //Thorned Rose --> Vampire Boss (Phase 1)
+            case "LoveyDovy2": //Thorned Rose --> Vampire (Phase 1)
 
                 if (boss == enemySpawner.sirenBoss)
                 {
                     Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
-                    Activator.ContinueDialogue(number: 1, nextArray: 2);
+                    Activator.ContinueDialogue(1, 2);
                 }
                 else if (boss == enemySpawner.vampireBoss)
                 {
@@ -143,25 +143,32 @@ public class CardUI : MonoBehaviour
                     else if (phase != 1)
                     {
                         Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
-                        Activator.ContinueDialogue(2, nextArray: 1);
+                        Activator.ContinueDialogue(2, 1);
                     }
                 }
                 else if (boss == enemySpawner.idkBoss)
                 {
                     Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
-                    Activator.ContinueDialogue(number: 1, nextArray: 2);
+                    Activator.ContinueDialogue(1, 2);
                 }
 
                 break;
-            case "LoveyDovy3": //Mirror
-
-                Activator.ContinueDialogue(2, 1);
-
-                break;
-
-            case "LoveyDovy4": //Magic conch --> Siren Boss (Phase 1)
+            case "LoveyDovy3": //Mirror --> Siren (Phase 2)
 
                 if (boss == enemySpawner.sirenBoss)
+                {
+                    if (phase == 2)
+                    {
+                        DialogueUI.MarkPendingSkip();
+                        Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
+                        Activator.ContinueDialogue(1, 2);
+                    }
+                    else if (phase != 2)
+                    {
+                        Debug.LogWarning("Phase not = to 1");
+                    }
+                }
+                else if (boss == enemySpawner.vampireBoss)
                 {
                     if (phase == 1)
                     {
@@ -171,7 +178,31 @@ public class CardUI : MonoBehaviour
                     }
                     else if (phase != 1)
                     {
+                        Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
+                        Activator.ContinueDialogue(2, 1);
+                    }
+                }
+                else if (boss == enemySpawner.idkBoss)
+                {
+                    Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
+                    Activator.ContinueDialogue(1, 2);
+                }
+                break;
+
+            case "LoveyDovy4": //Magic conch --> Siren (Phase 1)
+
+                if (boss == enemySpawner.sirenBoss)
+                {
+                    if (phase == 1)
+                    {
+                        DialogueUI.MarkPendingSkip();
+                        Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
+                        Activator.ContinueDialogue(2, 1);
+                    }
+                    else if (phase != 1)
+                    {
                         Debug.LogWarning("Phase not = to 1");
+                        Activator.ContinueDialogue(1, 2);
                     }
                 }
                 else if (boss == enemySpawner.vampireBoss)

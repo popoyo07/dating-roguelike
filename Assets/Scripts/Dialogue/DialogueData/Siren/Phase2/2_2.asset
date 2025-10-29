@@ -22,31 +22,35 @@ MonoBehaviour:
     characterName: Siren
     characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
-  - dialogueText: The monster is holding the crystal and shows a look of nostalgia.
+  - dialogueText: The monster holds a mirror, its surface rippling like liquid silver.
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: What a Crystal. It's a feeling I haven't felt in a long time.
+  - dialogueText: A mirror... how curious.
     characterName: Siren
     characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
+  - dialogueText: "It doesn\u2019t just show faces, it reveals truths best left unseen."
+    characterName: ???
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
   - dialogueText: "It reminds me\u2026"
-    characterName: Siren
+    characterName: ???
     characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
   - dialogueText: The monster approaches, each step deliberate.
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: All of them fear me when they scent me.
+  - dialogueText: They see beauty when they gaze upon me.
     characterName: Siren
     characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
-  - dialogueText: All of them bow before me when they see me.
+  - dialogueText: They hear music when I call them.
     characterName: ???
     characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
-  - dialogueText: All of them are drawn to me when they hear me.
+  - dialogueText: Yet none ever see what lies beneath the reflection.
     characterName: ???
     characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
@@ -58,8 +62,8 @@ MonoBehaviour:
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: "Her eyes hold the secrets of uncharted depths, and the subtle
-      sway of her tail pulses like a dark, endless tide\u2014seductive, yet merciless."
+  - dialogueText: "Her eyes shimmer like moonlight on dark waters\u2014reflective,
+      endless, and filled with something ancient."
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
