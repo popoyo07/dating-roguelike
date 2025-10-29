@@ -653,8 +653,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5e48496a98ac414bbe7a10f5543c393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AssignCard
-  location: {x: 0.00006103516, y: -10.29997, z: 0}
-  setRotation: {x: 0, y: 0, z: 0.06}
   cardNameFromList: 
   cardButton: {fileID: 0}
   hold: {fileID: 0}
@@ -958,8 +956,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5e48496a98ac414bbe7a10f5543c393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AssignCard
-  location: {x: 161.1001, y: -18.99998, z: 0}
-  setRotation: {x: 0, y: 0, z: -5.797}
   cardNameFromList: 
   cardButton: {fileID: 0}
   hold: {fileID: 0}
@@ -1415,8 +1411,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5e48496a98ac414bbe7a10f5543c393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AssignCard
-  location: {x: 263.8001, y: -43.1, z: 0}
-  setRotation: {x: 0, y: 0, z: -16.215}
   cardNameFromList: 
   cardButton: {fileID: 0}
   hold: {fileID: 0}
@@ -1764,8 +1758,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5e48496a98ac414bbe7a10f5543c393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AssignCard
-  location: {x: -157.3, y: -43.1, z: 0}
-  setRotation: {x: 0, y: 0, z: 16.215}
   cardNameFromList: 
   cardButton: {fileID: 0}
   hold: {fileID: 0}
@@ -2052,8 +2044,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5e48496a98ac414bbe7a10f5543c393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AssignCard
-  location: {x: -53.89996, y: -20.2, z: 0}
-  setRotation: {x: 0, y: 0, z: 5.797}
   cardNameFromList: 
   cardButton: {fileID: 0}
   hold: {fileID: 0}

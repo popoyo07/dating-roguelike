@@ -6,14 +6,14 @@ using TMPro;
 
 public class NextAttackUI : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI nextAttackText;
+    [SerializeField] private Image thoughtBubble;
     [SerializeField] private Image nextAttackImage;
     [SerializeField] private Sprite[] spriteList;
 
     private void Awake()
     {
-        nextAttackText = this.gameObject.GetComponentInChildren<TextMeshProUGUI>();            //Find("NextAttackText").GetComponent<TextMeshProUGUI>();
-        nextAttackImage = this.gameObject.GetComponentInChildren<Image>();
+        nextAttackImage = GameObject.Find("NextAttackImage").GetComponent<Image>();
+        thoughtBubble = GameObject.Find("ThoughtBubble").GetComponent<Image>();
     }
 
     public void UpdateNextAttackUI(int action)
@@ -42,10 +42,12 @@ public class NextAttackUI : MonoBehaviour
     public void ShowNextAttack()
     {
         nextAttackImage.color = new Color32(255, 255, 255, 255);
+        thoughtBubble.color = new Color32(255, 255, 255, 255);
     }
 
     public void HideNextAttack()
     {
         nextAttackImage.color = new Color32(255, 255, 255, 0);
+        thoughtBubble.color = new Color32(255, 255, 255, 0);
     }
 }
