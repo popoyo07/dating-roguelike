@@ -34,26 +34,26 @@ MonoBehaviour:
   - LoveyDovy5
   - LoveyDovy6
   allCardSprites:
-  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
-  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
-  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
-  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
-  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
-  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
-  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
-  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
-  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
-  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
-  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
-  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
-  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
-  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
-  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
-  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
-  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
-  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
-  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
-  - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
+  - {fileID: 21300000, guid: 28bea1e9421a72c46ba349762c094002, type: 3}
+  - {fileID: 21300000, guid: dd35687ec21622448a8132657add3d30, type: 3}
+  - {fileID: 21300000, guid: 3ec89a6476f4cbe4aa5682f7afc4a5c4, type: 3}
+  - {fileID: 21300000, guid: 891dcf965657c1d4bb0784db86673664, type: 3}
+  - {fileID: 21300000, guid: 19a40ab9f1db1204580b2499f261292f, type: 3}
+  - {fileID: 21300000, guid: d65a327d54659664a86e1d8c6a8d68e5, type: 3}
+  - {fileID: 21300000, guid: 8fbb53d20cf79ab4f93b70d3d5e181fd, type: 3}
+  - {fileID: 21300000, guid: 90407b9b5ac341449a3ab037d6d47c7b, type: 3}
+  - {fileID: 21300000, guid: dcd32aaaad72b7d41b7ece940f71cfb9, type: 3}
+  - {fileID: 21300000, guid: f5b25bd477ce61047a726d746f4c94ce, type: 3}
+  - {fileID: 21300000, guid: 64c13d64d39447f4ab54ba4b19400356, type: 3}
+  - {fileID: 21300000, guid: 47d7bae032be3834b8496726bd983683, type: 3}
+  - {fileID: 21300000, guid: 4096dd0703286c74297cf0a0f2ea212d, type: 3}
+  - {fileID: 21300000, guid: 8b5a5a2bf04970543892241f722cfc3d, type: 3}
+  - {fileID: 21300000, guid: 124673ca65a444745943ce5825be6763, type: 3}
+  - {fileID: 21300000, guid: 124673ca65a444745943ce5825be6763, type: 3}
+  - {fileID: 21300000, guid: 124673ca65a444745943ce5825be6763, type: 3}
+  - {fileID: 21300000, guid: 124673ca65a444745943ce5825be6763, type: 3}
+  - {fileID: 21300000, guid: 124673ca65a444745943ce5825be6763, type: 3}
+  - {fileID: 21300000, guid: 124673ca65a444745943ce5825be6763, type: 3}
   descriptionCard:
   - 'Heals '
   - Heals more
@@ -70,8 +70,8 @@ MonoBehaviour:
   - Does big dmg, multiplies next attack by 3 and makes enemy weak.
   - Throws to empty flasks at enemy dealing twice the dmg
   - 'Makes enemy fall asleep '
-  - does nothing 2
-  - does nothing 3
-  - does nothing 4
-  - does nothing 5
-  - does nothing 6
+  - Love card 2
+  - Love card 3
+  - Love card 4
+  - Love card 5
+  - Love card 6
