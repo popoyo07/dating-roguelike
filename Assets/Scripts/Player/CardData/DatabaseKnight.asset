@@ -38,8 +38,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 109789bf1c325044b8a623424adc051c, type: 3}
   - {fileID: 21300000, guid: f7b4c9f48e16b4b4ea8540906c612b6c, type: 3}
   - {fileID: 21300000, guid: 653f4dd740fc161468b125bebf5f4db6, type: 3}
-  - {fileID: 21300000, guid: 7e511adabe670fc40a00a18120162ef3, type: 3}
-  - {fileID: 21300000, guid: 109789bf1c325044b8a623424adc051c, type: 3}
+  - {fileID: 21300000, guid: 1ee8e6e93b79e6846aef8f6db2beba60, type: 3}
+  - {fileID: 21300000, guid: 1d80d3443772677449a27332cc2b079c, type: 3}
   - {fileID: 21300000, guid: ed56c5beddbbbd9419719e37af55edb7, type: 3}
   - {fileID: 21300000, guid: 0aabfa9fa4b276a4dae40b7434e06688, type: 3}
   - {fileID: 21300000, guid: f7b4c9f48e16b4b4ea8540906c612b6c, type: 3}
@@ -49,29 +49,29 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ab741da4586161148ba4cb8c2ab243a4, type: 3}
   - {fileID: 21300000, guid: 389b2b683583d994bb0d051118c0fa03, type: 3}
   - {fileID: 21300000, guid: 19a40ab9f1db1204580b2499f261292f, type: 3}
-  - {fileID: 21300000, guid: 13a721e851caa934592ee8c052d04499, type: 3}
-  - {fileID: 21300000, guid: 29a534029489af844a0527681c4f696e, type: 3}
-  - {fileID: 21300000, guid: d951d77abf2f7d84aba4ac3a35ddd0f6, type: 3}
-  - {fileID: 21300000, guid: d951d77abf2f7d84aba4ac3a35ddd0f6, type: 3}
-  - {fileID: 21300000, guid: d951d77abf2f7d84aba4ac3a35ddd0f6, type: 3}
+  - {fileID: 21300000, guid: de5e97c65c6dd7d4a92465cd1e9652fc, type: 3}
+  - {fileID: 21300000, guid: 23a89b4dd24f5044491069c8da65714e, type: 3}
+  - {fileID: 21300000, guid: b0633f608a6556c4b9069c771e07dd70, type: 3}
+  - {fileID: 21300000, guid: 4ba468a4cb9a19445a6355151f24b67f, type: 3}
+  - {fileID: 21300000, guid: 124673ca65a444745943ce5825be6763, type: 3}
   descriptionCard:
-  - 'deals 6 dmg  to the enemy '
-  - 'deals 4 dng ti the enemy twice '
-  - ex
-  - p
-  - l
-  - a
-  - n
-  - a
+  - 'Deals 6 Dmg. to The Enemy '
+  - 'Deals 4 Dmg. to The Enemy Twice '
+  - Provides # Shield Within This Turn
+  - Heals Low
+  - TBD
+  - Heals more
+  - Raise Atk. For # Turns
+  - Next Atk. Dealt to Player is Negated
   - t
-  - i
-  - o
-  - n
-  - i
-  - t
-  - h
-  - i
-  - n
-  - k
-  - k
-  - k
+  - Deals # Dmg. Ingores Shield
+  - Gain High # Shield Within This Turn
+  - Next Card Deals 2x Within This Turn
+  - Deals Dmg. Based on Current Shield
+  - Lowers Enemy's Dmg. for # Turns
+  - Deals Low Dmg. + $ to Inflict Stun
+  - Gain Thorns # of Turns
+  - TBD
+  - Enemy Falls Asleep for 1 Turn
+  - TBD
+  - TBD

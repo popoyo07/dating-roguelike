@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3311277356625423051}
   - component: {fileID: 4968921702770630652}
-  - component: {fileID: 281661403637221602}
   m_Layer: 0
   m_Name: KinnaraEnemy1
   m_TagString: Enemy
@@ -55,27 +54,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &281661403637221602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3563789075462658821}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a88223f22bcd861469fea1277dc1f7af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DialogueActivator
-  dialogueObject:
-  - {fileID: 11400000, guid: d5bd490506c1fdc408fb3b9e720c9c04, type: 2}
-  - {fileID: 11400000, guid: 26c8d14c0566fe34b9b3541f74277b6b, type: 2}
-  Canvas: {fileID: 0}
-  nameText: {fileID: 0}
-  characterImage: {fileID: 0}
-  progression: {fileID: 11400000, guid: 46a7f4d680fa2dd4198bbf1292ceeb1a, type: 2}
-  responseHandle: {fileID: 0}
-  showLovyUI: 0
 --- !u!1001 &2636347614548511179
 PrefabInstance:
   m_ObjectHideFlags: 0
