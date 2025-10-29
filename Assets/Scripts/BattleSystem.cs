@@ -66,6 +66,7 @@ public class BattleSystem : MonoBehaviour
                 { // win should be added here 
                     state = BattleState.WONGAME;
                     SceneManager.LoadScene("MainMenu");
+                    menuButtons.ResetDialogueIndex();
                 }
            
 
