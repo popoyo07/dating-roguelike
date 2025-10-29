@@ -101,7 +101,7 @@ public class CardUI : MonoBehaviour
                 if (boss == enemySpawner.sirenBoss)
                 {
                     Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
-                    Activator.ContinueDialogue(1, 2);
+                    Activator.ContinueDialogue(1, 0);
                 }
                 else if (boss == enemySpawner.vampireBoss)
                 {
@@ -153,7 +153,7 @@ public class CardUI : MonoBehaviour
                 }
 
                 break;
-            case "LoveyDovy3": //Mirror --> Siren (Phase 2)
+            case "LoveyDovy3": //Mirror --> Siren (Phase 2) & Bird (Phase 1)
 
                 if (boss == enemySpawner.sirenBoss)
                 {
@@ -185,8 +185,17 @@ public class CardUI : MonoBehaviour
                 }
                 else if (boss == enemySpawner.idkBoss)
                 {
-                    Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
-                    Activator.ContinueDialogue(1, 2);
+                    if (phase == 1)
+                    {
+                        DialogueUI.MarkPendingSkip();
+                        Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
+                        Activator.ContinueDialogue(1, 2);
+                    }
+                    else if (phase != 1)
+                    {
+                        Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
+                        Activator.ContinueDialogue(number: 2, 1);
+                    }
                 }
                 break;
 
@@ -220,7 +229,7 @@ public class CardUI : MonoBehaviour
                 break;
 
 
-            case "LoveyDovy5": //Lyre Instrument
+            case "LoveyDovy5": //Lyre Instrument --> Siren (Phase 3) & Vampire (Phase 2)
                 if (boss == enemySpawner.sirenBoss)
                 {
                     if (phase == 3)
@@ -236,8 +245,17 @@ public class CardUI : MonoBehaviour
                 }
                 else if (boss == enemySpawner.vampireBoss)
                 {
-                    Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
-                    Activator.ContinueDialogue(2, 2);
+                    if (phase == 2)
+                    {
+                        DialogueUI.MarkPendingSkip();
+                        Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
+                        Activator.ContinueDialogue(1, 2);
+                    }
+                    else if (phase != 2)
+                    {
+                        Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
+                        Activator.ContinueDialogue(number: 2, 1);
+                    }
                 }
                 else if (boss == enemySpawner.idkBoss)
                 {
@@ -247,9 +265,32 @@ public class CardUI : MonoBehaviour
 
                 break;
 
-            case "LoveyDovy6": //Love Bottle
-                Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
-                Activator.ContinueDialogue(2, 1);
+            case "LoveyDovy6": //Love Bottle --> Bird (Phase 2)
+                if (boss == enemySpawner.sirenBoss)
+                {
+                    Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase not = 3: {phase}");
+                    Activator.ContinueDialogue(2, 1);
+                }
+                else if (boss == enemySpawner.vampireBoss)
+                {
+                    Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase not = 3: {phase}");
+                    Activator.ContinueDialogue(2, 1);
+                }
+                else if (boss == enemySpawner.idkBoss)
+                {
+                    if (phase == 2)
+                    {
+                        DialogueUI.MarkPendingSkip();
+                        Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
+                        Activator.ContinueDialogue(1, 2);
+                    }
+                    else if (phase != 2)
+                    {
+                        Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
+                        Activator.ContinueDialogue(number: 2, 1);
+                    }
+                }
+
 
                 break;
 
