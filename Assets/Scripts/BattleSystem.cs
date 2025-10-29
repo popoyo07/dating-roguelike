@@ -14,7 +14,8 @@ public enum BattleState {
     ENDENEMYTURN,
     STARTRUN,
     DIALOGUE,
-    REWARD
+    REWARD, 
+    WONGAME
 } // start run is for starting a new playthrough 
 
 public class BattleSystem : MonoBehaviour
@@ -34,6 +35,7 @@ public class BattleSystem : MonoBehaviour
     public bool moveA;
     public bool moveB;
 
+    public bool secondEncounter;
     MenuButtons menuButtons;
 
     void Start()
@@ -60,6 +62,14 @@ public class BattleSystem : MonoBehaviour
             }
             if (enemyHP.dead())
             {
+                if (enemyHP.isBoss && secondEncounter)
+                { // win should be added here 
+                    state = BattleState.WONGAME;
+                    SceneManager.LoadScene("MainMenu");
+                }
+                secondEncounter = true;
+                enemyHP = null;
+
                 rewards.openRewardsPop = true;
                 rewards.ShowRewardOptions();
 
