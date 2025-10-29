@@ -32,8 +32,8 @@ public class CoinSystem : MonoBehaviour, IDataPersistence
     public void SaveData(ref GameData data)
     {
         data.coins = this.coins;
-        data.coinBuff = this.coinBuff;
-        data.isCoinBuffActive = this.isCoinBuffActive;
+        data.coinBuff = 0;
+        data.isCoinBuffActive = false;
     }
 
     #endregion

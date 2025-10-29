@@ -17,7 +17,7 @@ public class EnergySystem : MonoBehaviour, IDataPersistence
 
     public void SaveData(ref GameData data)
     {
-        data.energyBuff = this.energyBuff;
+        data.energyBuff = 0;
     }
 
     #endregion

@@ -23,7 +23,6 @@ public class BuffManager : MonoBehaviour, IDataPersistence
     public TextMeshProUGUI activeCoinBuffCount;
 
     public CoinUISHOP coinUI;
-    //public MusicManager musicManager;
 
     #region Save and Load
 
@@ -51,16 +50,6 @@ public class BuffManager : MonoBehaviour, IDataPersistence
     private void Start()
     {
          resetBuffs();
-      //  musicManager = GameObject.Find("MusicManager").GetComponent<MusicManager>();
-
-       /* if (musicManager.isRetryTrue == true)
-        {
-            resetBuffs();
-        }
-        else
-        {
-            resetBuffs();
-        }*/
     }
 
     private void Update()
