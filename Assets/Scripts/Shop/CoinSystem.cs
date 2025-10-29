@@ -7,7 +7,9 @@ public class CoinSystem : MonoBehaviour, IDataPersistence
 {
     public int coins;
     public int coinBuff;
- 
+
+    public bool isCoinBuffActive;
+
     [SerializeField] BattleSystem battleSystem;
     [SerializeField] private TextMeshProUGUI coinUI;
     [SerializeField] private TextMeshProUGUI coinTotal;
@@ -24,12 +26,14 @@ public class CoinSystem : MonoBehaviour, IDataPersistence
         Debug.Log("Load data CoinSystem is running");
         this.coins = data.coins;
         this.coinBuff = data.coinBuff;
+        this.isCoinBuffActive = data.isCoinBuffActive;
     }
 
     public void SaveData(ref GameData data)
     {
         data.coins = this.coins;
         data.coinBuff = this.coinBuff;
+        data.isCoinBuffActive = this.isCoinBuffActive;
     }
 
     #endregion
@@ -71,8 +75,18 @@ public class CoinSystem : MonoBehaviour, IDataPersistence
     public IEnumerator AddCoins(int addcoins)
     {
         coins += addcoins + coinBuff;
-        coinUI.SetText("+" + addcoins +  " Coin<br>" + "+" + coinBuff + " Coinbuff");
-        coinTotal.SetText("Coins: " + coins);
+
+        if (isCoinBuffActive == true)
+        {
+            coinUI.SetText("+" + addcoins + " Coin<br>" + "+" + coinBuff + " Coinbuff");
+            coinTotal.SetText("Coins: " + coins);
+        }
+        else
+        {
+            coinUI.SetText("+" + addcoins + " Coin");
+            coinTotal.SetText("Coins: " + coins);
+        }
+
         yield return new WaitForSeconds(2f);
         coinUI.SetText("");
     }

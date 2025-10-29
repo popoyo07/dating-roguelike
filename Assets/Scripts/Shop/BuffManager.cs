@@ -16,6 +16,8 @@ public class BuffManager : MonoBehaviour, IDataPersistence
     public int doubleCoinsBuffCount;
     public int doubleCoinsBuffCost = 5;
 
+    public bool isCoinBuffActive;
+
     public TextMeshProUGUI activeHealthBuffCount;
     public TextMeshProUGUI activeEnergyBuffCount;
     public TextMeshProUGUI activeCoinBuffCount;
@@ -31,6 +33,7 @@ public class BuffManager : MonoBehaviour, IDataPersistence
         this.energyBuffCount = data.energyBuff;
         this.doubleCoinsBuffCount = data.coinBuff;
         this.coins = data.coins;
+        this.isCoinBuffActive = data.isCoinBuffActive;
     }
 
     public void SaveData(ref GameData data)
@@ -39,6 +42,7 @@ public class BuffManager : MonoBehaviour, IDataPersistence
         data.healthBuff = this.healthBuffCount;
         data.energyBuff = this.energyBuffCount;
         data.coinBuff = this.doubleCoinsBuffCount;
+        data.isCoinBuffActive = this.isCoinBuffActive;
     }
 
     #endregion
@@ -46,10 +50,6 @@ public class BuffManager : MonoBehaviour, IDataPersistence
     private void Start()
     {
         resetBuffs();
-
-       /* activeHealthBuffCount = GameObject.Find("ExtraHealthBuffCount").GetComponent<TextMeshProUGUI>();
-        activeEnergyBuffCount = GameObject.Find("ExtraEnergyBuffCount").GetComponent<TextMeshProUGUI>();
-        activeCoinBuffCount = GameObject.Find("ExtraCoinBuffCount").GetComponent<TextMeshProUGUI>();*/
     }
 
     private void Update()
@@ -125,6 +125,7 @@ public class BuffManager : MonoBehaviour, IDataPersistence
                 doubleCoinsBuffCount++;
                 activeCoinBuffCount.SetText("Active Buffs: " + doubleCoinsBuffCount);
                 coinUI.UpdateCoins();
+                isCoinBuffActive = true;
             }
             else
             {
@@ -154,6 +155,8 @@ public class BuffManager : MonoBehaviour, IDataPersistence
         activeHealthBuffCount.SetText("Active Buffs: " + healthBuffCount);
         activeEnergyBuffCount.SetText("Active Buffs: " + energyBuffCount);
         activeCoinBuffCount.SetText("Active Buffs: " + doubleCoinsBuffCount);
+
+        isCoinBuffActive = false;
     }
 
 }
