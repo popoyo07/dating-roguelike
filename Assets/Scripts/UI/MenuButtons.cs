@@ -25,6 +25,8 @@ public class MenuButtons : MonoBehaviour
 
     public bool showDeckToggleBool; // Tracks whether the deck popup should be displayed
 
+    public bool isRetryTrue = false;
+
     private void Start()
     {
         // Get references to game systems using tags
@@ -100,6 +102,7 @@ public class MenuButtons : MonoBehaviour
         loadingScreen.SetActive(true);
         SceneManager.LoadScene("Dungeon");
         loseMenu.SetActive(false);
+        isRetryTrue = true;
         StartCoroutine(HideLoading());
     }
 
@@ -108,6 +111,7 @@ public class MenuButtons : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f); // Wait for 1.5 seconds
         loadingScreen.SetActive(false);        // Hide loading screen
+        isRetryTrue = false;
     }
 
     // Open the settings panel
