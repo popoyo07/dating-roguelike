@@ -69,7 +69,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueActivator
   dialogueObject:
-  - {fileID: 11400000, guid: 1159eaa2a4be25e4d80d3bdb94af6a5d, type: 2}
+  - {fileID: 11400000, guid: a4e5839250675c045bdbbc217e87d0dc, type: 2}
+  - {fileID: 11400000, guid: 2f65b6cda20203440a3472a313c57a96, type: 2}
+  - {fileID: 11400000, guid: 446e1895fb44dd9468b8de827e985a5d, type: 2}
+  - {fileID: 11400000, guid: 193ccd89b9ce0c748b3c04da42d0a57c, type: 2}
+  - {fileID: 11400000, guid: 91c3cc0f270acb1499cc74d1eb52af87, type: 2}
+  - {fileID: 11400000, guid: 6cffd2233ccec694787687f901499069, type: 2}
   Canvas: {fileID: 0}
   nameText: {fileID: 0}
   characterImage: {fileID: 0}

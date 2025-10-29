@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb04ed8146191ab4b98ce1e8256bab43, type: 3}
+  m_Name: 1_2
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
+  dialogue:
+  - dialogueText: His eyes light up a tad; however, he still holds his stance.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: I can accept this. It almost complements my beauty. Do you have
+      more like this?
+    characterName: Kinnara
+    characterImage: {fileID: 21300000, guid: 8b9c0be06222d0e4bb47d657fafbef4f, type: 3}
+    dialogueEnd: 0
+  - dialogueText: "\u2026"
+    characterName: You
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: Hmph, I see...
+    characterName: Kinnara
+    characterImage: {fileID: 21300000, guid: 8b9c0be06222d0e4bb47d657fafbef4f, type: 3}
+    dialogueEnd: 0
+  - dialogueText: '*He loosens his stance*'
+    characterName: Kinnara
+    characterImage: {fileID: 21300000, guid: 8b9c0be06222d0e4bb47d657fafbef4f, type: 3}
+    dialogueEnd: 0
+  - dialogueText: "I\u2019ll let you live to see another day. Mayhaps you\u2019ll
+      be graced by my presence once more."
+    characterName: Kinnara
+    characterImage: {fileID: 21300000, guid: 8b9c0be06222d0e4bb47d657fafbef4f, type: 3}
+    dialogueEnd: 0
+  - dialogueText: Wait-
+    characterName: You
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: '*He pauses for a moment before shaking his head and continuing
+      into the dungeon*'
+    characterName: Kinnara
+    characterImage: {fileID: 21300000, guid: 8b9c0be06222d0e4bb47d657fafbef4f, type: 3}
+    dialogueEnd: 1
+  responses: []
+  LovyCounting:
+    LovyCount: 0
+    MinusLovyCount: 0
