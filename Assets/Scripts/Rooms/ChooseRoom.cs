@@ -85,9 +85,9 @@ public class ChooseRoom : MonoBehaviour
         }
 
         // Check if the current room should be a boss room
-        if (enemySpawner.roomsSpawnBoss == 5 ||
-            enemySpawner.roomsSpawnBoss == 11 ||
-            enemySpawner.roomsSpawnBoss == 17)
+        if (enemySpawner.roomsSpawnBoss == 1 ||
+            enemySpawner.roomsSpawnBoss == 2 ||
+            enemySpawner.roomsSpawnBoss == 7)
         {
             if (defaultBossSprite != null)
             {

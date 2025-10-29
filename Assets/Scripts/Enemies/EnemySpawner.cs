@@ -42,26 +42,26 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         // Randomly choose an enemy list
-        chosenList = Random.Range(0, 3); // Note: Random.Range(2,2) always returns 2
+        chosenList = Random.Range(0, 2); // Note: Random.Range(2,2) always returns 2
 
         switch (chosenList)
         {
             case 0:
                 activeList = sirenList;
-                Debug.Log("Vampire boss");
+                Debug.Log("Siren boss");
                 boss = sirenBoss;
                 break;
 
             case 1:
-                activeList = vampireList;
-                Debug.Log("Vampire boss");
-                boss = vampireBoss;
-                break;
-
-            case 2:
                 activeList = idkList;
                 Debug.Log("Idk boss");
                 boss = idkBoss;
+                break;
+
+            case 2:
+                activeList = vampireList;
+                Debug.Log("Vampire boss");
+                boss = vampireBoss;
                 break;
         }
 
@@ -115,7 +115,7 @@ public class EnemySpawner : MonoBehaviour
         yield return new WaitForSeconds(2.5f); // Wait 2.5 seconds before spawning
 
         // Check if next spawn is a normal enemy or boss
-        if (roomsSpawnBoss < 6 || roomsSpawnBoss >= 7 || roomsSpawnBoss < 12 || roomsSpawnBoss >= 13 || roomsSpawnBoss < 18 || roomsSpawnBoss >= 19)
+        if (roomsSpawnBoss < 2 || roomsSpawnBoss >= 3 || roomsSpawnBoss < 4 || roomsSpawnBoss >= 5 || roomsSpawnBoss < 8 || roomsSpawnBoss >= 9)
         {
             // Spawn queued enemy if player chose one
             if (spawnSpecificNext && queuedEnemyPrefab != null)
@@ -133,7 +133,7 @@ public class EnemySpawner : MonoBehaviour
         }
 
         // Spawn boss on specific rooms
-        if ((roomsSpawnBoss == 6 || roomsSpawnBoss == 12 || roomsSpawnBoss == 18) && !ifBossExists)
+        if ((roomsSpawnBoss == 2 || roomsSpawnBoss == 4 || roomsSpawnBoss == 8) && !ifBossExists)
         {
             DestroyEnemy(); // Clear normal enemies
             ifBossExists = true;
