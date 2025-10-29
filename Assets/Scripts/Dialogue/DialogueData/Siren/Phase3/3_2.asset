@@ -14,16 +14,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
   dialogue:
   - dialogueText: "We can both escape\u2014take this."
-    characterName: Player
+    characterName: You
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: You present the card. A glow radiates between you as the gift manifests.
+  - dialogueText: You present the Lyre. A faint melody hums from the mirror as if
+      resonating with the gift
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: "\u2026Interesting. You understand me better than I thought."
+  - dialogueText: "\u2026A Lyre?"
     characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: "Music\u2026 the one sound that could reach me even through the
+      mirror\u2019s silence."
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: "The surface of the mirror ripples, showing not her monstrous reflection\u2014but
+      the woman she once was."
+    characterName: Narrator
     characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: You understand me better than I thought.
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
   - dialogueText: "Her song softens, the killing edge dulled\u2014yet her eyes remain
       sharp, unyielding."
@@ -34,7 +49,7 @@ MonoBehaviour:
     characterName: Siren
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: Show me your power. Persuade me.
+  - dialogueText: If you want to free me, prove the harmony between us.
     characterName: Siren
     characterImage: {fileID: 0}
     dialogueEnd: 0
@@ -42,11 +57,11 @@ MonoBehaviour:
     characterName: Siren
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: "The battle begins, but the Siren restrains her strength\u2014testing
-      rather than destroying."
+  - dialogueText: "The battle begins\u2014but the Siren restrains her strength, her
+      melody weaving around you, testing your resolve rather than destroying you."
     characterName: Narrator
     characterImage: {fileID: 0}
-    dialogueEnd: 0
+    dialogueEnd: 1
   responses: []
   LovyCounting:
     LovyCount: 0

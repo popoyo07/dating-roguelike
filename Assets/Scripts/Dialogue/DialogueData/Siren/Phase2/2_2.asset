@@ -79,11 +79,11 @@ MonoBehaviour:
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: the Siren
+  - dialogueText: the Siren.
     characterName: Siren
     characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
-  - dialogueText: "Siren\u2026"
+  - dialogueText: "Si...ren\u2026"
     characterName: Player
     characterImage: {fileID: 0}
     dialogueEnd: 0
