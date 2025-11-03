@@ -43,6 +43,10 @@ public class Enemy : MonoBehaviour
         if (system.state == BattleState.PLAYERTURN && selectionUsed) 
         {
             actionSelector = Random.Range(0, 4); // remember that range the last digit is ignored in slecetion 
+            if (nextAttackUI.isVisible == false)
+            {
+                nextAttackUI.ShowNextAttack();
+            }
             nextAttackUI.UpdateNextAttackUI(actionSelector);
             attkDmg = Random.Range(5, 11);
             selectionUsed = false;

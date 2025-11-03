@@ -6,6 +6,7 @@ using TMPro;
 
 public class NextAttackUI : MonoBehaviour
 {
+    public bool isVisible;
     [SerializeField] private Image thoughtBubble;
     [SerializeField] private Image nextAttackImage;
     [SerializeField] private Sprite[] spriteList;
@@ -43,12 +44,13 @@ public class NextAttackUI : MonoBehaviour
     {
         nextAttackImage.color = new Color32(255, 255, 255, 255);
         thoughtBubble.color = new Color32(255, 255, 255, 255);
+        isVisible = true;
     }
 
     public void HideNextAttack()
     {
-
         nextAttackImage.color = new Color32(255, 255, 255, 0);
         thoughtBubble.color = new Color32(255, 255, 255, 0);
+        isVisible = false;
     }
 }
