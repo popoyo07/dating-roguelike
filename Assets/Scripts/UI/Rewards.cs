@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class Rewards : MonoBehaviour
 {
     private SimpleHealth playerHP; // Reference to the player's health component
+    private SimpleHealth enemyHP; //Referance to character or enemy health system
 
     [Header("Bools")]
     public bool openRewardsPop;      // Whether the rewards popup is currently open
@@ -44,6 +45,26 @@ public class Rewards : MonoBehaviour
         coinSystem = GameObject.FindWithTag("CoinSystem").GetComponent<CoinSystem>();
         deck = GameObject.Find("Managers").GetComponentInChildren<DeckDraw>();
         deckUI = GameObject.FindWithTag("DUM").GetComponent<DeckUIManager>(); // or assign in inspector
+
+    }
+
+    private void Update()
+    {
+        // Only try to find enemy once
+        if (enemyHP == null)
+        {
+            GameObject enemyObj = GameObject.FindWithTag("Enemy");
+            if (enemyObj != null)
+            {
+                enemyHP = enemyObj.GetComponent<SimpleHealth>();
+                Debug.Log("Rewards: Enemy reference set in Update.");
+            }
+        }
+    }
+
+    public void SetEnemy(SimpleHealth enemy)
+    {
+        enemyHP = enemy;
     }
 
     // Displays three reward options to the player
@@ -62,9 +83,13 @@ public class Rewards : MonoBehaviour
 
         // Ensure uniqueness
         while (index2 == index1)
+        {
             index2 = Random.Range(0, roomRewards.Count);
+        }
         while (index3 == index1 || index3 == index2)
+        {
             index3 = Random.Range(0, roomRewards.Count);
+        }
 
         reward1 = roomRewards[index1];
         reward2 = roomRewards[index2];
@@ -116,10 +141,14 @@ public class Rewards : MonoBehaviour
 
         pickedReward = true;
 
+        // Scale rewards based on enemy's maxHealth
+        int coinsToAdd = Mathf.Clamp(Mathf.RoundToInt(enemyHP.maxHealth * 0.5f), 3, 20); // Ex maxHp = 10, coins = +5 : Max coin gain is 20 coins plus the auto matic +2 = 22
+        float recoverPercent = Mathf.Clamp(enemyHP.maxHealth * 1.5f, 5f, 60f); // Ex maxHp = 10, health = +15% : Max health gain is 60%
+
         switch (reward.rewardType)
         {
             case RewardType.Coins:
-                StartCoroutine(coinSystem.AddCoins(8)); // Add 8 coins to the player's inventory
+                StartCoroutine(coinSystem.AddCoins(coinsToAdd)); // Add 8 coins to the player's inventory (8)
                 Debug.LogWarning("Coins ADDED");
                 break;
 
@@ -140,7 +169,7 @@ public class Rewards : MonoBehaviour
                 break;
 
             case RewardType.RecoverHP:
-                playerHP.PercentageRecoverHP(30); // Recover 30% of player's max HP
+                playerHP.PercentageRecoverHP(recoverPercent); // Recover 30% of player's max HP (30)
                 Debug.LogWarning("Recover HP by 30% of max HP");
                 break;
         }

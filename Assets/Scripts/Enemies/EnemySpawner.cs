@@ -1,6 +1,7 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Collections;
+using static Rewards;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class EnemySpawner : MonoBehaviour
     private GameObject enemyInstance;              // Current enemy instance
 
     private BattleSystem battleSystem;             // Reference to BattleSystem script
+    private Rewards rewards;
 
     private GameObject queuedEnemyPrefab;          // Next enemy chosen by player
     private bool spawnSpecificNext;                // Flag to spawn the queued enemy next
@@ -42,7 +44,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         // Randomly choose an enemy list
-        chosenList = Random.Range(0, 2); // Note: Random.Range(2,2) always returns 2
+        chosenList = Random.Range(0, 3); // Note: Random.Range(2,2) always returns 2
 
         switch (chosenList)
         {
@@ -69,6 +71,7 @@ public class EnemySpawner : MonoBehaviour
 
         // Get BattleSystem reference
         battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
+        rewards = GameObject.FindWithTag("RewardsM").GetComponent<Rewards>();
 
         // Set boss and enemy spawn positions
         bossSpawn = new Vector3(0f, 1.5f, 1.94f);
@@ -152,6 +155,21 @@ public class EnemySpawner : MonoBehaviour
             int randomEnemy = Random.Range(0, activeList.Count);
             enemyInstance = Instantiate(activeList[randomEnemy], spawnPoint, Quaternion.identity);
             spawnedList.Add(enemyInstance);
+
+            // Link the spawned enemy’s health to the Rewards system
+            if (rewards == null)
+                rewards = GameObject.FindWithTag("RewardsM").GetComponent<Rewards>();
+
+            SimpleHealth enemyHp = enemyInstance.GetComponent<SimpleHealth>();
+            if (enemyHp != null)
+            {
+                rewards.SetEnemy(enemyHp);
+                Debug.Log("Linked new enemy to Rewards: " + enemyHp.name);
+            }
+            else
+            {
+                Debug.LogWarning("Spawned enemy has no SimpleHealth component!");
+            }
         }
     }
 

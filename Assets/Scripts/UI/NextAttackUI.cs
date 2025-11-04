@@ -19,25 +19,29 @@ public class NextAttackUI : MonoBehaviour
 
     public void UpdateNextAttackUI(int action)
     {
-        Debug.Log("Attempting to Update Next Attack UI");
-        switch (action)
+        if(nextAttackImage != null)
         {
-            case 0:
-                nextAttackImage.sprite = spriteList[0];
-                break;
-            case 1:
-                nextAttackImage.sprite = spriteList[0];
-                break;
-            case 2:
-                nextAttackImage.sprite = spriteList[1];
-                break;
-            case 3:
-                nextAttackImage.sprite = spriteList[1];
-                break;
-            default:
-                Debug.Log("Nothing happened");
-                break;
+            Debug.Log("Attempting to Update Next Attack UI");
+            switch (action)
+            {
+                case 0:
+                    nextAttackImage.sprite = spriteList[0];
+                    break;
+                case 1:
+                    nextAttackImage.sprite = spriteList[0];
+                    break;
+                case 2:
+                    nextAttackImage.sprite = spriteList[1];
+                    break;
+                case 3:
+                    nextAttackImage.sprite = spriteList[1];
+                    break;
+                default:
+                    Debug.Log("Nothing happened");
+                    break;
+            }
         }
+        
     }
 
     public void ShowNextAttack()
