@@ -160,8 +160,23 @@ public class Rewards : MonoBehaviour
                 deck.runtimeDeck.Add(newCard); // Add the new card to the runtime deck
 
                 if (deckUI != null)
-                {
-                    deckUI.AddCardUI(newCard); // Update the deck UI to display the new card
+                { 
+                    // Update the deck UI to display the new card
+                    if (enemyHP.maxHealth <= 10)
+                    {
+                        deckUI.AddCardUI(newCard);
+                    }
+                    else if (enemyHP.maxHealth <= 20)
+                    {
+                        deckUI.AddCardUI(newCard);
+                        deckUI.AddCardUI(newCard);
+                    }
+                    else 
+                    {
+                        deckUI.AddCardUI(newCard);
+                        deckUI.AddCardUI(newCard);
+                        deckUI.AddCardUI(newCard);
+                    }
                 }
 
                 Debug.LogWarning("New Card ADDED called " + deck.cardDatabase.allCards[r]);

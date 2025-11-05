@@ -65,6 +65,7 @@ public class BattleSystem : MonoBehaviour
                 if (enemyHP.isBoss && secondEncounter)
                 { // win should be added here 
                     state = BattleState.WONGAME;
+                   // menuButtons.winMenu.SetActive(true);
                     SceneManager.LoadScene("MainMenu");
                     menuButtons.ResetDialogueIndex();
                 }
