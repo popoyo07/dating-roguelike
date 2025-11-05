@@ -19,7 +19,7 @@ public class NextAttackUI : MonoBehaviour
 
     public void UpdateNextAttackUI(int action)
     {
-        if(nextAttackImage != null)
+        if(nextAttackImage != null && thoughtBubble != null)
         {
             Debug.Log("Attempting to Update Next Attack UI");
             switch (action)
@@ -46,15 +46,22 @@ public class NextAttackUI : MonoBehaviour
 
     public void ShowNextAttack()
     {
-        nextAttackImage.color = new Color32(255, 255, 255, 255);
-        thoughtBubble.color = new Color32(255, 255, 255, 255);
-        isVisible = true;
+        if (nextAttackImage != null && thoughtBubble != null) 
+        {
+            nextAttackImage.color = new Color32(255, 255, 255, 255);
+            thoughtBubble.color = new Color32(255, 255, 255, 255);
+            isVisible = true;
+        }
+            
     }
 
     public void HideNextAttack()
     {
-        nextAttackImage.color = new Color32(255, 255, 255, 0);
-        thoughtBubble.color = new Color32(255, 255, 255, 0);
-        isVisible = false;
+        if (nextAttackImage != null && thoughtBubble != null) 
+        {
+            nextAttackImage.color = new Color32(255, 255, 255, 0);
+            thoughtBubble.color = new Color32(255, 255, 255, 0);
+            isVisible = false;
+        }
     }
 }
