@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour
     {
         if (system.state == BattleState.PLAYERTURN && selectionUsed) 
         {
-            actionSelector = Random.Range(0, 4); // remember that range the last digit is ignored in slecetion 
+            actionSelector = Random.Range(0, 6); // remember that range the last digit is ignored in slecetion 
             if (nextAttackUI.isVisible == false)
             {
                 nextAttackUI.ShowNextAttack();
@@ -102,6 +102,14 @@ public class Enemy : MonoBehaviour
                 Guard();
                 Debug.Log("Guard");
                 break;
+            case 4:
+                Weaken();
+                Debug.Log("Weaken");
+                break;
+            case 5: 
+                Vulnerable();
+                Debug.Log("Vulnerable");
+                break;
             default:
                 Debug.Log("Nothing happened");
                 break;
@@ -138,6 +146,24 @@ public class Enemy : MonoBehaviour
     void Guard()
     {
         system.enemyHP.shield += 4;
+    }
+
+    void Weaken()
+    {
+        PlayerStatus.currentStatus = StatusEffect.WEAK;
+    }
+
+    void Vulnerable()
+    {
+        PlayerStatus.currentStatus = StatusEffect.VULNERABLE;
+    }
+
+    void Angery()
+    {
+        float bossDmg = attkDmg * 1.25f;
+        attkDmg = (int)bossDmg;
+        float bossHP = system.enemyHP.maxHealth * 1.5f;
+        system.enemyHP.maxHealth = (int)bossHP;
     }
 
     void OnDestroy()

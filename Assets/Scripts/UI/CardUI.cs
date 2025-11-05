@@ -22,6 +22,7 @@ public class CardUI : MonoBehaviour
     public DialogueProgression progression;
 
     private string cardName;
+    public bool correctLovyDovy;
 
     private void Awake()
     {
@@ -107,9 +108,11 @@ public class CardUI : MonoBehaviour
                 {
                     if (phase == 3)
                     {
+                        correctLovyDovy = true;
                         DialogueUI.MarkPendingSkip();
                         Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
                         Activator.ContinueDialogue(1, 2);
+
                     }
                     else if (phase != 3)
                     {
@@ -123,7 +126,7 @@ public class CardUI : MonoBehaviour
                     Activator.ContinueDialogue(2, 1);
                 }
 
-                break;
+                    break;
 
             case "LoveyDovy2": //Thorned Rose --> Vampire (Phase 1)
 
@@ -136,6 +139,8 @@ public class CardUI : MonoBehaviour
                 {
                     if (phase == 1)
                     {
+                        correctLovyDovy = true;
+
                         DialogueUI.MarkPendingSkip();
                         Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
                         Activator.ContinueDialogue(1, 2);
@@ -159,6 +164,8 @@ public class CardUI : MonoBehaviour
                 {
                     if (phase == 2)
                     {
+                        correctLovyDovy = true;
+
                         DialogueUI.MarkPendingSkip();
                         Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
                         Activator.ContinueDialogue(1, 2);
@@ -171,22 +178,16 @@ public class CardUI : MonoBehaviour
                 }
                 else if (boss == enemySpawner.vampireBoss)
                 {
-                    if (phase == 1)
-                    {
-                        DialogueUI.MarkPendingSkip();
-                        Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
-                        Activator.ContinueDialogue(1, 2);
-                    }
-                    else if (phase != 1)
-                    {
                         Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
                         Activator.ContinueDialogue(number: 2, 1);
-                    }
+                    
                 }
                 else if (boss == enemySpawner.idkBoss)
                 {
                     if (phase == 1)
                     {
+                        correctLovyDovy = true;
+
                         DialogueUI.MarkPendingSkip();
                         Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
                         Activator.ContinueDialogue(1, 2);
@@ -205,6 +206,8 @@ public class CardUI : MonoBehaviour
                 {
                     if (phase == 1)
                     {
+                        correctLovyDovy = true;
+
                         DialogueUI.MarkPendingSkip();
                         Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
                         Activator.ContinueDialogue(number: 1, 2);
@@ -234,6 +237,8 @@ public class CardUI : MonoBehaviour
                 {
                     if (phase == 3)
                     {
+                        correctLovyDovy = true;
+
                         Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
                         Activator.ContinueDialogue(1, 0);
                     }
@@ -247,6 +252,8 @@ public class CardUI : MonoBehaviour
                 {
                     if (phase == 2)
                     {
+                        correctLovyDovy = true;
+
                         DialogueUI.MarkPendingSkip();
                         Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
                         Activator.ContinueDialogue(1, 2);
@@ -280,6 +287,9 @@ public class CardUI : MonoBehaviour
                 {
                     if (phase == 2)
                     {
+                        correctLovyDovy = true;
+
+
                         DialogueUI.MarkPendingSkip();
                         Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
                         Activator.ContinueDialogue(1, 2);
