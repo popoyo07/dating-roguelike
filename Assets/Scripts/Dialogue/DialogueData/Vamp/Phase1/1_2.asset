@@ -27,7 +27,12 @@ MonoBehaviour:
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: "I exist, yet I have none of those. And still\u2026 I breathe."
+  - dialogueText: "What makes an existence a life? Is it warmth\u2026 blood\u2026
+      or a soul?"
+    characterName: Vampire
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "I exist, yet I have none of those. However\u2026 I breathe."
     characterName: Vampire
     characterImage: {fileID: 0}
     dialogueEnd: 0
@@ -35,7 +40,7 @@ MonoBehaviour:
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: "So tell me\u2026 am I alive? Or just a mistake given form?"
+  - dialogueText: "So tell me\u2026 am I alive? Or just a mistake given the form?"
     characterName: Vampire
     characterImage: {fileID: 0}
     dialogueEnd: 0

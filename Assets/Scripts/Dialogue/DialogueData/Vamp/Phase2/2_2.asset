@@ -26,11 +26,11 @@ MonoBehaviour:
     characterName: Vampire
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: Pauses.
-    characterName: 
+  - dialogueText: He pauses.
+    characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: "\u201CMaybe that\u2019s why I don\u2019t hate you."
+  - dialogueText: "Maybe that\u2019s why I don\u2019t hate you."
     characterName: Vampire
     characterImage: {fileID: 0}
     dialogueEnd: 0

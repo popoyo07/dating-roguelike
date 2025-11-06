@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1_1
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
   dialogue:
-  - dialogueText: Steps out from the shadows, eyes glinting crimson.
+  - dialogueText: He steps out from the shadows, eyes glinting crimson.
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
@@ -23,7 +23,7 @@ MonoBehaviour:
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: Do you want to use the LoveyDovy card on him?
+  - dialogueText: Do you want to use the LoveyDovey card on him?
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0

@@ -12,8 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb04ed8146191ab4b98ce1e8256bab43, type: 3}
   m_Name: 2_1silent
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
-  dialogue: []
-  responses: []
+  dialogue:
+  - dialogueText: Well, this is awkward.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: He smirks faintly.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: Silence suits you. The world is too loud anyway.
+    characterName: Vampire
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: Do you want to use the LoveyDovey Card on him?
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  responses:
+  - respnseText: Yes
+    dialogueObject: {fileID: 11400000, guid: 4f434d0356f9ebf469ff248395e280e7, type: 2}
+  - respnseText: No
+    dialogueObject: {fileID: 11400000, guid: 7bfbaf22c7704d9468408f21a98539bc, type: 2}
   LovyCounting:
     LovyCount: 0
     MinusLovyCount: 0

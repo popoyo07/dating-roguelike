@@ -109,7 +109,6 @@ public class CardUI : MonoBehaviour
                     if (phase == 3)
                     {
                         correctLovyDovy = true;
-                        DialogueUI.MarkPendingSkip();
                         Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
                         Activator.ContinueDialogue(1, 2);
 

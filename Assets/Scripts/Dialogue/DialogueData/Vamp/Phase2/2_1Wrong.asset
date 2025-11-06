@@ -17,7 +17,7 @@ MonoBehaviour:
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: "You dare\u2026 mock me again?!"
+  - dialogueText: "You dare\u2026 mock me?!"
     characterName: Vampire
     characterImage: {fileID: 0}
     dialogueEnd: 0

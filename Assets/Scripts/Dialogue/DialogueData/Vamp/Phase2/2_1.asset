@@ -40,7 +40,7 @@ MonoBehaviour:
   responses:
   - respnseText: Hello
     dialogueObject: {fileID: 11400000, guid: 908bbfd83706fdd418c91c15ec549891, type: 2}
-  - respnseText: Remain Silent
+  - respnseText: Silent
     dialogueObject: {fileID: 11400000, guid: 0463eb1d016cefb4fb192c1e2899f1fc, type: 2}
   LovyCounting:
     LovyCount: 0

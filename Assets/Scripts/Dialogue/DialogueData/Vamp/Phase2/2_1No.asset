@@ -20,7 +20,7 @@ MonoBehaviour:
   - dialogueText: "Thank you. For not pretending I\u2019m something I\u2019m not."
     characterName: Vampire
     characterImage: {fileID: 0}
-    dialogueEnd: 0
+    dialogueEnd: 1
   responses: []
   LovyCounting:
     LovyCount: 0
