@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class FloatingHealthBar : MonoBehaviour
 {
-    [SerializeField] private GameObject camera;
+    [SerializeField] private GameObject cam;
     [SerializeField] private Transform target;
     [SerializeField] private Vector3 offset;
 
@@ -10,13 +10,13 @@ public class FloatingHealthBar : MonoBehaviour
 
     private void Start()
     {
-        camera = GameObject.FindWithTag("MainCamera");
+        cam = GameObject.FindWithTag("MainCamera");
         target = transform.parent;
     }
 
     void Update()
     {
-        transform.parent.rotation = camera.transform.rotation;
+        transform.parent.rotation = cam.transform.rotation;
         transform.position = target.position;
     }
 }

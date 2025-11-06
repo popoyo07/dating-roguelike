@@ -33,7 +33,7 @@ public class AssignCardAnimation : MonoBehaviour
         }
 
     }
-    public IEnumerator StartingAnimation(int i) // changes values depending on animation choice 
+    public IEnumerator StartingAnimation(int i) // changes values depending on anim choice 
     {
         if (animator != null)
         {
