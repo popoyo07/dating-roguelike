@@ -17,7 +17,7 @@ public class Animation : MonoBehaviour
     {
         animator = this.gameObject.GetComponentInChildren<Animator>();
         cardmanager = GameObject.Find("CardManager");
-        Debug.Log("it is assigning enemy for the card managers from the animation script");
+        Debug.Log("it is assigning enemy for the card managers from the anim script");
         knight = cardmanager.GetComponent<ActionsKnight>();
         knight.enemy = this.gameObject;
         chemist = cardmanager.GetComponent<ActionsChemist>();

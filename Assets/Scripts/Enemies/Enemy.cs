@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] bool selectionUsed;
     StatusEffects EnemyStatus;
     StatusEffects PlayerStatus;
-    Animation animation;
+    Animation anim;
   
     void Awake()
     {
@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
         PlayerStatus = player.GetComponent<StatusEffects>();
         nextAttackUI.ShowNextAttack();
 
-        animation = this.gameObject.GetComponent<Animation>();
+        anim = this.gameObject.GetComponent<Animation>();
 
      
 
@@ -82,7 +82,7 @@ public class Enemy : MonoBehaviour
     void Action()
     {
         doingS = true;
-        animation.TriggerAttack();
+        anim.TriggerAttack();
 
         switch (actionSelector) // randomly select an enemy attack
         {

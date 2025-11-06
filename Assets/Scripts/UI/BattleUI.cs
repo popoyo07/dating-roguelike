@@ -23,7 +23,7 @@ public class BattleUI : MonoBehaviour
     {
         if (dialogueUI == null)
         {
-            dialogueUI = GameObject.FindObjectOfType<DialogueUI>();
+            dialogueUI = GameObject.FindFirstObjectByType<DialogueUI>(); // if this causes an issue replace with { GameObject.FindObjectOfType<DialogueUI>()
         }
         roomA = GameObject.Find("RoomA").GetComponent<MoveRoomA>();
         roomB = GameObject.Find("RoomB").GetComponent<MoveRoomB>();
