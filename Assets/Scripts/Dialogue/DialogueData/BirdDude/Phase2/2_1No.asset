@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 2_1No
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
   dialogue:
-  - dialogueText: '*scoffs*'
-    characterName: Kinnara
-    characterImage: {fileID: 21300000, guid: 8b9c0be06222d0e4bb47d657fafbef4f, type: 3}
+  - dialogueText: He scoffs
+    characterName: Narrator
+    characterImage: {fileID: 0}
     dialogueEnd: 0
   - dialogueText: "And here I thought you\u2019d be different from the barbarians
       in this place."

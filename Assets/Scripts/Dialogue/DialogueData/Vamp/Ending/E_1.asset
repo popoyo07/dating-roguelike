@@ -13,12 +13,16 @@ MonoBehaviour:
   m_Name: E_1
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
   dialogue:
-  - dialogueText: You did not kill me? Why?
+  - dialogueText: "kneels, wounded but breathing \u2014 barely."
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "You\u2026 didn\u2019t kill me. Why?"
     characterName: Vampire
     characterImage: {fileID: 0}
     dialogueEnd: 0
   responses:
-  - respnseText: Love You
+  - respnseText: Like
     dialogueObject: {fileID: 11400000, guid: 1f9b28246c909ae4a813727ad45ae6d7, type: 2}
   - respnseText: Friend
     dialogueObject: {fileID: 11400000, guid: 9b6ec97998b01e74183018b590225951, type: 2}

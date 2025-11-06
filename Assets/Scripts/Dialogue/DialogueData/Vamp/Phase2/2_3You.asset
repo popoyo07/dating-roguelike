@@ -13,31 +13,32 @@ MonoBehaviour:
   m_Name: 2_3You
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
   dialogue:
-  - dialogueText: Why, to see you, of course!
-    characterName: You
-    characterImage: {fileID: 0}
-    dialogueEnd: 0
-  - dialogueText: He blushes.
+  - dialogueText: He freezes. His face softens.
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: Wait... if he does not have blood, how can he blush?
+  - dialogueText: "He blushes \u2014 wait, if he doesn\u2019t have blood, how can
+      he blush?"
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: Anway...
+  - dialogueText: Anyway...
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: Curious (Goes to leave)
-    characterName: Vampire
+  - dialogueText: Curious.
+    characterName: Vamipre
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: Corinne, im not doing do the insert name!
-    characterName: Sze
+  - dialogueText: He starts to walk away.
+    characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  responses: []
+  responses:
+  - respnseText: Leave
+    dialogueObject: {fileID: 0}
+  - respnseText: Wait
+    dialogueObject: {fileID: 0}
   LovyCounting:
     LovyCount: 0
     MinusLovyCount: 0

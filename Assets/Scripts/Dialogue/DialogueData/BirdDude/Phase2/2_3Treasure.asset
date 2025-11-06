@@ -10,26 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb04ed8146191ab4b98ce1e8256bab43, type: 3}
-  m_Name: E_2Friend
+  m_Name: 2_3Treasure
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
   dialogue:
-  - dialogueText: Because you are my friend.
+  - dialogueText: "I came searching for treasure\u2026 and I think I just found it."
     characterName: You
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: Friend...
-    characterName: Vampire
-    characterImage: {fileID: 0}
-    dialogueEnd: 0
-  - dialogueText: "He says it like a word he\u2019s never known how to speak."
+  - dialogueText: His smirk faded, replaced by a guarded, almost wounded look.
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: "I never had one of those before. But it sounds\u2026 nice."
-    characterName: Vampire
+  - dialogueText: "Ah, I see\u2026"
+    characterName: Kinnara
+    characterImage: {fileID: 21300000, guid: 8b9c0be06222d0e4bb47d657fafbef4f, type: 3}
+    dialogueEnd: 0
+  - dialogueText: "Just as expected from a human I guess\u2026"
+    characterName: Kinnara
+    characterImage: {fileID: 21300000, guid: 8b9c0be06222d0e4bb47d657fafbef4f, type: 3}
+    dialogueEnd: 0
+  - dialogueText: He leaves quickly, giving you no chance for further interaction.
+    characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: You have successfully friend-zoned the Vampire.
+  - dialogueText: "That was such a lame way to flirt\u2026"
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 1

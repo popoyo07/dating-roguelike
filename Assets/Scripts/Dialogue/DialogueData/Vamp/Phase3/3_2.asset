@@ -13,15 +13,41 @@ MonoBehaviour:
   m_Name: 3_2
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
   dialogue:
-  - dialogueText: He drinks the blood and licks the lip.
+  - dialogueText: He steps closer, trembling.
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: Aha. That was good.
+  - dialogueText: "You\u2019d\u2026 let me?"
     characterName: Vampire
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: But I need more!
+  - dialogueText: He leans forward, you feel his breath on your neck.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: He hesitates before you feel his fangs sinking into your flesh,
+      then starts to drink slowly.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: At first the sensation is painful and sharp, but quickly turns
+      into a somewhat pleasant experience.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: He exhales, lips trembling with warmth.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "Aha\u2026 that was\u2026 good."
+    characterName: Vampire
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "His eyes open \u2014 glowing red."
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: But I need more.
     characterName: Vampire
     characterImage: {fileID: 0}
     dialogueEnd: 1

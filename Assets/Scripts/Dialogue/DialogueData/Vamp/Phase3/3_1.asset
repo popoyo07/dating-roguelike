@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 3_1
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
   dialogue:
-  - dialogueText: (Sniff sniff)
-    characterName: Vampire
+  - dialogueText: He sniffs the air, trembling.
+    characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
   - dialogueText: Blood...
@@ -25,11 +25,15 @@ MonoBehaviour:
     characterName: You
     characterImage: {fileID: 0}
     dialogueEnd: 0
+  - dialogueText: His voice cracks into hysteria.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
   - dialogueText: Blood, BLOOD, BLOOOOOOOOOD!!!!!
     characterName: Vampire
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: I smell Sweet, Delectable Blood coming from you.
+  - dialogueText: "I smell it on you \u2014 warm, sweet, BLOOD!"
     characterName: Vampire
     characterImage: {fileID: 0}
     dialogueEnd: 0
@@ -37,31 +41,19 @@ MonoBehaviour:
     characterName: Vampire
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: Oh, the smell of blood it's, it's so invigorating!
-    characterName: Vampire
-    characterImage: {fileID: 0}
-    dialogueEnd: 0
-  - dialogueText: I must have it!
-    characterName: Vampire
-    characterImage: {fileID: 0}
-    dialogueEnd: 0
-  - dialogueText: If only just a taste?
-    characterName: Vampire
-    characterImage: {fileID: 0}
-    dialogueEnd: 0
-  - dialogueText: He looks at you hungrily.
+  - dialogueText: He looks at you hungrily, his fangs glinting in the dim light.
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: Do you want to use LoveyDovey card to help him?
+  - dialogueText: Do you want to use the LoveyDovey Card on him?
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
   responses:
   - respnseText: Yes
-    dialogueObject: {fileID: 0}
-  - respnseText: Fight
-    dialogueObject: {fileID: 0}
+    dialogueObject: {fileID: 11400000, guid: 4f434d0356f9ebf469ff248395e280e7, type: 2}
+  - respnseText: No
+    dialogueObject: {fileID: 11400000, guid: c89e653774d78d947af198f72defc3fc, type: 2}
   LovyCounting:
     LovyCount: 0
     MinusLovyCount: 0

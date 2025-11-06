@@ -13,43 +13,35 @@ MonoBehaviour:
   m_Name: 2_1
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
   dialogue:
-  - dialogueText: He breathes in longingly, and relieves a sigh.
+  - dialogueText: He takes a deep breath, sighs heavily.
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: NO!
+  - dialogueText: No!
     characterName: Vampire
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: He proceeds to slap himself and regains his composure
+  - dialogueText: "He slaps himself \u2014 hard \u2014 as if fighting his own thoughts."
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: Hello again...
+  - dialogueText: "Control yourself\u2026"
     characterName: Vampire
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: Hello...
-    characterName: You
-    characterImage: {fileID: 0}
-    dialogueEnd: 0
-  - dialogueText: (Remain silent)
-    characterName: 
-    characterImage: {fileID: 0}
-    dialogueEnd: 0
-  - dialogueText: Well, this is awkward... Why not have some fun with him?
+  - dialogueText: He mutters under his breath, then looks at you.
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: Do you want to use LoveyDovey card?
-    characterName: Narrator
+  - dialogueText: "Hello\u2026 again."
+    characterName: Vampire
     characterImage: {fileID: 0}
     dialogueEnd: 0
   responses:
-  - respnseText: Yes
-    dialogueObject: {fileID: 11400000, guid: d67f71fedd3a2484e8ba52922ab79fe7, type: 2}
-  - respnseText: No, fight
-    dialogueObject: {fileID: 11400000, guid: 7bfbaf22c7704d9468408f21a98539bc, type: 2}
+  - respnseText: Hello
+    dialogueObject: {fileID: 11400000, guid: 908bbfd83706fdd418c91c15ec549891, type: 2}
+  - respnseText: Remain Silent
+    dialogueObject: {fileID: 11400000, guid: 0463eb1d016cefb4fb192c1e2899f1fc, type: 2}
   LovyCounting:
     LovyCount: 0
     MinusLovyCount: 0

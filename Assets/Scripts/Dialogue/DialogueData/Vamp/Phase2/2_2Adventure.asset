@@ -13,14 +13,19 @@ MonoBehaviour:
   m_Name: 2_2Adventure
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
   dialogue:
-  - dialogueText: The frill of adventure, and money$$$!
-    characterName: You
+  - dialogueText: He shrugs.
+    characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: Of course...
+  - dialogueText: How human.
     characterName: Vampire
     characterImage: {fileID: 0}
     dialogueEnd: 0
+  - dialogueText: "Gold and glory\u2026 they vanish like dust. But if it drives you
+      \u2014 so be it."
+    characterName: Vampire
+    characterImage: {fileID: 0}
+    dialogueEnd: 1
   responses: []
   LovyCounting:
     LovyCount: 0

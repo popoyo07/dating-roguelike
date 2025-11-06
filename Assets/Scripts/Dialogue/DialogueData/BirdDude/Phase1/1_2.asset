@@ -30,9 +30,9 @@ MonoBehaviour:
     characterName: Kinnara
     characterImage: {fileID: 21300000, guid: 8b9c0be06222d0e4bb47d657fafbef4f, type: 3}
     dialogueEnd: 0
-  - dialogueText: '*He loosens his stance*'
-    characterName: Kinnara
-    characterImage: {fileID: 21300000, guid: 8b9c0be06222d0e4bb47d657fafbef4f, type: 3}
+  - dialogueText: He loosens his stance.
+    characterName: Narrator
+    characterImage: {fileID: 0}
     dialogueEnd: 0
   - dialogueText: "I\u2019ll let you live to see another day. Mayhaps you\u2019ll
       be graced by my presence once more."
@@ -43,9 +43,9 @@ MonoBehaviour:
     characterName: You
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: '*He pauses for a moment before shaking his head and continuing
-      into the dungeon*'
-    characterName: Kinnara
+  - dialogueText: He pauses for a moment before shaking his head and continuing into
+      the dungeon
+    characterName: Narrator
     characterImage: {fileID: 21300000, guid: 8b9c0be06222d0e4bb47d657fafbef4f, type: 3}
     dialogueEnd: 1
   responses: []

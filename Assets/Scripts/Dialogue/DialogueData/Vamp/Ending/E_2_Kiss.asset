@@ -10,30 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb04ed8146191ab4b98ce1e8256bab43, type: 3}
-  m_Name: E_2_What
+  m_Name: E_2_Kiss
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
   dialogue:
-  - dialogueText: No. What? Why?
-    characterName: You
-    characterImage: {fileID: 0}
-    dialogueEnd: 0
-  - dialogueText: I have finally accepted that I am not amongst the living.
-    characterName: Vampire
-    characterImage: {fileID: 0}
-    dialogueEnd: 0
-  - dialogueText: You deserve better.
-    characterName: Vampire
-    characterImage: {fileID: 0}
-    dialogueEnd: 0
-  - dialogueText: What will you do?
+  - dialogueText: You lean forward and kiss him on the cheek.
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  responses:
-  - respnseText: Kiss
-    dialogueObject: {fileID: 0}
-  - respnseText: Kill
-    dialogueObject: {fileID: 11400000, guid: 1270b1c7351b293479d4101e9857aae6, type: 2}
+  - dialogueText: He freezes, eyes wide, then touches the spot with trembling fingers.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "So this is what warmth feels like\u2026"
+    characterName: Vampire
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: You have successfully romanced Vampire.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  responses: []
   LovyCounting:
     LovyCount: 0
     MinusLovyCount: 0

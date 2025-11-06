@@ -13,15 +13,17 @@ MonoBehaviour:
   m_Name: 1_1
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
   dialogue:
-  - dialogueText: (Glare)
-    characterName: 
-    characterImage: {fileID: 0}
-    dialogueEnd: 0
-  - dialogueText: A monster is glaring at you while entering a fighting stance.
+  - dialogueText: Steps out from the shadows, eyes glinting crimson.
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: Do you want to use the LoveyDovy card on Vamp?
+  - dialogueText: "A monster is glaring at you while entering a fighting stance.
+      His body tenses, every breath deliberate \u2014 as if holding back something
+      darker."
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: Do you want to use the LoveyDovy card on him?
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0

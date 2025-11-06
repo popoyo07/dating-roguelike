@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: 2_1No
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
   dialogue:
-  - dialogueText: 
-    characterName: 
+  - dialogueText: He bows slightly, almost amused.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "Thank you. For not pretending I\u2019m something I\u2019m not."
+    characterName: Vampire
     characterImage: {fileID: 0}
     dialogueEnd: 0
   responses: []

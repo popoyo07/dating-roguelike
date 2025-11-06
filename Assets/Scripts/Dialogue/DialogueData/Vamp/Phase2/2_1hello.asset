@@ -10,26 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb04ed8146191ab4b98ce1e8256bab43, type: 3}
-  m_Name: E_3
+  m_Name: 2_1hello
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
   dialogue:
-  - dialogueText: You kiss him.
+  - dialogueText: He nods slightly.
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: He kisses you back.
-    characterName: Narrator
-    characterImage: {fileID: 0}
-    dialogueEnd: 0
-  - dialogueText: I like this.
+  - dialogueText: "You came back. I\u2026 didn\u2019t expect that."
     characterName: Vampire
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: You have successfully romanced the Vampire.
+  - dialogueText: 'Do you want to use the LoveyDovey Card on Vamp? '
     characterName: Vampire
     characterImage: {fileID: 0}
-    dialogueEnd: 1
-  responses: []
+    dialogueEnd: 0
+  responses:
+  - respnseText: Yes
+    dialogueObject: {fileID: 11400000, guid: 4f434d0356f9ebf469ff248395e280e7, type: 2}
+  - respnseText: No
+    dialogueObject: {fileID: 11400000, guid: 7bfbaf22c7704d9468408f21a98539bc, type: 2}
   LovyCounting:
     LovyCount: 0
     MinusLovyCount: 0

@@ -13,11 +13,15 @@ MonoBehaviour:
   m_Name: I_2Mistake
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
   dialogue:
+  - dialogueText: He closes his eyes. The corner of his mouth trembles.
+    characterName: Vampire
+    characterImage: {fileID: 0}
+    dialogueEnd: 1
   - dialogueText: I knew it...
     characterName: Vampire
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: He speaks in a sad tone and disappeared.
+  - dialogueText: He fades into the dark, the rose wilting in your hand.
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 1

@@ -13,16 +13,28 @@ MonoBehaviour:
   m_Name: 2_2
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
   dialogue:
-  - dialogueText: He tenderly takes the offering from your hands. And cracks a qick
-      grin.
+  - dialogueText: He tenderly takes the offering from your hands, brushing your fingers
+      with unexpected gentleness.
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: Thank you.
+  - dialogueText: "He cracks a grin \u2014 small, almost human."
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "You\u2019re strange. No one gives a monster a gift."
     characterName: Vampire
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: So what brings you to my dungeon?
+  - dialogueText: Pauses.
+    characterName: 
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "\u201CMaybe that\u2019s why I don\u2019t hate you."
+    characterName: Vampire
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: So what brings you to the dungeon?
     characterName: Vampire
     characterImage: {fileID: 0}
     dialogueEnd: 0

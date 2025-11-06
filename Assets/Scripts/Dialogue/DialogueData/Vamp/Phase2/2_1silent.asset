@@ -10,13 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb04ed8146191ab4b98ce1e8256bab43, type: 3}
-  m_Name: 1_1Yes
+  m_Name: 2_1silent
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
-  dialogue:
-  - dialogueText: "You reach for your LoveyDovey deck. Choose wisely\u2026"
-    characterName: Narrator
-    characterImage: {fileID: 0}
-    dialogueEnd: 0
+  dialogue: []
   responses: []
   LovyCounting:
     LovyCount: 0

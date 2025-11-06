@@ -13,34 +13,30 @@ MonoBehaviour:
   m_Name: E_2
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
   dialogue:
-  - dialogueText: Because I have fallen for you.
-    characterName: You
-    characterImage: {fileID: 0}
-    dialogueEnd: 0
-  - dialogueText: He blushes profuesly.
+  - dialogueText: Seriously, how can he blush?!
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: Seriously? How can he blush?!?
-    characterName: Narrator
-    characterImage: {fileID: 0}
-    dialogueEnd: 0
-  - dialogueText: But I tried to kill you.
+  - dialogueText: "But I tried to kill you\u2026"
     characterName: Vampire
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: And??? So have I.
+  - dialogueText: And? So have I.
     characterName: You
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: Kill me.
+  - dialogueText: He chuckles softly.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: I see. Monsters of a kind, then.
     characterName: Vampire
     characterImage: {fileID: 0}
     dialogueEnd: 0
   responses:
-  - respnseText: What?
+  - respnseText: Kiss
     dialogueObject: {fileID: 11400000, guid: 05bbf5404582b0242820fafe11cba177, type: 2}
-  - respnseText: Kill
+  - respnseText: Hand
     dialogueObject: {fileID: 11400000, guid: 1270b1c7351b293479d4101e9857aae6, type: 2}
   LovyCounting:
     LovyCount: 0

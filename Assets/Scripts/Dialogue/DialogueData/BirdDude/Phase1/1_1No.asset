@@ -26,7 +26,8 @@ MonoBehaviour:
     characterName: Kinnara
     characterImage: {fileID: 21300000, guid: 8b9c0be06222d0e4bb47d657fafbef4f, type: 3}
     dialogueEnd: 0
-  - dialogueText: "I\u2019ll have you know I\u2019m nothing like those ugly things!"
+  - dialogueText: "I\u2019ll have you know I\u2019m nothing like those ugly things!
+      D:<"
     characterName: Kinnara
     characterImage: {fileID: 21300000, guid: 8b9c0be06222d0e4bb47d657fafbef4f, type: 3}
     dialogueEnd: 1

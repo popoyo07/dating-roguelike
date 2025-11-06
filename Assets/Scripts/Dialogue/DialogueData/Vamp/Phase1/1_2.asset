@@ -13,31 +13,29 @@ MonoBehaviour:
   m_Name: 1_2
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
   dialogue:
-  - dialogueText: He looks at you, confused, but at least he has lowered his guard.
+  - dialogueText: He stares at the rose, confused, his guard lowering as curiosity
+      overcomes rage.
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: He accepts the rose and pricks his finger.
+  - dialogueText: He accepts it, brushes a finger over the thorn, and pricks himself.
+      No blood comes out.
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: No blood comes out.
+  - dialogueText: The silence between you hums with something fragile.
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: What makes an existence a life?
+  - dialogueText: "I exist, yet I have none of those. And still\u2026 I breathe."
     characterName: Vampire
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: Is it Warmth, Breath, Blood, or a Soul?
-    characterName: Vampire
+  - dialogueText: He looks down, his voice breaking slightly.
+    characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: Well, I exsit, but have no Warmth, Blood, or Soul.
-    characterName: Vampire
-    characterImage: {fileID: 0}
-    dialogueEnd: 0
-  - dialogueText: Yet I breathe, so am I alive, or just a mistake?
+  - dialogueText: "So tell me\u2026 am I alive? Or just a mistake given form?"
     characterName: Vampire
     characterImage: {fileID: 0}
     dialogueEnd: 0

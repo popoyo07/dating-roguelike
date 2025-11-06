@@ -17,6 +17,14 @@ MonoBehaviour:
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 1
+  - dialogueText: His lips curl into a feral grin.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 1
+  - dialogueText: You mock me with that?
+    characterName: Vampire
+    characterImage: {fileID: 0}
+    dialogueEnd: 1
   responses: []
   LovyCounting:
     LovyCount: 0

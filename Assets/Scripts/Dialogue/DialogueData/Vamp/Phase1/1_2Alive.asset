@@ -13,8 +13,24 @@ MonoBehaviour:
   m_Name: 1_2Alive
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
   dialogue:
-  - dialogueText: Cerious (disappears)
-    characterName: Vampire
+  - dialogueText: He blinks, almost startled.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 1
+  - dialogueText: Alive...
+    characterName: Vamp
+    characterImage: {fileID: 0}
+    dialogueEnd: 1
+  - dialogueText: "He smiles faintly \u2014 a fleeting warmth in a cold face."
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 1
+  - dialogueText: Curious.
+    characterName: Vamp
+    characterImage: {fileID: 0}
+    dialogueEnd: 1
+  - dialogueText: He dissolves into mist, leaving a faint rose petal behind.
+    characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 1
   responses: []
