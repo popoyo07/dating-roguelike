@@ -36,9 +36,9 @@ MonoBehaviour:
     dialogueEnd: 0
   responses:
   - respnseText: Leave
-    dialogueObject: {fileID: 0}
+    dialogueObject: {fileID: 11400000, guid: 93ffda1b30ad2834794028b13b0e0917, type: 2}
   - respnseText: Wait
-    dialogueObject: {fileID: 0}
+    dialogueObject: {fileID: 11400000, guid: b2e7af981f733a14998fe27482a41fa5, type: 2}
   LovyCounting:
     LovyCount: 0
     MinusLovyCount: 0

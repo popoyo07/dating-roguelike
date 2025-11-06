@@ -17,6 +17,8 @@ public class DialogueActivator : MonoBehaviour
     [SerializeField] private static int currentDialogueIndex;
     [SerializeField] private DialogueProgression progression;
     [SerializeField] private ResponseHandle responseHandle;
+    [SerializeField] private GameObject enemy;
+
 
     public bool showLovyUI;
 
@@ -52,6 +54,8 @@ public class DialogueActivator : MonoBehaviour
         {
             Debug.LogError("DialogueObject not assigned to Enemy!");
         }
+
+        enemy = transform.GetChild(0).gameObject;
 
         progression.phase += 1;
         currentDialogueIndex = progression.currentDialogueIndex;
@@ -154,6 +158,16 @@ public class DialogueActivator : MonoBehaviour
         
         }
 
+    }
+
+    public void enemyAble()
+    {
+        enemy.SetActive(true);
+    }
+
+    public void enemyDisable()
+    {
+        enemy.SetActive(false);
     }
 
     public void ResetDialogueIndex()

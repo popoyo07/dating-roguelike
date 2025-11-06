@@ -14,6 +14,7 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private Image characterImage;
     [SerializeField] private MenuButtons AllDeckUI;
     [SerializeField] private ResponseHandle responseHandle;
+    [SerializeField] private DialogueActivator enemyDialogue;
 
     private EnemySpawner enemySpawner;
 
@@ -32,7 +33,6 @@ public class DialogueUI : MonoBehaviour
         if (textLabel == null) Debug.LogError("TextLabel is not assigned!");
         if (dialogueBox == null) Debug.LogError("DialogueBox is not assigned!");*/
         enemySpawner = GameObject.FindWithTag("EnemyS").GetComponent<EnemySpawner>();
-
         CloseDialogueBox();
     }
     public IEnumerator DelayDisable(float i)
@@ -54,6 +54,25 @@ public class DialogueUI : MonoBehaviour
     {
         isTalking = true;
         dialogueBox.SetActive(true);
+
+        if (enemyDialogue == null)
+        {
+            GameObject enemyGO = GameObject.FindWithTag("Boss");
+            if (enemyGO != null)
+            {
+                enemyDialogue = enemyGO.GetComponent<DialogueActivator>();
+            }
+        }
+
+        if (enemyDialogue != null)
+        {
+            enemyDialogue.enemyDisable();
+        }
+        else
+        {
+            return;
+        }
+
         StartCoroutine(StepThroughDialogue(dialogueObject));
     }
 
@@ -155,6 +174,23 @@ public class DialogueUI : MonoBehaviour
     {
         isTalking = false;
         dialogueBox.SetActive(false);
+        if (enemyDialogue == null)
+        {
+            GameObject enemyGO = GameObject.FindWithTag("Boss");
+            if (enemyGO != null)
+            {
+                enemyDialogue = enemyGO.GetComponent<DialogueActivator>();
+            }
+        }
+        if (enemyDialogue != null)
+        {
+            enemyDialogue.enemyAble();
+        }
+        else
+        {
+            return;
+        }
+
         textLabel.text = string.Empty;
 
         if (!isTalking && pendingSkip)
