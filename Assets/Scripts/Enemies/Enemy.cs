@@ -7,12 +7,15 @@ public class Enemy : MonoBehaviour
     GameObject playerObject;
     public BattleSystem system;
     public NextAttackUI nextAttackUI;
+    public CardUI cardUI;
     public int actionSelector;
     SimpleHealth player;
     public int attkDmg;
     public int shiledAdded;
     bool doingS;
     public bool stuned; // change to true to stunn enemy    
+    bool isAngry;
+    bool angryHealth;
     [SerializeField] bool selectionUsed;
     StatusEffects EnemyStatus;
     StatusEffects PlayerStatus;
@@ -24,6 +27,7 @@ public class Enemy : MonoBehaviour
         system = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
         player = playerObject.GetComponent<SimpleHealth>();
         nextAttackUI = GameObject.Find("NextAttack").GetComponent<NextAttackUI>();
+        cardUI = GameObject.Find("CardUIPrefab").GetComponent<CardUI>();
 
         system.enemy = this.gameObject;
         system.enemyHP = this.gameObject.GetComponent<SimpleHealth>();
@@ -49,6 +53,10 @@ public class Enemy : MonoBehaviour
             }
             nextAttackUI.UpdateNextAttackUI(actionSelector);
             attkDmg = Random.Range(5, 11);
+            if (isAngry == true)
+            {
+                Angry();
+            }
             selectionUsed = false;
         }
 
@@ -158,12 +166,24 @@ public class Enemy : MonoBehaviour
         PlayerStatus.currentStatus = StatusEffect.VULNERABLE;
     }
 
-    void Angery()
+    public void Angry()
     {
-        float bossDmg = attkDmg * 1.25f;
+        Debug.Log("Multiplying attack dmg by 1.45");
+        // have to set dmg each round
+        float bossDmg = attkDmg * 1.45f;
         attkDmg = (int)bossDmg;
+        if (isAngry == false)
+        {
+            isAngry = true;
+        }
+    }
+
+    public void AngryHealth()
+    {
+        Debug.Log("Multiplying health by 1.5");
         float bossHP = system.enemyHP.maxHealth * 1.5f;
         system.enemyHP.maxHealth = (int)bossHP;
+        system.enemyHP.health = (int)bossHP;
     }
 
     void OnDestroy()
