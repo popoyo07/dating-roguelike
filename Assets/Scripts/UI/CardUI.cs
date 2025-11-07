@@ -1,15 +1,13 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Events;
-using System;
-using Unity.VisualScripting;
+using System.Collections;
 
 public class CardUI : MonoBehaviour
 {
     [Header("UI References")]
-    public TMP_Text cardNameText;
     public Image cardSpriteImage;
+    public TextMeshProUGUI txt;
     public Button cardButton;
 
     [Header("Dialogue References")]
@@ -69,7 +67,6 @@ public class CardUI : MonoBehaviour
     public void Setup(string cardName, Sprite cardSprite)
     {
         this.cardName = cardName;
-        cardNameText.text = cardName;
 
         if (cardSpriteImage != null)
             cardSpriteImage.sprite = cardSprite;
@@ -79,6 +76,7 @@ public class CardUI : MonoBehaviour
             cardButton.onClick.AddListener(OnButtonClick);
         }
     }
+
 
     public void OnButtonClick()
     {
