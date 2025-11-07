@@ -8,19 +8,21 @@ public class BattleUI : MonoBehaviour
     [SerializeField] private GameObject Canvas;
     bool w;
     BattleSystem bSystem;
-    GameObject[] cards;
+   // GameObject[] cards;
     public Button endTurnB;
     bool doing;
     public DialogueUI dialogueUI; // assign in inspector or find in Awake
     public DialogueActivator enemyDialogue;
     public ResponseHandle responseHandle; 
     public GameObject cardsUI;
+    Rewards reward;
 
     MoveRoomA roomA;
     MoveRoomB roomB;
     bool isWaiting;
     void Awake()
     {
+        reward = GameObject.FindWithTag("RewardsM").GetComponent<Rewards>();
         if (dialogueUI == null)
         {
             dialogueUI = GameObject.FindFirstObjectByType<DialogueUI>(); // if this causes an issue replace with { GameObject.FindObjectOfType<DialogueUI>()
@@ -29,7 +31,7 @@ public class BattleUI : MonoBehaviour
         roomB = GameObject.Find("RoomB").GetComponent<MoveRoomB>();
         Canvas = GameObject.Find("Canvas");
         bSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
-        cards = GameObject.FindGameObjectsWithTag("Cards");
+      //  cards = GameObject.FindGameObjectsWithTag("Cards");
         endTurnB = GameObject.Find("EndTurn")?.GetComponent<Button>();
         responseHandle = Canvas.GetComponent<ResponseHandle>();
         cardsUI = GameObject.Find("CARDS UI");
@@ -108,8 +110,11 @@ public class BattleUI : MonoBehaviour
                 {
                     dialogueUI.StartCoroutine(dialogueUI.DelayAble(0.1f));
                 }
+                if (reward != null && reward.openRewardsPop && cardsUI == enabled) // should disable the 
+                {
+                    StartCoroutine(DelayDisableUI());
+                }
 
-               
                 break;
 
 
@@ -169,7 +174,7 @@ public class BattleUI : MonoBehaviour
         }
         Debug.Log("Waiting");
         w = true;
-        yield return new WaitForSeconds(1f);
+        //yield return new WaitForSeconds(0f);
         Debug.Log("It disable the thing");
         w = false;
         cardsUI.SetActive(false);

@@ -20,8 +20,8 @@ public enum BattleState {
 
 public class BattleSystem : MonoBehaviour
 {
-    public BattleState state;
-    public GameObject player;
+    public BattleState state; // the game battle state 
+    public GameObject player; 
     public GameObject enemy;
 
     public SimpleHealth enemyHP;
