@@ -14,6 +14,7 @@ public class CardUI : MonoBehaviour
 
     [Header("Dialogue References")]
     public GameObject Boss;
+    public Enemy bossEnemyScript;
     public GameObject canvas;
     public DialogueUI DialogueUI;
     public MenuButtons MenuButtons;
@@ -49,6 +50,7 @@ public class CardUI : MonoBehaviour
         if (Boss == null)
         {
             Boss = GameObject.FindWithTag("Boss");
+            bossEnemyScript = GameObject.FindWithTag("Boss").GetComponent<Enemy>();
             if (Boss != null)
             {
                 Activator = Boss.GetComponent<DialogueActivator>();
@@ -103,6 +105,9 @@ public class CardUI : MonoBehaviour
                 {
                     Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
                     Activator.ContinueDialogue(1, 0);
+
+                    bossEnemyScript.Angry();
+                    bossEnemyScript.AngryHealth();
                 }
                 else if (boss == enemySpawner.vampireBoss)
                 {
@@ -117,12 +122,18 @@ public class CardUI : MonoBehaviour
                     {
                         Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
                         Activator.ContinueDialogue(2, 1);
+
+                        bossEnemyScript.Angry();
+                        bossEnemyScript.AngryHealth();
                     }
                 }
                 else if (boss == enemySpawner.idkBoss)
                 {
                     Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
                     Activator.ContinueDialogue(2, 1);
+
+                    bossEnemyScript.Angry();
+                    bossEnemyScript.AngryHealth();
                 }
 
                     break;
@@ -133,6 +144,9 @@ public class CardUI : MonoBehaviour
                 {
                     Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
                     Activator.ContinueDialogue(1, 2);
+
+                    bossEnemyScript.Angry();
+                    bossEnemyScript.AngryHealth();
                 }
                 else if (boss == enemySpawner.vampireBoss)
                 {
@@ -148,12 +162,18 @@ public class CardUI : MonoBehaviour
                     {
                         Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
                         Activator.ContinueDialogue(2, 1);
+
+                        bossEnemyScript.Angry();
+                        bossEnemyScript.AngryHealth();
                     }
                 }
                 else if (boss == enemySpawner.idkBoss)
                 {
                     Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
                     Activator.ContinueDialogue(1, 2);
+
+                    bossEnemyScript.Angry();
+                    bossEnemyScript.AngryHealth();
                 }
 
                 break;
@@ -173,13 +193,18 @@ public class CardUI : MonoBehaviour
                     {
                         Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase not = 2: {phase}");
                         Activator.ContinueDialogue(number: 2, 1);
+
+                        bossEnemyScript.Angry();
+                        bossEnemyScript.AngryHealth();
                     }
                 }
                 else if (boss == enemySpawner.vampireBoss)
                 {
                         Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
                         Activator.ContinueDialogue(number: 2, 1);
-                    
+
+                        bossEnemyScript.Angry();
+                        bossEnemyScript.AngryHealth();
                 }
                 else if (boss == enemySpawner.idkBoss)
                 {
@@ -195,6 +220,9 @@ public class CardUI : MonoBehaviour
                     {
                         Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
                         Activator.ContinueDialogue(number: 2, 1);
+
+                        bossEnemyScript.Angry();
+                        bossEnemyScript.AngryHealth();
                     }
                 }
                 break;
@@ -215,17 +243,26 @@ public class CardUI : MonoBehaviour
                     {
                         Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase not = 1: {phase}");
                         Activator.ContinueDialogue(2, 1);
+
+                        bossEnemyScript.Angry();
+                        bossEnemyScript.AngryHealth();
                     }
                 }
                 else if (boss == enemySpawner.vampireBoss)
                 {
                     Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
                     Activator.ContinueDialogue(2, 1);
+
+                    bossEnemyScript.Angry();
+                    bossEnemyScript.AngryHealth();
                 }
                 else if (boss == enemySpawner.idkBoss)
                 {
                     Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
                     Activator.ContinueDialogue(2, 1);
+
+                    bossEnemyScript.Angry();
+                    bossEnemyScript.AngryHealth();
                 }
 
                 break;
@@ -245,6 +282,9 @@ public class CardUI : MonoBehaviour
                     {
                         Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase not = 3: {phase}");
                         Activator.ContinueDialogue(2, 1);
+
+                        bossEnemyScript.Angry();
+                        bossEnemyScript.AngryHealth();
                     }
                 }
                 else if (boss == enemySpawner.vampireBoss)
@@ -261,12 +301,18 @@ public class CardUI : MonoBehaviour
                     {
                         Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
                         Activator.ContinueDialogue(number: 2, 1);
+
+                        bossEnemyScript.Angry();
+                        bossEnemyScript.AngryHealth();
                     }
                 }
                 else if (boss == enemySpawner.idkBoss)
                 {
                     Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
                     Activator.ContinueDialogue(2, nextArray: 1);
+
+                    bossEnemyScript.Angry();
+                    bossEnemyScript.AngryHealth();
                 }
 
                 break;
@@ -276,11 +322,17 @@ public class CardUI : MonoBehaviour
                 {
                     Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase not = 3: {phase}");
                     Activator.ContinueDialogue(2, 1);
+
+                    bossEnemyScript.Angry();
+                    bossEnemyScript.AngryHealth();
                 }
                 else if (boss == enemySpawner.vampireBoss)
                 {
                     Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase not = 3: {phase}");
                     Activator.ContinueDialogue(2, 1);
+
+                    bossEnemyScript.Angry();
+                    bossEnemyScript.AngryHealth();
                 }
                 else if (boss == enemySpawner.idkBoss)
                 {
@@ -297,6 +349,9 @@ public class CardUI : MonoBehaviour
                     {
                         Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
                         Activator.ContinueDialogue(number: 2, 1);
+
+                        bossEnemyScript.Angry();
+                        bossEnemyScript.AngryHealth();
                     }
                 }
 
