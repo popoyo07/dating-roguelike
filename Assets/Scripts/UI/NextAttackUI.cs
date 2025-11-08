@@ -36,6 +36,12 @@ public class NextAttackUI : MonoBehaviour
                 case 3:
                     nextAttackImage.sprite = spriteList[1];
                     break;
+                case 4:
+                    nextAttackImage.sprite = spriteList[0];
+                    break;
+                case 5:
+                    nextAttackImage.sprite = spriteList[0];
+                    break;
                 default:
                     Debug.Log("Nothing happened");
                     break;
