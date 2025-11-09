@@ -106,7 +106,7 @@ public class CardUI : MonoBehaviour
                     Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
                     Activator.ContinueDialogue(1, 0);
 
-                    bossEnemyScript.Angry();
+                    //bossEnemyScript.Angry();
                     bossEnemyScript.AngryHealth();
                 }
                 else if (boss == enemySpawner.vampireBoss)
