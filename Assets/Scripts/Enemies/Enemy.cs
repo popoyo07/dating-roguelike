@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
         system = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
         player = playerObject.GetComponent<SimpleHealth>();
         nextAttackUI = GameObject.Find("NextAttack").GetComponent<NextAttackUI>();
-        cardUI = GameObject.Find("CardUIPrefab").GetComponent<CardUI>();
+        cardUI = GameObject.Find("ShowDeck").GetComponent<CardUI>();
 
         system.enemy = this.gameObject;
         system.enemyHP = this.gameObject.GetComponent<SimpleHealth>();
