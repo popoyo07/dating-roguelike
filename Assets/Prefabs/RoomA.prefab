@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   roomsSpawnBoss: 0
+  boss: {fileID: 0}
   sirenBoss: {fileID: 4668596756076677665, guid: d2d9ac2d4c7efe647bc61379950800a6, type: 3}
   vampireBoss: {fileID: 4668596756076677665, guid: e95a3c8b41a25624687894560fb088d3, type: 3}
   idkBoss: {fileID: 4668596756076677665, guid: c32b825ac7fafb043a7080fa98f42b3a, type: 3}
@@ -447,14 +448,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3607316497702183241, guid: 86e9eb73b2c7f49429f735fcb8658b1d, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: cd879838c22def64d97f01f8a4258c9e, type: 2}
-    - target: {fileID: 4949255453416473936, guid: 86e9eb73b2c7f49429f735fcb8658b1d, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 15570cb56ce2e1342adfa1c9bcdce08a, type: 2}
     - target: {fileID: 5302854077618825451, guid: 86e9eb73b2c7f49429f735fcb8658b1d, type: 3}
       propertyPath: m_Name
       value: Hall(Blockout)
@@ -633,10 +626,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3548966888048602327}
     m_Modifications:
-    - target: {fileID: 91327345038367161, guid: 72e0d67e651b42f40b9b0d2ad304e842, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 15570cb56ce2e1342adfa1c9bcdce08a, type: 2}
     - target: {fileID: 6485658802478253254, guid: 72e0d67e651b42f40b9b0d2ad304e842, type: 3}
       propertyPath: m_Name
       value: Room(Blockout)
@@ -681,10 +670,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8704548118022515827, guid: 72e0d67e651b42f40b9b0d2ad304e842, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: cd879838c22def64d97f01f8a4258c9e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

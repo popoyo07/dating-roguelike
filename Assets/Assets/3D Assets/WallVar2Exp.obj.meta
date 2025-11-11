@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: WallVar2ExpMat
-    second: {fileID: 2100000, guid: 49605b5dfdd48074a93e40a549937007, type: 2}
+    second: {fileID: 2100000, guid: d01b16d87c0b5d7419381a708af19d7b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

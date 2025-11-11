@@ -8,12 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Doorwaybarsvar1Exp_Doorwayvar1ExpMat
-    second: {fileID: 2100000, guid: 38f3322bfa7a3d647b13803f222f1075, type: 2}
+    second: {fileID: 2100000, guid: 2a7b5514bf3cc264593d9f25fb0c90da, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Doorwayvar1Exp_Doorwaywallvar1ExpMat
-    second: {fileID: 2100000, guid: 49605b5dfdd48074a93e40a549937007, type: 2}
+    second: {fileID: 2100000, guid: d01b16d87c0b5d7419381a708af19d7b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -107,7 +107,7 @@ PrefabInstance:
     - target: {fileID: 4949255453416473936, guid: 86e9eb73b2c7f49429f735fcb8658b1d, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 15570cb56ce2e1342adfa1c9bcdce08a, type: 2}
+      objectReference: {fileID: 2100000, guid: d01b16d87c0b5d7419381a708af19d7b, type: 2}
     - target: {fileID: 5302854077618825451, guid: 86e9eb73b2c7f49429f735fcb8658b1d, type: 3}
       propertyPath: m_Name
       value: Hall(Blockout)
@@ -133,7 +133,7 @@ PrefabInstance:
     - target: {fileID: 91327345038367161, guid: 72e0d67e651b42f40b9b0d2ad304e842, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 15570cb56ce2e1342adfa1c9bcdce08a, type: 2}
+      objectReference: {fileID: 2100000, guid: d01b16d87c0b5d7419381a708af19d7b, type: 2}
     - target: {fileID: 6485658802478253254, guid: 72e0d67e651b42f40b9b0d2ad304e842, type: 3}
       propertyPath: m_Name
       value: Room(Blockout)
