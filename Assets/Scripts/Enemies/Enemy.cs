@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     public bool stuned; // change to true to stunn enemy    
     bool isAngry;
     bool angryHealth;
+    string enemyName;
     [SerializeField] bool selectionUsed;
     StatusEffects EnemyStatus;
     StatusEffects PlayerStatus;
@@ -22,6 +23,7 @@ public class Enemy : MonoBehaviour
   
     void Awake()
     {
+        enemyName = this.transform.parent.name;
         playerObject = GameObject.FindWithTag("Player");
         system = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
         player = playerObject.GetComponent<SimpleHealth>();
@@ -45,12 +47,8 @@ public class Enemy : MonoBehaviour
         if (system.state == BattleState.PLAYERTURN && selectionUsed) 
         {
             actionSelector = Random.Range(0, 6); // remember that range the last digit is ignored in slecetion 
-            if (nextAttackUI.isVisible == false)
-            {
-                nextAttackUI.ShowNextAttack();
-            }
             nextAttackUI.UpdateNextAttackUI(actionSelector);
-            attkDmg = Random.Range(5, 11);
+            setAttkDmg();
             if (isAngry == true)
             {
                 Angry();
@@ -82,6 +80,30 @@ public class Enemy : MonoBehaviour
         else
         {
             StartCoroutine(system.EndEnemyTurn());
+        }
+    }
+
+    void setAttkDmg()
+    {
+        switch (enemyName)
+        {
+            case "KinnaraEnemy3(Clone)":
+            case "SirenEnemy2(Clone)":
+                attkDmg = Random.Range(7, 13);
+                break;
+            case "KinnaraEnemy2(Clone)":
+            case "SirenEnemy1(Clone)":
+                attkDmg = Random.Range(5, 11);
+                break;
+            case "KinnaraEnemy1(Clone)":
+            case "SirenEnemy3(Clone)":
+                attkDmg = Random.Range(3, 9);
+                break;
+            case "KinnaraBoss(Clone)": 
+            case "SirenBoss(Clone)":
+            case "VampireBoss(Clone)":
+                attkDmg = Random.Range(9, 15);
+                break;
         }
     }
 
@@ -124,7 +146,7 @@ public class Enemy : MonoBehaviour
 
     }
 
-    // basic enemy attacks 
+    #region basic enemy attacks 
     void regular()
     {
 
@@ -164,6 +186,10 @@ public class Enemy : MonoBehaviour
         PlayerStatus.currentStatus = StatusEffect.VULNERABLE;
     }
 
+    #endregion
+
+    #region Boss Functions
+
     public void Angry()
     {
         Debug.Log("Multiplying attack dmg by 1.45");
@@ -183,6 +209,8 @@ public class Enemy : MonoBehaviour
         system.enemyHP.maxHealth = (int)bossHP;
         system.enemyHP.health = (int)bossHP;
     }
+
+    #endregion
 
     void OnDestroy()
     {

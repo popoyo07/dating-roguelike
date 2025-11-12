@@ -18,6 +18,7 @@ public class DialogueActivator : MonoBehaviour
     [SerializeField] private DialogueProgression progression;
     [SerializeField] private ResponseHandle responseHandle;
     [SerializeField] private GameObject enemy;
+    [SerializeField] private NextAttackUI nextAttackUI;
 
 
     public bool showLovyUI;
@@ -36,7 +37,7 @@ public class DialogueActivator : MonoBehaviour
 
     private void Awake()
     {
-
+        nextAttackUI = GameObject.Find("NextAttack").GetComponent<NextAttackUI>();
         Canvas = GameObject.Find("Canvas");
 
         if (Canvas != null)
@@ -162,11 +163,13 @@ public class DialogueActivator : MonoBehaviour
 
     public void enemyAble()
     {
+        nextAttackUI.ShowNextAttack();
         enemy.SetActive(true);
     }
 
     public void enemyDisable()
     {
+        nextAttackUI.HideNextAttack();
         enemy.SetActive(false);
     }
 
