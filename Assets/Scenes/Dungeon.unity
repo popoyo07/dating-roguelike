@@ -316,6 +316,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoomA
       objectReference: {fileID: 0}
+    - target: {fileID: 7730367884786826620, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
+      propertyPath: sirenBoss
+      value: 
+      objectReference: {fileID: 4668596756076677665, guid: d2d9ac2d4c7efe647bc61379950800a6, type: 3}
+    - target: {fileID: 7730367884786826620, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
+      propertyPath: vampireBoss
+      value: 
+      objectReference: {fileID: 4668596756076677665, guid: e95a3c8b41a25624687894560fb088d3, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -484,6 +492,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1309917690607572827, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: dialogueUI
+      value: 
+      objectReference: {fileID: 1333872143}
     - target: {fileID: 1907062235960369128, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -893,6 +905,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
+--- !u!114 &1333872143 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6424230952612506986, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+  m_PrefabInstance: {fileID: 1333872139}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4927e5c3b3b0774b9c7ed772deef166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueUI
 --- !u!1001 &1402896033
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -35,6 +35,8 @@ public class BattleSystem : MonoBehaviour
     public bool moveA;
     public bool moveB;
 
+    public DialogueUI dialogueUI;
+
     public bool secondEncounter;
     MenuButtons menuButtons;
     bool runing;
@@ -62,11 +64,11 @@ public class BattleSystem : MonoBehaviour
             }
             if (enemyHP.dead())
             {
-                if (enemyHP.isBoss && secondEncounter)
+                if (enemyHP.isBoss && secondEncounter && dialogueUI.isTalkingTake2 == true)
                 { // win should be added here 
                     state = BattleState.WONGAME;
-                   // menuButtons.winMenu.SetActive(true);
-                    SceneManager.LoadScene("MainMenu");
+                    menuButtons.winMenu.SetActive(true);
+                    //SceneManager.LoadScene("MainMenu");
                     menuButtons.ResetDialogueIndex();
                 }
 
