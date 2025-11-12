@@ -44,6 +44,10 @@ public class DialogueUI : MonoBehaviour
 
     public IEnumerator DelayAble(float i)
     {
+       if (CardUI.activeSelf)
+        {
+            yield break;
+        }
         yield return new WaitForSeconds(i);
      //   Debug.LogWarning("Assigning Card UI");
 

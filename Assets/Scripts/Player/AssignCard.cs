@@ -87,7 +87,7 @@ public class AssignCard : MonoBehaviour
 
         }
 
-        if (BSystem.state == BattleState.WON && !resetForNewTurn && !cardUsed)
+        if (BSystem.state == BattleState.REWARD && !resetForNewTurn && !cardUsed)
         {
             ResetForNewTurn();
         }

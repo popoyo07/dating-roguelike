@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.Jobs;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,7 +11,7 @@ public class BattleUI : MonoBehaviour
     BattleSystem bSystem;
    // GameObject[] cards;
     public Button endTurnB;
-    bool doing;
+   // bool doing;
     public DialogueUI dialogueUI; // assign in inspector or find in Awake
     public DialogueActivator enemyDialogue;
     public ResponseHandle responseHandle; 
@@ -88,15 +89,16 @@ public class BattleUI : MonoBehaviour
         {
  
             case BattleState.DIALOGUE:
-                cardsUI.SetActive(false);
+               
 
                 if (dialogueUI.isTalking == false)
                 {
-                    StartCoroutine(bSystem.DelaySwitchState(0.2f, BattleState.PLAYERTURN, "isTalking = false "));
+                    StartCoroutine(bSystem.DelaySwitchState(0f, BattleState.PLAYERTURN, "isTalking = false "));
                 }
-                else
+                else if (cardsUI.activeSelf)
                 {
-                    dialogueUI.StartCoroutine(dialogueUI.DelayDisable(0.1f));
+                    cardsUI.SetActive(false);Debug.LogWarning("I am the culptrit");
+                    //dialogueUI.StartCoroutine(dialogueUI.DelayDisable(0.1f));
                 }
                 break;
 
@@ -106,13 +108,15 @@ public class BattleUI : MonoBehaviour
                 {
                     StartCoroutine(bSystem.DelaySwitchState(0f, BattleState.DIALOGUE, "Battle UI Script "));
                 }
-                else
+                else if(cardsUI.activeSelf == false)
                 {
-                    dialogueUI.StartCoroutine(dialogueUI.DelayAble(0.1f));
+                    // cardUI.SetActive(true);
+                    Debug.LogWarning("hahahahahahah");
+                    dialogueUI.StartCoroutine(dialogueUI.DelayAble(0f));
                 }
                 if (reward != null && reward.openRewardsPop && cardsUI == enabled) // should disable the 
                 {
-                    StartCoroutine(DelayDisableUI());
+                    //StartCoroutine(DelayDisableUI());
                 }
 
                 break;
@@ -123,27 +127,28 @@ public class BattleUI : MonoBehaviour
                 {
                     StartCoroutine(CheckTeleport());
                 }
-                StartCoroutine(DelayDisableUI());
                 break;
             case BattleState.DEFAULT:
-
-                if (dialogueUI.isTalking) // if is talking switch to Dialogue state
+                if (enemyDialogue == null) //if the enemy doesn't have dialogue activator, then switch to Playerturn state
+                {
+                    StartCoroutine(bSystem.DelaySwitchState(0f, BattleState.PLAYERTURN, "Enemy has no dialogue"));
+                }
+                else if (dialogueUI.isTalking) // if is talking switch to Dialogue state
                 {
                     StartCoroutine(bSystem.DelaySwitchState(0f, BattleState.DIALOGUE, "isTalking = false "));
                 }
-                else if (enemyDialogue == null) //if the enemy doesn't have dialogue activator, then switch to Playerturn state
-                {
-                    StartCoroutine(bSystem.DelaySwitchState(0.2f, BattleState.PLAYERTURN, "Enemy has no dialogue"));
-                }
+              
                 break;
             case BattleState.ENEMYTURN:
                 cardsUI.SetActive(false);
 
                 dialogueUI.StartCoroutine(dialogueUI.DelayDisable(0.1f));
                 break;
-
+            case BattleState.REWARD:
+                StartCoroutine(DelayDisableUI());
+                break;
             default:
-                doing = false;
+                //doing = false;
                 break;
         }
         
@@ -174,7 +179,7 @@ public class BattleUI : MonoBehaviour
         }
         Debug.Log("Waiting");
         w = true;
-        //yield return new WaitForSeconds(0f);
+        yield return new WaitForSeconds(.9f);
         Debug.Log("It disable the thing");
         w = false;
         cardsUI.SetActive(false);

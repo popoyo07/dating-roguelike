@@ -55,7 +55,7 @@ public class MenuButtons : MonoBehaviour
         // Handle rewards popup visibility
         if (rewards.openRewardsPop && !rewardsPopup.activeSelf && !roomPopup.activeSelf)
         {
-            rewardsPopup.SetActive(true);
+            rewardsPopup.SetActive(rewards.openRewardsPop);
             StartCoroutine(ShowRewardsNextFrame());
 
         }

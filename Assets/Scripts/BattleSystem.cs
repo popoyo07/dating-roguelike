@@ -37,7 +37,7 @@ public class BattleSystem : MonoBehaviour
 
     public bool secondEncounter;
     MenuButtons menuButtons;
-
+    bool runing;
     void Start()
     {
         endTurnB = GameObject.Find("EndTurn");
@@ -69,8 +69,8 @@ public class BattleSystem : MonoBehaviour
                     SceneManager.LoadScene("MainMenu");
                     menuButtons.ResetDialogueIndex();
                 }
-           
 
+                state = BattleState.REWARD;
                 rewards.openRewardsPop = true;
                 rewards.ShowRewardOptions();
 
@@ -108,11 +108,18 @@ public class BattleSystem : MonoBehaviour
                 break;
 
             case BattleState.WON: 
-                
-                StartCoroutine(DelaySwitchState(1.5f, BattleState.DEFAULT, "BattleSystem"));
+                if (!runing)
+                {
+                    runing = true;
+                    StartCoroutine(DelaySwitchState(2f, BattleState.DEFAULT, "BattleSystem"));
+
+                }
                 break;
             case BattleState.PLAYERTURN: 
-               
+               if (runing)
+                {
+                    runing = false;
+                }
               
                 break;
             case BattleState.STARTRUN:
@@ -160,9 +167,11 @@ public class BattleSystem : MonoBehaviour
         yield return new WaitForSeconds(1f); // wait some time to switch back to player turn 
         StartCoroutine(DelaySwitchState(0f, BattleState.ENDENEMYTURN, "BattleSystem"));
     }
-
+   // bool running = false;
     public IEnumerator DelaySwitchState(float delay, BattleState b, string whichScriptIsFrom)
     {
+      //
+       // running = true;
         yield return new WaitForSeconds(delay);
         state = b;
         Debug.LogWarning(" The current state is " + b + " " + whichScriptIsFrom);
