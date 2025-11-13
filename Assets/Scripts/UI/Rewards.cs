@@ -153,33 +153,27 @@ public class Rewards : MonoBehaviour
                 break;
 
             case RewardType.Card:
+                int numCards;
+
+                if (enemyHP.maxHealth <= 10)
+                    numCards = 1;
+                else if (enemyHP.maxHealth <= 20)
+                    numCards = 2;
+                else
+                    numCards = 3;
+
                 // Pick a random card from the deck database
-                int r = Random.Range(0, deck.cardDatabase.allCards.Count);
-                string newCard = deck.cardDatabase.allCards[r];
+                for (int i = 0; i < numCards; i++)
+                {
+                    int r = Random.Range(0, deck.cardDatabase.allCards.Count);
+                    string newCard = deck.cardDatabase.allCards[r];
 
-                deck.runtimeDeck.Add(newCard); // Add the new card to the runtime deck
+                    deck.runtimeDeck.Add(newCard);
+                    deckUI.AddCardUI(newCard);
 
-                if (deckUI != null)
-                { 
-                    // Update the deck UI to display the new card
-                    if (enemyHP.maxHealth <= 10)
-                    {
-                        deckUI.AddCardUI(newCard);
-                    }
-                    else if (enemyHP.maxHealth <= 20)
-                    {
-                        deckUI.AddCardUI(newCard);
-                        deckUI.AddCardUI(newCard);
-                    }
-                    else 
-                    {
-                        deckUI.AddCardUI(newCard);
-                        deckUI.AddCardUI(newCard);
-                        deckUI.AddCardUI(newCard);
-                    }
+                    Debug.LogWarning("New Card ADDED called " + newCard);
                 }
 
-                Debug.LogWarning("New Card ADDED called " + deck.cardDatabase.allCards[r]);
                 Debug.Log("Deck now has " + deck.runtimeDeck.Count + " and discard has " + deck.discardedCards.Count);
                 break;
 
