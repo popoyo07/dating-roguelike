@@ -15,10 +15,13 @@ public class DialogueActivator : MonoBehaviour
     [SerializeField] private TMP_Text nameText;
     [SerializeField] private Image characterImage;
     [SerializeField] private static int currentDialogueIndex;
-    [SerializeField] private DialogueProgression progression;
+    [SerializeField] public DialogueProgression progression;
     [SerializeField] private ResponseHandle responseHandle;
     [SerializeField] private GameObject enemy;
     [SerializeField] private NextAttackUI nextAttackUI;
+
+    [Header("Ending Dialogue")]
+    [SerializeField] private DialogueObject[] dialogueEnd;
 
 
     public bool showLovyUI;
@@ -54,6 +57,11 @@ public class DialogueActivator : MonoBehaviour
         if (dialogueObject == null)
         {
             Debug.LogError("DialogueObject not assigned to Enemy!");
+        }
+
+        if (dialogueEnd == null)
+        {
+            Debug.LogError("dialogueEnd not assigned to Enemy!");
         }
 
         enemy = transform.GetChild(0).gameObject;
@@ -103,6 +111,24 @@ public class DialogueActivator : MonoBehaviour
                             responseHandle.ResetLovyCount();
                         }*/
 
+        }
+    }
+
+    public void EndingDialogue()
+    {
+        Debug.Log("EndingDialogue Activated");
+
+        int index = 0;
+
+        DialogueObject endingDialogue = dialogueEnd[index];
+
+        dialogueUI.ShowDialogue(endingDialogue);
+
+        // Update name and image
+        if (endingDialogue.Dialogue.Length > 0)
+        {
+            nameText.text = endingDialogue.Dialogue[0].CharacterName;
+            characterImage.sprite = endingDialogue.Dialogue[0].CharacterImage;
         }
     }
 

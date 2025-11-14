@@ -43,6 +43,7 @@ public class BattleSystem : MonoBehaviour
     public bool secondEncounter;
     MenuButtons menuButtons;
     bool runing;
+
     void Start()
     {
         endTurnB = GameObject.Find("EndTurn");
@@ -85,8 +86,8 @@ public class BattleSystem : MonoBehaviour
                 {
                     Debug.Log("Vampire");
                     state = BattleState.WONGAME;
-                    menuButtons.winMenuVampire.SetActive(true);
-                    menuButtons.ResetDialogueIndex();
+                    //menuButtons.winMenuVampire.SetActive(true);
+                    //menuButtons.ResetDialogueIndex();
                 }
                 else if (enemyHP.isBoss && secondEncounter && enemySpawner.isIdk == true && cardUI.bossRomanced == true)
                 {

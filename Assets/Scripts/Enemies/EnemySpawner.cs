@@ -44,6 +44,12 @@ public class EnemySpawner : MonoBehaviour
     public AudioSource vampBossMusic;
     public AudioSource defultMusic;
 
+    [Header("Dialogue Setting")]
+    public DialogueActivator dialogueActivator;
+    public DialogueProgression progression;
+    bool endingDialogueTriggered = false;
+
+
     void Start()
     {
         // Randomly choose an enemy list
@@ -91,6 +97,8 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
+
+
         // Handle what happens when the battle is won
         if (battleSystem.state == BattleState.WON)
         {
@@ -103,7 +111,26 @@ public class EnemySpawner : MonoBehaviour
                 roomsSpawnBoss++; // Increment rooms visited
             }
 
-            DestroyBoss(); // Remove boss if exists
+            if (bossInstance != null)
+            {
+                if (dialogueActivator != null)
+                    progression = dialogueActivator.progression;
+
+
+                if (!endingDialogueTriggered)
+                {
+                    if (progression.phase == 3)
+                    {
+                        endingDialogueTriggered = true;
+                        dialogueActivator.EndingDialogue();
+                    }
+                    else
+                    {
+                        Debug.Log("DialogueEnd not activate");
+                    }
+                }
+            }
+
         }
 
         // Reset enemySpawn when battle is not won
@@ -147,6 +174,7 @@ public class EnemySpawner : MonoBehaviour
             DestroyEnemy(); // Clear normal enemies
             ifBossExists = true;
             bossInstance = Instantiate(boss, bossSpawn, Quaternion.identity); // Spawn boss
+            dialogueActivator = bossInstance.GetComponent<DialogueActivator>();
 
             // Play corresponding boss music
             PlayBossMusic(boss);

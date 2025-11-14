@@ -83,6 +83,10 @@ MonoBehaviour:
   characterImage: {fileID: 0}
   progression: {fileID: 11400000, guid: f7a6907b8270b9040b904fcf41099455, type: 2}
   responseHandle: {fileID: 0}
+  enemy: {fileID: 0}
+  nextAttackUI: {fileID: 0}
+  dialogueEnd:
+  - {fileID: 11400000, guid: 3eb2164a3b1cc144ea16c9e4cce7e775, type: 2}
   showLovyUI: 0
 --- !u!82 &9167437029170077051
 AudioSource:
