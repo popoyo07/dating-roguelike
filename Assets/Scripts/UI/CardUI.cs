@@ -24,6 +24,7 @@ public class CardUI : MonoBehaviour
 
     private string cardName;
     public bool correctLovyDovy;
+    public bool bossRomanced;
 
     private void Awake()
     {
@@ -114,9 +115,9 @@ public class CardUI : MonoBehaviour
                     if (phase == 3)
                     {
                         correctLovyDovy = true;
+                        bossRomanced = true;
                         Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
                         Activator.ContinueDialogue(1, 2);
-
                     }
                     else if (phase != 3)
                     {
@@ -274,9 +275,10 @@ public class CardUI : MonoBehaviour
                     if (phase == 3)
                     {
                         correctLovyDovy = true;
-
+                        bossRomanced = true;
                         Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
                         Activator.ContinueDialogue(1, 0);
+                        
                     }
                     else if (phase != 3)
                     {

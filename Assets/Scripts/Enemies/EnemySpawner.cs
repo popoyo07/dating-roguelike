@@ -12,8 +12,11 @@ public class EnemySpawner : MonoBehaviour
     public int roomsSpawnBoss;        // Counter for rooms visited to determine boss spawn
     public GameObject boss;          // Current boss prefab reference
     public GameObject sirenBoss;      // Siren boss prefab
+    public bool isSiren;
     public GameObject vampireBoss;    // Vampire boss prefab
+    public bool isVampire;
     public GameObject idkBoss;        // Unknown boss prefab
+    public bool isIdk;
     private GameObject bossInstance;  // Instance of the spawned boss
     private Vector3 bossSpawn;        // Spawn position for bosses
     private bool ifBossExists;        // Tracks if a boss is already spawned
@@ -50,18 +53,21 @@ public class EnemySpawner : MonoBehaviour
         {
             case 0:
                 activeList = sirenList;
+                isSiren = true;
                 Debug.Log("Siren boss");
                 boss = sirenBoss;
                 break;
 
             case 1:
                 activeList = idkList;
+                isIdk = true;
                 Debug.Log("Idk boss");
                 boss = idkBoss;
                 break;
 
             case 2:
                 activeList = vampireList;
+                isVampire = true;
                 Debug.Log("Vampire boss");
                 boss = vampireBoss;
                 break;

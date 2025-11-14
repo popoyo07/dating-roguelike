@@ -35,7 +35,10 @@ public class BattleSystem : MonoBehaviour
     public bool moveA;
     public bool moveB;
 
+    public EnemySpawner enemySpawner;
+
     public DialogueUI dialogueUI;
+    public CardUI cardUI;
 
     public bool secondEncounter;
     MenuButtons menuButtons;
@@ -64,11 +67,32 @@ public class BattleSystem : MonoBehaviour
             }
             if (enemyHP.dead())
             {
-                if (enemyHP.isBoss && secondEncounter && dialogueUI.isTalkingTake2 == true)
-                { // win should be added here 
+                if (enemyHP.isBoss && secondEncounter && cardUI.bossRomanced == false)
+                {
+                    Debug.Log("Regular");
                     state = BattleState.WONGAME;
                     menuButtons.winMenu.SetActive(true);
-                    //SceneManager.LoadScene("MainMenu");
+                    menuButtons.ResetDialogueIndex();
+                }
+                else if (enemyHP.isBoss && secondEncounter && enemySpawner.isSiren == true && cardUI.bossRomanced == true)
+                {
+                    Debug.Log("Siren");
+                    state = BattleState.WONGAME;
+                    menuButtons.winMenuSiren.SetActive(true);
+                    menuButtons.ResetDialogueIndex();
+                }
+                else if (enemyHP.isBoss && secondEncounter && enemySpawner.isVampire == true && cardUI.bossRomanced == true)
+                {
+                    Debug.Log("Vampire");
+                    state = BattleState.WONGAME;
+                    menuButtons.winMenuVampire.SetActive(true);
+                    menuButtons.ResetDialogueIndex();
+                }
+                else if (enemyHP.isBoss && secondEncounter && enemySpawner.isIdk == true && cardUI.bossRomanced == true)
+                {
+                    Debug.Log("Kinnara");
+                    state = BattleState.WONGAME;
+                    menuButtons.winMenuKinnara.SetActive(true);
                     menuButtons.ResetDialogueIndex();
                 }
 

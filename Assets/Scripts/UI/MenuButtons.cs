@@ -6,6 +6,9 @@ public class MenuButtons : MonoBehaviour
 {
     // UI panels
     public GameObject winMenu;        // Win screen UI
+    public GameObject winMenuSiren;
+    public GameObject winMenuVampire;
+    public GameObject winMenuKinnara;
     public GameObject loseMenu;       // Lose screen UI
     public GameObject cardsMan;       // UI container for cards
     public GameObject man;            // UI container for other elements

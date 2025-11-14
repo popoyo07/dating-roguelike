@@ -329,6 +329,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
+--- !u!114 &214341695 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7730367884786826620, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
+  m_PrefabInstance: {fileID: 214341694}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79d63f759c54f564da2ae8693201f31c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
 --- !u!114 &411225321 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5262501845317574372, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
@@ -493,9 +504,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1309917690607572827, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: cardUI
+      value: 
+      objectReference: {fileID: 5484708218991827091, guid: 438089b313fead348b95e68aed27aa9c, type: 3}
+    - target: {fileID: 1309917690607572827, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: dialogueUI
       value: 
       objectReference: {fileID: 1333872143}
+    - target: {fileID: 1309917690607572827, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: enemySpawner
+      value: 
+      objectReference: {fileID: 214341695}
     - target: {fileID: 1907062235960369128, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -676,6 +695,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5500384418431000433, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5732865314965703855, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -687,6 +710,10 @@ PrefabInstance:
     - target: {fileID: 5732865314965703855, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5775038680473405209, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: m_text
+      value: You Won!
       objectReference: {fileID: 0}
     - target: {fileID: 5859384351778804804, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_SizeDelta.x
