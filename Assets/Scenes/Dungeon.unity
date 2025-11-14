@@ -512,6 +512,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1333872143}
     - target: {fileID: 1309917690607572827, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: progression
+      value: 
+      objectReference: {fileID: 11400000, guid: f7a6907b8270b9040b904fcf41099455, type: 2}
+    - target: {fileID: 1309917690607572827, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: enemySpawner
       value: 
       objectReference: {fileID: 214341695}
@@ -679,6 +683,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 41.9
       objectReference: {fileID: 0}
+    - target: {fileID: 3967055896382909537, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: progression
+      value: 
+      objectReference: {fileID: 11400000, guid: f7a6907b8270b9040b904fcf41099455, type: 2}
     - target: {fileID: 4274875794156224103, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_text
       value: 

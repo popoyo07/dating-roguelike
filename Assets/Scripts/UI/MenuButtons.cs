@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
@@ -22,6 +22,7 @@ public class MenuButtons : MonoBehaviour
     BattleSystem battleSystem;       // Reference to battle system
     Rewards rewards;                 // Reference to rewards manager
     ChooseRoom chooseRoom;           // Reference to room manager
+    public DialogueProgression progression;
 
     [Header("Dialogue Data")]
     [SerializeField] private DialogueProgression[] dialogueProgression;
@@ -60,14 +61,13 @@ public class MenuButtons : MonoBehaviour
         {
             rewardsPopup.SetActive(rewards.openRewardsPop);
             StartCoroutine(ShowRewardsNextFrame());
-
         }
 
         if (!rewards.openRewardsPop && rewardsPopup.activeSelf)
         {
             rewardsPopup.SetActive(false);
             rewards.rewardsForCurrent = false;
-            roomPopup.SetActive(true); // Show room popup after rewards are closed
+            roomPopup.SetActive(true);
         }
 
         // Handle room popup visibility
