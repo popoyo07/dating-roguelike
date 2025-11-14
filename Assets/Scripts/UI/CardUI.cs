@@ -139,7 +139,7 @@ public class CardUI : MonoBehaviour
 
                     break;
 
-            case "LoveyDovy2": //Thorned Rose --> Vampire (Phase 1)
+            case "LoveyDovy2": //Thorned Rose --> Vampire (Phase 1) && Bird (Phase 3)
 
                 if (boss == enemySpawner.sirenBoss)
                 {
@@ -170,11 +170,20 @@ public class CardUI : MonoBehaviour
                 }
                 else if (boss == enemySpawner.idkBoss)
                 {
-                    Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
-                    Activator.ContinueDialogue(1, 2);
+                    if (phase == 3)
+                    {
+                        correctLovyDovy = true;
+                        Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
+                        Activator.ContinueDialogue(1, 2);
+                    }
+                    else if (phase != 3)
+                    {
+                        Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
+                        Activator.ContinueDialogue(1, 2);
 
-                    bossEnemyScript.Angry();
-                    bossEnemyScript.AngryHealth();
+                        bossEnemyScript.Angry();
+                        bossEnemyScript.AngryHealth();
+                    }
                 }
 
                 break;
