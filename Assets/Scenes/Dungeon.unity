@@ -368,11 +368,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 678575898}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9876b43fb8c79f64aac5c6ab9b88f88e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DragCardBehavior
+  dragging: 0
 --- !u!1 &698179930 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7496991723004306567, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
@@ -704,6 +705,14 @@ PrefabInstance:
     - target: {fileID: 3550435651666191582, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 41.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3680863511636305901, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1348
+      objectReference: {fileID: 0}
+    - target: {fileID: 3680863511636305901, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -161
       objectReference: {fileID: 0}
     - target: {fileID: 3967055896382909537, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: DialogueUI
