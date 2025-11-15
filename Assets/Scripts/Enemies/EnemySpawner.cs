@@ -16,7 +16,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject vampireBoss;    // Vampire boss prefab
     public bool isVampire;
     public GameObject idkBoss;        // Unknown boss prefab
-    public bool isIdk;
+    public bool isKinnara;
     private GameObject bossInstance;  // Instance of the spawned boss
     private Vector3 bossSpawn;        // Spawn position for bosses
     private bool ifBossExists;        // Tracks if a boss is already spawned
@@ -66,7 +66,7 @@ public class EnemySpawner : MonoBehaviour
 
             case 1:
                 activeList = idkList;
-                isIdk = true;
+                isKinnara = true;
                 Debug.Log("Idk boss");
                 boss = idkBoss;
                 break;

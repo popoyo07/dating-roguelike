@@ -46,7 +46,7 @@ public class BattleSystem : MonoBehaviour
     bool runing;
 
     public bool finalReward;
-
+    public bool bossRomanced;
     void Start()
     {
         endTurnB = GameObject.Find("EndTurn");
@@ -73,23 +73,23 @@ public class BattleSystem : MonoBehaviour
             }
             if (enemyHP.dead())
             {
-                Debug.Log("cardUI.bossRomanced: " + cardUI.bossRomanced);
+                Debug.Log("bossRomanced: " + bossRomanced);
 
-                if (enemyHP.isBoss && cardUI.bossRomanced == false)
+                if (enemyHP.isBoss && bossRomanced == false)
                 {
                     Debug.Log("Regular");
                     state = BattleState.WONGAME;
                     menuButtons.winMenu.SetActive(true);
                     menuButtons.ResetDialogueIndex();
                 }
-                else if (enemyHP.isBoss && secondEncounter && enemySpawner.isSiren == true && cardUI.bossRomanced == true)
+                else if (enemyHP.isBoss && secondEncounter && enemySpawner.isSiren == true && bossRomanced == true)
                 {
                     Debug.Log("Siren");
                     StartCoroutine(ChangeBattleState(0f, BattleState.REWARD, "WON?"));
                     //menuButtons.winMenuSiren.SetActive(true);
                     //menuButtons.ResetDialogueIndex();
                 }
-                else if (enemyHP.isBoss && secondEncounter && enemySpawner.isVampire == true && cardUI.bossRomanced == true)
+                else if (enemyHP.isBoss && secondEncounter && enemySpawner.isVampire == true && bossRomanced == true)
                 {
                     Debug.Log("Vampire is now mine");
                     StartCoroutine(ChangeBattleState(0f, BattleState.REWARD, "WON?"));
@@ -97,9 +97,9 @@ public class BattleSystem : MonoBehaviour
                     //menuButtons.winMenuVampire.SetActive(true);
                     //menuButtons.ResetDialogueIndex();
                 }
-                else if (enemyHP.isBoss && secondEncounter && enemySpawner.isIdk == true && cardUI.bossRomanced == true)
+                else if (enemyHP.isBoss && secondEncounter && enemySpawner.isKinnara == true && bossRomanced == true)
                 {
-                    Debug.Log("Kinnara");
+                    Debug.Log("isKinnara");
                     StartCoroutine(ChangeBattleState(0f, BattleState.REWARD, "WON?"));
                     //menuButtons.winMenuKinnara.SetActive(true);
                     //menuButtons.ResetDialogueIndex();
@@ -174,15 +174,15 @@ public class BattleSystem : MonoBehaviour
                 break;
 
             case BattleState.WONGAME:
-                if (enemySpawner.boss == enemySpawner.sirenBoss)
+                if (enemySpawner.boss == enemySpawner.sirenBoss && bossRomanced)
                 {
                     menuButtons.winMenuSiren.SetActive(true);
                 }
-                else if(enemySpawner.boss == enemySpawner.vampireBoss)
+                else if (enemySpawner.boss == enemySpawner.vampireBoss && bossRomanced)
                 {
                     menuButtons.winMenuVampire.SetActive(true);
                 }
-                else
+                else if (enemySpawner.isKinnara && bossRomanced)
                 {
                     menuButtons.winMenuKinnara.SetActive(true);
                 }

@@ -6,7 +6,7 @@ using System;
 
 public class ResponseHandle : MonoBehaviour
 {
-
+    [SerializeField] private CardUI cardUI;
     [SerializeField] private RectTransform responseBox;
     [SerializeField] private RectTransform responseButtonTemplate;
     [SerializeField] private RectTransform responseContainer;
@@ -36,7 +36,11 @@ public class ResponseHandle : MonoBehaviour
     {
         dialogueUI = GetComponent<DialogueUI>();
         LovyPlus = LovyCounting.lovyCount;
-
+        cardUI = GetComponentInChildren<CardUI>();
+        if (cardUI != null)
+        {
+            Debug.LogWarning("NUUUUUUUUUUUUUUUUUUUUUlldlasdnakf");
+        }
     }
 
     public void AddRespnoseEvents(ResponseEvent[] responseEvents)
@@ -77,6 +81,10 @@ public class ResponseHandle : MonoBehaviour
         {
             LovyCountAdd(1);
             Debug.Log(LovyPlus);
+        } else if (responseIndex == 1)
+        {
+            
+            Debug.LogWarning("I got 1 ");
         }
 
         foreach (GameObject button in tempResponseButton)
