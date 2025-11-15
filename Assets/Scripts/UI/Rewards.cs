@@ -38,6 +38,11 @@ public class Rewards : MonoBehaviour
 
     private CoinSystem coinSystem; // Reference to coin management system
     private DeckDraw deck;         // Reference to the deck management system
+    //MenuButtons menuButtons;
+    //BattleSystem battleSystem;
+
+    [Header("Dialogue Data")]
+    [SerializeField] private DialogueProgression[] dialogueProgression;
 
     void Start()
     {
@@ -46,7 +51,8 @@ public class Rewards : MonoBehaviour
         coinSystem = GameObject.FindWithTag("CoinSystem").GetComponent<CoinSystem>();
         deck = GameObject.Find("Managers").GetComponentInChildren<DeckDraw>();
         deckUI = GameObject.FindWithTag("DUM").GetComponent<DeckUIManager>(); // or assign in inspector
-     
+        //menuButtons = GameObject.FindWithTag("Canvas").GetComponent<MenuButtons>();
+        //battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
     }
 
     private void Update()
@@ -157,7 +163,7 @@ public class Rewards : MonoBehaviour
                 int numCards;
 
                 if (enemyHP.maxHealth <= 10)
-                    numCards = 10;
+                    numCards = 30;
                 else if (enemyHP.maxHealth <= 20)
                     numCards = 2;
                 else

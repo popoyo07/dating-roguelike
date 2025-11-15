@@ -44,6 +44,8 @@ public class BattleSystem : MonoBehaviour
     MenuButtons menuButtons;
     bool runing;
 
+    public bool finalReward;
+
     void Start()
     {
         endTurnB = GameObject.Find("EndTurn");
@@ -54,6 +56,8 @@ public class BattleSystem : MonoBehaviour
         rewards = GameObject.FindWithTag("RewardsM").GetComponent<Rewards>();
         chooseRoom = GameObject.FindWithTag("RoomManager").GetComponent<ChooseRoom>();
         menuButtons = GameObject.FindWithTag("Canvas").GetComponent<MenuButtons>();
+
+        finalReward = false;
     }
     private void FixedUpdate()
     {
@@ -75,49 +79,48 @@ public class BattleSystem : MonoBehaviour
                     menuButtons.winMenu.SetActive(true);
                     menuButtons.ResetDialogueIndex();
                 }
-                else if (enemyHP.isBoss && secondEncounter && enemySpawner.isSiren == true && cardUI.bossRomanced == true)
+                else if (enemyHP.isBoss && secondEncounter && enemySpawner.isSiren == true && cardUI.bossRomanced == true && finalReward)
                 {
                     Debug.Log("Siren");
                     state = BattleState.WONGAME;
                     menuButtons.winMenuSiren.SetActive(true);
                     menuButtons.ResetDialogueIndex();
                 }
-                else if (enemyHP.isBoss && secondEncounter && enemySpawner.isVampire == true && cardUI.bossRomanced == true)
+                else if (enemyHP.isBoss && secondEncounter && enemySpawner.isVampire == true && cardUI.bossRomanced == true && finalReward)
                 {
-                    Debug.Log("Vampire");
-                    state = BattleState.WONGAME;
+                    Debug.Log("Vampire is now mine");
+                    StartCoroutine(ChangeBattleState(0f, BattleState.WON, "BattleSystem"));
+                    //state = BattleState.WONGAME;
                     //menuButtons.winMenuVampire.SetActive(true);
                     //menuButtons.ResetDialogueIndex();
                 }
-                else if (enemyHP.isBoss && secondEncounter && enemySpawner.isIdk == true && cardUI.bossRomanced == true)
+                else if (enemyHP.isBoss && secondEncounter && enemySpawner.isIdk == true && cardUI.bossRomanced == true && finalReward)
                 {
                     Debug.Log("Kinnara");
                     state = BattleState.WONGAME;
                     menuButtons.winMenuKinnara.SetActive(true);
                     menuButtons.ResetDialogueIndex();
-                }else if (!enemyHP.isBoss && state != BattleState.REWARD)
+                }
+                else if (!enemyHP.isBoss && state != BattleState.REWARD && !finalReward)
                 {
                     StartCoroutine(ChangeBattleState(0.1f, BattleState.REWARD, "BattleSystem"));
 
                 }
 
-                state = BattleState.REWARD;               
-
-
                 if (rewards.pickedReward)
                 {
                     // rewards.pickedReward = false;
                     Debug.Log("picked a rewuard");
-                   // rewards.openRewardsPop = false;
-                  //  chooseRoom.openRoomPop = true;
-  
+                    // rewards.openRewardsPop = false;
+                    //  chooseRoom.openRoomPop = true;
+
                 }
   
                 if (chooseRoom.chosenRoom)
                 {
                    // rewards.openRewardsPop = false;
                     //state = BattleState.WON;
-                    StartCoroutine(ChangeBattleState(0.0f, BattleState.WON, "BattleSystem"));
+                    StartCoroutine(ChangeBattleState(0f, BattleState.WON, "BattleSystem"));
                     enemyHP = null;
                     moveA = true;
                     moveB = true;

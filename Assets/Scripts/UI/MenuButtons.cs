@@ -24,6 +24,8 @@ public class MenuButtons : MonoBehaviour
     ChooseRoom chooseRoom;           // Reference to room manager
     public DialogueProgression progression;
 
+    private CoinSystem coinSystem;
+
     [Header("Dialogue Data")]
     [SerializeField] private DialogueProgression[] dialogueProgression;
 
@@ -37,6 +39,8 @@ public class MenuButtons : MonoBehaviour
         battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
         rewards = GameObject.FindWithTag("RewardsM").GetComponent<Rewards>();
         chooseRoom = GameObject.FindWithTag("RoomManager").GetComponent<ChooseRoom>();
+
+        coinSystem = GameObject.FindWithTag("CoinSystem").GetComponent<CoinSystem>();
 
         // Show loading screen briefly at start
         if (loadingScreen != null)
@@ -58,23 +62,32 @@ public class MenuButtons : MonoBehaviour
 
         if (battleSystem.state == BattleState.REWARD)
         {
-            // Handle rewards popup visibility
-            if (!rewardsPopup.activeSelf && !roomPopup.activeSelf)
+            // Only show normal rewards popup if NOT final reward phase
+            if (dialogueProgression[0].phase != 3)
             {
-                rewardsPopup.SetActive(true);
-                StartCoroutine(ShowRewardsNextFrame());
+                if (!rewardsPopup.activeSelf && !roomPopup.activeSelf)
+                {
+                    rewardsPopup.SetActive(true);
+                    StartCoroutine(ShowRewardsNextFrame());
+                }
 
+                if (rewards.pickedReward && rewardsPopup.activeSelf)
+                {
+                    rewardsPopup.SetActive(false);
+                    rewards.rewardsForCurrent = false;
+                    roomPopup.SetActive(true);
+                    chooseRoom.ShowRoomOptions();
+                }
             }
-
-            if (rewards.pickedReward && rewardsPopup.activeSelf)
+            else
             {
-
-                rewardsPopup.SetActive(false);
-                rewards.rewardsForCurrent = false;
-                roomPopup.SetActive(true);
-                chooseRoom.ShowRoomOptions();
-
-
+                // Phase 3: final reward logic
+                if (!battleSystem.finalReward)
+                {
+                    Debug.LogWarning("Added Final 30 coins");
+                    battleSystem.finalReward = true;
+                    coinSystem.coins += 30;
+                }
             }
 
             // Handle room popup visibility
@@ -171,7 +184,7 @@ public class MenuButtons : MonoBehaviour
 
         if (rewards != null)
         {
-            rewards.rewardsForCurrent = false;
+            //rewards.rewardsForCurrent = false;
             rewards.ShowRewardOptions();
         }
     }
