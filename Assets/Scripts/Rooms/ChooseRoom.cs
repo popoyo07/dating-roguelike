@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class ChooseRoom : MonoBehaviour
 {
     [Header("Bools")]
-    public bool openRoomPop; // Tracks if the room selection popup should be open
+    //public bool openRoomPop; // Tracks if the room selection popup should be open
     public bool chosenRoom;  // Tracks if the player has chosen a room
     public bool currentRoom; // Ensures room selection is only active once at a time
 
@@ -112,13 +112,17 @@ public class ChooseRoom : MonoBehaviour
 
         Debug.Log("Room options displayed.");
     }
+  
 
     void ApplyRoom(Room room)
     {
         if (!currentRoom) return; // Ensure a room is currently active before applying
 
-        chosenRoom = true; // Mark that the player has chosen a room
+        chosenRoom = true;  // Mark that the player has chosen a room
+
         enemySpawner.QueueSpecificEnemy(room.enemyPrefab); // Queue the chosen enemy to spawn
         currentRoom = false; // Reset the room selection state
+
+        
     }
 }

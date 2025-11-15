@@ -56,32 +56,47 @@ public class MenuButtons : MonoBehaviour
             man.SetActive(false);      // Hide other UI
         }
 
-        // Handle rewards popup visibility
-        if (rewards.openRewardsPop && !rewardsPopup.activeSelf && !roomPopup.activeSelf)
+        if (battleSystem.state == BattleState.REWARD)
         {
-            rewardsPopup.SetActive(rewards.openRewardsPop);
-            StartCoroutine(ShowRewardsNextFrame());
-        }
+            // Handle rewards popup visibility
+            if (!rewardsPopup.activeSelf && !roomPopup.activeSelf)
+            {
+                rewardsPopup.SetActive(true);
+                StartCoroutine(ShowRewardsNextFrame());
 
-        if (!rewards.openRewardsPop && rewardsPopup.activeSelf)
-        {
-            rewardsPopup.SetActive(false);
-            rewards.rewardsForCurrent = false;
-            roomPopup.SetActive(true);
-        }
+            }
 
-        // Handle room popup visibility
-        if (!chooseRoom.openRoomPop && roomPopup.activeSelf)
+            if (rewards.pickedReward && rewardsPopup.activeSelf)
+            {
+
+                rewardsPopup.SetActive(false);
+                rewards.rewardsForCurrent = false;
+                roomPopup.SetActive(true);
+                chooseRoom.ShowRoomOptions();
+
+
+            }
+
+            // Handle room popup visibility
+            if (chooseRoom.chosenRoom && roomPopup.activeSelf)
+            {
+                roomPopup.SetActive(false);
+            }
+
+        }
+        else if (rewardsPopup.activeSelf || roomPopup.activeSelf)
         {
-            roomPopup.SetActive(false);
+                roomPopup.SetActive(false);
+
+                rewardsPopup.SetActive(false);
         }
 
         // Handle deck popup visibility
-        if (showDeckToggleBool)
+        if (showDeckToggleBool && !showDeckPopup.activeSelf) // only runs when toogle is on and is not active yet 
         {
             showDeckPopup.SetActive(true);
         }
-        if (!showDeckToggleBool)
+        if (!showDeckToggleBool && showDeckPopup.activeSelf) // only run if toogle is off and it is still enabled 
         {
             showDeckPopup.SetActive(false);
         }

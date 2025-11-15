@@ -145,7 +145,10 @@ public class DialogueUI : MonoBehaviour
 
         if (responseHandle.LovyPlus > 0)
         {
+            Debug.Log("runing");
+
             yield return new WaitForSeconds(0.5f); // wait 2 seconds
+            Debug.Log("runing");
             AllDeckUI.ShowDeck();
             showAllDeck = true;
             responseHandle.LovyPlus = 0;

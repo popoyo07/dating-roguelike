@@ -53,7 +53,7 @@ public class CardUI : MonoBehaviour
             Boss = GameObject.FindWithTag("Boss");
             if (Boss != null)
             {
-                bossEnemyScript = GameObject.FindWithTag("Boss").GetComponent<Enemy>();
+                bossEnemyScript = Boss.GetComponentInChildren<Enemy>();
                 Activator = Boss.GetComponent<DialogueActivator>();
                 if (Activator != null)
                 {

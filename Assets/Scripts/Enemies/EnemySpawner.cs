@@ -169,7 +169,7 @@ public class EnemySpawner : MonoBehaviour
         }
 
         // Spawn boss on specific rooms
-        if ((roomsSpawnBoss == 7 || roomsSpawnBoss == 14 || roomsSpawnBoss == 21) && !ifBossExists)
+        if ((roomsSpawnBoss == 2 || roomsSpawnBoss == 14 || roomsSpawnBoss == 21) && !ifBossExists)
         {
             DestroyEnemy(); // Clear normal enemies
             ifBossExists = true;

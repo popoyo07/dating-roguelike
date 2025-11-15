@@ -93,7 +93,7 @@ public class BattleUI : MonoBehaviour
 
                 if (dialogueUI.isTalking == false)
                 {
-                    StartCoroutine(bSystem.DelaySwitchState(0f, BattleState.PLAYERTURN, "isTalking = false "));
+                    StartCoroutine(bSystem.ChangeBattleState(0f, BattleState.PLAYERTURN, "isTalking = false "));
                 }
                 else if (cardsUI.activeSelf)
                 {
@@ -106,7 +106,7 @@ public class BattleUI : MonoBehaviour
                 
                 if (dialogueUI.isTalking)
                 {
-                    StartCoroutine(bSystem.DelaySwitchState(0f, BattleState.DIALOGUE, "Battle UI Script "));
+                    StartCoroutine(bSystem.ChangeBattleState(0f, BattleState.DIALOGUE, "Battle UI Script "));
                 }
                 else if(cardsUI.activeSelf == false)
                 {
@@ -114,10 +114,7 @@ public class BattleUI : MonoBehaviour
                     Debug.LogWarning("hahahahahahah");
                     dialogueUI.StartCoroutine(dialogueUI.DelayAble(0f));
                 }
-                if (reward != null && reward.openRewardsPop && cardsUI == enabled) // should disable the 
-                {
-                    //StartCoroutine(DelayDisableUI());
-                }
+             
 
                 break;
 
@@ -131,11 +128,11 @@ public class BattleUI : MonoBehaviour
             case BattleState.DEFAULT:
                 if (enemyDialogue == null) //if the enemy doesn't have dialogue activator, then switch to Playerturn state
                 {
-                    StartCoroutine(bSystem.DelaySwitchState(0f, BattleState.PLAYERTURN, "Enemy has no dialogue"));
+                    StartCoroutine(bSystem.ChangeBattleState(0f, BattleState.PLAYERTURN, "Enemy has no dialogue"));
                 }
                 else if (dialogueUI.isTalking) // if is talking switch to Dialogue state
                 {
-                    StartCoroutine(bSystem.DelaySwitchState(0f, BattleState.DIALOGUE, "isTalking = false "));
+                    StartCoroutine(bSystem.ChangeBattleState(0f, BattleState.DIALOGUE, "isTalking = false "));
                 }
               
                 break;

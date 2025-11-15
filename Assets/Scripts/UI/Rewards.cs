@@ -4,11 +4,12 @@ using UnityEngine.UI;
 
 public class Rewards : MonoBehaviour
 {
+
     private SimpleHealth playerHP; // Reference to the player's health component
     private SimpleHealth enemyHP; //Referance to character or enemy health system
 
     [Header("Bools")]
-    public bool openRewardsPop;      // Whether the rewards popup is currently open
+   // public bool openRewardsPop;      // Whether the rewards popup is currently open
     public bool pickedReward;        // Whether a reward has been picked
     public bool rewardsForCurrent;   // Whether rewards have been generated for the current room
 
@@ -45,7 +46,7 @@ public class Rewards : MonoBehaviour
         coinSystem = GameObject.FindWithTag("CoinSystem").GetComponent<CoinSystem>();
         deck = GameObject.Find("Managers").GetComponentInChildren<DeckDraw>();
         deckUI = GameObject.FindWithTag("DUM").GetComponent<DeckUIManager>(); // or assign in inspector
-
+     
     }
 
     private void Update()

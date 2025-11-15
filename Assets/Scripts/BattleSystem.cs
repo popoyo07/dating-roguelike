@@ -95,30 +95,34 @@ public class BattleSystem : MonoBehaviour
                     state = BattleState.WONGAME;
                     menuButtons.winMenuKinnara.SetActive(true);
                     menuButtons.ResetDialogueIndex();
+                }else if (!enemyHP.isBoss && state != BattleState.REWARD)
+                {
+                    StartCoroutine(ChangeBattleState(0.1f, BattleState.REWARD, "BattleSystem"));
+
                 }
 
-                state = BattleState.REWARD;
-                rewards.openRewardsPop = true;
-                rewards.ShowRewardOptions();
+                state = BattleState.REWARD;               
+
 
                 if (rewards.pickedReward)
                 {
-                    rewards.pickedReward = false;
-                    rewards.openRewardsPop = false;
-                    chooseRoom.openRoomPop = true;
-                    chooseRoom.ShowRoomOptions();
+                    // rewards.pickedReward = false;
+                    Debug.Log("picked a rewuard");
+                   // rewards.openRewardsPop = false;
+                  //  chooseRoom.openRoomPop = true;
   
                 }
   
                 if (chooseRoom.chosenRoom)
                 {
-                    rewards.openRewardsPop = false;
-                    state = BattleState.WON;
+                   // rewards.openRewardsPop = false;
+                    //state = BattleState.WON;
+                    StartCoroutine(ChangeBattleState(0.0f, BattleState.WON, "BattleSystem"));
                     enemyHP = null;
                     moveA = true;
                     moveB = true;
-                    chooseRoom.chosenRoom = false;
-                    chooseRoom.openRoomPop = false;
+                    //chooseRoom.chosenRoom = false;
+                  //  chooseRoom.openRoomPop = false;
                     Debug.Log("Current state is " + state);
                     secondEncounter = true;
                 }
@@ -130,15 +134,17 @@ public class BattleSystem : MonoBehaviour
         switch (state)  // maybe can be donone on separate script and handle all the UI elements 
         {
             case BattleState.START:
-                StartCoroutine(DelaySwitchState(.2f, BattleState.PLAYERTURN, "BattleSystem"));
+                StartCoroutine(ChangeBattleState(.2f, BattleState.PLAYERTURN, "BattleSystem"));
 
                 break;
 
             case BattleState.WON: 
                 if (!runing)
                 {
+                    rewards.pickedReward = false;
+                    chooseRoom.chosenRoom = false ;
                     runing = true;
-                    StartCoroutine(DelaySwitchState(2f, BattleState.DEFAULT, "BattleSystem"));
+                    StartCoroutine(ChangeBattleState(2f, BattleState.DEFAULT, "BattleSystem"));
 
                 }
                 break;
@@ -150,11 +156,11 @@ public class BattleSystem : MonoBehaviour
               
                 break;
             case BattleState.STARTRUN:
-                StartCoroutine(DelaySwitchState(.2f, BattleState.START, "BattleSystem"));
+                StartCoroutine(ChangeBattleState(.2f, BattleState.START, "BattleSystem"));
                     break;
                 
             case BattleState.ENDENEMYTURN:
-                StartCoroutine(DelaySwitchState(.1f, BattleState.PLAYERTURN, "BattleSystem"));
+                StartCoroutine(ChangeBattleState(.1f, BattleState.PLAYERTURN, "BattleSystem"));
 
 
                 break;
@@ -173,29 +179,29 @@ public class BattleSystem : MonoBehaviour
             enemyHP = enemy.GetComponent<SimpleHealth>();
         }
         playerHP = player.GetComponent<SimpleHealth>(); // get simple helath 
-        StartCoroutine(DelaySwitchState(0f, BattleState.PLAYERTURN, "BattleSystem"));
+        StartCoroutine(ChangeBattleState(0f, BattleState.PLAYERTURN, "BattleSystem"));
 
     }
 
     public IEnumerator EndPlayerTurn()
     {
-        StartCoroutine(DelaySwitchState(0f, BattleState.ENDPLAYERTURN, "BattleSystem"));
+        StartCoroutine(ChangeBattleState(0f, BattleState.ENDPLAYERTURN, "BattleSystem"));
 
         if (enemyHP.dead())
         {
             yield break;
         }
 
-        StartCoroutine(DelaySwitchState(1f, BattleState.ENEMYTURN, "BattleSystem")); // delay a little so everything else can be run 
+        StartCoroutine(ChangeBattleState(1f, BattleState.ENEMYTURN, "BattleSystem")); // delay a little so everything else can be run 
     }
 
     public IEnumerator EndEnemyTurn()
     {
         yield return new WaitForSeconds(1f); // wait some time to switch back to player turn 
-        StartCoroutine(DelaySwitchState(0f, BattleState.ENDENEMYTURN, "BattleSystem"));
+        StartCoroutine(ChangeBattleState(0f, BattleState.ENDENEMYTURN, "BattleSystem"));
     }
    // bool running = false;
-    public IEnumerator DelaySwitchState(float delay, BattleState b, string whichScriptIsFrom)
+    public IEnumerator ChangeBattleState(float delay, BattleState b, string whichScriptIsFrom)
     {
       //
        // running = true;

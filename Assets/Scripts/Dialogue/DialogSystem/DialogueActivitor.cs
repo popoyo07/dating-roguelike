@@ -17,7 +17,8 @@ public class DialogueActivator : MonoBehaviour
     [SerializeField] private static int currentDialogueIndex;
     [SerializeField] public DialogueProgression progression;
     [SerializeField] private ResponseHandle responseHandle;
-    [SerializeField] private GameObject enemy;
+    [SerializeField] private SpriteRenderer enemy;
+    [SerializeField] private Canvas eCanvas;
     [SerializeField] private NextAttackUI nextAttackUI;
 
     [Header("Ending Dialogue")]
@@ -64,7 +65,8 @@ public class DialogueActivator : MonoBehaviour
             Debug.LogError("dialogueEnd not assigned to Enemy!");
         }
 
-        enemy = transform.GetChild(0).gameObject;
+        enemy = transform.GetChild(0).gameObject.GetComponentInChildren<SpriteRenderer>();
+        eCanvas = transform.GetChild(0).gameObject.GetComponentInChildren<Canvas>();
 
         progression.phase += 1;
         currentDialogueIndex = progression.currentDialogueIndex;
@@ -190,13 +192,15 @@ public class DialogueActivator : MonoBehaviour
     public void enemyAble()
     {
         nextAttackUI.ShowNextAttack();
-        enemy.SetActive(true);
+        enemy.enabled = true;
+        eCanvas.enabled = true;
     }
 
     public void enemyDisable()
     {
         nextAttackUI.HideNextAttack();
-        enemy.SetActive(false);
+        enemy.enabled = false;
+        eCanvas.enabled = false;
     }
 
     public void ResetDialogueIndex()
