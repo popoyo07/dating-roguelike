@@ -10,9 +10,10 @@ public class AssignCardAnimation : MonoBehaviour
     RectTransform rectTransform;
     public Vector3 location;
     public Vector3 setRotation;
-   
+    DragCardBehavior dragCardBehavior;
     void OnEnable()
     {
+        dragCardBehavior = GetComponentInParent<DragCardBehavior>();
         animator = GetComponent<Animator>();
         rectTransform = GetComponent<RectTransform>();
         cardImage = GetComponent<Image>();
@@ -25,11 +26,14 @@ public class AssignCardAnimation : MonoBehaviour
     }
     void SetUpLocation() // set up base location 
     {
-        if (animator != null && animator.GetBool("spawned") == false && animator.GetBool("used") == false)
+        if (dragCardBehavior != null)
         {
-            rectTransform.anchoredPosition = location;
-            rectTransform.localEulerAngles = setRotation;
-            //Debug.Log("For the object " + gameObject.name + " the locaton is " + rectTransform.anchoredPosition + "and the rotation is " + rectTransform.localEulerAngles);
+            if (animator != null && animator.GetBool("spawned") == false && animator.GetBool("used") == false && !dragCardBehavior.dragging)
+            {
+                rectTransform.anchoredPosition = location;
+                rectTransform.localEulerAngles = setRotation;
+                //Debug.Log("For the object " + gameObject.name + " the locaton is " + rectTransform.anchoredPosition + "and the rotation is " + rectTransform.localEulerAngles);
+            }
         }
 
     }
