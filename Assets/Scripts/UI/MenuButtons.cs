@@ -17,12 +17,12 @@ public class MenuButtons : MonoBehaviour
     public GameObject rewardsPopup;   // Rewards popup UI
     public GameObject roomPopup;      // Room selection popup UI
     public GameObject showDeckPopup;  // Deck display popup UI
+    public DialogueUI dialogueUI;
 
     // Game system references
     BattleSystem battleSystem;       // Reference to battle system
     Rewards rewards;                 // Reference to rewards manager
     ChooseRoom chooseRoom;           // Reference to room manager
-    public DialogueProgression progression;
 
     private CoinSystem coinSystem;
 
@@ -30,6 +30,7 @@ public class MenuButtons : MonoBehaviour
     [SerializeField] private DialogueProgression[] dialogueProgression;
 
     public bool showDeckToggleBool; // Tracks whether the deck popup should be displayed
+    bool endingDialogueTriggered = false;
 
     public bool isRetryTrue = false;
 
@@ -39,7 +40,7 @@ public class MenuButtons : MonoBehaviour
         battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
         rewards = GameObject.FindWithTag("RewardsM").GetComponent<Rewards>();
         chooseRoom = GameObject.FindWithTag("RoomManager").GetComponent<ChooseRoom>();
-
+        dialogueUI = GetComponent<DialogueUI>();
         coinSystem = GameObject.FindWithTag("CoinSystem").GetComponent<CoinSystem>();
 
         // Show loading screen briefly at start
@@ -62,9 +63,15 @@ public class MenuButtons : MonoBehaviour
 
         if (battleSystem.state == BattleState.REWARD)
         {
+            Debug.Log("Current phase:" + dialogueProgression[0].phase);
+
+
             // Only show normal rewards popup if NOT final reward phase
             if (dialogueProgression[0].phase != 3)
             {
+                Debug.Log("Current phase:" + dialogueProgression[0].phase);
+
+
                 if (!rewardsPopup.activeSelf && !roomPopup.activeSelf)
                 {
                     rewardsPopup.SetActive(true);
@@ -84,9 +91,27 @@ public class MenuButtons : MonoBehaviour
                 // Phase 3: final reward logic
                 if (!battleSystem.finalReward)
                 {
-                    Debug.LogWarning("Added Final 30 coins");
                     battleSystem.finalReward = true;
                     coinSystem.coins += 30;
+
+                    DialogueActivator dialogueActivator = GameObject.FindWithTag("Boss").GetComponent<DialogueActivator>();
+
+                    if (dialogueActivator != null)
+                        dialogueProgression[0] = dialogueActivator.progression;
+
+
+                    if (!endingDialogueTriggered)
+                    {
+                        if (dialogueProgression[0].phase == 3)
+                        {
+                            endingDialogueTriggered = true;
+                            dialogueActivator.EndingDialogue();
+                        }
+                        else
+                        {
+                            Debug.Log("DialogueEnd not activate");
+                        }
+                    }
                 }
             }
 

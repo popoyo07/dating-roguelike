@@ -28,7 +28,7 @@ MonoBehaviour:
   - dialogueText: You have successfully romanced Vampire.
     characterName: Narrator
     characterImage: {fileID: 0}
-    dialogueEnd: 0
+    dialogueEnd: 1
   responses: []
   LovyCounting:
     LovyCount: 0

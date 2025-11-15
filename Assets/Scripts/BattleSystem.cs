@@ -24,6 +24,7 @@ public class BattleSystem : MonoBehaviour
     public GameObject player; 
     public GameObject enemy;
 
+
     public SimpleHealth enemyHP;
     public SimpleHealth playerHP;
 
@@ -72,34 +73,36 @@ public class BattleSystem : MonoBehaviour
             }
             if (enemyHP.dead())
             {
-                if (enemyHP.isBoss && secondEncounter && cardUI.bossRomanced == false)
+                Debug.Log("cardUI.bossRomanced: " + cardUI.bossRomanced);
+
+                if (enemyHP.isBoss && cardUI.bossRomanced == false)
                 {
                     Debug.Log("Regular");
                     state = BattleState.WONGAME;
                     menuButtons.winMenu.SetActive(true);
                     menuButtons.ResetDialogueIndex();
                 }
-                else if (enemyHP.isBoss && secondEncounter && enemySpawner.isSiren == true && cardUI.bossRomanced == true && finalReward)
+                else if (enemyHP.isBoss && secondEncounter && enemySpawner.isSiren == true && cardUI.bossRomanced == true)
                 {
                     Debug.Log("Siren");
-                    state = BattleState.WONGAME;
-                    menuButtons.winMenuSiren.SetActive(true);
-                    menuButtons.ResetDialogueIndex();
+                    StartCoroutine(ChangeBattleState(0f, BattleState.REWARD, "WON?"));
+                    //menuButtons.winMenuSiren.SetActive(true);
+                    //menuButtons.ResetDialogueIndex();
                 }
-                else if (enemyHP.isBoss && secondEncounter && enemySpawner.isVampire == true && cardUI.bossRomanced == true && finalReward)
+                else if (enemyHP.isBoss && secondEncounter && enemySpawner.isVampire == true && cardUI.bossRomanced == true)
                 {
                     Debug.Log("Vampire is now mine");
-                    StartCoroutine(ChangeBattleState(0f, BattleState.WON, "BattleSystem"));
+                    StartCoroutine(ChangeBattleState(0f, BattleState.REWARD, "WON?"));
                     //state = BattleState.WONGAME;
                     //menuButtons.winMenuVampire.SetActive(true);
                     //menuButtons.ResetDialogueIndex();
                 }
-                else if (enemyHP.isBoss && secondEncounter && enemySpawner.isIdk == true && cardUI.bossRomanced == true && finalReward)
+                else if (enemyHP.isBoss && secondEncounter && enemySpawner.isIdk == true && cardUI.bossRomanced == true)
                 {
                     Debug.Log("Kinnara");
-                    state = BattleState.WONGAME;
-                    menuButtons.winMenuKinnara.SetActive(true);
-                    menuButtons.ResetDialogueIndex();
+                    StartCoroutine(ChangeBattleState(0f, BattleState.REWARD, "WON?"));
+                    //menuButtons.winMenuKinnara.SetActive(true);
+                    //menuButtons.ResetDialogueIndex();
                 }
                 else if (!enemyHP.isBoss && state != BattleState.REWARD && !finalReward)
                 {
@@ -113,7 +116,6 @@ public class BattleSystem : MonoBehaviour
                     Debug.Log("picked a rewuard");
                     // rewards.openRewardsPop = false;
                     //  chooseRoom.openRoomPop = true;
-
                 }
   
                 if (chooseRoom.chosenRoom)
@@ -165,11 +167,26 @@ public class BattleSystem : MonoBehaviour
             case BattleState.ENDENEMYTURN:
                 StartCoroutine(ChangeBattleState(.1f, BattleState.PLAYERTURN, "BattleSystem"));
 
-
                 break;
             case BattleState.LOST:
                 menuButtons.loseMenu.SetActive(true);
                 //SceneManager.LoadScene("MainMenu");
+                break;
+
+            case BattleState.WONGAME:
+                if (enemySpawner.boss == enemySpawner.sirenBoss)
+                {
+                    menuButtons.winMenuSiren.SetActive(true);
+                }
+                else if(enemySpawner.boss == enemySpawner.vampireBoss)
+                {
+                    menuButtons.winMenuVampire.SetActive(true);
+                }
+                else
+                {
+                    menuButtons.winMenuKinnara.SetActive(true);
+                }
+                menuButtons.ResetDialogueIndex();
                 break;
         }
 

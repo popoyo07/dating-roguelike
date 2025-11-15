@@ -53,7 +53,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         // Randomly choose an enemy list
-        chosenList = Random.Range(2, 2); // Note: Random.Range(2,2) always returns 2
+        chosenList = Random.Range(2,2); // Note: Random.Range(2,2) always returns 2
 
         switch (chosenList)
         {
@@ -98,7 +98,6 @@ public class EnemySpawner : MonoBehaviour
     void Update()
     {
 
-
         // Handle what happens when the battle is won
         if (battleSystem.state == BattleState.WON)
         {
@@ -109,26 +108,6 @@ public class EnemySpawner : MonoBehaviour
                 StartCoroutine(DelayTrash()); // Wait and spawn next enemy or boss
                 enemySpawn = true;
                 roomsSpawnBoss++; // Increment rooms visited
-            }
-
-            if (bossInstance != null)
-            {
-                if (dialogueActivator != null)
-                    progression = dialogueActivator.progression;
-
-
-                if (!endingDialogueTriggered)
-                {
-                    if (progression.phase == 3)
-                    {
-                        endingDialogueTriggered = true;
-                        dialogueActivator.EndingDialogue();
-                    }
-                    else
-                    {
-                        Debug.Log("DialogueEnd not activate");
-                    }
-                }
             }
 
         }
@@ -151,7 +130,7 @@ public class EnemySpawner : MonoBehaviour
         yield return new WaitForSeconds(2.5f); // Wait 2.5 seconds before spawning
 
         // Check if next spawn is a normal enemy or boss
-        if (roomsSpawnBoss < 7 || roomsSpawnBoss >= 8 || roomsSpawnBoss < 14 || roomsSpawnBoss >= 15 || roomsSpawnBoss < 21 || roomsSpawnBoss >= 22)
+        if (roomsSpawnBoss < 7 || roomsSpawnBoss >=8 || roomsSpawnBoss < 14 || roomsSpawnBoss >= 15 || roomsSpawnBoss < 21 || roomsSpawnBoss >= 6)
         {
             // Spawn queued enemy if player chose one
             if (spawnSpecificNext && queuedEnemyPrefab != null)

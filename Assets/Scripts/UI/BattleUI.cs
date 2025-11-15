@@ -97,7 +97,8 @@ public class BattleUI : MonoBehaviour
                 }
                 else if (cardsUI.activeSelf)
                 {
-                    cardsUI.SetActive(false);Debug.LogWarning("I am the culptrit");
+                    cardsUI.SetActive(false);
+                    //Debug.LogWarning("I am the culptrit");
                     //dialogueUI.StartCoroutine(dialogueUI.DelayDisable(0.1f));
                 }
                 break;
@@ -111,7 +112,7 @@ public class BattleUI : MonoBehaviour
                 else if(cardsUI.activeSelf == false)
                 {
                     // cardUI.SetActive(true);
-                    Debug.LogWarning("hahahahahahah");
+                    //Debug.LogWarning("hahahahahahah");
                     dialogueUI.StartCoroutine(dialogueUI.DelayAble(0f));
                 }
              
