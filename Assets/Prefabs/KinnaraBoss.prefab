@@ -75,7 +75,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 193ccd89b9ce0c748b3c04da42d0a57c, type: 2}
   - {fileID: 11400000, guid: 91c3cc0f270acb1499cc74d1eb52af87, type: 2}
   - {fileID: 11400000, guid: 6cffd2233ccec694787687f901499069, type: 2}
-  - {fileID: 11400000, guid: 6a9b463c8589fd8438f56fd94575473e, type: 2}
   - {fileID: 11400000, guid: 7aa5e253991a8f247a24d9201c5da8de, type: 2}
   - {fileID: 11400000, guid: bda1ea00825a32a43b5a4e9f1dbcd08b, type: 2}
   - {fileID: 11400000, guid: 3c225af2d75045a4e982dae29f5facbc, type: 2}
@@ -85,6 +84,7 @@ MonoBehaviour:
   progression: {fileID: 11400000, guid: f7a6907b8270b9040b904fcf41099455, type: 2}
   responseHandle: {fileID: 0}
   enemy: {fileID: 0}
+  eCanvas: {fileID: 0}
   nextAttackUI: {fileID: 0}
   dialogueEnd:
   - {fileID: 11400000, guid: 39073aa427473a54d96d29ccdf8227fe, type: 2}

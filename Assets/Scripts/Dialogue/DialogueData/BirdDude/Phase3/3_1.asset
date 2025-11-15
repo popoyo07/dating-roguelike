@@ -31,10 +31,14 @@ MonoBehaviour:
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
+  - dialogueText: Do you want to use LoveyDovey card on him?
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 1
   responses:
-  - respnseText: Give cards
+  - respnseText: Yes
     dialogueObject: {fileID: 11400000, guid: 4f434d0356f9ebf469ff248395e280e7, type: 2}
-  - respnseText: Don't give
+  - respnseText: Refuse
     dialogueObject: {fileID: 11400000, guid: 49ef7a798b70f6b4b9e52cf1a8901e67, type: 2}
   LovyCounting:
     LovyCount: 0

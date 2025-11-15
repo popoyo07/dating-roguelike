@@ -340,6 +340,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79d63f759c54f564da2ae8693201f31c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
+--- !u!1 &295557928 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7169825194918217622, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+  m_PrefabInstance: {fileID: 1333872139}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &411225321 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5262501845317574372, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
@@ -684,6 +689,10 @@ PrefabInstance:
       value: 41.9
       objectReference: {fileID: 0}
     - target: {fileID: 3967055896382909537, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: DialogueUI
+      value: 
+      objectReference: {fileID: 295557928}
+    - target: {fileID: 3967055896382909537, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: progression
       value: 
       objectReference: {fileID: 11400000, guid: f7a6907b8270b9040b904fcf41099455, type: 2}
@@ -763,6 +772,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6424230952612506986, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: progression
+      value: 
+      objectReference: {fileID: 11400000, guid: f7a6907b8270b9040b904fcf41099455, type: 2}
     - target: {fileID: 6447387829181277190, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

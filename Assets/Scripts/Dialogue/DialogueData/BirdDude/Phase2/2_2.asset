@@ -31,15 +31,15 @@ MonoBehaviour:
     characterName: Kinnara
     characterImage: {fileID: 21300000, guid: 8b9c0be06222d0e4bb47d657fafbef4f, type: 3}
     dialogueEnd: 0
-  - dialogueText: He puffs uop his chest pretentiously.
+  - dialogueText: He puffs up his chest pretentiously.
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 1
   responses:
   - respnseText: Treasure
-    dialogueObject: {fileID: 0}
+    dialogueObject: {fileID: 11400000, guid: e576014641ca73846a37731351227e9a, type: 2}
   - respnseText: Curiosity
-    dialogueObject: {fileID: 0}
+    dialogueObject: {fileID: 11400000, guid: 6a9b463c8589fd8438f56fd94575473e, type: 2}
   LovyCounting:
     LovyCount: 0
     MinusLovyCount: 0

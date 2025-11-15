@@ -15,6 +15,9 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private MenuButtons AllDeckUI;
     [SerializeField] private ResponseHandle responseHandle;
     [SerializeField] private DialogueActivator enemyDialogue;
+    [SerializeField] private DialogueProgression progression;
+    [SerializeField] private BattleSystem battleSystem;
+
 
     private EnemySpawner enemySpawner;
 
@@ -28,10 +31,12 @@ public class DialogueUI : MonoBehaviour
         textEffect = GetComponent<TextEffect>();
         responseHandle = GetComponent<ResponseHandle>();
         AllDeckUI = GetComponent<MenuButtons>();
-/*        if (textEffect == null) Debug.LogError("TextEffect component is missing!");
-        if (responseHandle == null) Debug.LogError("ResponseHandle component is missing!");
-        if (textLabel == null) Debug.LogError("TextLabel is not assigned!");
-        if (dialogueBox == null) Debug.LogError("DialogueBox is not assigned!");*/
+        battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
+
+        /*        if (textEffect == null) Debug.LogError("TextEffect component is missing!");
+                if (responseHandle == null) Debug.LogError("ResponseHandle component is missing!");
+                if (textLabel == null) Debug.LogError("TextLabel is not assigned!");
+                if (dialogueBox == null) Debug.LogError("DialogueBox is not assigned!");*/
         enemySpawner = GameObject.FindWithTag("EnemyS").GetComponent<EnemySpawner>();
         CloseDialogueBox();
     }
@@ -165,7 +170,15 @@ public class DialogueUI : MonoBehaviour
         }
         else 
         {
+            if (progression.phase == 3 && battleSystem.finalReward)
+            {
+                battleSystem.state = BattleState.WONGAME;
+            }
+            else
+            {
             CloseDialogueBox();
+
+            }
         }
     }
 

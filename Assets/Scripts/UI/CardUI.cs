@@ -24,10 +24,12 @@ public class CardUI : MonoBehaviour
 
     private string cardName;
     public bool correctLovyDovy;
+    
     public bool bossRomanced;
 
     private void Awake()
     {
+        bossRomanced = false;
         GameObject spawnerObj = GameObject.FindWithTag("EnemyS");
         if (spawnerObj != null)
         {
@@ -116,6 +118,8 @@ public class CardUI : MonoBehaviour
                     {
                         correctLovyDovy = true;
                         bossRomanced = true;
+
+                        Debug.Log(bossRomanced);
                         Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
                         Activator.ContinueDialogue(1, 2);
                     }
@@ -350,7 +354,6 @@ public class CardUI : MonoBehaviour
                     if (phase == 2)
                     {
                         correctLovyDovy = true;
-
 
                         DialogueUI.MarkPendingSkip();
                         Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
