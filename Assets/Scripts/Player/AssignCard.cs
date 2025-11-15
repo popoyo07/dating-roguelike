@@ -21,7 +21,7 @@ public class AssignCard : MonoBehaviour
 
     bool resetForNewTurn;
     EnergySystem energy;
-    Image cardImage;
+    public Image cardImage;
     CardDescription cardDescription;
     private void OnEnable()
     {
