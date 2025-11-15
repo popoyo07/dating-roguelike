@@ -87,10 +87,10 @@ public class ActionsChemist : Cards
         ConsumeEnergy(weakeningPotionECost);
         enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.VULNERABLE;
     }
-    public void Antidote()
+    public void Antidote() // remove any state, including positive states 
     {
         ConsumeEnergy(antidoteECost);
-        // undo debuf or something 
+        pStatus.currentStatus = StatusEffect.NORMAL;
     }
     public void EmptyFlask()
     {

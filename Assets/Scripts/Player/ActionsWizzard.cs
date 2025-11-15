@@ -97,12 +97,20 @@ public class ActionsWizzard : Cards
         attkAmmount = waterJet;
         GenerateAttk(pStatus.currentStatus);
     }
-    public void WaterClense()
+    public void WaterClense() // removes bad states, but keeps good states if any 
     {
         ConsumeEnergy(waterJetECost);
-        // undo debuf or something 
+        switch (pStatus.currentStatus) // used a switch state in case other status are added on later updates
+        {
+            case StatusEffect.WEAK:
+            case StatusEffect.VULNERABLE:
+                pStatus.currentStatus = StatusEffect.NORMAL;
+                break;
+            case 0:
+                break;
+        }
     }
- 
+
     public void PlantBlade()
     {
         ConsumeEnergy(plantBladeECost);
