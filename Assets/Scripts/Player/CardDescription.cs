@@ -5,11 +5,11 @@ using Unity.VisualScripting;
 
 public class CardDescription : MonoBehaviour
 {
-    AssignCard assignCard;
+    public AssignCard assignCard;
     public TextMeshProUGUI txt;
     DeckDraw deckDraw;
     bool runing;
-    bool isItEnabled;
+  
     void OnEnable()
     {
         if (assignCard == null)
@@ -25,9 +25,10 @@ public class CardDescription : MonoBehaviour
     }
     void Update()
     {
-        if (assignCard != null && assignCard.cardUsed)
+        if (assignCard != null && !assignCard.cardImage.isActiveAndEnabled && txt.gameObject.activeSelf)
         {
-            StartCoroutine(CardUsed());
+            txt.gameObject.SetActive(false);
+            Debug.LogWarning("Disable the text");
         }
       
     }
@@ -41,17 +42,5 @@ public class CardDescription : MonoBehaviour
         txt.text = deckDraw.allCardDescriptions[assignCard.cardNameFromList];
 
     }
-   IEnumerator CardUsed()
-    {
-        if (runing)
-        {
-            yield break;
-        }
-        runing = true;
-        yield return new WaitForSeconds(1);
-       
-        runing = false;
-        isItEnabled = false;
-        txt.gameObject.SetActive(isItEnabled);
-    }
+ 
 }
