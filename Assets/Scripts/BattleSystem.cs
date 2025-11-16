@@ -170,6 +170,7 @@ public class BattleSystem : MonoBehaviour
                 break;
             case BattleState.LOST:
                 menuButtons.loseMenu.SetActive(true);
+                enemySpawner.DestroyBoss(resumeDefault: false); // do not play default music
                 //SceneManager.LoadScene("MainMenu");
                 break;
 
@@ -177,14 +178,22 @@ public class BattleSystem : MonoBehaviour
                 if (enemySpawner.boss == enemySpawner.sirenBoss && bossRomanced)
                 {
                     menuButtons.winMenuSiren.SetActive(true);
+                    enemySpawner.DestroyBoss(resumeDefault: false); // do not play default music
                 }
                 else if (enemySpawner.boss == enemySpawner.vampireBoss && bossRomanced)
                 {
                     menuButtons.winMenuVampire.SetActive(true);
+                    enemySpawner.DestroyBoss(resumeDefault: false); // do not play default music
                 }
                 else if (enemySpawner.isKinnara && bossRomanced)
                 {
                     menuButtons.winMenuKinnara.SetActive(true);
+                    enemySpawner.DestroyBoss(resumeDefault: false); // do not play default music
+                }
+                else
+                {
+                    menuButtons.winMenu.SetActive(true);
+                    enemySpawner.DestroyBoss(resumeDefault: false); // do not play default music
                 }
                 menuButtons.ResetDialogueIndex();
                 break;

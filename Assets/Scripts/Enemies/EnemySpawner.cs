@@ -129,23 +129,19 @@ public class EnemySpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(2.5f); // Wait 2.5 seconds before spawning
 
-        // Check if next spawn is a normal enemy or boss
-        if (roomsSpawnBoss < 7 || roomsSpawnBoss >=8 || roomsSpawnBoss < 14 || roomsSpawnBoss >= 15 || roomsSpawnBoss < 21 || roomsSpawnBoss >= 6)
+        // Spawn queued enemy if player chose one
+        if (spawnSpecificNext && queuedEnemyPrefab != null)
         {
-            // Spawn queued enemy if player chose one
-            if (spawnSpecificNext && queuedEnemyPrefab != null)
-            {
-                SpawnSpecificEnemy(queuedEnemyPrefab);
-                spawnSpecificNext = false;
-                queuedEnemyPrefab = null;
-            }
-            else
-            {
-                SpawnEnemy(); // Spawn a random enemy from the active list
-            }
-
-            ifBossExists = false;
+            SpawnSpecificEnemy(queuedEnemyPrefab);
+            spawnSpecificNext = false;
+            queuedEnemyPrefab = null;
         }
+        else
+        {
+            SpawnEnemy(); // Spawn a random enemy from the active list
+        }
+
+        ifBossExists = false;
 
         // Spawn boss on specific rooms
         if ((roomsSpawnBoss == 2 || roomsSpawnBoss == 4 || roomsSpawnBoss == 6) && !ifBossExists)
@@ -220,14 +216,14 @@ public class EnemySpawner : MonoBehaviour
     private void PlayBossMusic(GameObject boss)
     {
         // Stop all music first
-        defultMusic.Pause();
-        vampBossMusic.Pause();
-        sirenBossMusic.Pause();
-        karnaraBossMusic.Pause();
+        defultMusic.Stop();
+        vampBossMusic.Stop();
+        sirenBossMusic.Stop();
+        karnaraBossMusic.Stop();
 
-        if (boss == vampireBoss) vampBossMusic.UnPause();
-        else if (boss == sirenBoss) sirenBossMusic.UnPause();
-        else if (boss == idkBoss) karnaraBossMusic.UnPause();
+        if (boss == vampireBoss) vampBossMusic.Play();
+        else if (boss == sirenBoss) sirenBossMusic.Play();
+        else if (boss == idkBoss) karnaraBossMusic.Play();
     }
 
     // Destroy the current enemy instance
@@ -241,7 +237,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
     // Destroy the boss and stop boss music
-    public void DestroyBoss()
+    public void DestroyBoss(bool resumeDefault = true)
     {
         if (bossInstance != null)
         {
@@ -250,12 +246,15 @@ public class EnemySpawner : MonoBehaviour
             ifBossExists = false;
 
             // Stop all boss music
-            vampBossMusic.Pause();
-            sirenBossMusic.Pause();
-            karnaraBossMusic.Pause();
+            vampBossMusic.Stop();
+            sirenBossMusic.Stop();
+            karnaraBossMusic.Stop();
 
-            // Resume default music
-            defultMusic.UnPause();
+            // Resume default music only if desired
+            if (resumeDefault)
+            {
+                defultMusic.Play();
+            }
         }
     }
 

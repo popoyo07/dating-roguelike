@@ -149,8 +149,8 @@ public class Rewards : MonoBehaviour
         pickedReward = true;
 
         // Scale rewards based on enemy's maxHealth
-        int coinsToAdd = Mathf.Clamp(Mathf.RoundToInt(enemyHP.maxHealth * 0.5f), 3, 20); // Ex maxHp = 10, coins = +5 : Max coin gain is 20 coins plus the auto matic +2 = 22
-        float recoverPercent = Mathf.Clamp(enemyHP.maxHealth * 1.5f, 5f, 60f); // Ex maxHp = 10, health = +15% : Max health gain is 60%
+        int coinsToAdd = Mathf.Clamp(Mathf.RoundToInt(enemyHP.maxHealth * 0.5f), 5, 20); // Ex maxHp = 10, coins = +5 : Max coin gain is 20 coins plus the auto matic +2 = 22
+        float recoverPercent = Mathf.Clamp(enemyHP.maxHealth * 2f, 20f, 60f); // Ex maxHp = 10, health = +20% : Max health gain is 60%
 
         switch (reward.rewardType)
         {
@@ -163,11 +163,11 @@ public class Rewards : MonoBehaviour
                 int numCards;
 
                 if (enemyHP.maxHealth <= 10)
-                    numCards = 1;
-                else if (enemyHP.maxHealth <= 20)
                     numCards = 2;
+                else if (enemyHP.maxHealth <= 20)
+                    numCards = 4;
                 else
-                    numCards = 3;
+                    numCards = 6;
 
                 // Pick a random card from the deck database
                 for (int i = 0; i < numCards; i++)
