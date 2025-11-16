@@ -117,15 +117,6 @@ public class EnemySpawner : MonoBehaviour
         {
             enemySpawn = false;
         }
-
-        if(battleSystem.state == BattleState.WONGAME)
-        {
-            defultMusic.Pause();
-            vampBossMusic.Pause();
-            sirenBossMusic.Pause();
-            karnaraBossMusic.Pause();
-        }
-        
     }
 
     // Returns the currently active enemy list
@@ -165,10 +156,7 @@ public class EnemySpawner : MonoBehaviour
             dialogueActivator = bossInstance.GetComponent<DialogueActivator>();
 
             // Play corresponding boss music
-            if (battleSystem.state != BattleState.WONGAME)
-            {
-                PlayBossMusic(boss);
-            }
+            PlayBossMusic(boss);
         }
     }
 
@@ -231,17 +219,15 @@ public class EnemySpawner : MonoBehaviour
     // Play boss music corresponding to the spawned boss
     private void PlayBossMusic(GameObject boss)
     {
-        if (battleSystem.state == BattleState.WONGAME) return; // Do nothing if game is over
-
         // Stop all music first
         defultMusic.Pause();
         vampBossMusic.Pause();
         sirenBossMusic.Pause();
         karnaraBossMusic.Pause();
 
-        if (boss == vampireBoss && battleSystem.state != BattleState.WONGAME) vampBossMusic.UnPause();
-        else if (boss == sirenBoss && battleSystem.state != BattleState.WONGAME) sirenBossMusic.UnPause();
-        else if (boss == idkBoss && battleSystem.state != BattleState.WONGAME) karnaraBossMusic.UnPause();
+        if (boss == vampireBoss) vampBossMusic.UnPause();
+        else if (boss == sirenBoss) sirenBossMusic.UnPause();
+        else if (boss == idkBoss) karnaraBossMusic.UnPause();
     }
 
     // Destroy the current enemy instance
@@ -257,7 +243,7 @@ public class EnemySpawner : MonoBehaviour
     // Destroy the boss and stop boss music
     public void DestroyBoss()
     {
-        if (bossInstance != null && battleSystem.state != BattleState.WONGAME)
+        if (bossInstance != null)
         {
             Destroy(bossInstance);
             bossInstance = null;
