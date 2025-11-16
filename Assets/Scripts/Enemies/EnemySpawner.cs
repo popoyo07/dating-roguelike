@@ -118,12 +118,12 @@ public class EnemySpawner : MonoBehaviour
             enemySpawn = false;
         }
 
-        if(battleSystem.state == BattleState.WONGAME)
+        if(battleSystem.state == BattleState.WONGAME || battleSystem.state == BattleState.LOST)
         {
-            defultMusic.Pause();
-            vampBossMusic.Pause();
-            sirenBossMusic.Pause();
-            karnaraBossMusic.Pause();
+            defultMusic.Stop();
+            vampBossMusic.Stop();
+            sirenBossMusic.Stop();
+            karnaraBossMusic.Stop();
         }
         
     }
