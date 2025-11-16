@@ -31,9 +31,10 @@ public class CardUI : MonoBehaviour
 
     private void Awake()
     {
-        battleSystem = GetComponentInChildren<BattleSystem>();
+        //battleSystem = GetComponentInChildren<BattleSystem>();
+        //battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
 
-       // bossRomanced = false;
+        // bossRomanced = false;
         GameObject spawnerObj = GameObject.FindWithTag("EnemyS");
         if (spawnerObj != null)
         {
@@ -48,6 +49,11 @@ public class CardUI : MonoBehaviour
         DialogueUI = canvas.GetComponent<DialogueUI>();
         MenuButtons = canvas.GetComponent<MenuButtons>();
         //Activator = Boss.GetComponent<DialogueActivator>();
+    }
+
+    private void Start()
+    {
+        battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
     }
 
 
