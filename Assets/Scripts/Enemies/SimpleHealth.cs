@@ -1,7 +1,8 @@
-using JetBrains.Annotations;
 using System.Xml.Schema;
+using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SimpleHealth : MonoBehaviour, IDataPersistence
 {
@@ -14,6 +15,10 @@ public class SimpleHealth : MonoBehaviour, IDataPersistence
     bool isPlayer;
     public int shield;
     public bool isBoss;
+
+    public AudioClip hitSound;
+    public AudioClip shieldSound;
+    private AudioSource audioSource;
     
     #region Save and Load
 
@@ -52,7 +57,8 @@ public class SimpleHealth : MonoBehaviour, IDataPersistence
         attackManager = GameObject.Find("CardManager").GetComponent<ActionsKnight>();
         battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
         healthBar = this.gameObject.GetComponent<HealthBar>();
-        
+        audioSource = GetComponent<AudioSource>();
+
         if (gameObject.CompareTag("Enemy"))
         { 
             if (battleSystem != null)
@@ -105,14 +111,17 @@ public class SimpleHealth : MonoBehaviour, IDataPersistence
                     dmgDone = (int)((float)dmg * 1.5);
                     Debug.Log("increase calculation " + ((float)dmg * 1.5));
                     Debug.Log("shown dmg before shield calc " + dmgDone);
+                    audioSource.PlayOneShot(shieldSound);
                     break;
                 case StatusEffect.WEAK:
                     dmgDone = (int)((float)dmg * .75f); // lower dmg by 25%
+                    audioSource.PlayOneShot(shieldSound);
                     break;
                 default:
                     dmgDone = dmg - shield;
                     shield -= dmg;
                     if (shield < 0) { shield = 0; }
+                    audioSource.PlayOneShot(shieldSound);
                     Debug.Log("Damage done to is " + dmgDone);
                     break;
             }
@@ -121,7 +130,7 @@ public class SimpleHealth : MonoBehaviour, IDataPersistence
             if (dmgDone > 0)
             {
                 health = health - dmgDone;
-
+                audioSource.PlayOneShot(hitSound);
             }
         }
         Debug.Log("Remeining health is " +  health);
