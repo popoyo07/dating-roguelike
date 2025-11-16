@@ -75,6 +75,10 @@ MonoBehaviour:
   characterImage: {fileID: 0}
   progression: {fileID: 11400000, guid: 46a7f4d680fa2dd4198bbf1292ceeb1a, type: 2}
   responseHandle: {fileID: 0}
+  enemy: {fileID: 0}
+  eCanvas: {fileID: 0}
+  nextAttackUI: {fileID: 0}
+  dialogueEnd: []
   showLovyUI: 0
 --- !u!1001 &2636347614548511179
 PrefabInstance:
@@ -148,6 +152,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3900137015995239691, guid: b8e3fcb72f8c1a24cb1d956dbed91eef, type: 3}
+      propertyPath: hitSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 667721a8e92b0fb4daa7a1bd5583e2e5, type: 3}
     - target: {fileID: 3900137015995239691, guid: b8e3fcb72f8c1a24cb1d956dbed91eef, type: 3}
       propertyPath: maxHealth
       value: 2
