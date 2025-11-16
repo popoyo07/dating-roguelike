@@ -163,7 +163,7 @@ public class Rewards : MonoBehaviour
                 int numCards;
 
                 if (enemyHP.maxHealth <= 10)
-                    numCards = 30;
+                    numCards = 1;
                 else if (enemyHP.maxHealth <= 20)
                     numCards = 2;
                 else
