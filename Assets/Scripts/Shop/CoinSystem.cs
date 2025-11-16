@@ -49,7 +49,7 @@ public class CoinSystem : MonoBehaviour, IDataPersistence
     private void Start()
     {
         StartCoroutine(LoadCoins());
-        coins = 0;
+        //coins = 0;
     }
 
     private void Update()
