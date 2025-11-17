@@ -19,7 +19,7 @@ MonoBehaviour:
     dialogueEnd: 0
   - dialogueText: "You\u2019d\u2026 let me?"
     characterName: Vampire
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: b0c562d4617610b4286133476bb79152, type: 3}
     dialogueEnd: 0
   - dialogueText: He leans forward, you feel his breath on your neck.
     characterName: Narrator
@@ -41,7 +41,7 @@ MonoBehaviour:
     dialogueEnd: 0
   - dialogueText: "Aha\u2026 that was\u2026 good."
     characterName: Vampire
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: b0c562d4617610b4286133476bb79152, type: 3}
     dialogueEnd: 0
   - dialogueText: "His eyes open \u2014 glowing red."
     characterName: Narrator
@@ -49,7 +49,7 @@ MonoBehaviour:
     dialogueEnd: 0
   - dialogueText: But I need more.
     characterName: Vampire
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: b0c562d4617610b4286133476bb79152, type: 3}
     dialogueEnd: 1
   responses: []
   LovyCounting:

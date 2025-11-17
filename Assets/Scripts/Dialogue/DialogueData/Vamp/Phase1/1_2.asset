@@ -30,7 +30,7 @@ MonoBehaviour:
   - dialogueText: "What makes an existence a life? Is it warmth\u2026 blood\u2026
       or a soul?"
     characterName: Vampire
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: b0c562d4617610b4286133476bb79152, type: 3}
     dialogueEnd: 0
   - dialogueText: "I exist, yet I have none of those. However\u2026 I breathe."
     characterName: Vampire

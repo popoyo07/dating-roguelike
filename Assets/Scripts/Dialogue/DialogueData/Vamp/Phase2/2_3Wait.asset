@@ -19,7 +19,7 @@ MonoBehaviour:
     dialogueEnd: 0
   - dialogueText: ???
     characterName: Vampire
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: b0c562d4617610b4286133476bb79152, type: 3}
     dialogueEnd: 0
   - dialogueText: What's your name?
     characterName: You
@@ -31,7 +31,7 @@ MonoBehaviour:
     dialogueEnd: 0
   - dialogueText: Names are for the living.
     characterName: Vampire
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: b0c562d4617610b4286133476bb79152, type: 3}
     dialogueEnd: 0
   - dialogueText: Then he fades into shadow.
     characterName: Narrator

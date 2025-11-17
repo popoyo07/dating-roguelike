@@ -23,7 +23,7 @@ MonoBehaviour:
     dialogueEnd: 0
   - dialogueText: Silence suits you. The world is too loud anyway.
     characterName: Vampire
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: b0c562d4617610b4286133476bb79152, type: 3}
     dialogueEnd: 0
   - dialogueText: Do you want to use the LoveyDovey Card on him?
     characterName: Narrator

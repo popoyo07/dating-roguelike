@@ -24,7 +24,7 @@ MonoBehaviour:
     dialogueEnd: 0
   - dialogueText: "You\u2019re strange. No one gives a monster a gift."
     characterName: Vampire
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: b0c562d4617610b4286133476bb79152, type: 3}
     dialogueEnd: 0
   - dialogueText: He pauses.
     characterName: Narrator
@@ -32,11 +32,11 @@ MonoBehaviour:
     dialogueEnd: 0
   - dialogueText: "Maybe that\u2019s why I don\u2019t hate you."
     characterName: Vampire
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: b0c562d4617610b4286133476bb79152, type: 3}
     dialogueEnd: 0
   - dialogueText: So what brings you to the dungeon?
     characterName: Vampire
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: b0c562d4617610b4286133476bb79152, type: 3}
     dialogueEnd: 0
   responses:
   - respnseText: You

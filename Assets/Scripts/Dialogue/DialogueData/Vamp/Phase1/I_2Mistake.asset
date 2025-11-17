@@ -15,11 +15,11 @@ MonoBehaviour:
   dialogue:
   - dialogueText: He closes his eyes. The corner of his mouth trembles.
     characterName: Vampire
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: b0c562d4617610b4286133476bb79152, type: 3}
     dialogueEnd: 1
   - dialogueText: I knew it...
     characterName: Vampire
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: b0c562d4617610b4286133476bb79152, type: 3}
     dialogueEnd: 0
   - dialogueText: He fades into the dark, the rose wilting in your hand.
     characterName: Narrator

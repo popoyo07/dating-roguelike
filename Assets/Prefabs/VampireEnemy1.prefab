@@ -75,6 +75,10 @@ MonoBehaviour:
   characterImage: {fileID: 0}
   progression: {fileID: 11400000, guid: 46a7f4d680fa2dd4198bbf1292ceeb1a, type: 2}
   responseHandle: {fileID: 0}
+  enemy: {fileID: 0}
+  eCanvas: {fileID: 0}
+  nextAttackUI: {fileID: 0}
+  dialogueEnd: []
   showLovyUI: 0
 --- !u!1001 &2636347614548511179
 PrefabInstance:
@@ -148,6 +152,14 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2367959643355800627, guid: b8e3fcb72f8c1a24cb1d956dbed91eef, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6108568391419360553, guid: b8e3fcb72f8c1a24cb1d956dbed91eef, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e5be0cc6381d38c489bcac3255cccf5f, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

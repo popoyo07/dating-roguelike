@@ -28,7 +28,7 @@ MonoBehaviour:
     dialogueEnd: 0
   - dialogueText: Curious.
     characterName: Vamipre
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: b0c562d4617610b4286133476bb79152, type: 3}
     dialogueEnd: 0
   - dialogueText: He starts to walk away.
     characterName: Narrator

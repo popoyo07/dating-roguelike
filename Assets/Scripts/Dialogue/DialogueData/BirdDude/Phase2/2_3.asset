@@ -24,7 +24,7 @@ MonoBehaviour:
     dialogueEnd: 0
   - dialogueText: Careful, human. Curiosity can be dangerous here.
     characterName: Kinnara
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: 8b9c0be06222d0e4bb47d657fafbef4f, type: 3}
     dialogueEnd: 0
   - dialogueText: His tone softens, though the usual arrogance still clings to it.
     characterName: Narrator
@@ -81,7 +81,7 @@ MonoBehaviour:
   - dialogueText: "I\u2019ll know your answer\u2026 when we next meet."
     characterName: Narrator
     characterImage: {fileID: 0}
-    dialogueEnd: 0
+    dialogueEnd: 1
   responses: []
   LovyCounting:
     LovyCount: 0

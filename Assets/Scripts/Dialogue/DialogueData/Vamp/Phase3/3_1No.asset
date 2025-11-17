@@ -19,7 +19,7 @@ MonoBehaviour:
     dialogueEnd: 0
   - dialogueText: Then bleed the hard way!
     characterName: Vampire
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: b0c562d4617610b4286133476bb79152, type: 3}
     dialogueEnd: 1
   responses: []
   LovyCounting:

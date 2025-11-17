@@ -19,7 +19,7 @@ MonoBehaviour:
     dialogueEnd: 0
   - dialogueText: No!
     characterName: Vampire
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: b0c562d4617610b4286133476bb79152, type: 3}
     dialogueEnd: 0
   - dialogueText: "He slaps himself \u2014 hard \u2014 as if fighting his own thoughts."
     characterName: Narrator
@@ -27,7 +27,7 @@ MonoBehaviour:
     dialogueEnd: 0
   - dialogueText: "Control yourself\u2026"
     characterName: Vampire
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: b0c562d4617610b4286133476bb79152, type: 3}
     dialogueEnd: 0
   - dialogueText: He mutters under his breath, then looks at you.
     characterName: Narrator
@@ -35,12 +35,12 @@ MonoBehaviour:
     dialogueEnd: 0
   - dialogueText: "Hello\u2026 again."
     characterName: Vampire
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: b0c562d4617610b4286133476bb79152, type: 3}
     dialogueEnd: 0
   responses:
   - respnseText: Hello
     dialogueObject: {fileID: 11400000, guid: 908bbfd83706fdd418c91c15ec549891, type: 2}
-  - respnseText: Silent
+  - respnseText: (Silent)
     dialogueObject: {fileID: 11400000, guid: 0463eb1d016cefb4fb192c1e2899f1fc, type: 2}
   LovyCounting:
     LovyCount: 0
