@@ -50,6 +50,10 @@ public class ChageResponseColor : MonoBehaviour
 
             }
         }
+        else
+        {
+            responseImage.color = Color.black;
+        }
 
 
     }
