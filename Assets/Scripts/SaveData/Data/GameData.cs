@@ -15,6 +15,9 @@ public class GameData
     public float musicVolume;
     public float sfxVolume;
     public bool isCoinBuffActive;
+    public bool ownsKnight;
+    public bool ownsChemist;
+    public bool ownsWizard;
 
     // the values defined in this constructor will be the default values
     // the game starts with when there is no data to load
@@ -31,6 +34,9 @@ public class GameData
         this.musicVolume = 0;
         this.sfxVolume = 0;
         this.isCoinBuffActive = false;
+        this.ownsKnight = true;
+        this.ownsChemist = false;
+        this.ownsWizard = false;
     }
 
 

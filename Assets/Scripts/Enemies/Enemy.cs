@@ -74,6 +74,10 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(deleay);
         if (!stuned && !selectionUsed)
         {
+            if (PlayerStatus.currentStatus == StatusEffect.IVINCIBLE)
+            {
+                attkDmg = 0;
+            }
             selectionUsed = true;
             Action();
         }
@@ -147,6 +151,8 @@ public class Enemy : MonoBehaviour
     }
 
     #region basic enemy attacks 
+    
+    //Sword
     void regular()
     {
 
@@ -165,22 +171,26 @@ public class Enemy : MonoBehaviour
         Debug.Log("DoubleAttk");
     }
 
+    //Monster battle face
     void stanceUp()
     {
         attkDmg += Random.Range(1, 3);
         Debug.Log("Stanced Up");
     }
 
+    //Sheild
     void Guard()
     {
         system.enemyHP.shield += 4;
     }
 
+    //Broken sword
     void Weaken()
     {
         PlayerStatus.currentStatus = StatusEffect.WEAK;
     }
 
+    //Broken sheild
     void Vulnerable()
     {
         PlayerStatus.currentStatus = StatusEffect.VULNERABLE;
