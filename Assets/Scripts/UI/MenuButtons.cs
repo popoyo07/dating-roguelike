@@ -25,7 +25,8 @@ public class MenuButtons : MonoBehaviour
     ChooseRoom chooseRoom;           // Reference to room manager
 
     private CoinSystem coinSystem;
-    public AudioSource audioSource;
+    public AudioSource rewardsAudio;
+    public AudioSource buttonClick;
 
     [Header("Dialogue Data")]
     [SerializeField] private DialogueProgression[] dialogueProgression;
@@ -75,7 +76,7 @@ public class MenuButtons : MonoBehaviour
 
                 if (!rewardsPopup.activeSelf && !roomPopup.activeSelf)
                 {
-                    audioSource.Play();
+                    rewardsAudio.Play();
                     rewardsPopup.SetActive(true);
                     StartCoroutine(ShowRewardsNextFrame());
                 }
@@ -126,9 +127,9 @@ public class MenuButtons : MonoBehaviour
         }
         else if (rewardsPopup.activeSelf || roomPopup.activeSelf)
         {
-                roomPopup.SetActive(false);
+            roomPopup.SetActive(false);
 
-                rewardsPopup.SetActive(false);
+            rewardsPopup.SetActive(false);
         }
 
         // Handle deck popup visibility
@@ -151,16 +152,15 @@ public class MenuButtons : MonoBehaviour
     // Return to main menu scene
     public void BackToMain()
     {
-        SceneManager.LoadScene("MainMenu");
+        buttonClick.Play();
+        StartCoroutine(HoldMainForSFX());
     }
 
     // Reload the dungeon scene
     public void Retry()
     {
-        loadingScreen.SetActive(true);
-        SceneManager.LoadScene("Dungeon");
-        loseMenu.SetActive(false);
-        isRetryTrue = true;
+        buttonClick.Play();
+        StartCoroutine(HoldRetryForSFX());
         StartCoroutine(HideLoading());
     }
 
@@ -214,5 +214,24 @@ public class MenuButtons : MonoBehaviour
             //rewards.rewardsForCurrent = false;
             rewards.ShowRewardOptions();
         }
+    }
+
+    private IEnumerator HoldRetryForSFX()
+    {
+        // Wait one frame to ensure UI elements are fully active
+        yield return new WaitForSeconds(1.3f);
+
+        loadingScreen.SetActive(true);
+        SceneManager.LoadScene("Dungeon");
+        loseMenu.SetActive(false);
+        isRetryTrue = true;
+    }
+
+    private IEnumerator HoldMainForSFX()
+    {
+        // Wait one frame to ensure UI elements are fully active
+        yield return new WaitForSeconds(1.3f);
+
+        SceneManager.LoadScene("MainMenu");
     }
 }

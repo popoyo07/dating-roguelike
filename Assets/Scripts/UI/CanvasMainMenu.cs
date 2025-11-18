@@ -12,6 +12,8 @@ public class CanvasMainMenu : MonoBehaviour
     public GameObject creditsScreen;  // Credits screen UI
     public DialogueProgression progression;
 
+    public AudioSource buttonClick;
+
     /*
     // Optional: Show loading screen at start
     private void Start()
@@ -27,7 +29,8 @@ public class CanvasMainMenu : MonoBehaviour
     // Load the Dungeon scene
     public void EnterDungeon()
     {
-        SceneManager.LoadScene("Dungeon");
+        buttonClick.Play();
+        StartCoroutine(HoldForEnterSFX());
     }
 
     // Quit the application
@@ -39,6 +42,7 @@ public class CanvasMainMenu : MonoBehaviour
     // Show the main menu and hide other menus
     public void Main()
     {
+        buttonClick.Play();
         mainMenu.SetActive(true);
         settingsMenu.SetActive(false);
         shopMenu.SetActive(false);
@@ -47,6 +51,7 @@ public class CanvasMainMenu : MonoBehaviour
     // Open the shop menu and hide the main menu
     public void Shop()
     {
+        buttonClick.Play();
         shopMenu.SetActive(true);
         mainMenu.SetActive(false);
     }
@@ -54,6 +59,7 @@ public class CanvasMainMenu : MonoBehaviour
     // Open the settings menu and hide the main menu
     public void Settings()
     {
+        buttonClick.Play();
         settingsMenu.SetActive(true);
         mainMenu.SetActive(false);
     }
@@ -61,6 +67,7 @@ public class CanvasMainMenu : MonoBehaviour
     // Open the credits screen and hide settings menu
     public void Credits()
     {
+        buttonClick.Play();
         settingsMenu.SetActive(false);
         creditsScreen.SetActive(true);
     }
@@ -68,6 +75,7 @@ public class CanvasMainMenu : MonoBehaviour
     // Close credits screen and reopen settings menu
     public void CloseCredits()
     {
+        buttonClick.Play();
         settingsMenu.SetActive(true);
         creditsScreen.SetActive(false);
     }
@@ -85,5 +93,11 @@ public class CanvasMainMenu : MonoBehaviour
     {
         progression.currentDialogueIndex = 0;
         progression.phase = 0;
+    }
+
+    IEnumerator HoldForEnterSFX()
+    {
+        yield return new WaitForSeconds(1.3f);
+        SceneManager.LoadScene("Dungeon");
     }
 }
