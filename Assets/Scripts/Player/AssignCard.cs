@@ -23,6 +23,7 @@ public class AssignCard : MonoBehaviour
     EnergySystem energy;
     public Image cardImage;
     CardDescription cardDescription;
+
     private void OnEnable()
     {
         cardAnim = GetComponent<AssignCardAnimation>();
@@ -33,6 +34,7 @@ public class AssignCard : MonoBehaviour
         cardUsed = false;
         resetForNewTurn = false;
         energy = GameObject.Find("Managers").GetComponentInChildren<EnergySystem>();
+  
         hold = GetComponent<HoldCardBehavior>();
         cardDescription = GetComponent<CardDescription>();
         StartCoroutine(InitializeCard());
@@ -70,9 +72,10 @@ public class AssignCard : MonoBehaviour
 
     void Update()
     {
+
         if (BSystem == null) return;
 
-        
+    
 
         // Reset card for new turn
         if (BSystem.state == BattleState.PLAYERTURN && cardUsed)
@@ -87,7 +90,7 @@ public class AssignCard : MonoBehaviour
 
         }
 
-        if (BSystem.state == BattleState.REWARD && !resetForNewTurn && !cardUsed)
+        if (BSystem.enemyHP.dead() && !resetForNewTurn && !cardUsed)
         {
             ResetForNewTurn();
         }
