@@ -74,6 +74,10 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(deleay);
         if (!stuned && !selectionUsed)
         {
+            if (PlayerStatus.currentStatus == StatusEffect.IVINCIBLE)
+            {
+                attkDmg = 0;
+            }
             selectionUsed = true;
             Action();
         }
