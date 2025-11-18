@@ -176,6 +176,7 @@ public class MenuButtons : MonoBehaviour
     public void OpenSettings()
     {
         settings.SetActive(true);
+        buttonClick.Play();
     }
 
     // Close the settings panel
@@ -183,12 +184,14 @@ public class MenuButtons : MonoBehaviour
     {
         settings.SetActive(false);
         Debug.Log("Close Setting");
+        buttonClick.Play();
     }
 
     // Toggle deck popup visibility
     public void ShowDeck()
     {
         showDeckToggleBool = !showDeckToggleBool;
+        buttonClick.Play();
     }
 
     // Explicitly close the deck popup
