@@ -19,6 +19,8 @@ public class MenuButtons : MonoBehaviour
     public GameObject showDeckPopup;  // Deck display popup UI
     public DialogueUI dialogueUI;
 
+    public AudioSource rewardsSFX;
+
     // Game system references
     BattleSystem battleSystem;       // Reference to battle system
     Rewards rewards;                 // Reference to rewards manager
@@ -75,6 +77,7 @@ public class MenuButtons : MonoBehaviour
                 if (!rewardsPopup.activeSelf && !roomPopup.activeSelf)
                 {
                     rewardsPopup.SetActive(true);
+                    rewardsSFX.Play();
                     StartCoroutine(ShowRewardsNextFrame());
                 }
 
