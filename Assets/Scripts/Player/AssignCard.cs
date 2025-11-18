@@ -89,11 +89,14 @@ public class AssignCard : MonoBehaviour
             ResetForNewTurn();
 
         }
-
-        if (BSystem.enemyHP.dead() && !resetForNewTurn && !cardUsed)
+        if (BSystem.enemyHP != null)
         {
-            ResetForNewTurn();
+            if (BSystem.enemyHP.dead() && !resetForNewTurn && !cardUsed)
+            {
+                ResetForNewTurn();
+            }
         }
+
     }
     void ResetForNewTurn()
     {

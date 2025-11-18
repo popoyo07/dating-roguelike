@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
 
+
 public enum BattleState {
     START,
     PLAYERTURN,
@@ -106,7 +107,7 @@ public class BattleSystem : MonoBehaviour
                 }
                 else if (!enemyHP.isBoss && state != BattleState.REWARD && !finalReward)
                 {
-                    StartCoroutine(ChangeBattleState(0.1f, BattleState.REWARD, "BattleSystem"));
+                    StartCoroutine(ChangeBattleState(1.5f, BattleState.REWARD, "BattleSystem"));
 
                 }
 
@@ -149,7 +150,7 @@ public class BattleSystem : MonoBehaviour
                     rewards.pickedReward = false;
                     chooseRoom.chosenRoom = false ;
                     runing = true;
-                    StartCoroutine(ChangeBattleState(2f, BattleState.DEFAULT, "BattleSystem"));
+                    StartCoroutine(ChangeBattleState(2.5f, BattleState.DEFAULT, "BattleSystem"));
 
                 }
                 break;
@@ -229,13 +230,17 @@ public class BattleSystem : MonoBehaviour
         yield return new WaitForSeconds(1f); // wait some time to switch back to player turn 
         StartCoroutine(ChangeBattleState(0f, BattleState.ENDENEMYTURN, "BattleSystem"));
     }
-   // bool running = false;
+    bool running = false;
     public IEnumerator ChangeBattleState(float delay, BattleState b, string whichScriptIsFrom)
     {
-      //
-       // running = true;
+        if (running) 
+        {
+            yield break;
+        }
+        running = true;
         yield return new WaitForSeconds(delay);
         state = b;
+        running = false;
         Debug.LogWarning(" The current state is " + b + " " + whichScriptIsFrom);
         
     }
