@@ -20,7 +20,10 @@ public class Cards : MonoBehaviour
     public RoundTracker roundTracker;
     public StatusEffects pStatus;
     public StatusEffect LastStatus;
-    
+
+    public AudioClip weakenSound;
+    private AudioSource audioSource;
+
     // stores the 
     public Dictionary<string, int> cardEnergyCost = new Dictionary<string, int>();
 
@@ -46,6 +49,11 @@ public class Cards : MonoBehaviour
     [Header("Double Attk DMG")]
     [Range(1, 10)][SerializeField] public int doubleAttk;
     [Range(1, 3)][SerializeField] public int doubleAttkECost;
+
+    public void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     public void GenerateAttk(StatusEffect attackerState)
     {
 
@@ -112,6 +120,7 @@ public class Cards : MonoBehaviour
     {
         ConsumeEnergy(1);
         enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.WEAK;
+        audioSource.PlayOneShot(weakenSound);
         Debug.Log("Lovely");
     }
     public void LoveyDoveyLogic2() // needs to do something ? 
@@ -132,7 +141,7 @@ public class Cards : MonoBehaviour
     {
         ConsumeEnergy(1);
         enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.WEAK;
-
+        audioSource.PlayOneShot(weakenSound);
         Debug.Log("Lovely4");
     }
         public void LoveyDoveyLogic5() // needs to do something ? 
@@ -169,6 +178,7 @@ public class Cards : MonoBehaviour
     {
         ConsumeEnergy(tauntECost);
         enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.WEAK;
+        audioSource.PlayOneShot(weakenSound);
         attkAmmount = taunt;
         GenerateAttk(pStatus.currentStatus);
 

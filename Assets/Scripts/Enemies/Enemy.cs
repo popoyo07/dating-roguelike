@@ -20,7 +20,10 @@ public class Enemy : MonoBehaviour
     StatusEffects EnemyStatus;
     StatusEffects PlayerStatus;
     Animation anim;
-  
+
+    public AudioClip weakenSound;
+    private AudioSource audioSource;
+
     void Awake()
     {
         enemyName = this.transform.parent.name;
@@ -37,7 +40,7 @@ public class Enemy : MonoBehaviour
 
         anim = this.gameObject.GetComponent<Animation>();
 
-     
+        audioSource = GetComponent<AudioSource>();
 
     }
      
@@ -187,6 +190,7 @@ public class Enemy : MonoBehaviour
     //Broken sword
     void Weaken()
     {
+        audioSource.PlayOneShot(weakenSound);
         PlayerStatus.currentStatus = StatusEffect.WEAK;
     }
 
