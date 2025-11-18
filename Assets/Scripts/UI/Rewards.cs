@@ -149,25 +149,26 @@ public class Rewards : MonoBehaviour
         pickedReward = true;
 
         // Scale rewards based on enemy's maxHealth
-        int coinsToAdd = Mathf.Clamp(Mathf.RoundToInt(enemyHP.maxHealth * 1f), 10, 25); // Ex maxHp = 10, coins = +5 : Max coin gain is 20 coins plus the auto matic +2 = 22
-        float recoverPercent = Mathf.Clamp(enemyHP.maxHealth * 2.5f, 25f, 62.5f); // Ex maxHp = 10, health = +20% : Max health gain is 60%
+        int coinsToAdd = Mathf.Clamp(Mathf.RoundToInt(enemyHP.maxHealth * 1f), 10, 25); // Ex maxHp = 10, coins = +10 : Max coin gain is 25 coins plus the auto matic +2 = 27
+        float recoverPercent = Mathf.Clamp(enemyHP.maxHealth * 3f, 30f, 75); // Ex maxHp = 10, health = +30% : Max health gain is 75%
 
         switch (reward.rewardType)
         {
             case RewardType.Coins:
-                StartCoroutine(coinSystem.AddCoins(coinsToAdd)); // Add 8 coins to the player's inventory (8)
+                StartCoroutine(coinSystem.AddCoins(coinsToAdd)); // Add coins to the player's inventory
                 Debug.LogWarning("Coins ADDED");
                 break;
 
             case RewardType.Card:
                 int numCards;
 
+                //Add Cards to the player's inventory
                 if (enemyHP.maxHealth <= 10)
-                    numCards = 2;
+                    numCards = 3;
                 else if (enemyHP.maxHealth <= 20)
-                    numCards = 4;
+                    numCards = 5;
                 else
-                    numCards = 6;
+                    numCards = 7;
 
                 // Pick a random card from the deck database
                 for (int i = 0; i < numCards; i++)
@@ -185,8 +186,8 @@ public class Rewards : MonoBehaviour
                 break;
 
             case RewardType.RecoverHP:
-                playerHP.PercentageRecoverHP(recoverPercent); // Recover 30% of player's max HP (30)
-                Debug.LogWarning("Recover HP by 30% of max HP");
+                playerHP.PercentageRecoverHP(recoverPercent); // Recover player's HP off enemy's maxHp
+                Debug.LogWarning("Recover HP by max HP");
                 break;
         }
     }
