@@ -149,8 +149,8 @@ public class Rewards : MonoBehaviour
         pickedReward = true;
 
         // Scale rewards based on enemy's maxHealth
-        int coinsToAdd = Mathf.Clamp(Mathf.RoundToInt(enemyHP.maxHealth * 0.5f), 5, 20); // Ex maxHp = 10, coins = +5 : Max coin gain is 20 coins plus the auto matic +2 = 22
-        float recoverPercent = Mathf.Clamp(enemyHP.maxHealth * 2f, 20f, 60f); // Ex maxHp = 10, health = +20% : Max health gain is 60%
+        int coinsToAdd = Mathf.Clamp(Mathf.RoundToInt(enemyHP.maxHealth * 1f), 10, 25); // Ex maxHp = 10, coins = +5 : Max coin gain is 20 coins plus the auto matic +2 = 22
+        float recoverPercent = Mathf.Clamp(enemyHP.maxHealth * 2.5f, 25f, 62.5f); // Ex maxHp = 10, health = +20% : Max health gain is 60%
 
         switch (reward.rewardType)
         {
