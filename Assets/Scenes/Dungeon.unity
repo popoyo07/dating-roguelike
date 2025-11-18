@@ -674,6 +674,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: acid
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831342640777661826, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: emptyFlask
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6054858379968941020, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -742,6 +750,14 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1808764163}
+    - target: {fileID: 9171893168133233945, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: protectiveOath
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9171893168133233945, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: protectiveOathECost
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -30,7 +30,7 @@ public class AssignCard : MonoBehaviour
     private DeckDraw cardDraw;
     public bool cardSet; // Tracks if card is set up on screen
 
-    bool resetForNewTurn;
+    public bool resetForNewTurn;
 
     // Reference to Energy system
     EnergySystem energy;

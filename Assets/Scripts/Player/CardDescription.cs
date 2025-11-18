@@ -25,12 +25,19 @@ public class CardDescription : MonoBehaviour
     }
     void Update()
     {
-        if (assignCard != null && !assignCard.cardImage.isActiveAndEnabled && txt.gameObject.activeSelf)
+        if (assignCard != null  && txt.gameObject.activeSelf)
         {
-            txt.gameObject.SetActive(false);
+            if (assignCard.cardUsed || assignCard.resetForNewTurn)
+            StartCoroutine(DisableTxt());
             Debug.LogWarning("Disable the text");
-        }
+        } 
       
+    }
+    IEnumerator DisableTxt()
+    {
+        yield return new WaitForSeconds(.5f); 
+        txt.gameObject.SetActive(false);
+
     }
     IEnumerator SetText()
     {

@@ -109,9 +109,10 @@ public class ActionsChemist : Cards
         ConsumeEnergy(shieldingPotionECost);
         GenerateShield(shieldingPotion);
     }
-    public void UltimateBrew()
+    public void UltimateBrew() // (3) Deals 20 dmg, next Attk is doubled and makes enemy weak.
     {
         ConsumeEnergy(ultimateBrewECost);
+        attkAmmount = ultimateBrew; 
         GenerateAttk(pStatus.currentStatus);
         multStrenght = ultimateDmgMultiplier;
         enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.WEAK;
