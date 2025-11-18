@@ -92,30 +92,33 @@ public class EnemySpawner : MonoBehaviour
         spawnPoint = new Vector3(0f, 1.3f, 1.94f);
 
         // Spawn the first enemy
-        SpawnEnemy();
+       // SpawnEnemy();
     }
 
     void Update()
     {
 
         // Handle what happens when the battle is won
-        if (battleSystem.state == BattleState.WON)
+        if (battleSystem.state == BattleState.WON && enemySpawn)
         {
+            enemySpawn = false;
             DestroyEnemy(); // Remove current enemy
+            Debug.LogWarning("spawning destroy");
 
-            if (!enemySpawn)
-            {
-                StartCoroutine(DelayTrash()); // Wait and spawn next enemy or boss
-                enemySpawn = true;
-                roomsSpawnBoss++; // Increment rooms visited
-            }
 
         }
 
-        // Reset enemySpawn when battle is not won
-        if (battleSystem.state != BattleState.WON && enemySpawn)
+        if (!enemySpawn && battleSystem.state == BattleState.PLAYERTURN)
         {
-            enemySpawn = false;
+            enemySpawn = true;
+
+            Debug.LogWarning("spawning");
+            DelayTrash(); // Wait and spawn next enemy or boss
+            roomsSpawnBoss++; // Increment rooms visited
+        }
+        // Reset enemySpawn when battle is not won
+        if (battleSystem.state == BattleState.WON)
+        {
         }
     }
 
@@ -125,9 +128,11 @@ public class EnemySpawner : MonoBehaviour
         return activeList;
     }
 
-    IEnumerator DelayTrash()
+    void DelayTrash()
     {
-        yield return new WaitForSeconds(2.5f); // Wait 2.5 seconds before spawning
+      
+
+        //    yield return new WaitForSeconds(0f); // Wait 2.5 seconds before spawning
 
         // Spawn queued enemy if player chose one
         if (spawnSpecificNext && queuedEnemyPrefab != null)

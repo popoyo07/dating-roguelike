@@ -48,6 +48,8 @@ public class BattleSystem : MonoBehaviour
 
     public bool finalReward;
     public bool bossRomanced;
+
+    [SerializeField] AssignCard card;
     void Start()
     {
         endTurnB = GameObject.Find("EndTurn");
@@ -58,7 +60,7 @@ public class BattleSystem : MonoBehaviour
         rewards = GameObject.FindWithTag("RewardsM").GetComponent<Rewards>();
         chooseRoom = GameObject.FindWithTag("RoomManager").GetComponent<ChooseRoom>();
         menuButtons = GameObject.FindWithTag("Canvas").GetComponent<MenuButtons>();
-
+        
         finalReward = false;
     }
     private void FixedUpdate()
@@ -166,6 +168,7 @@ public class BattleSystem : MonoBehaviour
                     break;
                 
             case BattleState.ENDENEMYTURN:
+                clickedEndTurn = false;
                 StartCoroutine(ChangeBattleState(.1f, BattleState.PLAYERTURN, "BattleSystem"));
 
                 break;
@@ -198,10 +201,14 @@ public class BattleSystem : MonoBehaviour
                 }
                 menuButtons.ResetDialogueIndex();
                 break;
+                case BattleState.ENDPLAYERTURN:
+                StartCoroutine(ChangeBattleState(1f, BattleState.ENEMYTURN, "BattleSystem"));
+
+                break;
         }
 
     }
-
+    bool clickedEndTurn;
     void SetUpBattle()
     {
         if (enemyHP == null)
@@ -215,6 +222,11 @@ public class BattleSystem : MonoBehaviour
 
     public IEnumerator EndPlayerTurn()
     {
+        if (clickedEndTurn || !card.cardSet)
+        {
+            yield break;
+        }
+        clickedEndTurn = true;
         StartCoroutine(ChangeBattleState(0f, BattleState.ENDPLAYERTURN, "BattleSystem"));
 
         if (enemyHP.dead())
@@ -222,7 +234,7 @@ public class BattleSystem : MonoBehaviour
             yield break;
         }
 
-        StartCoroutine(ChangeBattleState(1f, BattleState.ENEMYTURN, "BattleSystem")); // delay a little so everything else can be run 
+      //  StartCoroutine(ChangeBattleState(1f, BattleState.ENEMYTURN, "BattleSystem")); // delay a little so everything else can be run 
     }
 
     public IEnumerator EndEnemyTurn()

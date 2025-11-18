@@ -65,9 +65,9 @@ public class AssignCard : MonoBehaviour
                 actionsWizzard = cardDraw.GetComponent<ActionsWizzard>();
                 break;
         }
-        cardSet = true; 
         yield return new WaitForSeconds(.5f);
         SetupCardButton();
+        cardSet = true;
     }
 
     void Update()

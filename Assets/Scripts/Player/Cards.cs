@@ -111,34 +111,42 @@ public class Cards : MonoBehaviour
     public void LoveyDoveyLogic()  // do nothing type of cards 
     {
         ConsumeEnergy(1);
-        enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.STUN;
+        enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.WEAK;
         Debug.Log("Lovely");
     }
     public void LoveyDoveyLogic2() // needs to do something ? 
     {
         ConsumeEnergy(1);
+        enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.STUN;
+
         Debug.Log("Lovely2");
     }
     
     public void LoveyDoveyLogic3() // needs to do something ? 
     {
         ConsumeEnergy(1);
-        Debug.Log("Lovely2");
+        enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.VULNERABLE;
+        Debug.Log("Lovely3");
     }
         public void LoveyDoveyLogic4() // needs to do something ? 
     {
         ConsumeEnergy(1);
-        Debug.Log("Lovely2");
+        enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.WEAK;
+
+        Debug.Log("Lovely4");
     }
         public void LoveyDoveyLogic5() // needs to do something ? 
     {
         ConsumeEnergy(1);
-        Debug.Log("Lovely2");
+        enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.STUN;
+        Debug.Log("Lovely5");
     }
         public void LoveyDoveyLogic6() // needs to do something ? 
     {
         ConsumeEnergy(1);
-        Debug.Log("Lovely2");
+        enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.VULNERABLE;
+
+        Debug.Log("Lovely6");
     }
 
 
