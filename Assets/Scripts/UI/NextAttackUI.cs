@@ -24,24 +24,37 @@ public class NextAttackUI : MonoBehaviour
             Debug.Log("Attempting to Update Next Attack UI");
             switch (action)
             {
+                //Regular ATK
                 case 0:
                     nextAttackImage.sprite = spriteList[0];
                     break;
+                
+                //Double ATK
                 case 1:
-                    nextAttackImage.sprite = spriteList[0];
+                    nextAttackImage.sprite = spriteList[1];
                     break;
+                
+                //Stance Up
                 case 2:
-                    nextAttackImage.sprite = spriteList[1];
+                    nextAttackImage.sprite = spriteList[2];
                     break;
+                
+                //Gaurd
                 case 3:
-                    nextAttackImage.sprite = spriteList[1];
+                    nextAttackImage.sprite = spriteList[3];
                     break;
+                
+                //Weaken
                 case 4:
-                    nextAttackImage.sprite = spriteList[0];
+                    nextAttackImage.sprite = spriteList[4];
                     break;
+                
+                //Vulnerable
                 case 5:
-                    nextAttackImage.sprite = spriteList[0];
+                    nextAttackImage.sprite = spriteList[5];
                     break;
+                
+                //Default
                 default:
                     Debug.Log("Nothing happened");
                     break;
