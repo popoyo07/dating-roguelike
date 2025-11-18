@@ -25,9 +25,11 @@ public class DialogueUI : MonoBehaviour
     public bool isTalking;
     public bool isTalkingTake2;
     public bool showAllDeck = false;
+    private bool pendingSkip;
 
     private void Start()
     {
+        pendingSkip = false;
         textEffect = GetComponent<TextEffect>();
         responseHandle = GetComponent<ResponseHandle>();
         AllDeckUI = GetComponent<MenuButtons>();
@@ -181,9 +183,6 @@ public class DialogueUI : MonoBehaviour
             }
         }
     }
-
-
-    private bool pendingSkip = false;
 
     public void MarkPendingSkip()
     {
