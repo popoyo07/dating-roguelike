@@ -22,23 +22,23 @@ MonoBehaviour:
     characterName: ???
     characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
-  - dialogueText: You suddenly understand this monster's language
+  - dialogueText: You suddenly understand this monster's language.
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
   - dialogueText: Give me more, human.
     characterName: ???
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
-  - dialogueText: You think only a conch is enough for a monster?
+  - dialogueText: You think only a conch is enough for me?
     characterName: ???
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
   - dialogueText: This is all I have.
     characterName: You
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: Only one? Pathetic. I hunger for more
+  - dialogueText: Only one? Pathetic. I hunger for more.
     characterName: ???
     characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0

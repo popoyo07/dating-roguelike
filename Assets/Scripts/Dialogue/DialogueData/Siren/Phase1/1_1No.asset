@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1_1No
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
   dialogue:
-  - dialogueText: Who needs a LoveyDovy card when you can just insta-kill the thing?
+  - dialogueText: Who needs a LoveyDovey card when you can just insta-kill the thing?
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0

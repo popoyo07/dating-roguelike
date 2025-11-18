@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1_2Fight
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
   dialogue:
-  - dialogueText: Why waste a LoveyDovy card on her anyway?
+  - dialogueText: Why waste a LoveyDovey card on her anyway?
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0

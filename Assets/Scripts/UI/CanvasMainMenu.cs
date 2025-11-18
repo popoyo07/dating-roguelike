@@ -10,6 +10,7 @@ public class CanvasMainMenu : MonoBehaviour
     public GameObject shopMenu;       // Shop menu UI
     public GameObject loadingScreen;  // Loading screen UI
     public GameObject creditsScreen;  // Credits screen UI
+    public DialogueProgression progression;
 
     /*
     // Optional: Show loading screen at start
@@ -79,4 +80,10 @@ public class CanvasMainMenu : MonoBehaviour
         loadingScreen.SetActive(false);     // Hide after 2 seconds
     }
     */
+
+    public void ResetProgression()
+    {
+        progression.currentDialogueIndex = 0;
+        progression.phase = 0;
+    }
 }
