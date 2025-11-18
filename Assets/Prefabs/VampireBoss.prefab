@@ -84,7 +84,6 @@ MonoBehaviour:
   progression: {fileID: 11400000, guid: f7a6907b8270b9040b904fcf41099455, type: 2}
   responseHandle: {fileID: 0}
   enemy: {fileID: 0}
-  eCanvas: {fileID: 0}
   nextAttackUI: {fileID: 0}
   dialogueEnd:
   - {fileID: 11400000, guid: 3eb2164a3b1cc144ea16c9e4cce7e775, type: 2}
@@ -322,10 +321,6 @@ PrefabInstance:
       propertyPath: isBoss
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3900137015995239691, guid: b8e3fcb72f8c1a24cb1d956dbed91eef, type: 3}
-      propertyPath: hitSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 1f3a41d010301554cabd14d33dd3b81d, type: 3}
     - target: {fileID: 5162565427216811904, guid: b8e3fcb72f8c1a24cb1d956dbed91eef, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 89
