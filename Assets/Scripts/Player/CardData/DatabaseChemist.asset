@@ -55,23 +55,23 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4ba468a4cb9a19445a6355151f24b67f, type: 3}
   - {fileID: 21300000, guid: 124673ca65a444745943ce5825be6763, type: 3}
   descriptionCard:
-  - 'Heals '
-  - Heals more
-  - Lowers Enemy's Dmg. for # Turns
-  - Does dmg to enemy and makes them weak
-  - Enemy is confused and can't attack next turn
-  - 'Throws acid flask to enemy dealing dmg '
-  - Multiplies next attack dmg by 3
-  - 'Makes enemy weak for next turn '
-  - Removes debuffs
-  - Throws an empty flask at enemy dealing dmg
-  - Gives shield to player and multiplies next attack by 1.5
-  - 'Gives shield to player '
-  - Does big dmg, multiplies next attack by 3 and makes enemy weak.
-  - Throws to empty flasks at enemy dealing twice the dmg
-  - 'Makes enemy fall asleep '
-  - Gain Thorns # of Turns
-  - Love card 3
-  - Enemy Falls Asleep for 1 Turn
-  - Love card 5
-  - Love card 6
+  - '(1) Heals 5 HP '
+  - (1) Heals more heals 10 hp
+  - (1) Lowers Enemy's Dmg. for 1 Turn
+  - (1) Does 5 dmg to enemy and makes them weak
+  - (1) Enemy is confused and can't attack next turn
+  - '(1) Throws Acid flask to enemy dealing 5 dmg '
+  - (2) Multiplies next attack dmg by 3
+  - '(1) Makes enemy weak for next turn '
+  - '(1) Removes debuffs and buffs '
+  - (1) Throws an empty flask at enemy dealing 4 dmg
+  - (2) Gives 8 shield to player and multiplies next attack by 2
+  - '() Gives shield to player '
+  - (3) Deals 20 dmg, next Attk is doubled and makes enemy weak.
+  - '(1) Deals 3 Dmg. to The Enemy Twice '
+  - (1) Enemy Falls Asleep for 1 Turn
+  - (1) Stun enemy for 1 turn
+  - (1) Makes enemy vulnerable for 1 turn
+  - '(1) Weakens enemy for 1 turn '
+  - (1) Stun enemy for 1 turn
+  - (1) Makes enemy vulnerable for 1 turn

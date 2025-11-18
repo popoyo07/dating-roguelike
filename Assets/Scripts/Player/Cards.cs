@@ -116,14 +116,14 @@ public class Cards : MonoBehaviour
         ConsumeEnergy(bigHealingECost);
         player.GetComponent<SimpleHealth>().RecoverHP(biggerHeal);
     }
-    public void LoveyDoveyLogic()  // do nothing type of cards 
+    public void LoveyDoveyLogic()  // (1) Enemy Falls Asleep for 1 Turn 
     {
         ConsumeEnergy(1);
         enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.WEAK;
         audioSource.PlayOneShot(weakenSound);
         Debug.Log("Lovely");
     }
-    public void LoveyDoveyLogic2() // needs to do something ? 
+    public void LoveyDoveyLogic2() // (1) Stun enemy for 1 turn
     {
         ConsumeEnergy(1);
         enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.STUN;
@@ -131,7 +131,7 @@ public class Cards : MonoBehaviour
         Debug.Log("Lovely2");
     }
     
-    public void LoveyDoveyLogic3() // needs to do something ? 
+    public void LoveyDoveyLogic3() // (1) Makes enemy vulnerable for 1 turn
     {
         ConsumeEnergy(1);
         enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.VULNERABLE;
