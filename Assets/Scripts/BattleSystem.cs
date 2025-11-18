@@ -227,7 +227,7 @@ public class BattleSystem : MonoBehaviour
             yield break;
         }
         clickedEndTurn = true;
-        StartCoroutine(ChangeBattleState(0f, BattleState.ENDPLAYERTURN, "BattleSystem"));
+        StartCoroutine(ChangeBattleState(0.2f, BattleState.ENDPLAYERTURN, "BattleSystem"));
 
         if (enemyHP.dead())
         {
