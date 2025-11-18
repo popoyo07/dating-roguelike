@@ -63,7 +63,7 @@ MonoBehaviour:
   - Heals more
   - Raise Atk. For # Turns
   - Next Atk. Dealt to Player is Negated
-  - TBD
+  - 'Stuns the enemy for 1 turn '
   - Deals # Dmg. Ingores Shield
   - Gain High # Shield Within This Turn
   - Next Card Deals 2x Within This Turn
