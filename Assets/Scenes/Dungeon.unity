@@ -1056,6 +1056,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: hanging chain
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9cbb7f0a272134943bdda75059a607e3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
