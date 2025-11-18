@@ -53,7 +53,7 @@ public class ChangeResponse : MonoBehaviour
         }
         else
         {
-            responseImage.color = Color.plum;
+            Debug.Log("No color");
         }
     }
 }
