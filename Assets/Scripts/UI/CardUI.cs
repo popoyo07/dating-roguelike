@@ -26,8 +26,6 @@ public class CardUI : MonoBehaviour
 
     private string cardName;
     public bool correctLovyDovy;
-
-    public AudioSource audioSource;
     
    // public bool bossRomanced;
 
@@ -103,7 +101,6 @@ public class CardUI : MonoBehaviour
         Debug.LogWarning($"Card clicked: {cardName}");
         if (DialogueUI.showAllDeck)
         {
-            audioSource.Play();
             MenuButtons.CloseDeck();
             DialogueUI.showAllDeck = false;
             CardChosen(cardName);
