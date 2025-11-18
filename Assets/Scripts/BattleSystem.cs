@@ -47,7 +47,6 @@ public class BattleSystem : MonoBehaviour
 
     public bool finalReward;
     public bool bossRomanced;
-    bool running;
     void Start()
     {
         endTurnB = GameObject.Find("EndTurn");
@@ -107,7 +106,7 @@ public class BattleSystem : MonoBehaviour
                 }
                 else if (!enemyHP.isBoss && state != BattleState.REWARD && !finalReward)
                 {
-                    StartCoroutine(ChangeBattleState(1f, BattleState.REWARD, "BattleSystem"));
+                    StartCoroutine(ChangeBattleState(0.1f, BattleState.REWARD, "BattleSystem"));
 
                 }
 
@@ -150,7 +149,7 @@ public class BattleSystem : MonoBehaviour
                     rewards.pickedReward = false;
                     chooseRoom.chosenRoom = false ;
                     runing = true;
-                    StartCoroutine(ChangeBattleState(2.5f, BattleState.DEFAULT, "BattleSystem"));
+                    StartCoroutine(ChangeBattleState(2f, BattleState.DEFAULT, "BattleSystem"));
 
                 }
                 break;
@@ -233,14 +232,9 @@ public class BattleSystem : MonoBehaviour
    // bool running = false;
     public IEnumerator ChangeBattleState(float delay, BattleState b, string whichScriptIsFrom)
     {
-       if (running)
-        {
-            yield break;
-        };
-        running = true;
+      //
+       // running = true;
         yield return new WaitForSeconds(delay);
-        running = false;
-        
         state = b;
         Debug.LogWarning(" The current state is " + b + " " + whichScriptIsFrom);
         
