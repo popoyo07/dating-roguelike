@@ -25,6 +25,7 @@ public class MenuButtons : MonoBehaviour
     ChooseRoom chooseRoom;           // Reference to room manager
 
     private CoinSystem coinSystem;
+    public AudioSource audioSource;
 
     [Header("Dialogue Data")]
     [SerializeField] private DialogueProgression[] dialogueProgression;
@@ -74,6 +75,7 @@ public class MenuButtons : MonoBehaviour
 
                 if (!rewardsPopup.activeSelf && !roomPopup.activeSelf)
                 {
+                    audioSource.Play();
                     rewardsPopup.SetActive(true);
                     StartCoroutine(ShowRewardsNextFrame());
                 }
