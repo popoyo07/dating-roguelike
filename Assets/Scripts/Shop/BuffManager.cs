@@ -18,6 +18,10 @@ public class BuffManager : MonoBehaviour, IDataPersistence
 
     public bool isCoinBuffActive;
 
+    public bool ownsKnight;
+    public bool ownsChemist;
+    public bool ownsWizard;
+
     public TextMeshProUGUI activeHealthBuffCount;
     public TextMeshProUGUI activeEnergyBuffCount;
     public TextMeshProUGUI activeCoinBuffCount;
@@ -34,6 +38,9 @@ public class BuffManager : MonoBehaviour, IDataPersistence
         this.doubleCoinsBuffCount = data.coinBuff;
         this.coins = data.coins;
         this.isCoinBuffActive = data.isCoinBuffActive;
+        this.ownsKnight = data.ownsKnight;
+        this.ownsChemist = data.ownsChemist;
+        this.ownsWizard = data.ownsWizard;
     }
 
     public void SaveData(ref GameData data)
@@ -43,6 +50,9 @@ public class BuffManager : MonoBehaviour, IDataPersistence
         data.energyBuff = this.energyBuffCount;
         data.coinBuff = this.doubleCoinsBuffCount;
         data.isCoinBuffActive = this.isCoinBuffActive;
+        data.ownsKnight = this.ownsKnight;
+        data.ownsChemist = this.ownsChemist;
+        data.ownsWizard = this.ownsWizard;
     }
 
     #endregion

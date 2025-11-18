@@ -22,14 +22,19 @@ public class PickDeckButton : MonoBehaviour
 
     public void ChangeToKnight()
     {
-        if (buffM.coins > ClassPrice)
+        if (buffM.coins > ClassPrice && buffM.ownsKnight == false)
         {
             buffM.coins = buffM.coins - ClassPrice;
             c.c = CharacterClass.KNIGHT;
             Debug.Log("choice " + c.c);
             //Place UI Element that tells the player that they have switched classes
             StartCoroutine(SwitchClassUI("Knight", true));
-        } else
+        } else if (buffM.ownsKnight == true)
+        {
+            c.c = CharacterClass.KNIGHT;
+            StartCoroutine(SwitchClassUI("Knight", true));
+        }
+        else
         {
             StartCoroutine(SwitchClassUI("Knight", false));
             Debug.Log("Not enough coins to change to Knight Class...");
@@ -39,12 +44,17 @@ public class PickDeckButton : MonoBehaviour
 
     public void ChangeToRogue()
     {
-        if (buffM.coins > ClassPrice)
+        if (buffM.coins > ClassPrice && buffM.ownsChemist == false)
         {
             buffM.coins = buffM.coins - ClassPrice;
             c.c = CharacterClass.CHEMIST;
             Debug.Log("choice " + c.c);
             //Place UI Element that tells the player that they have switched classes
+            StartCoroutine(SwitchClassUI("Chemist", true));
+        }
+        else if (buffM.ownsChemist == true)
+        {
+            c.c = CharacterClass.CHEMIST;
             StartCoroutine(SwitchClassUI("Chemist", true));
         }
         else
@@ -57,12 +67,17 @@ public class PickDeckButton : MonoBehaviour
 
     public void ChangeToWizzard()
     {
-        if (buffM.coins > ClassPrice)
+        if (buffM.coins > ClassPrice && buffM.ownsWizard == false)
         {
             buffM.coins = buffM.coins - ClassPrice;
             c.c = CharacterClass.WIZZARD;
             Debug.Log("choice " + c.c);
             //Place UI Element that tells the player that they have switched classes
+            StartCoroutine(SwitchClassUI("Wizard", true));
+        }
+        else if (buffM.ownsWizard == true)
+        {
+            c.c = CharacterClass.WIZZARD;
             StartCoroutine(SwitchClassUI("Wizard", true));
         }
         else
@@ -78,6 +93,7 @@ public class PickDeckButton : MonoBehaviour
         ClassSwitch_TextBox.SetActive(true);
         if (rich == true)
         {
+            buffM.coinUI.UpdateCoins();
             ClassSwitch_Text.text = "Switched class to the " + ChClass + " Class";
         }
         else
