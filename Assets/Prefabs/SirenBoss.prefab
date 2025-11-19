@@ -86,7 +86,8 @@ MonoBehaviour:
   enemy: {fileID: 0}
   eCanvas: {fileID: 0}
   nextAttackUI: {fileID: 0}
-  dialogueEnd: []
+  dialogueEnd:
+  - {fileID: 11400000, guid: e947eff3492b0854a870c0de046507da, type: 2}
   showLovyUI: 0
 --- !u!82 &7445812035431574535
 AudioSource:
