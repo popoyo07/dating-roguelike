@@ -173,6 +173,7 @@ public class Cards : MonoBehaviour
             enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.STUN;
             audioSource.PlayOneShot(stunSound);
         }
+        attkAmmount = pocketPebble;
         GenerateAttk(pStatus.currentStatus);
 
     }

@@ -20,8 +20,8 @@ public class CardDescription : MonoBehaviour
         
         if (txt == null)
             txt = GetComponentInChildren<TextMeshProUGUI>();
-     
         StartCoroutine(SetText());
+
     }
     void Update()
     {
@@ -30,12 +30,14 @@ public class CardDescription : MonoBehaviour
             if (assignCard.cardUsed || assignCard.resetForNewTurn)
             StartCoroutine(DisableTxt());
             Debug.LogWarning("Disable the text");
-        } 
-      
+        }
+        StartCoroutine(SetText());
+
     }
     IEnumerator DisableTxt()
     {
-        yield return new WaitForSeconds(.5f); 
+        yield return new WaitForSeconds(.5f);
+        txt.text = "";
         txt.gameObject.SetActive(false);
 
     }
@@ -45,8 +47,16 @@ public class CardDescription : MonoBehaviour
         !string.IsNullOrEmpty(assignCard.cardNameFromList) &&
         deckDraw.allCardDescriptions.ContainsKey(assignCard.cardNameFromList)
         );
-    
-        txt.text = deckDraw.allCardDescriptions[assignCard.cardNameFromList];
+   
+        if (assignCard.cardNameFromList != null)
+        {
+            if (txt.text != deckDraw.allCardDescriptions[assignCard.cardNameFromList])
+            {
+                txt.text = deckDraw.allCardDescriptions[assignCard.cardNameFromList];
+
+            }
+        }
+      
 
     }
  

@@ -164,7 +164,7 @@ public class AssignCard : MonoBehaviour
                     knightCardAttks = cardDraw.GetComponent<ActionsKnight>();
 
                 // Enough energy?
-                if (knightCardAttks.cardEnergyCost[cardNameFromList] <= energy.energyCounter)
+                if (energy.energyCounter - knightCardAttks.cardEnergyCost[cardNameFromList]   >= 0)
                 {
                     if (knightCardAttks.cardAttaks.ContainsKey(cardNameFromList))
                     {
@@ -182,7 +182,7 @@ public class AssignCard : MonoBehaviour
                 if (actionsChemist == null)
                     actionsChemist = cardDraw.GetComponent<ActionsChemist>();
 
-                if (actionsChemist.cardEnergyCost[cardNameFromList] <= energy.energyCounter)
+                if (energy.energyCounter - actionsChemist.cardEnergyCost[cardNameFromList] >= 0)
                 {
                     if (actionsChemist.cardAttaks.ContainsKey(cardNameFromList))
                     {
@@ -199,7 +199,7 @@ public class AssignCard : MonoBehaviour
                 if (actionsWizzard == null)
                     actionsWizzard = cardDraw.GetComponent<ActionsWizzard>();
 
-                if (actionsWizzard.cardEnergyCost[cardNameFromList] <= energy.energyCounter)
+                if (energy.energyCounter - actionsWizzard.cardEnergyCost[cardNameFromList] >= 0)
                 {
                     if (actionsWizzard.cardAttaks.ContainsKey(cardNameFromList))
                     {
