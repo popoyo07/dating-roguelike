@@ -1646,7 +1646,10 @@ MonoBehaviour:
   - {fileID: 4159210154124007948, guid: d3bb78c0c0628a04fa4d73bca5c71bda, type: 3}
   wallItemPrefabs:
   - {fileID: 3563789075462658821, guid: d0d852c20def1fd499f3a73534a4e9e8, type: 3}
+  - {fileID: 3563789075462658821, guid: d0d852c20def1fd499f3a73534a4e9e8, type: 3}
+  - {fileID: 3563789075462658821, guid: d0d852c20def1fd499f3a73534a4e9e8, type: 3}
   ceilingItemPrefabs:
+  - {fileID: 6882903552030569118, guid: 89fa2e3db372fc147bb02f069b6603c9, type: 3}
   - {fileID: 6882903552030569118, guid: 89fa2e3db372fc147bb02f069b6603c9, type: 3}
   - {fileID: 6882903552030569118, guid: 89fa2e3db372fc147bb02f069b6603c9, type: 3}
   torchLeftPrefab: {fileID: 3563789075462658821, guid: 0bea54d79dd62f649b3dc85df5abb7fb, type: 3}
