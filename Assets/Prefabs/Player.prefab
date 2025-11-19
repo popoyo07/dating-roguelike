@@ -71,6 +71,9 @@ MonoBehaviour:
   isBoss: 0
   hitSound: {fileID: 8300000, guid: 667721a8e92b0fb4daa7a1bd5583e2e5, type: 3}
   shieldSound: {fileID: 8300000, guid: 591f49d8e6de71c44b19fe367e6ec7eb, type: 3}
+  healSound: {fileID: 8300000, guid: 5a57d9431a5f9e349ae2e6a2bd59de3d, type: 3}
+  weakenSound: {fileID: 0}
+  vulnerableSound: {fileID: 8300000, guid: 1e9514572c149af4997203e1d7607e9f, type: 3}
   healthBar: {fileID: 0}
 --- !u!114 &54076634710036093
 MonoBehaviour:

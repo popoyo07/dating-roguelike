@@ -10637,14 +10637,30 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3813641821308266811, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: stunSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 26508103b7b91944690f176fed1a10d5, type: 3}
+    - target: {fileID: 3813641821308266811, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: vulnerableSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1e9514572c149af4997203e1d7607e9f, type: 3}
     - target: {fileID: 6649543096048209190, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
       propertyPath: acid
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6649543096048209190, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: stunSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 26508103b7b91944690f176fed1a10d5, type: 3}
+    - target: {fileID: 6649543096048209190, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
       propertyPath: emptyFlask
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6649543096048209190, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: vulnerableSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1e9514572c149af4997203e1d7607e9f, type: 3}
     - target: {fileID: 6651855241109148109, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
       propertyPath: 'cards.Array.data[0]'
       value: 
@@ -10726,9 +10742,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6424230952612506986}
     - target: {fileID: 8350772356307164605, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: stunSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 26508103b7b91944690f176fed1a10d5, type: 3}
+    - target: {fileID: 8350772356307164605, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
       propertyPath: protectiveOath
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 8350772356307164605, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
+      propertyPath: vulnerableSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1e9514572c149af4997203e1d7607e9f, type: 3}
     - target: {fileID: 8350772356307164605, guid: 58f436b52e55b0c4aaa8661333b996b0, type: 3}
       propertyPath: protectiveOathECost
       value: 2

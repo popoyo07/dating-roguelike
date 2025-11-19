@@ -22,6 +22,8 @@ public class Cards : MonoBehaviour
     public StatusEffect LastStatus;
 
     public AudioClip weakenSound;
+    public AudioClip vulnerableSound;
+    public AudioClip stunSound;
     private AudioSource audioSource;
 
     // stores the 
@@ -127,7 +129,7 @@ public class Cards : MonoBehaviour
     {
         ConsumeEnergy(1);
         enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.STUN;
-
+        audioSource.PlayOneShot(stunSound);
         Debug.Log("Lovely2");
     }
     
@@ -135,6 +137,7 @@ public class Cards : MonoBehaviour
     {
         ConsumeEnergy(1);
         enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.VULNERABLE;
+        audioSource.PlayOneShot(vulnerableSound);
         Debug.Log("Lovely3");
     }
         public void LoveyDoveyLogic4() // needs to do something ? 
@@ -148,13 +151,14 @@ public class Cards : MonoBehaviour
     {
         ConsumeEnergy(1);
         enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.STUN;
+        audioSource.PlayOneShot(stunSound);
         Debug.Log("Lovely5");
     }
         public void LoveyDoveyLogic6() // needs to do something ? 
     {
         ConsumeEnergy(1);
         enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.VULNERABLE;
-
+        audioSource.PlayOneShot(vulnerableSound);
         Debug.Log("Lovely6");
     }
 
@@ -167,7 +171,7 @@ public class Cards : MonoBehaviour
         if (r == 1)
         {
             enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.STUN;
-
+            audioSource.PlayOneShot(stunSound);
         }
         GenerateAttk(pStatus.currentStatus);
 

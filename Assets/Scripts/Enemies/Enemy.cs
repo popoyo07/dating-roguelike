@@ -22,6 +22,8 @@ public class Enemy : MonoBehaviour
     Animation anim;
 
     public AudioClip weakenSound;
+    public AudioClip vulnerableSound;
+    public AudioClip stanceSound;
     private AudioSource audioSource;
 
     void Awake()
@@ -178,6 +180,7 @@ public class Enemy : MonoBehaviour
     void stanceUp()
     {
         attkDmg += Random.Range(1, 3);
+        audioSource.PlayOneShot(stanceSound);
         Debug.Log("Stanced Up");
     }
 
@@ -197,6 +200,7 @@ public class Enemy : MonoBehaviour
     //Broken sheild
     void Vulnerable()
     {
+        audioSource.PlayOneShot(vulnerableSound);
         PlayerStatus.currentStatus = StatusEffect.VULNERABLE;
     }
 
