@@ -570,6 +570,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4082702911745425996, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4608457261662142800, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -594,14 +598,6 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6235600265929284814, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: m_Volume
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6235600265929284814, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
-      propertyPath: m_Resource
-      value: 
-      objectReference: {fileID: 8300000, guid: 8931efe06c6b53441a83ec17083e8429, type: 3}
     - target: {fileID: 7819768462628888708, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
