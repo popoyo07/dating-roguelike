@@ -77,6 +77,7 @@ public class ItemSpawner : MonoBehaviour
 
             if (!itemSpawn)
             {
+                Debug.LogWarning("Should spawn");
                 StartCoroutine(DelayTrash());
                 itemSpawn = true;
 
@@ -111,20 +112,18 @@ public class ItemSpawner : MonoBehaviour
         Instantiate(ceilingItemPrefabs[ceilingRandomItem], selectedCeilingSpawnPoint, Quaternion.identity);
         availableCeilingSpawnPoints.RemoveAt(randomCeilingSpawnPointIndex);
 
-       // List<Vector3> availableWallSpawnPoints = new List<Vector3>(wallSpawnPoints);
+        // List<Vector3> availableWallSpawnPoints = new List<Vector3>(wallSpawnPoints);
 
         //For loop that spawns random itmes in random areas. The i-- makes sure the loop will run until 3 items have been spawned in 3 different areas
 
         for (int i = 0; i < 3; i++)
         {
+            // set wall item each iteration (IMPORTANT)
+            wallRandomItem = Random.Range(0, wallItemPrefabs.Count);
             GameObject wallObject = wallItemPrefabs[wallRandomItem];
 
-           /* List<Vector3> availableWallSpawnPoints = new List<Vector3>(wallSpawnPoints);
-            int randomWallSpawnPointIndex = Random.Range(0, availableWallSpawnPoints.Count);
-            Vector3 selectedWallSpawnPoint = availableWallSpawnPoints[randomWallSpawnPointIndex];*/
-
-            groundRandomItem = Random.Range(0, groundItemPrefabs.Count); //Chooses a random item to spawn from the itemPrefabs
-            rangeOption = Random.Range(0, 4); //Chooses a random spawn area
+            groundRandomItem = Random.Range(0, groundItemPrefabs.Count);
+            rangeOption = Random.Range(0, 4);
 
             float randomX = Random.Range(minSpawnX1, maxSpawnX1);
             float randomX2 = Random.Range(minSpawnX2, maxSpawnX2);
@@ -132,81 +131,57 @@ public class ItemSpawner : MonoBehaviour
             float randomZ = Random.Range(minSpawnZ, maxSpawnZ);
             float randomZ2 = Random.Range(minSpawnZ2, maxSpawnZ2);
 
-            if (rangeOption == 0)
-            {
-                if (canSpawnArea0 == true)
-                {
-                    Debug.Log("range 0");
-                    Vector3 randomSpawn = new Vector3(randomX, 0.75f, randomZ);
-                    Instantiate(groundItemPrefabs[groundRandomItem], randomSpawn, Quaternion.identity);
-                    canSpawnArea0 = false;
+            bool spawned = false;
 
-                    Vector3 torchBackLeftSpawn = new Vector3(3.4f, 3.25f, -7.992f);
-                    Instantiate(wallObject, torchBackLeftSpawn, Quaternion.identity);
-                   // Instantiate(wallObject, selectedWallSpawnPoint, Quaternion.identity);
-                   // availableWallSpawnPoints.RemoveAt(randomWallSpawnPointIndex);
-                }
-                else
-                {
-                    i--;
-                }
-            }
-            if (rangeOption == 1)
+            switch (rangeOption)
             {
-                if (canSpawnArea1 == true)
-                {
-                    Debug.Log("range 1");
-                    Vector3 randomSpawn = new Vector3(randomX2, 0.75f, randomZ);
-                    Instantiate(groundItemPrefabs[groundRandomItem], randomSpawn, Quaternion.identity);
-                    canSpawnArea1 = false;
+                case 0:
+                    if (canSpawnArea0)
+                    {
+                        Vector3 pos = new Vector3(randomX, 0.75f, randomZ);
+                        Instantiate(groundItemPrefabs[groundRandomItem], pos, Quaternion.identity);
+                        canSpawnArea0 = false;
+                        spawned = true;
+                    }
+                    break;
 
-                    Vector3 torchLeftSpawn = new Vector3(4.98f, 5.14f, 1.64f);
-                    Instantiate(torchLeftPrefab, torchLeftSpawn, Quaternion.identity);
-                }
-                else
-                {
-                    i--;
-                }
-            }
-            if (rangeOption == 2)
-            {
-                if (canSpawnArea2 == true)
-                {
-                    Debug.Log("range 2");
-                    Vector3 randomSpawn = new Vector3(randomX, 0.75f, randomZ2);
-                    Instantiate(groundItemPrefabs[groundRandomItem], randomSpawn, Quaternion.identity);
-                    canSpawnArea2 = false;
+                case 1:
+                    if (canSpawnArea1)
+                    {
+                        Vector3 pos = new Vector3(randomX2, 0.75f, randomZ);
+                        Instantiate(groundItemPrefabs[groundRandomItem], pos, Quaternion.identity);
+                        canSpawnArea1 = false;
+                        spawned = true;
+                    }
+                    break;
 
-                    Vector3 torchRightSpawn = new Vector3(-4.98f, 5.14f, 1.64f);
-                    Instantiate(torchRightPrefab, torchRightSpawn, Quaternion.identity);
-                }
-                else
-                {
-                    i--;
-                }
-            }
-            if (rangeOption == 3)
-            {
-                if (canSpawnArea3 == true)
-                {
-                    Debug.Log("range 3");
-                    Vector3 randomSpawn = new Vector3(randomX2, 0.75f, randomZ2);
-                    Instantiate(groundItemPrefabs[groundRandomItem], randomSpawn, Quaternion.identity);
-                    canSpawnArea3 = false;
+                case 2:
+                    if (canSpawnArea2)
+                    {
+                        Vector3 pos = new Vector3(randomX, 0.75f, randomZ2);
+                        Instantiate(groundItemPrefabs[groundRandomItem], pos, Quaternion.identity);
+                        canSpawnArea2 = false;
+                        spawned = true;
+                    }
+                    break;
 
-                    Vector3 torchBackRightSpawn = new Vector3(-3.4f, 3.25f, -7.992f);
-                    Instantiate(wallObject, torchBackRightSpawn, Quaternion.identity);
-                   // Instantiate(wallObject, selectedWallSpawnPoint, Quaternion.identity);
-                   // availableWallSpawnPoints.RemoveAt(randomWallSpawnPointIndex);
-                }
-                else
-                {
-                    i--;
-                }
+                case 3:
+                    if (canSpawnArea3)
+                    {
+                        Vector3 pos = new Vector3(randomX2, 0.75f, randomZ2);
+                        Instantiate(groundItemPrefabs[groundRandomItem], pos, Quaternion.identity);
+                        canSpawnArea3 = false;
+                        spawned = true;
+                    }
+                    break;
             }
 
-            pooooooooop = GameObject.FindGameObjectsWithTag("Trash");
+            if (!spawned)
+                i--; // retry
         }
+
+        pooooooooop = GameObject.FindGameObjectsWithTag("Trash");
     }
 }
+
 
