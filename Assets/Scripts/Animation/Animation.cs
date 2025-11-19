@@ -1,21 +1,35 @@
-using NUnit.Framework;
 using System.Collections;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
 
 public class Animation : MonoBehaviour
 {
-    public Animator animator;
+    public GameObject enemy;
+    public GameObject vfx;
+
+    public Animator EnemyAnim;
+    public Animator ExtraAnim;
+
+    SpriteRenderer enemySprite;
+
     GameObject cardmanager;
  
     ActionsKnight knight;
     ActionsChemist chemist;
     ActionsWizzard wiz;
 
+    private void Awake()
+    {
+        EnemyAnim = enemy.GetComponent<Animator>();
+        ExtraAnim = vfx.GetComponent<Animator>();
+        enemySprite = vfx.GetComponent<SpriteRenderer>();
+
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        animator = this.gameObject.GetComponentInChildren<Animator>();
+        enemySprite.enabled = false;
+
         cardmanager = GameObject.Find("CardManager");
         Debug.Log("it is assigning enemy for the card managers from the anim script");
         knight = cardmanager.GetComponent<ActionsKnight>();
@@ -34,42 +48,51 @@ public class Animation : MonoBehaviour
         {
             case StatusEffect.SHIELDIGNORED:
                 TriggerShaking();
+                BeingAttacked();
                 break;
-            case StatusEffect.VULNERABLE: // increases the dmg received by 50%
-                //TriggerBounce();
+            case StatusEffect.VULNERABLE:
+                TriggerShaking();
+                BeingAttacked();
                 break;
             case StatusEffect.WEAK:
                 TriggerWeak();
+                //BeingAttacked();
                 break;
             default:
                 TriggerBounce();
+                BeingAttacked();
                 break;
         }
 
     }
 
+    public void BeingAttacked()
+    {
+        enemySprite.enabled = true;
+
+        ExtraAnim.SetTrigger("BeingAttacked");
+
+    }
+
     public void TriggerBounce()
     {
-        animator.SetTrigger("Bounce");
+        EnemyAnim.SetTrigger("Bounce");
     }
 
     public void TriggerAttack()
     {
-        animator.SetTrigger("Attack");
+        EnemyAnim.SetTrigger("Attack");
     }
 
     public void TriggerShaking()
     {
-        animator.SetTrigger("Shake");
+        EnemyAnim.SetTrigger("Shake");
     }
 
     public void TriggerWeak()
     {
-        animator.SetTrigger("Weak");
+        EnemyAnim.SetTrigger("Weak");
     }
-
-
-    // Update is called once per frame
     void Update()
     {
         
