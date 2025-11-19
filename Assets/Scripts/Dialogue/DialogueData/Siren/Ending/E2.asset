@@ -1,0 +1,207 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb04ed8146191ab4b98ce1e8256bab43, type: 3}
+  m_Name: E2
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
+  dialogue:
+  - dialogueText: "Because it wasn\u2019t just about escaping."
+    characterName: You
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: ...Oh?
+    characterName: You
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: Her eyes sharpen with interest. She leans closer, her breath warm
+      against your lips.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "Somewhere along the way\u2026 it stopped being just a trial."
+    characterName: You
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: I kept fighting because I wanted to see you again.
+    characterName: You
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "I want you with me\u2014not as a monster, or a test."
+    characterName: You
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "As someone I\u2026 care about."
+    characterName: You
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: The words hang between you, fragile and terrifying.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "You\u2026 care? For me?"
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: "Her voice cracks, but it\u2019s there."
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: After everything I did to you.
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: "After I tried to drown you, tear you apart, make you break\u2014"
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: You were caged. You lashed out because this place twisted you.
+    characterName: You
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: But I saw the real you.
+    characterName: You
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: In your word. In the way you hesitated.
+    characterName: You
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: In the way you kept giving me chances instead of just killing me.
+    characterName: You
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: Her mask finally shatters. The lethal edge in her gaze melts into
+      something raw and vulnerable.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "\u2026You noticed that."
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: She steps even closer, so close you can see the tiny flecks of
+      light in her eyes.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "Then\u2026 if I follow you\u2026"
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: "If I leave this dungeon\u2026"
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: "Her fingers trace the line of your jaw, gentle now, not possessive\u2014asking,
+      not taking."
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: Will you keep looking at me like that?
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: Not as a monster.
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: "But as someone you\u2019ve chosen."
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: "As long as you\u2019ll let me."
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: "Her lips part in a quiet laugh\u2014soft and disbelieving."
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "Bold to the very end\u2026"
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: Fine. Then take responsibility for me.
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: She presses her forehead to yours. The mirror at her hip glows,
+      its surface swirling with light.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "I\u2019ll trust you."
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: "With my freedom\u2026 and with my heart."
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: The dungeon trembles. The walls split open, light flooding in like
+      the first sunrise after endless night.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: The mirror shatters into a ring of floating shards around you both,
+      then dissolves into motes of light.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: Our cage is gone.
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: "Then let\u2019s leave it behind."
+    characterName: You
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "Your hands intertwine\u2014your pulse steady, hers thrumming like
+      music beneath your skin."
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: Together, you step forward through the collapsing chamber.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: Behind you, the dungeon crumbles into silence.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "Whatever waits out there\u2026"
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: "I\u2019ll sing for us now."
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: "In the end, you don\u2019t just escape the dungeon."
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: You escape the loneliness you both carried in its depths.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: You escape the loneliness you both carried in its depths.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: You escape the loneliness you both carried in its depths.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  responses: []
+  LovyCounting:
+    LovyCount: 0
+    MinusLovyCount: 0
