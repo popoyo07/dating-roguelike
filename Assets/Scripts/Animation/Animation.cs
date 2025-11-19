@@ -5,15 +5,15 @@ public class Animation : MonoBehaviour
 {
     public GameObject enemy;
     public GameObject vfx;
-    public GameObject vfx2;
+    //public GameObject vfx2;
 
     public Animator EnemyAnim;
     public Animator ExtraAnim;
-    public Animator Extra2Anim;
+    //public Animator Extra2Anim;
 
 
     SpriteRenderer enemySprite;
-    SpriteRenderer playerSprite;
+    //SpriteRenderer playerSprite;
 
 
     GameObject cardmanager;
@@ -27,8 +27,8 @@ public class Animation : MonoBehaviour
         EnemyAnim = enemy.GetComponent<Animator>();
         ExtraAnim = vfx.GetComponent<Animator>();
         enemySprite = vfx.GetComponent<SpriteRenderer>();
-        playerSprite = vfx2.GetComponent<SpriteRenderer>();
-        Extra2Anim = vfx2.GetComponent<Animator>();
+/*        playerSprite = vfx2.GetComponent<SpriteRenderer>();
+        Extra2Anim = vfx2.GetComponent<Animator>();*/
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -73,10 +73,10 @@ public class Animation : MonoBehaviour
     public void BeingAttacked()
     {
         enemySprite.enabled = true;
-        playerSprite.enabled = true;
+        //playerSprite.enabled = true;
 
         ExtraAnim.SetTrigger("BeingAttacked");
-        Extra2Anim.SetTrigger("P_Attk");
+        //Extra2Anim.SetTrigger("P_Attk");
     }
 
     public void TriggerBounce()
