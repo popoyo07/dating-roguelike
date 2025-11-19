@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using System;
 using Unity.VisualScripting;
+using System.Collections;
 
 public class CardUI : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class CardUI : MonoBehaviour
     public DialogueActivator Activator;
     public EnemySpawner enemySpawner;
     public DialogueProgression progression;
+
+    public AudioSource loveyDovey;
 
     private string cardName;
     public bool correctLovyDovy;
@@ -101,7 +104,8 @@ public class CardUI : MonoBehaviour
         Debug.LogWarning($"Card clicked: {cardName}");
         if (DialogueUI.showAllDeck)
         {
-            MenuButtons.CloseDeck();
+            loveyDovey.Play();
+            StartCoroutine(HoldForLoveyDoveySFX());
             DialogueUI.showAllDeck = false;
             CardChosen(cardName);
         }
@@ -397,5 +401,11 @@ public class CardUI : MonoBehaviour
 
         }
             
+    }
+
+    IEnumerator HoldForLoveyDoveySFX()
+    {
+        yield return new WaitForSeconds(1.5f);
+        MenuButtons.CloseDeck();
     }
 }

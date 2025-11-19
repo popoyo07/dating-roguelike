@@ -21,7 +21,7 @@ MonoBehaviour:
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: Do you want to use the LoveyDovy card on Siren?
+  - dialogueText: Do you want to use the LoveyDovey card on Siren?
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0

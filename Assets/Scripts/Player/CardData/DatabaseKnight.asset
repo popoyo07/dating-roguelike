@@ -55,23 +55,23 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4ba468a4cb9a19445a6355151f24b67f, type: 3}
   - {fileID: 21300000, guid: 124673ca65a444745943ce5825be6763, type: 3}
   descriptionCard:
-  - 'Deals 6 Dmg. to The Enemy '
-  - 'Deals 4 Dmg. to The Enemy Twice '
-  - Provides # Shield Within This Turn
-  - Heals
-  - Enemy Falls Asleep for 1 Turn
-  - Heals more
-  - Raise Atk. For # Turns
-  - Next Atk. Dealt to Player is Negated
-  - TBD
-  - Deals # Dmg. Ingores Shield
-  - Gain High # Shield Within This Turn
-  - Next Card Deals 2x Within This Turn
-  - Deals Dmg. Based on Current Shield
-  - Lowers Enemy's Dmg. for # Turns
-  - Does dmg to enemy and makes them weak
-  - Gain Thorns # of Turns
-  - Love card 3
-  - Love card 4
-  - Love card 5
-  - Love card 6
+  - '(1) Deals 4 Dmg. to The Enemy '
+  - '(1) Deals 3 Dmg. to The Enemy Twice '
+  - (1) Provides 5 Shield Within This Turn
+  - '(1) Heals 5 HP '
+  - (1) Enemy Falls Asleep for 1 Turn
+  - (1) Heals more heals 10 hp
+  - (0) Each attk this turn deals +2 Dmg
+  - (2) Next Atk. Dealt to Player is Negated
+  - '(1) Deals 4 dmg and Stuns enemy for 1 turn '
+  - (1) Deals 5 Dmg. Ignoring Shield
+  - (2) Gain High 15 Shield This Turn
+  - '(1) Enemy becomes vulnearable this turn '
+  - (0) Deals Dmg. Based on Current Shield
+  - (1) Lowers Enemy's Dmg. for # Turns
+  - (1) Does 5 dmg to enemy and makes them weak
+  - (1) Stun enemy for 1 turn
+  - (1) Makes enemy vulnerable for 1 turn
+  - '(1) Weakens enemy for 1 turn '
+  - (1) Stun enemy for 1 turn
+  - (1) Makes enemy vulnerable for 1 turn

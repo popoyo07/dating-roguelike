@@ -71,6 +71,7 @@ MonoBehaviour:
   isBoss: 0
   hitSound: {fileID: 8300000, guid: 667721a8e92b0fb4daa7a1bd5583e2e5, type: 3}
   shieldSound: {fileID: 8300000, guid: 591f49d8e6de71c44b19fe367e6ec7eb, type: 3}
+  healSound: {fileID: 8300000, guid: 5a57d9431a5f9e349ae2e6a2bd59de3d, type: 3}
   healthBar: {fileID: 0}
 --- !u!114 &54076634710036093
 MonoBehaviour:
@@ -107,7 +108,7 @@ AudioSource:
   m_GameObject: {fileID: 1120840525128188196}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 5714808858137649971, guid: 4fd55af7add7b1243ae933054c4c1b0b, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0

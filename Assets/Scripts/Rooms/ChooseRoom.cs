@@ -78,16 +78,16 @@ public class ChooseRoom : MonoBehaviour
         };
 
         // Set normal enemy sprites for buttons first
-        if (enemySpawner.roomsSpawnBoss != 1 || enemySpawner.roomsSpawnBoss != 3 || enemySpawner.roomsSpawnBoss != 5)
+        if (enemySpawner.roomsSpawnBoss != 5 || enemySpawner.roomsSpawnBoss != 11 || enemySpawner.roomsSpawnBoss != 17)
         {
             leftButton.image.sprite = leftRoom.roomSprite;
             rightButton.image.sprite = rightRoom.roomSprite;
         }
 
         // Check if the current room should be a boss room
-        if (enemySpawner.roomsSpawnBoss == 6 ||
-            enemySpawner.roomsSpawnBoss == 13 ||
-            enemySpawner.roomsSpawnBoss == 20)
+        if (enemySpawner.roomsSpawnBoss == 5 ||
+            enemySpawner.roomsSpawnBoss == 11 ||
+            enemySpawner.roomsSpawnBoss == 17)
         {
             if (defaultBossSprite != null)
             {

@@ -55,23 +55,23 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 124673ca65a444745943ce5825be6763, type: 3}
   - {fileID: 21300000, guid: 124673ca65a444745943ce5825be6763, type: 3}
   descriptionCard:
-  - 'Heals '
-  - Heals more
-  - Lowers Enemy's Dmg. for # Turns
-  - Does dmg to enemy and makes them weak
-  - Big shield
-  - 'Multiplies current block times 2 '
-  - 'Throws a rock doing dmg '
-  - Heals a lot
-  - Deals dmg in using water
-  - Clenses from all debuff
-  - Deals dmg using plant
-  - 'Does dmg and adds a +5 to next attk '
-  - 'Does a lot of dmg and heals of dmg done '
-  - Throws to empty flasks at enemy dealing twice the dmg
-  - 'Makes enemy fall asleep '
-  - Love card 2
-  - Love card  3
-  - Love card 4
-  - Love card  5
-  - Love card  6
+  - '(1) Heals 5 HP '
+  - (1) Heals more heals 10 hp
+  - (1) Lowers Enemy's Dmg. for # Turns
+  - (1) Does 5 dmg to enemy and makes them weak
+  - (1) Gain 10 shield
+  - '(1) Multiplies doubles current shield '
+  - '(1) Throws a rock doing 5 dmg '
+  - '(2) Heals 15 HP '
+  - (1) Deals 7 dmg in using water
+  - (1) Clenses all status effects of the player
+  - (1) Deals 8 dmg using plants
+  - '(2) Deals 7 dmg and adds a +5 to next attk '
+  - '(2) Deals 15 dmg and heals 7 HP '
+  - '(1) Deals 3 Dmg. to The Enemy Twice '
+  - (1) Enemy Falls Asleep for 1 Turn
+  - (1) Stun enemy for 1 turn
+  - (1) Makes enemy vulnerable for 1 turn
+  - '(1) Weakens enemy for 1 turn '
+  - (1) Stun enemy for 1 turn
+  - (1) Makes enemy vulnerable for 1 turn

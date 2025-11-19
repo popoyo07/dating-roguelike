@@ -49,7 +49,7 @@ public class BattleSystem : MonoBehaviour
     public bool finalReward;
     public bool bossRomanced;
 
-    [SerializeField] AssignCard card;
+   
     void Start()
     {
         endTurnB = GameObject.Find("EndTurn");
@@ -222,19 +222,22 @@ public class BattleSystem : MonoBehaviour
 
     public IEnumerator EndPlayerTurn()
     {
-        if (clickedEndTurn || !card.cardSet)
+        if (clickedEndTurn)
         {
+           
             yield break;
         }
         clickedEndTurn = true;
-        StartCoroutine(ChangeBattleState(0.2f, BattleState.ENDPLAYERTURN, "BattleSystem"));
+
+        StartCoroutine(ChangeBattleState(.4f, BattleState.ENDPLAYERTURN, "BattleSystem"));
 
         if (enemyHP.dead())
         {
             yield break;
         }
+        yield return new WaitForSeconds(.5f);
 
-      //  StartCoroutine(ChangeBattleState(1f, BattleState.ENEMYTURN, "BattleSystem")); // delay a little so everything else can be run 
+        //  StartCoroutine(ChangeBattleState(1f, BattleState.ENEMYTURN, "BattleSystem")); // delay a little so everything else can be run 
     }
 
     public IEnumerator EndEnemyTurn()

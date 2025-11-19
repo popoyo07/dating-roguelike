@@ -29,7 +29,7 @@ public class CardDescription : MonoBehaviour
         {
             if (assignCard.cardUsed || assignCard.resetForNewTurn)
             StartCoroutine(DisableTxt());
-      //      Debug.LogWarning("Disable the text");
+            Debug.LogWarning("Disable the text");
         }
         StartCoroutine(SetText());
 

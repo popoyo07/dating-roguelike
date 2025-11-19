@@ -18,6 +18,7 @@ public class SimpleHealth : MonoBehaviour, IDataPersistence
 
     public AudioClip hitSound;
     public AudioClip shieldSound;
+    public AudioClip healSound;
     private AudioSource audioSource;
     
     #region Save and Load
@@ -111,17 +112,15 @@ public class SimpleHealth : MonoBehaviour, IDataPersistence
                     dmgDone = (int)((float)dmg * 1.5);
                     Debug.Log("increase calculation " + ((float)dmg * 1.5));
                     Debug.Log("shown dmg before shield calc " + dmgDone);
-                    audioSource.PlayOneShot(shieldSound);
                     break;
                 case StatusEffect.WEAK:
                     dmgDone = (int)((float)dmg * .75f); // lower dmg by 25%
-                    audioSource.PlayOneShot(shieldSound);
                     break;
                 default:
                     dmgDone = dmg - shield;
                     shield -= dmg;
-                    if (shield < 0) { shield = 0; }
                     audioSource.PlayOneShot(shieldSound);
+                    if (shield < 0) { shield = 0; }
                     Debug.Log("Damage done to is " + dmgDone);
                     break;
             }
@@ -161,11 +160,13 @@ public class SimpleHealth : MonoBehaviour, IDataPersistence
     {
         health += hp;
         healthBar.UpdateHealth();
+        audioSource.PlayOneShot(healSound);
     }
 
     public void PercentageRecoverHP(float percent)// recover hp by percentage 
     {
         float addHP = (float)maxHealth * (percent * 0.001f);
         RecoverHP((int)addHP);
+        audioSource.PlayOneShot(healSound);
     }
 }

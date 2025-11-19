@@ -20,7 +20,12 @@ public class Cards : MonoBehaviour
     public RoundTracker roundTracker;
     public StatusEffects pStatus;
     public StatusEffect LastStatus;
-    
+
+    public AudioClip weakenSound;
+    public AudioClip vulnerableSound;
+    public AudioClip stunSound;
+    private AudioSource audioSource;
+
     // stores the 
     public Dictionary<string, int> cardEnergyCost = new Dictionary<string, int>();
 
@@ -46,6 +51,11 @@ public class Cards : MonoBehaviour
     [Header("Double Attk DMG")]
     [Range(1, 10)][SerializeField] public int doubleAttk;
     [Range(1, 3)][SerializeField] public int doubleAttkECost;
+
+    public void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     public void GenerateAttk(StatusEffect attackerState)
     {
 
@@ -108,44 +118,47 @@ public class Cards : MonoBehaviour
         ConsumeEnergy(bigHealingECost);
         player.GetComponent<SimpleHealth>().RecoverHP(biggerHeal);
     }
-    public void LoveyDoveyLogic()  // do nothing type of cards 
+    public void LoveyDoveyLogic()  // (1) Enemy Falls Asleep for 1 Turn 
     {
         ConsumeEnergy(1);
         enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.WEAK;
+        audioSource.PlayOneShot(weakenSound);
         Debug.Log("Lovely");
     }
-    public void LoveyDoveyLogic2() // needs to do something ? 
+    public void LoveyDoveyLogic2() // (1) Stun enemy for 1 turn
     {
         ConsumeEnergy(1);
         enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.STUN;
-
+        audioSource.PlayOneShot(stunSound);
         Debug.Log("Lovely2");
     }
     
-    public void LoveyDoveyLogic3() // needs to do something ? 
+    public void LoveyDoveyLogic3() // (1) Makes enemy vulnerable for 1 turn
     {
         ConsumeEnergy(1);
         enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.VULNERABLE;
+        audioSource.PlayOneShot(vulnerableSound);
         Debug.Log("Lovely3");
     }
         public void LoveyDoveyLogic4() // needs to do something ? 
     {
         ConsumeEnergy(1);
         enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.WEAK;
-
+        audioSource.PlayOneShot(weakenSound);
         Debug.Log("Lovely4");
     }
         public void LoveyDoveyLogic5() // needs to do something ? 
     {
         ConsumeEnergy(1);
         enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.STUN;
+        audioSource.PlayOneShot(stunSound);
         Debug.Log("Lovely5");
     }
         public void LoveyDoveyLogic6() // needs to do something ? 
     {
         ConsumeEnergy(1);
         enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.VULNERABLE;
-
+        audioSource.PlayOneShot(vulnerableSound);
         Debug.Log("Lovely6");
     }
 
@@ -158,8 +171,9 @@ public class Cards : MonoBehaviour
         if (r == 1)
         {
             enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.STUN;
-
+            audioSource.PlayOneShot(stunSound);
         }
+        attkAmmount = pocketPebble;
         GenerateAttk(pStatus.currentStatus);
 
     }
@@ -169,6 +183,7 @@ public class Cards : MonoBehaviour
     {
         ConsumeEnergy(tauntECost);
         enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.WEAK;
+        audioSource.PlayOneShot(weakenSound);
         attkAmmount = taunt;
         GenerateAttk(pStatus.currentStatus);
 

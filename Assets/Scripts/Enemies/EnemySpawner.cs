@@ -53,7 +53,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         // Randomly choose an enemy list
-        chosenList = Random.Range(2,2); // Note: Random.Range(2,2) always returns 2
+        chosenList = Random.Range(0, 3); // Note: Random.Range(2,2) always returns 2
 
         switch (chosenList)
         {
@@ -149,7 +149,7 @@ public class EnemySpawner : MonoBehaviour
         ifBossExists = false;
 
         // Spawn boss on specific rooms
-        if ((roomsSpawnBoss == 2 || roomsSpawnBoss == 4 || roomsSpawnBoss == 6) && !ifBossExists)
+        if ((roomsSpawnBoss == 6 || roomsSpawnBoss == 12 || roomsSpawnBoss == 18) && !ifBossExists)
         {
             DestroyEnemy(); // Clear normal enemies
             ifBossExists = true;

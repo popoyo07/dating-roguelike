@@ -342,6 +342,7 @@ GameObject:
   - component: {fileID: 7829788775852373185}
   - component: {fileID: 6649543096048209190}
   - component: {fileID: 3813641821308266811}
+  - component: {fileID: 668949334189017955}
   m_Layer: 0
   m_Name: CardManager
   m_TagString: Untagged
@@ -442,6 +443,7 @@ MonoBehaviour:
   roundTracker: {fileID: 0}
   pStatus: {fileID: 0}
   LastStatus: 0
+  weakenSound: {fileID: 8300000, guid: f1dfc1d8b52366b44860c594e823f760, type: 3}
   smallHealing: 5
   smallHealingECost: 1
   healingMultiplier: 2
@@ -509,6 +511,7 @@ MonoBehaviour:
   roundTracker: {fileID: 0}
   pStatus: {fileID: 0}
   LastStatus: 0
+  weakenSound: {fileID: 8300000, guid: f1dfc1d8b52366b44860c594e823f760, type: 3}
   smallHealing: 5
   smallHealingECost: 1
   healingMultiplier: 2
@@ -562,6 +565,7 @@ MonoBehaviour:
   roundTracker: {fileID: 0}
   pStatus: {fileID: 0}
   LastStatus: 0
+  weakenSound: {fileID: 8300000, guid: f1dfc1d8b52366b44860c594e823f760, type: 3}
   smallHealing: 5
   smallHealingECost: 1
   healingMultiplier: 2
@@ -590,6 +594,103 @@ MonoBehaviour:
   shoothingPlantsECost: 2
   plantSapDMG: 15
   plantSapECost: 2
+--- !u!82 &668949334189017955
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292839831765639643}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1602523798206379094
 GameObject:
   m_ObjectHideFlags: 0
@@ -679,7 +780,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc539e67ccafbdb458d6bc8f59925a02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChooseRoom
-  openRoomPop: 0
   chosenRoom: 0
   currentRoom: 0
   leftButton: {fileID: 5125546465140676127}
@@ -1151,7 +1251,13 @@ MonoBehaviour:
   turnCounter: 0
   moveA: 0
   moveB: 0
+  enemySpawner: {fileID: 0}
+  dialogueUI: {fileID: 0}
+  cardUI: {fileID: 0}
   secondEncounter: 0
+  finalReward: 0
+  bossRomanced: 0
+  card: {fileID: 0}
 --- !u!114 &7944838084779905344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1741,7 +1847,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3cf168671148fb479537170a71cfde9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Rewards
-  openRewardsPop: 0
   pickedReward: 0
   rewardsForCurrent: 0
   roomRewards:
@@ -1756,6 +1861,7 @@ MonoBehaviour:
     rewardType: 2
   button1: {fileID: 6839761416677025182}
   button2: {fileID: 8771820044913247959}
+  dialogueProgression: []
 --- !u!1 &7180089294026773356
 GameObject:
   m_ObjectHideFlags: 0

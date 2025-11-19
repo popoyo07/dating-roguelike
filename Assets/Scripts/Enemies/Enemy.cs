@@ -20,7 +20,12 @@ public class Enemy : MonoBehaviour
     StatusEffects EnemyStatus;
     StatusEffects PlayerStatus;
     Animation anim;
-  
+
+    public AudioClip weakenSound;
+    public AudioClip vulnerableSound;
+    public AudioClip stanceSound;
+    private AudioSource audioSource;
+
     void Awake()
     {
         enemyName = this.transform.parent.name;
@@ -37,7 +42,7 @@ public class Enemy : MonoBehaviour
 
         anim = this.gameObject.GetComponent<Animation>();
 
-     
+        audioSource = GetComponent<AudioSource>();
 
     }
      
@@ -175,6 +180,7 @@ public class Enemy : MonoBehaviour
     void stanceUp()
     {
         attkDmg += Random.Range(1, 3);
+        audioSource.PlayOneShot(stanceSound);
         Debug.Log("Stanced Up");
     }
 
@@ -187,12 +193,14 @@ public class Enemy : MonoBehaviour
     //Broken sword
     void Weaken()
     {
+        audioSource.PlayOneShot(weakenSound);
         PlayerStatus.currentStatus = StatusEffect.WEAK;
     }
 
     //Broken sheild
     void Vulnerable()
     {
+        audioSource.PlayOneShot(vulnerableSound);
         PlayerStatus.currentStatus = StatusEffect.VULNERABLE;
     }
 

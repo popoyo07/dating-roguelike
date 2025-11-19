@@ -55,8 +55,8 @@ public class ActionsKnight : Cards
     [Range(1, 3)][SerializeField] public int piercingECost;
 
     [Header("Protective Oath")]
-    [Range(1, 20)][SerializeField] public int bigShield;
-    [Range(1, 3)][SerializeField] public int bigShieldECost; 
+    [Range(1, 20)][SerializeField] public int protectiveOath;
+    [Range(1, 3)][SerializeField] public int protectiveOathECost; 
 
     [Header("Second Wind")]
     [Range(1, 3)][SerializeField] public int secondWindECost;
@@ -79,10 +79,10 @@ public class ActionsKnight : Cards
         ConsumeEnergy(secondWindECost);
         enemy.GetComponent<StatusEffects>().currentStatus = StatusEffect.VULNERABLE;
     }
-    public void BigShield()
+    public void ProtectiveOath()
     {
-        ConsumeEnergy(bigShieldECost);
-        GenerateShield(bigShield);
+        ConsumeEnergy(protectiveOathECost);
+        GenerateShield(protectiveOath);
     }
     public void Piercing()
     {
@@ -93,7 +93,7 @@ public class ActionsKnight : Cards
         GenerateAttk(pStatus.currentStatus);
         pStatus.currentStatus = LastStatus; 
     }
-    public void StunCard()
+    public void ShieldBash()
     {
         ConsumeEnergy(stunECost);
         attkAmmount = stun;
@@ -154,9 +154,9 @@ public class ActionsKnight : Cards
             { cards[5], (BigHealing, bigHealingECost) },
             { cards[6], (BattleCry, battleCryECost) },
             { cards[7], (ParryCard, parryECost) },
-            { cards[8], (StunCard, stunECost) },
+            { cards[8], (ShieldBash, stunECost) },
             { cards[9], (Piercing, piercingECost) },
-            { cards[10], (BigShield, bigShieldECost) },
+            { cards[10], (ProtectiveOath, protectiveOathECost) },
             { cards[11], (SecondWind, secondWindECost) },
             { cards[12], (IronResolve, ironResolveECost) },
             { cards[13], (Taunt, tauntECost) },
