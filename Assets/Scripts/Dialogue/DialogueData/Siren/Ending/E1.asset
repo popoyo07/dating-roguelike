@@ -1,0 +1,134 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb04ed8146191ab4b98ce1e8256bab43, type: 3}
+  m_Name: E1
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
+  dialogue:
+  - dialogueText: ...You won.
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: I did. Will you come with me now?
+    characterName: You
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: You are strong.
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: ...Thanks?
+    characterName: You
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "Her fingers lift, stopping just shy of your cheek, as if she\u2019s
+      testing an invisible boundary."
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "When I first saw you, I thought you were just another fool\u2026
+      another heartbeat to drown."
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: "But you kept moving forward\u2026 even when you were scared."
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: Even when I tried to break you.
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: "Her gaze drifts over the wounds you\u2019ve earned, the scars,
+      the blood."
+    characterName: Narrator
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: "You fight like someone who doesn\u2019t just want to live."
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: You fight like someone who wants to change something.
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: "\u2026I wanted to change your fate too."
+    characterName: You
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: She goes still.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "My fate\u2026?"
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: She goes still.
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: "This dungeon, this\u2026 curse."
+    characterName: You
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "You aren\u2019t just a monster here. You were trapped. Like me."
+    characterName: You
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "I don\u2019t want to leave you behind."
+    characterName: You
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "Silence. Only the faint echo of water dripping in the distance\u2026
+      and the low hum of the mirror at her side."
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "You\u2019re strange."
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: Anyone else would have tried to forget me the moment they found
+      the way to exit
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: "But you\u2019re still standing here\u2026 asking me to come with
+      you."
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: "Her lips curve into a small, uncertain smile\u2014like someone
+      trying on an expression they haven\u2019t used in a very long time."
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "Tell me, little hero\u2026"
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: 'Why do you want me with you? '
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: "Her eyes search yours\u2014sharp, focused, waiting."
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  responses:
+  - respnseText: Ally
+    dialogueObject: {fileID: 11400000, guid: 04031118f50145b409423c8441ed4fca, type: 2}
+  - respnseText: You
+    dialogueObject: {fileID: 11400000, guid: a39f0d406b5fb2543a3bef4b91ad3637, type: 2}
+  LovyCounting:
+    LovyCount: 0
+    MinusLovyCount: 0

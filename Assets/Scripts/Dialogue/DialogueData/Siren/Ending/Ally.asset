@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb04ed8146191ab4b98ce1e8256bab43, type: 3}
+  m_Name: Ally
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
+  dialogue:
+  - dialogueText: Because no one deserves to be alone in a place like this.
+    characterName: You
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: You understand this dungeon better than anyone.
+    characterName: You
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "And\u2026 I want you as my ally. Not my enemy."
+    characterName: You
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "Her eyes widen\u2014just a little. She looks away, almost shy."
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "Ally\u2026"
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: "Hah. It\u2019s been a long time since anyone thought of me as
+      anything but a threat."
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: She lifts the mirror, its surface rippling with faint light.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: Very well.
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: "If you\u2019ll have me\u2026 then from now on, I\u2019ll face
+      the world beside you."
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: Not as a weapon. Not as a curse.
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: As your companion.
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: "She offers her hand\u2014cool, damp, but steady."
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "Then let\u2019s get out of here. Together."
+    characterName: You
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: Your fingers wrap around hers. The moment your hands touch, the
+      mirror begins to glow.
+    characterName: You
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: Cracks spiders across the dungeon walls, light flooding through
+      the fractures.
+    characterName: You
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: You led me through my prison.
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: "I\u2019ll lead you through whatever waits outside."
+    characterName: Siren
+    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
+    dialogueEnd: 0
+  - dialogueText: Hand in hand, you step through the light.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: The dungeon falls silent behind you.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: "You and the Siren walk forward as equals. No longer captor and
+      captive\u2026"
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  - dialogueText: But partners facing whatever comes next.
+    characterName: Narrator
+    characterImage: {fileID: 0}
+    dialogueEnd: 0
+  responses: []
+  LovyCounting:
+    LovyCount: 0
+    MinusLovyCount: 0
