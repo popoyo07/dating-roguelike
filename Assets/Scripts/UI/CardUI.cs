@@ -201,7 +201,7 @@ public class CardUI : MonoBehaviour
                     else if (phase != 3)
                     {
                         Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
-                        Activator.ContinueDialogue(1, 2);
+                        Activator.ContinueDialogue(2, 1);
 
                         bossEnemyScript.Angry();
                         bossEnemyScript.AngryHealth();
