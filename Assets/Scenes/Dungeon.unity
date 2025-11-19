@@ -14,10 +14,10 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.054
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -252,26 +252,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 494784695503224701, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
-      propertyPath: wallItemPrefabs.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 494784695503224701, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
-      propertyPath: ceilingItemPrefabs.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 494784695503224701, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
-      propertyPath: 'wallItemPrefabs.Array.data[1]'
-      value: 
-      objectReference: {fileID: 3563789075462658821, guid: d0d852c20def1fd499f3a73534a4e9e8, type: 3}
-    - target: {fileID: 494784695503224701, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
-      propertyPath: 'wallItemPrefabs.Array.data[2]'
-      value: 
-      objectReference: {fileID: 3563789075462658821, guid: d0d852c20def1fd499f3a73534a4e9e8, type: 3}
-    - target: {fileID: 494784695503224701, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
-      propertyPath: 'ceilingItemPrefabs.Array.data[2]'
-      value: 
-      objectReference: {fileID: 6882903552030569118, guid: 89fa2e3db372fc147bb02f069b6603c9, type: 3}
     - target: {fileID: 3548966888048602327, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -316,14 +296,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoomA
       objectReference: {fileID: 0}
-    - target: {fileID: 7730367884786826620, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
-      propertyPath: sirenBoss
-      value: 
-      objectReference: {fileID: 4668596756076677665, guid: d2d9ac2d4c7efe647bc61379950800a6, type: 3}
-    - target: {fileID: 7730367884786826620, guid: 7e72791965bb3bf42820806ef869ecea, type: 3}
-      propertyPath: vampireBoss
-      value: 
-      objectReference: {fileID: 4668596756076677665, guid: e95a3c8b41a25624687894560fb088d3, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
