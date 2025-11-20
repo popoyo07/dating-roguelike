@@ -22,6 +22,7 @@ TagManager:
   - ShowCards
   - DUM
   - Canvas
+  - ItemSpawner
   layers:
   - Default
   - TransparentFX
