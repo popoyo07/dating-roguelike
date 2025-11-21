@@ -161,7 +161,7 @@ public class BattleSystem : MonoBehaviour
                 {
                     runing = false;
                 }
-              
+                clickedEndTurn = false;
                 break;
             case BattleState.STARTRUN:
                 StartCoroutine(ChangeBattleState(.2f, BattleState.START, "BattleSystem"));
@@ -217,7 +217,6 @@ public class BattleSystem : MonoBehaviour
         }
         playerHP = player.GetComponent<SimpleHealth>(); // get simple helath 
         StartCoroutine(ChangeBattleState(0f, BattleState.PLAYERTURN, "BattleSystem"));
-
     }
 
     public IEnumerator EndPlayerTurn()
@@ -245,8 +244,17 @@ public class BattleSystem : MonoBehaviour
         yield return new WaitForSeconds(1f); // wait some time to switch back to player turn 
         StartCoroutine(ChangeBattleState(0f, BattleState.ENDENEMYTURN, "BattleSystem"));
     }
+
     bool running = false;
+
     public IEnumerator ChangeBattleState(float delay, BattleState b, string whichScriptIsFrom)
+    {
+        yield return new WaitForSeconds(delay);
+        state = b;
+        Debug.LogWarning(" The current state is " + b + " " + whichScriptIsFrom);
+    }
+
+    /*public IEnumerator ChangeBattleState(float delay, BattleState b, string whichScriptIsFrom)
     {
         if (running) 
         {
@@ -258,6 +266,6 @@ public class BattleSystem : MonoBehaviour
         running = false;
         Debug.LogWarning(" The current state is " + b + " " + whichScriptIsFrom);
         
-    }
+    }*/
 
 }
