@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class Rewards : MonoBehaviour
 {
-
     private SimpleHealth playerHP; // Reference to the player's health component
     private SimpleHealth enemyHP; //Referance to character or enemy health system
 

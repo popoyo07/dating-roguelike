@@ -222,7 +222,7 @@ public class MenuButtons : MonoBehaviour
     private IEnumerator HoldRetryForSFX()
     {
         // Wait one frame to ensure UI elements are fully active
-        yield return new WaitForSeconds(1.3f);
+        yield return new WaitForSeconds(.4f);
 
         loadingScreen.SetActive(true);
         SceneManager.LoadScene("Dungeon");
@@ -233,7 +233,7 @@ public class MenuButtons : MonoBehaviour
     private IEnumerator HoldMainForSFX()
     {
         // Wait one frame to ensure UI elements are fully active
-        yield return new WaitForSeconds(1.3f);
+        yield return new WaitForSeconds(.4f);
 
         SceneManager.LoadScene("MainMenu");
     }

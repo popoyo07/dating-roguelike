@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using static Rewards;
 
 public class BattleUI : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class BattleUI : MonoBehaviour
     MoveRoomA roomA;
     MoveRoomB roomB;
     bool isWaiting;
+
     void Awake()
     {
         if (dialogueUI == null)
@@ -130,18 +132,14 @@ public class BattleUI : MonoBehaviour
 
             case BattleState.ENEMYTURN:
                 cardsUI.SetActive(false);
-                dialogueUI.StartCoroutine(dialogueUI.DelayDisable(0.1f));
-                break;
-
-            case BattleState.REWARD:
-                StartCoroutine(DelayDisableUI());
+                dialogueUI.StartCoroutine(dialogueUI.DelayDisable(0.01f));
                 break;
 
             default:
                 Debug.Log("BattleUI Default");
                 break;
         }
-        
+
     }
     IEnumerator CheckTeleport()
     {
