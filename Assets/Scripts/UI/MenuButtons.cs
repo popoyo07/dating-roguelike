@@ -14,8 +14,8 @@ public class MenuButtons : MonoBehaviour
     public GameObject man;            // UI container for other elements
     public GameObject loadingScreen;  // Loading screen UI
     public GameObject settings;       // Settings UI panel
-    public GameObject rewardsPopup;   // Rewards popup UI
-    public GameObject roomPopup;      // Room selection popup UI
+    public GameObject rewardsPopUp;   // Rewards popup UI
+    public GameObject roomPopUp;      // Room selection popup UI
     public GameObject showDeckPopup;  // Deck display popup UI
     public DialogueUI dialogueUI;
 
@@ -73,19 +73,18 @@ public class MenuButtons : MonoBehaviour
             {
                 Debug.Log("Current phase:" + dialogueProgression[0].phase);
 
-
-                if (!rewardsPopup.activeSelf && !roomPopup.activeSelf)
+                if (!rewardsPopUp.activeSelf && !roomPopUp.activeSelf)
                 {
                     rewardsAudio.Play();
-                    rewardsPopup.SetActive(true);
+                    rewardsPopUp.SetActive(true);
                     StartCoroutine(ShowRewardsNextFrame());
                 }
 
-                if (rewards.pickedReward && rewardsPopup.activeSelf)
+                if (rewards.pickedReward && rewardsPopUp.activeSelf)
                 {
-                    rewardsPopup.SetActive(false);
+                    rewardsPopUp.SetActive(false);
                     rewards.rewardsForCurrent = false;
-                    roomPopup.SetActive(true);
+                    roomPopUp.SetActive(true);
                     chooseRoom.ShowRoomOptions();
                 }
             }
@@ -119,17 +118,17 @@ public class MenuButtons : MonoBehaviour
             }
 
             // Handle room popup visibility
-            if (chooseRoom.chosenRoom && roomPopup.activeSelf)
+            if (chooseRoom.chosenRoom && roomPopUp.activeSelf)
             {
-                roomPopup.SetActive(false);
+                roomPopUp.SetActive(false);
             }
 
         }
-        else if (rewardsPopup.activeSelf || roomPopup.activeSelf)
+        else if (rewardsPopUp.activeSelf || roomPopUp.activeSelf)
         {
-            roomPopup.SetActive(false);
+            roomPopUp.SetActive(false);
 
-            rewardsPopup.SetActive(false);
+            rewardsPopUp.SetActive(false);
         }
 
         // Handle deck popup visibility

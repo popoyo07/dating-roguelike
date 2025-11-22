@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using static Rewards;
 
 public class BattleUI : MonoBehaviour
 {
@@ -87,7 +86,7 @@ public class BattleUI : MonoBehaviour
  
             case BattleState.DIALOGUE:
 
-                if (dialogueUI.isTalking == false)
+                if (!dialogueUI.isTalking)
                 {
                     StartCoroutine(bSystem.ChangeBattleState(0f, BattleState.PLAYERTURN, "isTalking = false "));
                 }
@@ -139,8 +138,8 @@ public class BattleUI : MonoBehaviour
                 Debug.Log("BattleUI Default");
                 break;
         }
-
     }
+
     IEnumerator CheckTeleport()
     {
         if (isWaiting)

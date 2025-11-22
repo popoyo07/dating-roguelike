@@ -41,11 +41,15 @@ public class BattleSystem : MonoBehaviour
     public bool finalReward;
     public bool bossRomanced;
 
-    private bool rewardShown = false;
+    public bool rewardShown = false;
     private bool rewardDisplayed = false;
     private bool roomDisplayed = false;
 
     public bool clickedEndTurn;
+
+    public int bossRomanceCount = 0; // tracks how many bosses have been romanced
+
+    public GameObject rewardsPopUp;
 
     void Start()
     {
@@ -92,7 +96,7 @@ public class BattleSystem : MonoBehaviour
 
                 if (rewards.pickedReward && !roomDisplayed)
                 {
-                    rewards.gameObject.SetActive(false);
+                    rewardsPopUp.SetActive(false);
                     chooseRoom.ShowRoomOptions();
                     roomDisplayed = true;
                 }
@@ -116,27 +120,47 @@ public class BattleSystem : MonoBehaviour
         }
 
         HandleStateSwitches();
+
+        if (state != BattleState.REWARD)
+        {
+            rewardDisplayed = false;
+        }
     }
 
-    private void HandleEnemyDeath()
+    public void HandleEnemyDeath()
     {
         Debug.Log("bossRomanced: " + bossRomanced);
 
-        if (enemyHP.isBoss && !bossRomanced)
+        if (enemyHP.isBoss)
         {
-            Debug.Log("Regular boss defeated");
-            state = BattleState.WONGAME;
-            menuButtons.winMenu.SetActive(true);
-            menuButtons.ResetDialogueIndex();
-        }
-        else if (enemyHP.isBoss && bossRomanced)
-        {
-            Debug.Log("Boss romanced reward");
-            TryShowReward();
+            if (!bossRomanced)
+            {
+                Debug.Log("Regular boss defeated");
+                state = BattleState.WONGAME;
+                menuButtons.winMenu.SetActive(true);
+                menuButtons.ResetDialogueIndex();
+            }
+            // Boss was romanced
+            bossRomanceCount++;
+            Debug.Log("bossRomanceCount " + bossRomanceCount);
+
+            if (bossRomanceCount < 3)
+            {
+                // First or second romanced boss: show reward
+                Debug.Log("Boss romanced reward (show pop-up)");
+                TryShowReward(); // THIS WAS MISSING BEFORE
+            }
+            else if (bossRomanceCount >= 3)
+            {
+                // Third romanced boss: skip reward, go straight to win
+                Debug.Log("Third boss romance, skipping reward pop-up");
+                state = BattleState.WONGAME;
+                HandleWongameMenus();
+            }
         }
         else if (!enemyHP.isBoss && !finalReward)
         {
-            TryShowReward();
+            TryShowReward(); // Normal enemy
         }
 
         if (chooseRoom.chosenRoom)
@@ -148,7 +172,7 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
-    private void TryShowReward()
+    public void TryShowReward()
     {
         if (!rewardShown && state != BattleState.REWARD)
         {
@@ -164,7 +188,7 @@ public class BattleSystem : MonoBehaviour
         rewards.gameObject.SetActive(true);
     }
 
-    private void HandleStateSwitches()
+    public void HandleStateSwitches()
     {
         switch (state)
         {
@@ -207,7 +231,7 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
-    private void HandleWongameMenus()
+    public void HandleWongameMenus()
     {
         if (enemySpawner.boss == enemySpawner.sirenBoss && bossRomanced)
             menuButtons.winMenuSiren.SetActive(true);
