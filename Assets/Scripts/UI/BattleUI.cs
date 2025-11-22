@@ -1,17 +1,14 @@
 using System.Collections;
-using Unity.Jobs;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class BattleUI : MonoBehaviour
 {
     [SerializeField] private GameObject Canvas;
+
     bool w;
     BattleSystem bSystem;
-   // GameObject[] cards;
     public Button endTurnB;
-   // bool doing;
     public DialogueUI dialogueUI; // assign in inspector or find in Awake
     public DialogueActivator enemyDialogue;
     public ResponseHandle responseHandle; 
@@ -23,19 +20,20 @@ public class BattleUI : MonoBehaviour
     bool isWaiting;
     void Awake()
     {
-        reward = GameObject.FindWithTag("RewardsM").GetComponent<Rewards>();
         if (dialogueUI == null)
         {
             dialogueUI = GameObject.FindFirstObjectByType<DialogueUI>(); // if this causes an issue replace with { GameObject.FindObjectOfType<DialogueUI>()
         }
+
         roomA = GameObject.Find("RoomA").GetComponent<MoveRoomA>();
         roomB = GameObject.Find("RoomB").GetComponent<MoveRoomB>();
         Canvas = GameObject.Find("Canvas");
         bSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
-      //  cards = GameObject.FindGameObjectsWithTag("Cards");
         endTurnB = GameObject.Find("EndTurn")?.GetComponent<Button>();
         responseHandle = Canvas.GetComponent<ResponseHandle>();
+        reward = GameObject.FindWithTag("RewardsM").GetComponent<Rewards>();
         cardsUI = GameObject.Find("CARDS UI");
+
         // Initialize the button at start
         StartCoroutine(InitializeButton());
     }
@@ -58,9 +56,6 @@ public class BattleUI : MonoBehaviour
     {
         // Wait until BattleSystem is ready
         yield return new WaitUntil(() => bSystem != null);
-
-        // Find the button
-        //endTurnB = GameObject.Find("EndTurn")?.GetComponent<Button>();
 
         if (endTurnB != null)
         {
@@ -89,7 +84,6 @@ public class BattleUI : MonoBehaviour
         {
  
             case BattleState.DIALOGUE:
-               
 
                 if (dialogueUI.isTalking == false)
                 {
@@ -98,8 +92,6 @@ public class BattleUI : MonoBehaviour
                 else if (cardsUI.activeSelf)
                 {
                     cardsUI.SetActive(false);
-                    //Debug.LogWarning("I am the culptrit");
-                    //dialogueUI.StartCoroutine(dialogueUI.DelayDisable(0.1f));
                 }
                 break;
 
@@ -111,11 +103,8 @@ public class BattleUI : MonoBehaviour
                 }
                 else if(cardsUI.activeSelf == false)
                 {
-                    // cardUI.SetActive(true);
-                    //Debug.LogWarning("hahahahahahah");
                     dialogueUI.StartCoroutine(dialogueUI.DelayAble(0f));
                 }
-             
 
                 break;
 
@@ -126,6 +115,7 @@ public class BattleUI : MonoBehaviour
                     StartCoroutine(CheckTeleport());
                 }
                 break;
+
             case BattleState.DEFAULT:
                 if (enemyDialogue == null) //if the enemy doesn't have dialogue activator, then switch to Playerturn state
                 {
@@ -137,16 +127,18 @@ public class BattleUI : MonoBehaviour
                 }
               
                 break;
+
             case BattleState.ENEMYTURN:
                 cardsUI.SetActive(false);
-
                 dialogueUI.StartCoroutine(dialogueUI.DelayDisable(0.1f));
                 break;
+
             case BattleState.REWARD:
                 StartCoroutine(DelayDisableUI());
                 break;
+
             default:
-                //doing = false;
+                Debug.Log("BattleUI Default");
                 break;
         }
         
@@ -157,10 +149,12 @@ public class BattleUI : MonoBehaviour
         {
             yield break;
         }
+
         isWaiting = true;
         yield return new WaitUntil (() => roomA.teleported == true || roomB.teleported == false);
         yield return new WaitForSeconds(2.5f);
         isWaiting = false;  
+
         if (!roomA.teleported || !roomB.teleported)
         {
             Debug.Log("pp");
@@ -175,12 +169,12 @@ public class BattleUI : MonoBehaviour
         {
             yield break;
         }
+
         Debug.Log("Waiting");
         w = true;
         yield return new WaitForSeconds(.9f);
         Debug.Log("It disable the thing");
         w = false;
         cardsUI.SetActive(false);
-
     }
 }

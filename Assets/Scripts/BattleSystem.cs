@@ -1,8 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using UnityEngine.SceneManagement;
-using Unity.VisualScripting;
-
 
 public enum BattleState {
     START,
@@ -25,25 +22,21 @@ public class BattleSystem : MonoBehaviour
     public GameObject player; 
     public GameObject enemy;
 
-
     public SimpleHealth enemyHP;
     public SimpleHealth playerHP;
 
-    private GameObject endTurnB;
     public int turnCounter = 0;
 
-    Rewards rewards;
-    ChooseRoom chooseRoom;
     public bool moveA;
     public bool moveB;
 
     public EnemySpawner enemySpawner;
-
+    Rewards rewards;
+    ChooseRoom chooseRoom;
     public DialogueUI dialogueUI;
     public CardUI cardUI;
-
-    public bool secondEncounter;
     MenuButtons menuButtons;
+
     bool runing;
 
     public bool finalReward;
@@ -52,7 +45,6 @@ public class BattleSystem : MonoBehaviour
    
     void Start()
     {
-        endTurnB = GameObject.Find("EndTurn");
         state = BattleState.DEFAULT;              // change for actual game 
         Debug.Log("Current state is " + state);
         SetUpBattle();
@@ -85,27 +77,20 @@ public class BattleSystem : MonoBehaviour
                     menuButtons.winMenu.SetActive(true);
                     menuButtons.ResetDialogueIndex();
                 }
-                else if (enemyHP.isBoss && secondEncounter && enemySpawner.isSiren == true && bossRomanced == true)
+                else if (enemyHP.isBoss && enemySpawner.isSiren == true && bossRomanced == true)
                 {
                     Debug.Log("Siren");
                     StartCoroutine(ChangeBattleState(0f, BattleState.REWARD, "WON?"));
-                    //menuButtons.winMenuSiren.SetActive(true);
-                    //menuButtons.ResetDialogueIndex();
                 }
-                else if (enemyHP.isBoss && secondEncounter && enemySpawner.isVampire == true && bossRomanced == true)
+                else if (enemyHP.isBoss && enemySpawner.isVampire == true && bossRomanced == true)
                 {
                     Debug.Log("Vampire is now mine");
                     StartCoroutine(ChangeBattleState(0f, BattleState.REWARD, "WON?"));
-                    //state = BattleState.WONGAME;
-                    //menuButtons.winMenuVampire.SetActive(true);
-                    //menuButtons.ResetDialogueIndex();
                 }
-                else if (enemyHP.isBoss && secondEncounter && enemySpawner.isKinnara == true && bossRomanced == true)
+                else if (enemyHP.isBoss && enemySpawner.isKinnara == true && bossRomanced == true)
                 {
                     Debug.Log("isKinnara");
                     StartCoroutine(ChangeBattleState(0f, BattleState.REWARD, "WON?"));
-                    //menuButtons.winMenuKinnara.SetActive(true);
-                    //menuButtons.ResetDialogueIndex();
                 }
                 else if (!enemyHP.isBoss && state != BattleState.REWARD && !finalReward)
                 {
@@ -115,35 +100,25 @@ public class BattleSystem : MonoBehaviour
 
                 if (rewards.pickedReward)
                 {
-                    // rewards.pickedReward = false;
                     Debug.Log("picked a rewuard");
-                    // rewards.openRewardsPop = false;
-                    //  chooseRoom.openRoomPop = true;
                 }
   
                 if (chooseRoom.chosenRoom)
                 {
-                   // rewards.openRewardsPop = false;
-                    //state = BattleState.WON;
                     StartCoroutine(ChangeBattleState(0f, BattleState.WON, "BattleSystem"));
                     enemyHP = null;
                     moveA = true;
                     moveB = true;
-                    //chooseRoom.chosenRoom = false;
-                  //  chooseRoom.openRoomPop = false;
                     Debug.Log("Current state is " + state);
-                    secondEncounter = true;
                 }
             }
         }
 
-        // need to claen up later on 
         // simple remove from screen when is not player's turn 
         switch (state)  // maybe can be donone on separate script and handle all the UI elements 
         {
             case BattleState.START:
                 StartCoroutine(ChangeBattleState(.2f, BattleState.PLAYERTURN, "BattleSystem"));
-
                 break;
 
             case BattleState.WON: 
@@ -156,6 +131,7 @@ public class BattleSystem : MonoBehaviour
 
                 }
                 break;
+
             case BattleState.PLAYERTURN: 
                if (runing)
                 {
@@ -163,19 +139,19 @@ public class BattleSystem : MonoBehaviour
                 }
                 clickedEndTurn = false;
                 break;
+
             case BattleState.STARTRUN:
                 StartCoroutine(ChangeBattleState(.2f, BattleState.START, "BattleSystem"));
-                    break;
+                break;
                 
             case BattleState.ENDENEMYTURN:
                 clickedEndTurn = false;
                 StartCoroutine(ChangeBattleState(.1f, BattleState.PLAYERTURN, "BattleSystem"));
-
                 break;
+
             case BattleState.LOST:
                 menuButtons.loseMenu.SetActive(true);
                 enemySpawner.DestroyBoss(resumeDefault: false); // do not play default music
-                //SceneManager.LoadScene("MainMenu");
                 break;
 
             case BattleState.WONGAME:
@@ -253,19 +229,4 @@ public class BattleSystem : MonoBehaviour
         state = b;
         Debug.LogWarning(" The current state is " + b + " " + whichScriptIsFrom);
     }
-
-    /*public IEnumerator ChangeBattleState(float delay, BattleState b, string whichScriptIsFrom)
-    {
-        if (running) 
-        {
-            yield break;
-        }
-        running = true;
-        yield return new WaitForSeconds(delay);
-        state = b;
-        running = false;
-        Debug.LogWarning(" The current state is " + b + " " + whichScriptIsFrom);
-        
-    }*/
-
 }

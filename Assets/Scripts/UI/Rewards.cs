@@ -9,7 +9,6 @@ public class Rewards : MonoBehaviour
     private SimpleHealth enemyHP; //Referance to character or enemy health system
 
     [Header("Bools")]
-   // public bool openRewardsPop;      // Whether the rewards popup is currently open
     public bool pickedReward;        // Whether a reward has been picked
     public bool rewardsForCurrent;   // Whether rewards have been generated for the current room
 
@@ -38,7 +37,6 @@ public class Rewards : MonoBehaviour
 
     private CoinSystem coinSystem; // Reference to coin management system
     private DeckDraw deck;         // Reference to the deck management system
-    //MenuButtons menuButtons;
     //BattleSystem battleSystem;
 
     [Header("Dialogue Data")]
@@ -51,7 +49,6 @@ public class Rewards : MonoBehaviour
         coinSystem = GameObject.FindWithTag("CoinSystem").GetComponent<CoinSystem>();
         deck = GameObject.Find("Managers").GetComponentInChildren<DeckDraw>();
         deckUI = GameObject.FindWithTag("DUM").GetComponent<DeckUIManager>(); // or assign in inspector
-        //menuButtons = GameObject.FindWithTag("Canvas").GetComponent<MenuButtons>();
         //battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
     }
 
