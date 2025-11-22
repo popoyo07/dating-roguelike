@@ -39,41 +39,7 @@ public class DeckManagement : MonoBehaviour
     public bool discardDeck;
     public bool deckWasSet;
 
-    void Awake()
-    {
-        // Find BattleSystem reference on load
-        BSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
-    }
-
-    void FixedUpdate()
-    {
-        // Run only if BattleSystem exists
-        if (BSystem != null)
-        {
-            switch (BSystem.state)
-            {
-                case BattleState.LOST:
-                    // Reset class and deck data on defeat
-                    characterClass = CharacterClass.PLAYERLOST;
-                    BSystem.state = BattleState.DEFAULT;
-                    startingDeck = null;
-                    cardDatabase = null;
-                    break;
-
-                case BattleState.START:
-                    // No action on START (reserved for future use)
-                    break;
-
-                case BattleState.STARTRUN:
-                    // Assign deck for selected character only once per run
-                    if (!deckWasSet)
-                    {
-                        StartCoroutine(FindAndAssignCharacter());
-                    }
-                    break;
-            }
-        }
-    }
+ 
 
     public void DiscardCard(string cardName)
     {
