@@ -10,159 +10,161 @@ public class DeckDraw : DeckManagement, IDataPersistence
     #region Save and Load
     public void LoadData(GameData data)
     {
-        
-        Debug.Log(data.playerClass +" loading data " + Time.deltaTime) ;
+        // Load the saved character class from GameData
         this.characterClass = data.playerClass;
-        Debug.Log(" loading data loaded " + this.characterClass);
     }
 
     public void SaveData(ref GameData data)
     {
-
+        // Currently unused, but required by IDataPersistence
     }
 
     #endregion
-    GameObject[] cardGameObj;
-    public AssignCard[] cards;
-    bool cardsAssigned;
-    bool combatEnded;
+
+    GameObject[] cardGameObj;          // Stores all card GameObjects found in the scene
+    public AssignCard[] cards;         // Stores AssignCard references for each card slot
+    bool cardsAssigned;                // Tracks if cards were already assigned for the current turn
+    bool combatEnded;                  // Tracks if the combat has ended (used for deck recovery)
+
     private void Awake()
     {
+        // Find all card GameObjects by tag
+        cardGameObj = GameObject.FindGameObjectsWithTag("Cards");
 
-        cardGameObj = GameObject.FindGameObjectsWithTag("Cards"); // find card game objects 
+        // Get reference to BattleSystem
         BSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
 
-        // StartCoroutine(FindAndAssignCharacter());
+        // Start initial card assignment setup
         StartCoroutine(AsigningCards());
-       // Debug.Log(" loading data loaded bit this" + characterClass);
-
-
-
     }
 
     IEnumerator AsigningCards()
     {
+        // Wait until character class + deck data is assigned
         yield return StartCoroutine(FindAndAssignCharacter());
-        Debug.Log("assing cards is runing ");
+
+        // Create array matching amount of card objects
         cards = new AssignCard[cardGameObj.Length];
+
+        // Assign AssignCard component for each card UI slot
         if (cardGameObj != null)
         {
             for (int i = 0; i < cardGameObj.Length; i++)
             {
-                cards[i] = cardGameObj[i].GetComponent<AssignCard>(); // get their assign card reference 
+                cards[i] = cardGameObj[i].GetComponent<AssignCard>();
             }
         }
-        Debug.Log(characterClass);
     }
+
     IEnumerator GetRandomFromDeck(AssignCard c)
     {
+        // Prevent drawing from an empty deck by waiting for recovery
         if (runtimeDeck.Count == 0)
         {
-            Debug.Log("Trying to draw from empty deck!");
-            yield return new WaitUntil(() => runtimeDeck.Count != 0); // wait for reset  
+            yield return new WaitUntil(() => runtimeDeck.Count != 0);
         }
-        Debug.Log("should get random from deck");
-      
+
+        // Pick a random card from runtimeDeck
         int r = Random.Range(0, runtimeDeck.Count);
         string cardName = runtimeDeck[r];
 
-        // Use the new method to assign the card
+        // Assign the selected card visually + functionally
         StartCoroutine(c.AssignNewCard(cardName));
 
-        Debug.Log("The cards got assigned " + cardName);
+        // Remove card from deck after drawing it
         runtimeDeck.RemoveAt(r);
-        Debug.Log($"After Assigning RuntimeDeck is {runtimeDeck.Count}, Discarded: {discardedCards.Count}");
-
     }
 
     private void Update()
     {
-       // Debug.Log(this.characterClass + " loading data loaded " + Time.deltaTime);
+        // Only run logic if BattleSystem is available
         if (BSystem != null)
         {
             switch (BSystem.state)
             {
                 case BattleState.PLAYERTURN:
+
+                    // Assign new cards at the start of player's turn
                     if (!cardsAssigned)
                     {
+                        // Safety check: ensure card slots exist
                         if (cards == null || cards.Length == 0)
                         {
                             Debug.LogWarning("Cards array is empty or not assigned!");
                             return;
                         }
 
+                        // Assign each card slot from runtime deck
                         for (int i = 0; i < cards.Length; i++)
                         {
-                            Debug.Log("The fucking loop");
+                            // If deck is empty, recover it before drawing
                             if (runtimeDeck.Count == 0)
                             {
                                 Debug.LogWarning("Recover for " + i);
                                 StartCoroutine(RecoverDeck(0f));
-
                             }
+
+                            // Draw a new card
                             StartCoroutine(GetRandomFromDeck(cards[i]));
-                            Debug.LogWarning("It assigned " + (i + 1) + " Cards");
                         }
+
                         cardsAssigned = true;
                         combatEnded = true;
                     }
                     break;
 
                 case BattleState.STARTRUN:
+                    // When the run starts, set deck for the selected character
                     if (!deckWasSet)
                     {
-                        Debug.Log("sohuld run coroutine ");
                         StartCoroutine(FindAndAssignCharacter());
-                       
-
                     }
                     break;
 
                 case BattleState.ENEMYTURN:
+                    // Reset card assignment on enemy turn
                     cardsAssigned = false;
                     cardPlayedCount = 0;
                     break;
 
-
-                case BattleState.WON: 
-                    if (combatEnded) // just reusing the earlier bool for this 
+                case BattleState.WON:
+                    // After winning, recover the deck one time
+                    if (combatEnded)
                     {
                         combatEnded = false;
                         StartCoroutine(RecoverDeck(.2f));
                     }
                     cardsAssigned = false;
                     break;
+
                 case BattleState.LOST:
-                    //  reset character enum
-                   
+                    // Reset character data and deck on player loss
                     BSystem.state = BattleState.DEFAULT;
                     startingDeck = null;
                     cardDatabase = null;
                     deckWasSet = false;
                     break;
+
                 default:
-                    //cardsAssigned = false;
                     break;
             }
-        } else { Debug.Log("It is null "); }
+        }
+        else
+        {
+            // Rare case: BSystem missing in scene
+            Debug.Log("It is null ");
+        }
     }
 
-
-
-    IEnumerator RecoverDeck(float delay) // recover deck and reset discarded cards 
+    IEnumerator RecoverDeck(float delay)
     {
+        // Wait before recovering deck (used to avoid instant redraw)
         yield return new WaitForSeconds(delay);
-        Debug.Log($"Before recovery - Runtime: {runtimeDeck.Count}, Discarded: {discardedCards.Count}");
 
-        // Add all discarded cards back to runtime deck
+        // Add discarded cards back into runtime deck
         runtimeDeck.AddRange(discardedCards);
 
-        // Clear the discarded pile
+        // Clear discard pile
         discardedCards.Clear();
-
-        Debug.Log($"After recovery - Runtime: {runtimeDeck.Count}, Discarded: {discardedCards.Count}");
-
     }
-
-
 }
