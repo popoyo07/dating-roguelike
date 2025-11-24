@@ -65,8 +65,7 @@ public class MenuButtons : MonoBehaviour
 
         if (battleSystem.state == BattleState.REWARD)
         {
-            //Debug.Log("Current phase:" + dialogueProgression[0].phase);
-
+            Debug.Log($"Reward:{rewards.pickedReward} | RewardsPopUp.activeSelf:{rewardsPopUp.activeSelf}");
 
             // Only show normal rewards popup if NOT final reward phase
             if (dialogueProgression[0].phase != 3)

@@ -24,20 +24,10 @@ public class DialogueActivator : MonoBehaviour
     [Header("Ending Dialogue")]
     [SerializeField] private DialogueObject[] dialogueEnd;
 
-
     public bool showLovyUI;
 
     private MenuButtons DeckUI;
     private DialogueUI dialogueUI;
-
-/*    public void UpdateDialogueObject(DialogueObject dialogueObject, int index)
-    {
-        if (index >= 0 && index < dialogueObject.Dialogue.Length)
-        {
-            this.dialogueObject[index] = dialogueObject;
-        }
-    }*/
-
 
     private void Awake()
     {
@@ -77,11 +67,6 @@ public class DialogueActivator : MonoBehaviour
         // Wait one frame to ensure DialogueUI has run its Start() and initialized all components
         yield return null;
 
-        /*        foreach (DialogueResponseEvents responseEvents in GetComponents<DialogueResponseEvents>())
-                {
-                    dialogueUI.AddResponseEvenet(responseEvents.Events);
-                    break;
-                }*/
         responseHandle = Canvas.GetComponent<ResponseHandle>();
         
         responseHandle.SetCurrentActivator(this);
@@ -101,18 +86,6 @@ public class DialogueActivator : MonoBehaviour
                 nameText.text = currentDialogue.Dialogue[0].CharacterName;
                 characterImage.sprite = currentDialogue.Dialogue[0].CharacterImage;
             }
-
-/*            if (currentDialogueIndex < dialogueObject.Length - 1)
-            {
-                progression.currentDialogueIndex++;
-            }*/
-
-
-            /*            else if(currentDialogueIndex == dialogueObject.Length - 1)
-                        {
-                            responseHandle.ResetLovyCount();
-                        }*/
-
         }
     }
 
@@ -212,7 +185,6 @@ public class DialogueActivator : MonoBehaviour
     public void TriggerLovyCardSelection()
     {
         showLovyUI = true;
-        //Debug.Log("LovyPlus++");
         DeckUI.ShowDeck();
     }
 }

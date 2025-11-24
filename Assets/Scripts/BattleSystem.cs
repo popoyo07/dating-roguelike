@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Experimental.Rendering;
 
 public enum BattleState
 {
@@ -27,7 +26,7 @@ public class BattleSystem : MonoBehaviour
     public SimpleHealth enemyHP;
     public SimpleHealth playerHP;
 
-    public int turnCounter = 0;
+    public int turnCounter;
     public bool moveA;
     public bool moveB;
 
@@ -47,7 +46,7 @@ public class BattleSystem : MonoBehaviour
 
     public bool clickedEndTurn;
 
-    public int bossRomanceCount = 0; // tracks how many bosses have been romanced
+    public int bossRomanceCount; // tracks how many bosses have been romanced
 
     public GameObject rewardsPopUp;
 
@@ -140,22 +139,14 @@ public class BattleSystem : MonoBehaviour
                 menuButtons.winMenu.SetActive(true);
                 menuButtons.ResetDialogueIndex();
             }
-            // Boss was romanced
-            bossRomanceCount++;
+            
             Debug.Log("bossRomanceCount " + bossRomanceCount);
 
-            if (bossRomanceCount < 3)
+            if (!finalReward)
             {
                 // First or second romanced boss: show reward
                 Debug.Log("Boss romanced reward (show pop-up)");
-                TryShowReward(); // THIS WAS MISSING BEFORE
-            }
-            else if (bossRomanceCount >= 3)
-            {
-                // Third romanced boss: skip reward, go straight to win
-                Debug.Log("Third boss romance, skipping reward pop-up");
-                state = BattleState.WONGAME;
-                HandleWongameMenus();
+                TryShowReward();
             }
         }
         else if (!enemyHP.isBoss && !finalReward)
