@@ -65,19 +65,22 @@ public class MenuButtons : MonoBehaviour
 
         if (battleSystem.state == BattleState.REWARD)
         {
-            Debug.Log("Current phase:" + dialogueProgression[0].phase);
+            //Debug.Log("Current phase:" + dialogueProgression[0].phase);
 
 
             // Only show normal rewards popup if NOT final reward phase
             if (dialogueProgression[0].phase != 3)
             {
-                Debug.Log("Current phase:" + dialogueProgression[0].phase);
+                //Debug.Log("Current phase:" + dialogueProgression[0].phase);
+
+                Debug.Log($"Reward:{rewards.pickedReward} | RewardsPopUp.activeSelf:{rewardsPopUp.activeSelf}");
 
                 if (!rewardsPopUp.activeSelf && !roomPopUp.activeSelf)
                 {
                     rewardsAudio.Play();
                     rewardsPopUp.SetActive(true);
                     StartCoroutine(ShowRewardsNextFrame());
+
                 }
 
                 if (rewards.pickedReward && rewardsPopUp.activeSelf)
@@ -87,6 +90,7 @@ public class MenuButtons : MonoBehaviour
                     roomPopUp.SetActive(true);
                     chooseRoom.ShowRoomOptions();
                 }
+
             }
             else
             {
@@ -121,6 +125,14 @@ public class MenuButtons : MonoBehaviour
             if (chooseRoom.chosenRoom && roomPopUp.activeSelf)
             {
                 roomPopUp.SetActive(false);
+
+                // Reset flags so reward UI doesn't trigger again
+                rewards.pickedReward = false;
+                rewards.rewardsForCurrent = false;
+                chooseRoom.chosenRoom = false;
+
+                // IMPORTANT: leave REWARD state
+                battleSystem.state = BattleState.WON; // or whatever next state you use
             }
 
         }
