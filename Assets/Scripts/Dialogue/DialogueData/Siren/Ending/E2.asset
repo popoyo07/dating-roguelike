@@ -133,8 +133,8 @@ MonoBehaviour:
     characterName: Siren
     characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
-  - dialogueText: She presses her forehead to yours. The mirror at her hip glows,
-      its surface swirling with light.
+  - dialogueText: She presses her forehead to yours. The lyre at her hip glows, its
+      surface swirling with light.
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
@@ -151,7 +151,7 @@ MonoBehaviour:
     characterName: Narrator
     characterImage: {fileID: 0}
     dialogueEnd: 0
-  - dialogueText: The mirror shatters into a ring of floating shards around you both,
+  - dialogueText: The lyre shatters into a ring of floating shards around you both,
       then dissolves into motes of light.
     characterName: Narrator
     characterImage: {fileID: 0}
