@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: BossIndex
   m_EditorClassIdentifier: Assembly-CSharp::DialogueProgression
   currentDialogueIndex: 0
-  phase: 1
+  phase: 0

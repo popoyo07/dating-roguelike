@@ -59,7 +59,7 @@ MonoBehaviour:
   - '(1) Deals 3 Dmg. to The Enemy Twice '
   - (1) Provides 5 Shield Within This Turn
   - '(1) Heals 5 HP '
-  - (1) Enemy Falls Asleep for 1 Turn
+  - '(1) Weakens enemy for 1 turn '
   - (1) Heals more heals 10 hp
   - (0) Each attk this turn deals +2 Dmg
   - (2) Next Atk. Dealt to Player is Negated
@@ -67,7 +67,7 @@ MonoBehaviour:
   - (1) Deals 5 Dmg. Ignoring Shield
   - (2) Gain High 15 Shield This Turn
   - '(1) Enemy becomes vulnearable this turn '
-  - (0) Deals Dmg. Based on Current Shield
+  - (1) Deals Dmg. Based on Current Shield
   - (1) Lowers Enemy's Dmg. for # Turns
   - (1) Does 5 dmg to enemy and makes them weak
   - (1) Stun enemy for 1 turn

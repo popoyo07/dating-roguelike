@@ -56,10 +56,6 @@ MonoBehaviour:
     characterName: Siren
     characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0
-  - dialogueText: You fight like someone who wants to change something.
-    characterName: Siren
-    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
-    dialogueEnd: 0
   - dialogueText: "\u2026I wanted to change your fate too."
     characterName: You
     characterImage: {fileID: 0}
@@ -69,10 +65,6 @@ MonoBehaviour:
     characterImage: {fileID: 0}
     dialogueEnd: 0
   - dialogueText: "My fate\u2026?"
-    characterName: Siren
-    characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
-    dialogueEnd: 0
-  - dialogueText: She goes still.
     characterName: Siren
     characterImage: {fileID: 21300000, guid: 1eb3b673aaf593549a4b5826c8aa87fd, type: 3}
     dialogueEnd: 0

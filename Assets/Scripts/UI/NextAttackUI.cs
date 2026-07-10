@@ -22,6 +22,8 @@ public class NextAttackUI : MonoBehaviour
         if(nextAttackImage != null && thoughtBubble != null)
         {
             Debug.Log("Attempting to Update Next Attack UI");
+            //Depending on which attack the current enemy has chosen for their turn,
+            //Set the next attack sprite to the corresponding sprite from the list
             switch (action)
             {
                 //Regular ATK
@@ -65,8 +67,11 @@ public class NextAttackUI : MonoBehaviour
 
     public void ShowNextAttack()
     {
+        //Change the alpha of the UI element to 255 (Visible)
         if (nextAttackImage != null && thoughtBubble != null) 
         {
+
+
             nextAttackImage.color = new Color32(255, 255, 255, 255);
             thoughtBubble.color = new Color32(255, 255, 255, 255);
             isVisible = true;
@@ -76,6 +81,7 @@ public class NextAttackUI : MonoBehaviour
 
     public void HideNextAttack()
     {
+        //Change the alpha of the UI element to 0 (Not visible)
         if (nextAttackImage != null && thoughtBubble != null) 
         {
             nextAttackImage.color = new Color32(255, 255, 255, 0);

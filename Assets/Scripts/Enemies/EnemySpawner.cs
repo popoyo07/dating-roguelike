@@ -267,6 +267,12 @@ public class EnemySpawner : MonoBehaviour
     public void skipBossFight()
     {
         DestroyBoss();
-        battleSystem.state = BattleState.WON;
+        battleSystem.StartCoroutine(battleSystem.ChangeBattleState(0f, BattleState.REWARD, "BattleSystem"));
+        
+        /*if (!battleSystem.rewardShown && battleSystem.state != BattleState.REWARD)
+        {
+            battleSystem.rewardShown = true;
+            battleSystem.StartCoroutine(battleSystem.ChangeBattleState(1.5f, BattleState.REWARD, "BattleSystem"));
+        }*/
     }
 }

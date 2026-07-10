@@ -134,8 +134,9 @@ public class CardUI : MonoBehaviour
                         //  correctLovyDovy = true;
                         //  bossRomanced = true;
                         battleSystem.bossRomanced = true;
+                        battleSystem.bossRomanceCount++;
 
-                      //  Debug.Log(bossRomanced);
+                        //  Debug.Log(bossRomanced);
                         Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
                         Activator.ContinueDialogue(1, 2);
                     }
@@ -175,6 +176,8 @@ public class CardUI : MonoBehaviour
                     {
                         //correctLovyDovy = true;
                         battleSystem.bossRomanced = true;
+                        battleSystem.bossRomanceCount++;
+
 
                         DialogueUI.MarkPendingSkip();
                         Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
@@ -194,6 +197,7 @@ public class CardUI : MonoBehaviour
                     if (phase == 3)
                     {
                         battleSystem.bossRomanced = true;
+                        battleSystem.bossRomanceCount++;
 
                         Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
                         Activator.ContinueDialogue(1, 2);
@@ -217,6 +221,8 @@ public class CardUI : MonoBehaviour
                     {
                         //correctLovyDovy = true;
                         battleSystem.bossRomanced = true;
+                        battleSystem.bossRomanceCount++;
+
 
                         DialogueUI.MarkPendingSkip();
                         Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
@@ -245,6 +251,8 @@ public class CardUI : MonoBehaviour
                     {
                        // correctLovyDovy = true;
                         battleSystem.bossRomanced = true;
+                        battleSystem.bossRomanceCount++;
+
 
                         DialogueUI.MarkPendingSkip();
                         Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
@@ -268,6 +276,8 @@ public class CardUI : MonoBehaviour
                     if (phase == 1)
                     {
                         battleSystem.bossRomanced = true;
+                        battleSystem.bossRomanceCount++;
+
 
                         DialogueUI.MarkPendingSkip();
                         Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
@@ -308,7 +318,8 @@ public class CardUI : MonoBehaviour
                     if (phase == 3)
                     {
                         battleSystem.bossRomanced = true;
-                       // bossRomanced = true;
+                        battleSystem.bossRomanceCount++;
+
                         Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
                         Activator.ContinueDialogue(1, 0);
                         
@@ -327,6 +338,7 @@ public class CardUI : MonoBehaviour
                     if (phase == 2)
                     {
                         battleSystem.bossRomanced = true;
+                        battleSystem.bossRomanceCount++;
 
                         DialogueUI.MarkPendingSkip();
                         Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");
@@ -374,6 +386,7 @@ public class CardUI : MonoBehaviour
                     if (phase == 2)
                     {
                         battleSystem.bossRomanced = true;
+                        battleSystem.bossRomanceCount++;
 
                         DialogueUI.MarkPendingSkip();
                         Debug.Log($"Chosen Card: {chosenCard} | Boss: {boss} | Phase: {phase}");

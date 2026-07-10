@@ -323,6 +323,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
+--- !u!1 &590679615 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1916200191913735410, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+  m_PrefabInstance: {fileID: 1333872139}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &807510253
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,6 +467,10 @@ PrefabInstance:
       propertyPath: enemySpawner
       value: 
       objectReference: {fileID: 214341695}
+    - target: {fileID: 1309917690607572827, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: rewardsPopUp
+      value: 
+      objectReference: {fileID: 2130461211}
     - target: {fileID: 2869943144883502491, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -542,6 +551,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3967055896382909537, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: roomPopUp
+      value: 
+      objectReference: {fileID: 590679615}
+    - target: {fileID: 3967055896382909537, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+      propertyPath: rewardsPopUp
+      value: 
+      objectReference: {fileID: 2130461211}
     - target: {fileID: 4082702911745425996, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -997,6 +1014,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bef4b734f7e0ea140b4143a34c085d02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MusicManager
+--- !u!1 &2130461211 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3009485119602852673, guid: 7d93e69f779ccae46ab6886e9003a080, type: 3}
+  m_PrefabInstance: {fileID: 1333872139}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

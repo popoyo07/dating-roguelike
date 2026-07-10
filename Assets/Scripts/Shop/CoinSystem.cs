@@ -23,7 +23,7 @@ public class CoinSystem : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
-        Debug.Log("Load data CoinSystem is running");
+        //Variables to be fetched from GameData
         this.coins = data.coins;
         this.coinBuff = data.coinBuff;
         this.isCoinBuffActive = data.isCoinBuffActive;
@@ -31,6 +31,7 @@ public class CoinSystem : MonoBehaviour, IDataPersistence
 
     public void SaveData(ref GameData data)
     {
+        //Variables to be ssaved into GameData
         data.coins = this.coins;
         data.coinBuff = 0;
         data.isCoinBuffActive = false;
@@ -40,7 +41,6 @@ public class CoinSystem : MonoBehaviour, IDataPersistence
 
     private void Awake()
     {
-        DontDestroyOnLoad(this);
         coinTotal = GameObject.Find("TotalCoins").GetComponent<TextMeshProUGUI>();
         coinUI = GameObject.Find("coinUI").GetComponent<TextMeshProUGUI>();
         battleSystem = GameObject.FindWithTag("BSystem").GetComponent<BattleSystem>();
@@ -49,7 +49,6 @@ public class CoinSystem : MonoBehaviour, IDataPersistence
     private void Start()
     {
         StartCoroutine(LoadCoins());
-        //coins = 0;
     }
 
     private void Update()
@@ -69,6 +68,8 @@ public class CoinSystem : MonoBehaviour, IDataPersistence
 
     public IEnumerator LoadCoins()
     {
+        //Use this coroutine to update the coin UI element
+        //This is a coroutine because GameData gets sent out at Start
         yield return new WaitForSeconds(.1f);
         coinTotal.SetText("Coins: " + coins);
     }
@@ -79,11 +80,13 @@ public class CoinSystem : MonoBehaviour, IDataPersistence
 
         if (isCoinBuffActive == true)
         {
+            //Update UI related to Coin System with CoinBuff
             coinUI.SetText("+" + addcoins + " Coins<br>" + "+" + coinBuff + " Coinbuff");
             coinTotal.SetText("Coins: " + coins);
         }
         else
         {
+            //Update UI related to Coin System
             coinUI.SetText("+" + addcoins + " Coins");
             coinTotal.SetText("Coins: " + coins);
         }
